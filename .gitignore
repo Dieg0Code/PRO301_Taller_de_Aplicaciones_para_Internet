@@ -1,0 +1,16 @@
+# Node dependencies for local slide authoring workspaces
+**/node_modules/
+
+# Optional local Python environments
+**/.venv/
+**/__pycache__/
+**/*.pyc
+
+# Generated preview assets for slide review
+**/ppt/rendered*/
+**/ppt/montage*.png
+
+# OS/editor noise
+.DS_Store
+Thumbs.db
+~$*
