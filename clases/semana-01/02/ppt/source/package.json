@@ -1,0 +1,9 @@
+{
+  "name": "clase-02-semana-01-ppt",
+  "version": "1.0.0",
+  "private": true,
+  "type": "commonjs",
+  "dependencies": {
+    "pptxgenjs": "^4.0.1"
+  }
+}
