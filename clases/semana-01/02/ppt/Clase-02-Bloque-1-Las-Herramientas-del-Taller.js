@@ -4509,18 +4509,12 @@ function createEditTestInspectSlide() {
     align: "center",
     margin: 0,
   });
+  // Connect each tool card to the shared idea at the center.
   slide.addShape(SH.line, {
-    x: 4.08,
-    y: 4.24,
-    w: 1.18,
-    h: 1.02,
-    line: { color: C.navy, pt: 1.6 },
-  });
-  slide.addShape(SH.line, {
-    x: 7.98,
-    y: 4.24,
-    w: 1.18,
-    h: 1.02,
+    x: 4.1,
+    y: 4.26,
+    w: 1.16,
+    h: 0.86,
     line: { color: C.navy, pt: 1.6 },
   });
   slide.addShape(SH.line, {
@@ -4529,6 +4523,14 @@ function createEditTestInspectSlide() {
     w: 0,
     h: 1.42,
     line: { color: C.red, pt: 1.4 },
+  });
+  slide.addShape(SH.line, {
+    x: 8.08,
+    y: 4.26,
+    w: 1.14,
+    h: 0.86,
+    flipV: true,
+    line: { color: C.navy, pt: 1.6 },
   });
   addStripItem(slide, {
     x: 1.98,
