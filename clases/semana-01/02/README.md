@@ -28,6 +28,7 @@ Al finalizar la sesión, el estudiante será capaz de:
 - Organización del trabajo técnico: comprender que desarrollar aplicaciones web exige orden en herramientas, archivos, versiones y procesos.
 - Observación y análisis: usar el navegador y sus herramientas como medio para leer, interpretar y diagnosticar el comportamiento de una página.
 - Criterio profesional inicial: reconocer que un desarrollo serio no depende solo de escribir código, sino también de mantener un flujo de trabajo claro, verificable y trazable.
+- Trabajo supervisado con apoyo inteligente: distinguir entre usar agentes o asistentes para acelerar tareas y delegar sin control decisiones que todavía exigen lectura técnica, validación y criterio humano.
 
 ---
 
@@ -71,6 +72,8 @@ Entre las más importantes se encuentran:
 - **Git y GitHub:** herramientas para registrar cambios, mantener historial y respaldar el trabajo.
 
 No todas estas piezas se usan con la misma profundidad en una sola clase, pero sí es importante entender que pertenecen al mismo ecosistema de trabajo.
+
+Esta mirada también ayuda a corregir una confusión muy actual: un agente o asistente no reemplaza este entorno de trabajo. Puede apoyar ciertas tareas, pero sigue necesitando contexto real, archivos, comandos, validación y herramientas concretas para producir algo confiable.
 
 ### 1.3 Cómo se conectan estas herramientas en una tarea real
 
@@ -229,6 +232,8 @@ Aquí aparece una diferencia importante entre usar el navegador como usuario y u
 
 Aprender esa diferencia es un paso importante en la formación técnica, porque enseña a dejar de adivinar y empezar a observar.
 
+Esto también importa cuando se trabaja con agentes. Un agente puede sugerir una causa posible o explicar un error con bastante seguridad aparente, pero DevTools entrega evidencias reales del navegador. Por eso, en este módulo, la ayuda inteligente nunca reemplaza la inspección: la complementa y obliga a validar mejor.
+
 ### 2.4 Leer una página como desarrollador
 
 Una misma página puede ser observada de dos maneras muy distintas.
@@ -379,6 +384,8 @@ Una lectura inicial de cada uno puede ser la siguiente:
 - `git log --oneline`: permite revisar el historial de commits de manera resumida.
 
 No se trata todavía de ejecutar comandos por repetición mecánica. La idea es que el estudiante entienda la secuencia entre cambiar, revisar, preparar y registrar.
+
+Este punto gana todavía más valor cuando se trabaja con agentes o asistentes. Si una herramienta ayuda a producir cambios, Git permite revisar qué apareció realmente, separar lo útil de lo incorrecto y conservar solo aquello que fue comprendido y validado.
 
 ### 3.3 GitHub: respaldo, colaboración y remoto
 
@@ -689,6 +696,15 @@ Dicho de otra forma:
 
 > Un flujo de trabajo sano no elimina el juicio técnico; lo organiza y lo hace visible.
 
+En una lectura más actual del oficio, este flujo también puede pensarse así:
+
+- primero se aclara qué cambio queremos lograr;
+- luego se prueba una implementación o una ayuda externa;
+- después se observan evidencias reales en navegador, DevTools y Git;
+- y recién entonces se decide qué conservar.
+
+Eso significa que trabajar con agentes no debería reducirse a “pedir código”. También implica formular mejor la intención, dejar más claras las restricciones y validar mejor los resultados.
+
 ### Preguntas guía
 
 - ¿Por qué un flujo de trabajo moderno no debería entenderse como una lista de herramientas sueltas?
@@ -703,5 +719,24 @@ Dicho de otra forma:
 
 - Idea clave: un flujo de trabajo moderno integra edición, prueba, observación, corrección, versionado y sincronización en ciclos cortos y comprensibles.
 - Proyección: con esta base ya queda preparado el paso hacia la próxima clase, donde abordaremos HTML semántico, estructura de documentos, formularios y accesibilidad inicial como material real sobre el cual aplicar este flujo.
+
+## Cierre de la clase
+
+Con esta sesión queda instalada una idea importante del módulo: desarrollar para la Web no significa solo escribir código, sino trabajar dentro de un entorno técnico compuesto por herramientas que permiten editar, probar, inspeccionar, registrar y sincronizar cambios con criterio.
+
+También queda mejor definida una metodología de trabajo que seguirá apareciendo en las próximas clases:
+
+- comprender primero qué está ocurriendo en el sistema;
+- explicitar mejor la intención del cambio;
+- apoyarse en herramientas y, cuando corresponda, en agentes o asistentes;
+- y verificar siempre con evidencias reales en navegador, DevTools, Git y resultado visible.
+
+Desde esta perspectiva, las herramientas no son un adorno del oficio. Son la infraestructura mínima que permite que el trabajo técnico deje de depender de intuiciones sueltas y se vuelva más ordenado, trazable y corregible.
+
+La idea final de la clase puede sintetizarse así:
+
+> Entender el entorno de trabajo también es parte de aprender a programar.
+
+Con esa base, la siguiente sesión ya no se apoyará solo en conceptos sueltos, sino en una rutina técnica más madura para leer HTML, formularios, estructura de documentos y accesibilidad con mayor precisión.
 
 

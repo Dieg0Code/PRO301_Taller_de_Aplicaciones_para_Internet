@@ -5,12 +5,17 @@ import * as browserMockJs from "../../components/browser-mock";
 import * as formMockJs from "../../components/form-mock";
 import * as domTreeJs from "../../components/dom-tree";
 import * as frontendPanelsJs from "../../components/frontend-panels";
+import * as foundationPanelsJs from "../../components/foundation-panels";
+import * as securityPanelsJs from "../../components/security-panels";
 import * as appPanelsJs from "../../components/app-panels";
 import type {
+  ActorLaneOptions,
+  AuthFlowOptions,
   BrowserMockOptions,
   BoxModelDiagramOptions,
   CascadeInspectorOptions,
   CardOptions,
+  ChecklistGridOptions,
   CenterStatementOptions,
   ChipOptions,
   ComponentTreeOptions,
@@ -18,12 +23,14 @@ import type {
   CodePanelOptions,
   CssRuleStackOptions,
   DomTreePanelOptions,
+  ExposureCompareOptions,
   FormMockOptions,
   FlexGridLayoutOptions,
   HeaderOptions,
   JsonPanelOptions,
   LighthouseAuditCardOptions,
   MarkBoxOptions,
+  MythRealityGridOptions,
   MiniCardOptions,
   PillOptions,
   PptxLike,
@@ -33,8 +40,10 @@ import type {
   SlideLike,
   SlideNumberOptions,
   SpecificityScaleOptions,
+  StageChainOptions,
   TerminalPanelOptions,
   TokenBoardOptions,
+  UrlBreakdownOptions,
 } from "../types";
 
 type PrimitiveExports = {
@@ -123,6 +132,31 @@ type FrontendPanelExports = {
   ) => void;
 };
 
+type FoundationPanelExports = {
+  addUrlBreakdown: (slide: SlideLike, SH: ShapeCatalog, opts: UrlBreakdownOptions) => void;
+  addMythRealityGrid: (
+    slide: SlideLike,
+    SH: ShapeCatalog,
+    opts: MythRealityGridOptions
+  ) => void;
+  addActorLane: (slide: SlideLike, SH: ShapeCatalog, opts: ActorLaneOptions) => void;
+  addStageChain: (slide: SlideLike, SH: ShapeCatalog, opts: StageChainOptions) => void;
+};
+
+type SecurityPanelExports = {
+  addExposureCompare: (
+    slide: SlideLike,
+    SH: ShapeCatalog,
+    opts: ExposureCompareOptions
+  ) => void;
+  addChecklistGrid: (
+    slide: SlideLike,
+    SH: ShapeCatalog,
+    opts: ChecklistGridOptions
+  ) => void;
+  addAuthFlow: (slide: SlideLike, SH: ShapeCatalog, opts: AuthFlowOptions) => void;
+};
+
 type AppPanelExports = {
   addJsonPanel: (slide: SlideLike, SH: ShapeCatalog, opts: JsonPanelOptions) => void;
   addRequestResponseFlow: (
@@ -144,6 +178,8 @@ const browserMock = browserMockJs as unknown as BrowserExports;
 const formMock = formMockJs as unknown as FormExports;
 const domTree = domTreeJs as unknown as DomTreeExports;
 const frontendPanels = frontendPanelsJs as unknown as FrontendPanelExports;
+const foundationPanels = foundationPanelsJs as unknown as FoundationPanelExports;
+const securityPanels = securityPanelsJs as unknown as SecurityPanelExports;
 const appPanels = appPanelsJs as unknown as AppPanelExports;
 
 export const setBackground = primitives.setBackground;
@@ -172,6 +208,13 @@ export const addTokenBoard = frontendPanels.addTokenBoard;
 export const addBoxModelDiagram = frontendPanels.addBoxModelDiagram;
 export const addFlexGridLayout = frontendPanels.addFlexGridLayout;
 export const addLighthouseAuditCard = frontendPanels.addLighthouseAuditCard;
+export const addUrlBreakdown = foundationPanels.addUrlBreakdown;
+export const addMythRealityGrid = foundationPanels.addMythRealityGrid;
+export const addActorLane = foundationPanels.addActorLane;
+export const addStageChain = foundationPanels.addStageChain;
+export const addExposureCompare = securityPanels.addExposureCompare;
+export const addChecklistGrid = securityPanels.addChecklistGrid;
+export const addAuthFlow = securityPanels.addAuthFlow;
 export const addJsonPanel = appPanels.addJsonPanel;
 export const addRequestResponseFlow = appPanels.addRequestResponseFlow;
 export const addComponentTree = appPanels.addComponentTree;

@@ -46,6 +46,53 @@ Se debe priorizar:
 
 Si aparecen tecnologías antiguas o legadas, deben tratarse con contexto y criterio, no como centro formativo por defecto.
 
+## IA y agentes como metodología transversal
+
+El módulo debe instalar desde temprano una idea clara: hoy desarrollar también implica saber trabajar con IA y agentes, pero sin delegar el juicio técnico.
+
+Eso significa que la IA no debe aparecer solo como una clase aislada al final del curso ni como un comentario anecdótico en la introducción. Debe entrelazarse con el aprendizaje técnico durante el módulo, especialmente cuando aparezcan conceptos duros, estructuras reales, debugging, comandos, inspección o decisiones de implementación.
+
+Usar por defecto esta lógica:
+
+- cuando un concepto técnico sea exigente, mostrar también cómo un agente podría ayudar a explorarlo, explicarlo, generar una primera versión o acelerar trabajo repetitivo;
+- al mismo tiempo, dejar explícito qué parte sigue dependiendo del criterio humano: verificar, leer, corregir, depurar, comparar, validar y decidir;
+- evitar presentar la IA como magia, reemplazo del aprendizaje o atajo para no entender fundamentos;
+- presentar agentes, prompts, `AGENTS.md`, skills, revisión y validación como parte de un flujo profesional moderno.
+
+En términos prácticos, cada clase debería dejar al menos una huella visible de esta metodología cuando el contenido lo permita:
+
+- una mención concreta de cómo ese tema se puede trabajar con agentes;
+- una advertencia sobre lo que no conviene delegar;
+- o una integración breve entre concepto técnico y uso responsable de IA.
+
+Cuando la clase toque conceptos técnicos duros, esa integración ya no debería quedar como comentario lateral. Debe tomar una forma operativa y reconocible dentro del material, por ejemplo:
+
+- qué parte del problema un agente puede ayudar a explicar, proponer, comparar o acelerar;
+- qué parte exige validación humana directa;
+- qué error típico aparece cuando se delega demasiado;
+- y cómo cambia el flujo de trabajo cuando se combina comprensión técnica con apoyo inteligente.
+
+Usar por defecto esta estructura mental:
+
+1. entender el concepto técnico;
+2. mostrar cómo un agente podría apoyar;
+3. explicitar qué hay que verificar manualmente;
+4. cerrar con criterio técnico y no con automatismo.
+
+Ejemplos de integración esperable:
+
+- fundamentos web: un agente puede ayudar a narrar el recorrido de una solicitud, pero el estudiante debe comprender URL, DNS, HTTP y cliente-servidor sin repetir explicaciones ciegamente;
+- HTML semántico y accesibilidad: un agente puede proponer estructura o formularios, pero la semántica, jerarquía y accesibilidad deben ser revisadas por criterio humano;
+- CSS y layout: un agente puede sugerir estilos, variables o layouts, pero la cascada, especificidad, comportamiento responsive y consistencia visual deben inspeccionarse;
+- Git, terminal y DevTools: un agente puede sugerir comandos o hipótesis de debugging, pero el estado real del repo, la lectura de errores y la validación del diagnóstico siguen siendo responsabilidad humana;
+- APIs, datos y seguridad: un agente puede bosquejar requests, estructuras o validaciones, pero contrato, manejo de errores, exposición de datos y seguridad no deben delegarse sin revisión.
+
+La idea no es forzar una sección artificial en todas las sesiones, sino construir de forma progresiva un hábito mental:
+
+- entender el sistema;
+- apoyarse en agentes;
+- verificar con criterio.
+
 ## Progresión temporal de profundidad técnica
 
 La progresión técnica del módulo debe leerse en dos ejes al mismo tiempo:
@@ -111,9 +158,27 @@ No cambiar por cuenta propia fechas, evaluaciones, enfoque general del módulo o
 - `cronograma/README.md`: planificación general del módulo.
 - `clases/semana-XX/YY/README.md`: desarrollo de cada clase.
 - `clases/semana-XX/YY/ppt/`: presentación final, fuente editable y `source/` de construcción.
+- `clases/semana-XX/YY/infografia/`: infografía final de apoyo para estudiantes.
+- `clases/semana-XX/YY/podcast/`: podcast o resumen de audio final de apoyo para estudiantes.
 - `docs/`: documentos institucionales de referencia.
 - `tools/slides-system/`: sistema compartido para tema, componentes y utilidades de PPT.
 - `.agent/skills/`: skills locales del repositorio.
+
+## Documentos estratégicos de referencia
+
+Además del cronograma y de los README de clase, este repo puede contener documentos de trabajo que actualizan el marco conceptual del módulo cuando el material oficial queda atrasado frente al estado real del oficio.
+
+Usar especialmente como referencia de modernización:
+
+- `docs/paradigma_agentic_spec_driven_2026.pdf`
+
+Ese documento no reemplaza el cronograma ni cambia por sí solo la secuencia de clases, pero sí debe influir en cómo se enmarca el módulo, cómo se explica el trabajo moderno y cómo se integran IA, agentes, `AGENTS.md`, skills, contexto, especificación y validación dentro del curso.
+
+En términos prácticos:
+
+- el `cronograma` sigue definiendo qué temas se cubren y cuándo;
+- el PDF ayuda a actualizar la lectura pedagógica y profesional de esos temas;
+- si el material oficial del módulo queda desalineado con este paradigma, adaptar el enfoque de clase sin romper la estructura curricular base.
 
 ## Idioma y tono
 
@@ -139,6 +204,9 @@ Al crear o editar una clase:
 5. Solo después pasar el contenido al PPT.
 6. Antes del PPT, hacer una revisión global del README de la clase.
 7. Solo después hacer el pulido final entre cronograma, README y deck.
+8. Cuando la clase ya esté estable, preparar prompts para materiales complementarios en NotebookLM:
+   - una `infografía`;
+   - y un `podcast` o resumen de audio.
 
 ## Reglas para README de clases
 
@@ -151,6 +219,8 @@ Al crear o editar una clase:
 - Priorizar comprensión técnica real, no solo enumeración de conceptos.
 - Incluir ejemplos, preguntas guía y diagramas cuando aporten valor.
 - Mantener coherencia con el resto del módulo.
+- Cuando el tema lo permita, enlazar explícitamente el contenido técnico con uso responsable de IA y agentes como apoyo de trabajo.
+- Si la clase contiene conceptos técnicos exigentes, incluir al menos una integración explícita y concreta entre ese contenido y el trabajo con agentes: ayuda posible, límite de delegación y validación humana.
 
 ## Revisión global del README antes del PPT
 
@@ -181,6 +251,25 @@ No empezar el PPT si el README todavía se siente fragmentado, incompleto o con 
 - Revisar que no haya overflow, cortes, conectores absurdos ni composiciones confusas.
 - El texto del deck también es material para estudiantes, no notas para el docente.
 - Si un patrón visual o artefacto técnico se repite entre clases, moverlo al sistema compartido antes de seguir clonándolo dentro de distintos `source/`.
+- Si el README ya integró IA/agentes de forma relevante, el PPT no debe omitirlo: esa metodología debe quedar visible al menos en una slide, callout o comparación del bloque correspondiente.
+
+## Materiales complementarios con NotebookLM
+
+Cuando la clase ya tenga `README` y `PPT` estables, conviene preparar dos artefactos complementarios:
+
+- una infografía;
+- y un podcast o resumen de audio.
+
+Usarlos con esta lógica:
+
+- la infografía sirve como mapa visual rápido;
+- el podcast sirve como repaso, prelectura o refuerzo conversado.
+- el `PPT` sí debe respetar identidad AIEP de forma estricta;
+- la infografía de NotebookLM puede ser más libre visualmente mientras mantenga tono técnico, claridad y seriedad.
+
+No prepararlos antes de que la clase esté cerrada.
+
+Para decidir formato, tono y prompts, usar `docs/notebooklm-materiales-complementarios.md`.
 
 ## Flujo de validación para PPT y slides-system
 
@@ -245,6 +334,13 @@ No dejar:
 
 El PPT final debe poder regenerarse desde su `.js` y `source/`.
 
+Cuando la clase incluya materiales complementarios, asumir también esta estructura mínima en su carpeta:
+
+- `infografia/`: dejar la pieza final exportada.
+- `podcast/`: dejar el audio final exportado.
+
+No usar esas carpetas para acumular borradores descartados o exportaciones redundantes.
+
 ## Criterio técnico del contenido
 
 - No centrar el módulo en tecnologías obsoletas o desalineadas con el enfoque actual del curso.
@@ -252,6 +348,7 @@ El PPT final debe poder regenerarse desde su `.js` y `source/`.
 - Priorizar herramientas y prácticas vigentes sin caer en hype innecesario.
 - Mantener equilibrio entre intuición, práctica y técnica concreta.
 - Recordar que el público necesita fundamentos, pero también contacto real con herramientas, comandos, diagnóstico y flujo de trabajo profesional básico.
+- Integrar IA y agentes como parte del trabajo moderno, pero siempre subordinados a comprensión, lectura crítica, verificación y criterio técnico.
 
 ## Antes de cerrar cambios
 

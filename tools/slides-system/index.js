@@ -6,6 +6,8 @@ const browserMock = require("./components/browser-mock");
 const formMock = require("./components/form-mock");
 const domTree = require("./components/dom-tree");
 const frontendPanels = require("./components/frontend-panels");
+const foundationPanels = require("./components/foundation-panels");
+const securityPanels = require("./components/security-panels");
 const appPanels = require("./components/app-panels");
 const utils = require("./utils");
 const components = {
@@ -16,6 +18,8 @@ const components = {
   ...formMock,
   ...domTree,
   ...frontendPanels,
+  ...foundationPanels,
+  ...securityPanels,
   ...appPanels,
 };
 
@@ -29,6 +33,8 @@ module.exports = {
   formMock,
   domTree,
   frontendPanels,
+  foundationPanels,
+  securityPanels,
   appPanels,
   utils,
 };

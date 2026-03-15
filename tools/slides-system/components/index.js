@@ -6,5 +6,7 @@ module.exports = {
   ...require("./form-mock"),
   ...require("./dom-tree"),
   ...require("./frontend-panels"),
+  ...require("./foundation-panels"),
+  ...require("./security-panels"),
   ...require("./app-panels"),
 };

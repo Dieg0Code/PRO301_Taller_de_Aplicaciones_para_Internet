@@ -10,11 +10,12 @@ Usar esta skill para convertir una entrada del cronograma en una clase clara, en
 ## Flujo de trabajo
 
 1. Leer el cronograma relevante y el `README.md` de la clase antes de proponer contenido.
-2. Mantener un proceso incremental:
+2. Si la clase toca flujo moderno de desarrollo, IA, agentes, herramientas, validación o criterios actuales del oficio, revisar también `docs/paradigma_agentic_spec_driven_2026.pdf` como marco conceptual complementario.
+3. Mantener un proceso incremental:
    - primero conversar objetivos y reparto en 4 bloques;
    - luego redactar solo la sección que el docente pida;
    - no completar la clase entera de una sola vez salvo que el docente lo solicite.
-3. Respetar el horario real de la sesión. Para clases de 3 horas usar por defecto:
+4. Respetar el horario real de la sesión. Para clases de 3 horas usar por defecto:
    - `10 min` objetivos y encuadre;
    - `35 min` bloque 1;
    - `35 min` bloque 2;
@@ -22,8 +23,12 @@ Usar esta skill para convertir una entrada del cronograma en una clase clara, en
    - `35 min` bloque 3;
    - `35 min` bloque 4;
    - `20 min` cierre, preguntas o síntesis.
-4. Ajustar tiempos solo si el contexto del archivo o el docente pide otra distribución.
-5. Cuando ya estén redactados los objetivos y los 4 bloques, hacer una revisión global del `README.md` antes de empezar el PPT.
+5. Ajustar tiempos solo si el contexto del archivo o el docente pide otra distribución.
+6. Cuando ya estén redactados los objetivos y los 4 bloques, hacer una revisión global del `README.md` antes de empezar el PPT.
+7. Cuando la clase ya esté estable en `README` y `PPT`, proponer materiales complementarios con NotebookLM:
+   - una infografía;
+   - y un podcast o resumen de audio.
+8. Si esos materiales se generan, dejarlos organizados dentro de la carpeta de la clase como parte del paquete docente final.
 
 ## Estructura esperada de una clase
 
@@ -37,6 +42,47 @@ Cuando se redacte una clase completa, usar esta secuencia:
 6. Bloque 3.
 7. Bloque 4.
 8. Cierre, tarea o siguiente paso si corresponde.
+
+## Estructura esperada de carpeta por clase
+
+Usar por defecto esta estructura:
+
+```text
+clases/semana-XX/YY/
+├── README.md
+├── ppt/
+├── infografia/
+└── podcast/
+```
+
+Sentido de cada parte:
+
+- `README.md`: fuente pedagógica principal de la clase.
+- `ppt/`: deck final, editable y fuente de construcción.
+- `infografia/`: pieza visual final de apoyo para estudiantes.
+- `podcast/`: audio final o resumen conversado de apoyo para estudiantes.
+
+Reglas prácticas:
+
+- `ppt/` debe seguir las reglas habituales del repo: dejar solo `.pptx`, `.js` editable y `source/`.
+- `infografia/` debe contener la versión final exportada de la infografía.
+- `podcast/` debe contener el audio final exportado.
+- No usar estas carpetas para acumular borradores descartados o archivos auxiliares innecesarios.
+
+Cuando una clase ya esté cerrada en `README` y `PPT`, asumir por defecto que puede completarse con `infografia/` y `podcast/` para reforzar repaso, síntesis y circulación del material.
+
+Regla visual para esos complementos:
+
+- el `PPT` del repo sí debe respetar identidad AIEP de forma estricta;
+- la `infografia/` generada con NotebookLM puede tomar una estética más libre si la herramienta no sigue el prompt con precisión;
+- en esas piezas complementarias, priorizar claridad, tono técnico, utilidad pedagógica y seriedad por sobre coincidencia exacta con el sistema visual del deck.
+- si NotebookLM ofrece estilos de carrusel, elegirlos con criterio:
+  - `Instructivo` por defecto;
+  - `Editorial` para clases fundacionales o conceptuales;
+  - `Científico` para clases más estructurales o técnicas;
+  - `Profesional` para piezas más sobrias;
+  - `Cuadrícula bento` para clases modulares;
+  - evitar por defecto estilos como `Kawaii`, `Anime`, `Arcilla`, `Ladrillos` o `Boceto`.
 
 ## Reglas de diseño pedagógico
 
@@ -61,6 +107,13 @@ Cuando se redacte una clase completa, usar esta secuencia:
 - En clases de miércoles, procurar que aparezcan más fragmentos de código, más estructuras reales, más comandos o más análisis técnico que en lunes y martes, salvo que el cronograma indique otra intención.
 - A medida que avanzan las semanas, aumentar gradualmente la exigencia técnica del material: un día equivalente de una semana posterior no debería quedarse al nivel técnico de una semana inicial si el cronograma ya avanzó.
 - Usar la progresión del módulo para que, con el paso de las semanas, crezcan la lectura de código, la interpretación de estructuras reales, la inspección, el debugging y el trabajo con comandos o herramientas concretas.
+- Integrar IA y agentes como metodología transversal cuando el contenido lo permita: no como adorno, sino como parte del flujo moderno de trabajo técnico.
+- Cuando un concepto técnico sea duro o abstracto, procurar mostrar también cómo un agente podría ayudar a explorarlo, generarlo, explicarlo o revisarlo, y qué parte sigue dependiendo del criterio humano.
+- Evitar presentar la IA como reemplazo del aprendizaje. La idea pedagógica correcta es: entender primero, usar apoyo inteligente, verificar después.
+- Cuando la clase tenga piezas técnicas duras, no dejar la integración con agentes como comentario decorativo: debe aparecer un puente concreto entre concepto, ayuda posible del agente y validación humana obligatoria.
+- Usar como patrón mínimo: qué podría hacer bien un agente, qué no conviene delegar y qué error frecuente aparece cuando se usa sin criterio.
+- Cuando sea pertinente, enmarcar esa integración con la lógica de `agentic engineering + spec-driven development`: intención explícita, restricciones, contexto, tareas pequeñas, validación y supervisión.
+- No reducir la conversación a “prompts”. Dar más peso a especificación, contexto, gobernanza, herramientas, pruebas y revisión.
 
 ## Diseño de bloques
 
@@ -72,6 +125,7 @@ Cada bloque debe incluir, cuando aplique:
 - desarrollo en 2 a 4 subapartados;
 - preguntas de activación, chequeo o discusión;
 - puente hacia el bloque siguiente.
+- una huella metodológica de IA/agentes cuando el tema la soporte de forma natural.
 
 Patrón recomendado para las 4 secciones:
 
@@ -79,6 +133,28 @@ Patrón recomendado para las 4 secciones:
 2. Bloque 2: núcleo del tema o recorrido guiado.
 3. Bloque 3: aplicación, análisis o práctica intermedia.
 4. Bloque 4: integración, reflexión, caso final o actividad de cierre.
+
+Cuando sea natural, la integración con IA/agentes puede aparecer como:
+
+- ejemplo de uso responsable;
+- contraste entre “pedirle todo al agente” vs “trabajar con criterio”;
+- o una microsección de flujo moderno asociada al contenido técnico del bloque.
+
+Cuando el bloque trate temas especialmente técnicos, esa integración conviene aterrizarla en formatos más concretos, por ejemplo:
+
+- “el agente puede proponer una primera versión, pero tú debes inspeccionarla”;
+- “el agente puede sugerir comandos, pero debes leer el estado real y validar el resultado”;
+- “el agente puede generar HTML o CSS, pero semántica, accesibilidad, cascada y layout deben verificarse”;
+- “el agente puede ayudar a explicar un error, pero el diagnóstico final depende de DevTools, consola, logs o pruebas”.
+
+Usar ejemplos como estos según el tema:
+
+- fundamentos web: ayuda a narrar el recorrido técnico, pero no reemplaza comprensión de URL, DNS, HTTP y cliente-servidor;
+- HTML semántico: ayuda a bosquejar estructura, pero la revisión de semántica y accesibilidad es humana;
+- CSS: ayuda a generar o refactorizar reglas, pero especificidad, responsive y consistencia deben inspeccionarse;
+- Git/DevTools: ayuda a proponer pasos o hipótesis, pero historial, estado y debugging deben leerse técnicamente;
+- APIs/datos/seguridad: ayuda a bosquejar contratos o validaciones, pero exposición, errores y seguridad no deben delegarse ciegamente.
+- trabajo más avanzado del módulo: el estudiante debe aprender a transformar intención en `spec`, `plan`, `tasks` y validación supervisada, no solo a pedir código suelto.
 
 ## Progresión por día de semana
 
@@ -125,6 +201,7 @@ Leer solo el archivo que haga falta:
 - `references/exercise-levels.md`: cuando se diseñen ejercicios diferenciados por nivel.
 - `references/mermaid-patterns.md`: cuando se necesiten diagramas Mermaid.
 - `references/code-examples.md`: solo cuando la clase realmente necesite código.
+- `docs/paradigma_agentic_spec_driven_2026.pdf`: cuando haga falta actualizar el enfoque del módulo respecto de IA, agentes, `AGENTS.md`, skills, contexto, validación o trabajo moderno.
 
 Si un recurso trae ejemplos desactualizados, adaptar el lenguaje y la tecnología al cronograma vigente antes de usarlo.
 
@@ -134,6 +211,10 @@ Si un recurso trae ejemplos desactualizados, adaptar el lenguaje y la tecnologí
 - Si pide solo un bloque, escribir solo ese bloque.
 - Si pide revisar, priorizar claridad pedagógica, secuencia, tiempo y alineación con el cronograma.
 - Mantener consistencia con la estructura que ya exista en el `README.md` de la clase, salvo que el docente pida refactorizarla.
+- Si el docente pide materiales complementarios, definir:
+  - objetivo del artefacto;
+  - formato recomendado;
+  - y prompt base reutilizable.
 
 ## Revisión global antes del PPT
 
@@ -148,6 +229,8 @@ Ese repaso debe revisar, cuando aplique:
 - ausencia de repeticiones o solapamientos innecesarios;
 - existencia de un cierre de clase real, no solo del cierre del último bloque;
 - claridad pedagógica del recorrido completo;
+- presencia o ausencia justificada de la metodología de IA/agentes dentro de la clase;
+- si el tema era técnicamente duro, presencia de una integración explícita y concreta entre contenido, apoyo del agente y validación humana;
 - ortografía, tildes, `ñ`, puntuación y redacción general;
 - y ausencia de párrafos cortados, ideas a medio cerrar o mojibake.
 
@@ -162,3 +245,5 @@ Si el README todavía se siente fragmentado, desigual o incompleto, corregirlo a
 - El texto quedó en español correcto.
 - El README fue revisado completo antes de convertirse en PPT.
 - La clase tiene cierre general además del cierre de cada bloque, cuando corresponda.
+- Si corresponde, ya existe propuesta de infografía y podcast alineada con la clase final.
+- Si la clase incluye conceptos técnicos exigentes, la metodología de IA/agentes ya quedó integrada de forma concreta y no solo mencionada al pasar.

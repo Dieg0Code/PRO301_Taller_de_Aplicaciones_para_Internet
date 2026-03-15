@@ -1,86 +1,142 @@
-const fs = require("fs");
+﻿const fs = require("fs");
 const path = require("path");
 const PptxGenJS = require("pptxgenjs");
+const { imageSizingContain } = require("../../../../../tools/slides-system/vendor/pptxgenjs_helpers/image");
+const { applyAiepTheme, TOKENS, TYPOGRAPHY } = require("../../../../../tools/slides-system/theme/aiep-theme");
 const {
-  warnIfSlideHasOverlaps,
-  warnIfSlideElementsOutOfBounds,
-} = require("./pptxgenjs_helpers/layout");
+  addTopRule,
+  addSlideNumber,
+  addMarkBox,
+  addChip: systemAddChip,
+  addCard: systemAddCard,
+  addMiniCard,
+  addCenterStatement,
+  addPill,
+} = require("../../../../../tools/slides-system/components/primitives");
+const {
+  addUrlBreakdown,
+  addMythRealityGrid,
+  addActorLane,
+  addStageChain,
+} = require("../../../../../tools/slides-system/components/foundation-panels");
+const {
+  addExposureCompare,
+  addChecklistGrid,
+  addAuthFlow,
+} = require("../../../../../tools/slides-system/components/security-panels");
+const { validateSlide: systemValidateSlide } = require("../../../../../tools/slides-system/utils/validation");
 
 const pptx = new PptxGenJS();
-pptx.layout = "LAYOUT_WIDE";
-pptx.author = "Codex";
-pptx.company = "PRO301";
-pptx.subject = "Clase 01 - Bloques 1 a 4";
-pptx.title = "La Web No Es Magia";
-pptx.lang = "es-CL";
-pptx.theme = {
-  headFontFace: "Aptos Display",
-  bodyFontFace: "Aptos",
-  lang: "es-CL",
-};
+applyAiepTheme(pptx, {
+  author: "Codex",
+  company: "AIEP",
+  subject: "Clase 01 - Bloques 1 a 4",
+  title: "La Web No Es Magia",
+});
 
 const SH = pptx.ShapeType;
+const rootDir = path.resolve(__dirname, "..");
+const logoPath = path.resolve(
+  __dirname,
+  "../../../../../.agent/skills/slides-aiep/assets/logo-aiep.png"
+);
+const logoMarkPath = path.resolve(
+  __dirname,
+  "../../../../../.agent/skills/slides-aiep/assets/logo-aiep-mark.png"
+);
 
 const C = {
-  paper: "F8F3EC",
-  white: "FFFFFF",
-  navy: "102A43",
-  ink: "243B53",
-  slate: "52606D",
-  sand: "EADFD0",
-  coral: "E76F51",
-  orange: "F4A261",
-  teal: "2A9D8F",
-  mint: "D9F3EF",
-  gold: "E9C46A",
-  border: "D8CFC4",
+  paper: TOKENS.paper,
+  white: TOKENS.white,
+  navy: TOKENS.navy,
+  ink: TOKENS.ink,
+  slate: TOKENS.slate,
+  sand: TOKENS.sand,
+  coral: TOKENS.red,
+  orange: TOKENS.gold,
+  teal: TOKENS.titleFill,
+  mint: TOKENS.softBlue,
+  gold: TOKENS.gold,
+  border: TOKENS.border,
+  red: TOKENS.red,
+  softBlue: TOKENS.softBlue,
+  softNeutral: TOKENS.softNeutral,
+  paleRed: TOKENS.paleRed,
+  warm: TOKENS.warm,
+  mist: TOKENS.mist,
+  guide: TOKENS.guide,
 };
 
 function validateSlide(slide) {
-  warnIfSlideHasOverlaps(slide, pptx, { muteContainment: true });
-  warnIfSlideElementsOutOfBounds(slide, pptx);
+  systemValidateSlide(slide, pptx);
 }
 
-function addSoftNumber(slide, n) {
-  slide.addText(String(n).padStart(2, "0"), {
-    x: 11.05,
-    y: 0.35,
-    w: 1.6,
-    h: 0.8,
-    fontFace: "Aptos Display",
-    fontSize: 30,
-    bold: true,
-    color: C.sand,
-    align: "right",
-    margin: 0,
-  });
-}
-
-function addChip(slide, text, x, y, w, fill, color = C.white) {
+function addPanel(slide, x, y, w, h, opts = {}) {
   slide.addShape(SH.roundRect, {
     x,
     y,
     w,
-    h: 0.38,
-    rectRadius: 0.06,
-    fill: { color: fill },
-    line: { color: fill },
-  });
-  slide.addText(text, {
-    x: x + 0.12,
-    y: y + 0.04,
-    w: w - 0.24,
-    h: 0.26,
-    fontFace: "Aptos",
-    fontSize: 10,
-    bold: true,
-    color,
-    align: "center",
-    margin: 0,
+    h,
+    rectRadius: opts.rectRadius || 0.04,
+    fill: { color: opts.fill || C.white },
+    line: { color: opts.line || C.border, pt: opts.linePt || 1 },
   });
 }
 
-function addTitle(slide, title, subtitle, step, blockLabel = "Bloque 1", chipFill = C.teal, chipColor = C.white) {
+function addBarsMotif(slide, x, y, scale = 1, fill = C.red) {
+  slide.addShape(SH.rect, {
+    x,
+    y: y + 0.18 * scale,
+    w: 0.2 * scale,
+    h: 0.46 * scale,
+    fill: { color: fill },
+    line: { color: fill },
+  });
+  slide.addShape(SH.rect, {
+    x: x + 0.24 * scale,
+    y,
+    w: 0.24 * scale,
+    h: 0.64 * scale,
+    fill: { color: fill },
+    line: { color: fill },
+  });
+  slide.addShape(SH.rect, {
+    x: x + 0.52 * scale,
+    y: y + 0.18 * scale,
+    w: 0.2 * scale,
+    h: 0.46 * scale,
+    fill: { color: fill },
+    line: { color: fill },
+  });
+}
+
+function addSoftNumber(slide, n) {
+  addSlideNumber(slide, pptx, {
+    x: 10.2,
+    y: 0.28,
+    w: 0.86,
+    h: 0.62,
+    fontSize: 24,
+    color: C.sand,
+  });
+}
+
+function addChip(slide, text, x, y, w, fill = C.red, color = C.white) {
+  systemAddChip(slide, SH, text, {
+    x,
+    y,
+    w,
+    fill,
+    color,
+    h: 0.34,
+    rectRadius: 0.05,
+    fontSize: 9.4,
+  });
+}
+
+function addTitle(slide, title, subtitle, step, blockLabel = "Bloque 1") {
+  slide.background = { color: C.paper };
+  addTopRule(slide, SH, C.navy);
   addSoftNumber(slide, step);
   addChip(slide, `Clase 01 · ${blockLabel}`, 0.72, 0.48, 1.95, chipFill, chipColor);
   slide.addText(title, {
@@ -225,6 +281,147 @@ function addFooter(slide, text) {
     w: 6.6,
     h: 0.22,
     fontFace: "Aptos",
+    fontSize: 10,
+    color: C.slate,
+    margin: 0,
+  });
+}
+
+function addChip(slide, text, x, y, w, fill = C.red, color = C.white) {
+  systemAddChip(slide, SH, text, {
+    x,
+    y,
+    w,
+    fill,
+    color,
+    h: 0.34,
+    rectRadius: 0.05,
+    fontSize: 9.4,
+  });
+}
+
+function addTitle(slide, title, subtitle, step, blockLabel = "Bloque 1") {
+  slide.background = { color: C.paper };
+  addTopRule(slide, SH, C.navy);
+  addSoftNumber(slide, step);
+  addChip(slide, `Clase 01 · ${blockLabel}`, 0.72, 0.52, 2.06, C.red, C.white);
+  addMarkBox(slide, SH, logoMarkPath, {
+    x: 11.18,
+    y: 0.96,
+    w: 0.94,
+    h: 0.74,
+    fill: C.softNeutral,
+    imageX: 11.36,
+    imageY: 1.13,
+    imageW: 0.56,
+    imageH: 0.3,
+  });
+  slide.addText(title, {
+    x: 0.72,
+    y: 0.98,
+    w: 8.95,
+    h: 0.72,
+    fontFace: TYPOGRAPHY.display,
+    fontSize: 23.6,
+    bold: true,
+    color: C.navy,
+    margin: 0,
+  });
+  if (subtitle) {
+    slide.addText(subtitle, {
+      x: 0.74,
+      y: 1.78,
+      w: 8.7,
+      h: 0.26,
+      fontFace: TYPOGRAPHY.body,
+      fontSize: 11.6,
+      color: C.slate,
+      margin: 0,
+    });
+  }
+}
+
+function addSimpleTitle(slide, title, subtitle, blockLabel = "Bloque 1") {
+  addTitle(slide, title, subtitle, pptx._slides.length + 1, blockLabel);
+}
+
+function addCard(slide, opts) {
+  const accent = opts.accent || opts.line || C.red;
+  const fill = opts.fill || C.white;
+  const line = opts.line || C.border;
+  const titleTop = opts.titleTop ?? 0.14;
+  const titleHeight = opts.titleHeight ?? 0.28;
+  const bodyTop = opts.bodyTop ?? 0.5;
+  const bottomPadding = opts.bottomPadding ?? 0.14;
+  const titleX = opts.x + 0.28;
+  const bodyX = opts.x + 0.28;
+  const textW = opts.w - 0.4;
+
+  slide.addShape(SH.roundRect, {
+    x: opts.x,
+    y: opts.y,
+    w: opts.w,
+    h: opts.h,
+    rectRadius: opts.rectRadius || 0.04,
+    fill: { color: fill },
+    line: { color: line, pt: 1 },
+  });
+  slide.addShape(SH.rect, {
+    x: opts.x + 0.1,
+    y: opts.y + 0.14,
+    w: opts.accentW || 0.12,
+    h: opts.h - 0.28,
+    fill: { color: accent },
+    line: { color: accent },
+  });
+  slide.addText(opts.title || "", {
+    x: titleX,
+    y: opts.y + titleTop,
+    w: textW,
+    h: titleHeight,
+    fontFace: TYPOGRAPHY.display,
+    fontSize: opts.titleFontSize || 16,
+    bold: true,
+    color: opts.titleColor || C.navy,
+    margin: 0,
+    align: opts.align || "left",
+  });
+  if (opts.body) {
+    slide.addText(opts.body, {
+      x: bodyX,
+      y: opts.y + bodyTop,
+      w: textW,
+      h: opts.h - bodyTop - bottomPadding,
+      fontFace: TYPOGRAPHY.body,
+      fontSize: opts.bodyFontSize || 12.8,
+      color: opts.bodyColor || C.ink,
+      margin: 0,
+      valign: "top",
+      breakLine: false,
+      align: opts.bodyAlign || opts.align || "left",
+    });
+  }
+}
+
+function addQuestionCard(slide, opts) {
+  addCard(slide, {
+    titleFontSize: opts.titleFontSize || 13.2,
+    bodyFontSize: opts.bodyFontSize || 10.6,
+    titleTop: 0.14,
+    titleHeight: 0.22,
+    bodyTop: 0.42,
+    bottomPadding: 0.12,
+    ...opts,
+  });
+}
+
+function addFooter(slide, text) {
+  slide.addText(text, {
+    x: 0.75,
+    y: 6.92,
+    w: 7.0,
+    h: 0.22,
+    fontFace: TYPOGRAPHY.body,
     fontSize: 10,
     color: C.slate,
     margin: 0,
@@ -502,8 +699,8 @@ function createWhyFoundationsMatterSlide() {
     line: C.orange,
     accent: C.gold,
     title: "Idea profesional",
-    body: "Las herramientas cambian, pero comprender el flujo de una aplicación web sigue siendo una habilidad transferible.",
-    bodyFontSize: 15,
+    body: "Las herramientas cambian, pero la lógica sigue siendo la misma: entender el sistema, formular mejor la intención y recién después apoyarse en un agente con criterio.",
+    bodyFontSize: 14,
   });
 
   addFooter(slide, "Bloque 1 · Fundamentos que siguen importando");
@@ -674,11 +871,11 @@ function createMisconceptionsSlide() {
   addSimpleTitle(slide, "Confusiones comunes que conviene corregir desde el inicio", "Muchas dudas técnicas posteriores nacen de estas simplificaciones iniciales.");
 
   const myths = [
-    { x: 0.82, y: 2.34, w: 2.95, accent: C.coral, title: "“Internet = Web”", body: "No. La Web es uno de los servicios que funciona sobre Internet." },
-    { x: 4.08, y: 2.34, w: 2.95, accent: C.teal, title: "“Navegador = Internet”", body: "No. El navegador es una herramienta para acceder e interpretar recursos web." },
-    { x: 7.34, y: 2.34, w: 2.95, accent: C.gold, title: "“Abrir una página es instantáneo”", body: "No. Detrás hay consultas, solicitudes y respuestas que ocurren muy rápido." },
-    { x: 2.46, y: 4.32, w: 3.6, accent: C.orange, title: "“Dominio, sitio y servidor son lo mismo”", body: "No. Son piezas distintas que luego veremos con más detalle." },
-    { x: 6.16, y: 4.32, w: 3.6, accent: C.coral, title: "“Si algo carga, entonces está bien”", body: "No. Un sistema puede funcionar en apariencia y aun así estar mal diseñado o mal publicado." },
+    { x: 0.82, y: 2.34, w: 2.95, accent: C.coral, title: '"Internet = Web"', body: "No. La Web es uno de los servicios que funciona sobre Internet." },
+    { x: 4.08, y: 2.34, w: 2.95, accent: C.teal, title: '"Navegador = Internet"', body: "No. El navegador es una herramienta para acceder e interpretar recursos web." },
+    { x: 7.34, y: 2.34, w: 2.95, accent: C.gold, title: '"Abrir una página es instantáneo"', body: "No. Detrás hay consultas, solicitudes y respuestas que ocurren muy rápido." },
+    { x: 2.46, y: 4.32, w: 3.6, accent: C.orange, title: '"Dominio, sitio y servidor son lo mismo"', body: "No. Son piezas distintas que luego veremos con más detalle." },
+    { x: 6.16, y: 4.32, w: 3.6, accent: C.coral, title: '"Si algo carga, entonces está bien"', body: "No. Un sistema puede funcionar en apariencia y aun así estar mal diseñado o mal publicado." },
   ];
 
   myths.forEach((myth) =>
@@ -752,7 +949,7 @@ function createBrowserClientSlide() {
     color: C.gold,
     margin: 0,
   });
-  slide.addText("El navegador suele ser el cliente, pero “cliente” nombra una función dentro del sistema.", {
+  slide.addText('El navegador suele ser el cliente, pero "cliente" nombra una función dentro del sistema.', {
     x: 9.84,
     y: 3.0,
     w: 1.62,
@@ -782,7 +979,7 @@ function createServerRoleSlide() {
     fill: { color: C.navy },
     line: { color: C.navy },
   });
-  slide.addText("Recibe solicitudes → procesa información → devuelve respuestas", {
+  slide.addText("Recibe solicitudes -> procesa información -> devuelve respuestas", {
     x: 1.28,
     y: 2.72,
     w: 9.7,
@@ -849,84 +1046,69 @@ function createUrlSlide() {
   addTitle(slide, "¿Qué pasa cuando escribimos una URL?", "La acción parece simple, pero no lo es.", 1);
 
   slide.addShape(SH.roundRect, {
-    x: 0.76,
-    y: 2.3,
-    w: 4.15,
-    h: 3.6,
+    x: 0.78,
+    y: 2.28,
+    w: 3.58,
+    h: 3.82,
     rectRadius: 0.08,
     fill: { color: C.navy },
     line: { color: C.navy },
   });
-
-  slide.addText("Piensa en esto", {
-    x: 1.06,
-    y: 2.48,
-    w: 1.8,
-    h: 0.25,
+  addBarsMotif(slide, 1.08, 2.56, 0.86, C.red);
+  slide.addText("URL de entrada", {
+    x: 1.08,
+    y: 3.02,
+    w: 1.7,
+    h: 0.18,
     fontFace: "Aptos",
-    fontSize: 11,
+    fontSize: 10.8,
     bold: true,
     color: C.gold,
     margin: 0,
   });
-
-  slide.addText("Cuando escribes `www.aiep.cl` o `www.youtube.com` y presionas Enter...", {
-    x: 1.04,
-    y: 2.9,
-    w: 3.45,
-    h: 1.55,
-    fontFace: "Aptos Display",
-    fontSize: 19,
+  slide.addText("`www.aiep.cl`\no `www.youtube.com`", {
+    x: 1.08,
+    y: 3.34,
+    w: 2.5,
+    h: 0.76,
+    fontFace: "Consolas",
+    fontSize: 18,
     bold: true,
     color: C.white,
     margin: 0,
-    valign: "mid",
   });
-
-  slide.addText("...no solo abres una página: activas una cadena de procesos y componentes coordinados.", {
-    x: 1.06,
-    y: 4.7,
-    w: 3.35,
-    h: 0.82,
+  slide.addText("Escribir una URL no abre una página por arte de magia: dispara una cadena técnica breve que después iremos ampliando.", {
+    x: 1.08,
+    y: 4.38,
+    w: 2.92,
+    h: 1.0,
     fontFace: "Aptos",
     fontSize: 14,
     color: "E0E7FF",
     margin: 0,
   });
 
-  addCard(slide, {
-    x: 5.28,
-    y: 2.32,
-    w: 3.22,
-    h: 1.75,
-    fill: C.white,
-    accent: C.coral,
-    title: "No es magia",
-    body: "Abrir una web no es “entrar a Internet”; es activar un proceso técnico real.",
-  });
-
-  addCard(slide, {
-    x: 8.74,
-    y: 2.32,
-    w: 3.22,
-    h: 1.75,
-    fill: C.white,
-    accent: C.teal,
-    title: "Hay coordinación",
-    body: "Navegador, red y servicios remotos trabajan juntos para responder.",
-  });
-
-  addCard(slide, {
-    x: 5.28,
-    y: 4.36,
-    w: 6.68,
-    h: 1.55,
-    fill: "FFF7E8",
-    line: C.orange,
-    accent: C.orange,
-    title: "Idea central del módulo",
-    body: "Durante el curso aprenderemos a entender y construir sistemas que dependen de esa coordinación.",
-    bodyFontSize: 17,
+  addStageChain(slide, SH, {
+    x: 4.66,
+    y: 2.28,
+    w: 7.3,
+    h: 3.82,
+    title: "Recorrido mínimo que ya empieza a moverse",
+    compact: true,
+    stages: [
+      { step: "1", title: "URL", body: "Se escribe una dirección.", accent: C.coral },
+      { step: "2", title: "Cliente", body: "El navegador inicia la solicitud.", accent: C.teal },
+      { step: "3", title: "Red", body: "El pedido viaja y se encamina.", accent: C.gold },
+      { step: "4", title: "Servidor", body: "Prepara una respuesta.", accent: C.navy, fill: C.navy, tone: "dark" },
+      { step: "5", title: "Pantalla", body: "Se representa el resultado.", accent: C.orange },
+    ],
+    notes: [
+      {
+        title: "Idea central",
+        body: "El curso consiste en entender mejor esta coordinación y aprender a construirla con criterio.",
+        accent: C.coral,
+      },
+    ],
   });
 
   addFooter(slide, "Bloque 1 · Apertura conceptual");
@@ -1453,7 +1635,7 @@ function createRequestPartsSlide() {
     fill: { color: "FFF7E8" },
     line: { color: C.orange, pt: 1 },
   });
-  slide.addText("Una solicitud no es solo “ir a un sitio”: es un mensaje estructurado que el servidor puede interpretar.", {
+  slide.addText('Una solicitud no es solo "ir a un sitio": es un mensaje estructurado que el servidor puede interpretar.', {
     x: 1.66,
     y: 6.16,
     w: 9.3,
@@ -1799,7 +1981,7 @@ function createFailurePointsSlide() {
     title: "Cambio de mirada",
     titleColor: C.white,
     bodyColor: C.white,
-    body: "Cuando algo no carga, ya no pensamos “la página está mala” sin más: empezamos a preguntarnos en qué etapa del recorrido se rompió.",
+    body: 'Cuando algo no carga, ya no pensamos "la página está mala" sin más: empezamos a preguntarnos en qué etapa del recorrido se rompió.',
     bodyFontSize: 14,
     bodyTop: 0.5,
   });
@@ -1931,7 +2113,7 @@ function createHttpSlide() {
     fill: { color: C.navy },
     line: { color: C.navy },
   });
-  slide.addText("Cliente  →  GET /index.html\nServidor →  200 OK + contenido HTML", {
+  slide.addText("Cliente  ->  GET /index.html\nServidor ->  200 OK + contenido HTML", {
     x: 5.82,
     y: 2.55,
     w: 5.45,
@@ -2105,7 +2287,7 @@ function createDnsSlide() {
     line: C.orange,
     accent: C.orange,
     title: "Qué no hace",
-    body: "DNS no es una página web ni “crea” Internet. Es un sistema de localización dentro de la red.",
+    body: 'DNS no es una página web ni "crea" Internet. Es un sistema de localización dentro de la red.',
     bodyFontSize: 15,
   });
 
@@ -2236,13 +2418,27 @@ function createBlock2ClosingSlide() {
       x: 0.84,
       y: 1.82,
       w: 5.85,
-      h: 1.75,
+      h: 1.32,
       fontFace: "Aptos Display",
-      fontSize: 20,
+      fontSize: 19,
       bold: true,
       color: C.gold,
       margin: 0,
       valign: "mid",
+    }
+  );
+
+  slide.addText(
+    "Un agente puede ayudarte a explicarlo o resumirlo, pero si tú no entiendes el flujo real, tampoco podrás validar una respuesta técnica.",
+    {
+      x: 0.86,
+      y: 3.18,
+      w: 5.78,
+      h: 0.72,
+      fontFace: "Aptos",
+      fontSize: 12.2,
+      color: "E7EEF8",
+      margin: 0,
     }
   );
 
@@ -2556,84 +2752,92 @@ function createDomainSlide() {
   slide.background = { color: C.paper };
   addTitle(slide, "Dominio: el nombre con el que encontramos un sitio", "Conviene distinguirlo desde el inicio para no confundir nombre, dirección y recurso.", 10, "Bloque 3", C.teal);
 
-  const concepts = [
-    { x: 0.82, title: "Dominio", body: "`example.com`\nNombre principal del sitio.", accent: C.gold },
-    { x: 3.72, title: "Subdominio", body: "`app.example.com`\nServicio derivado.", accent: C.teal },
-    { x: 6.62, title: "URL", body: "`https://.../cursos`\nDirección completa de un recurso.", accent: C.coral },
-    { x: 9.52, title: "IP", body: "`192.0.2.10`\nIdentificador numérico en la red.", accent: C.navy },
-  ];
-
-  concepts.forEach((item) =>
-    addCard(slide, {
-      x: item.x,
-      y: 2.28,
-      w: 2.55,
-      h: 1.6,
-      fill: C.white,
-      accent: item.accent,
-      title: item.title,
-      body: item.body,
-      bodyFontSize: 13,
-      titleFontSize: 14,
-    })
-  );
-
-  addCard(slide, {
-    x: 0.82,
-    y: 4.22,
-    w: 5.55,
-    h: 2.05,
-    fill: C.white,
-    accent: C.coral,
-    title: "Qué sí es un dominio",
-    body: "Es un nombre legible para personas. Ayuda a encontrar un sitio sin memorizar una dirección IP.\n\nNo es el servidor, no es la aplicación y no basta con comprarlo para que un proyecto funcione.",
-    bodyFontSize: 15,
-  });
-
   slide.addShape(SH.roundRect, {
-    x: 6.72,
-    y: 4.22,
-    w: 4.9,
-    h: 2.05,
+    x: 0.82,
+    y: 2.24,
+    w: 4.02,
+    h: 3.92,
     rectRadius: 0.06,
     fill: { color: C.navy },
     line: { color: C.navy },
   });
-
-  slide.addText("Analogía útil", {
-    x: 7.0,
-    y: 4.45,
-    w: 1.7,
-    h: 0.22,
+  slide.addText("Dominio", {
+    x: 1.12,
+    y: 2.56,
+    w: 1.3,
+    h: 0.18,
     fontFace: "Aptos",
     fontSize: 11,
     bold: true,
     color: C.gold,
     margin: 0,
   });
-
-  slide.addText("El dominio se parece al nombre público o dirección visible de un local.", {
-    x: 7.0,
-    y: 4.88,
-    w: 4.3,
-    h: 0.62,
-    fontFace: "Aptos Display",
-    fontSize: 17,
+  slide.addText("`example.com`", {
+    x: 1.12,
+    y: 2.96,
+    w: 2.3,
+    h: 0.34,
+    fontFace: "Consolas",
+    fontSize: 20,
     bold: true,
     color: C.white,
     margin: 0,
   });
-
-  slide.addText("Luego necesitaremos un lugar real donde exista la aplicación y un proceso para dejarla operativa.", {
-    x: 7.02,
-    y: 5.64,
-    w: 4.18,
-    h: 0.32,
+  slide.addText("Es el nombre legible que las personas pueden recordar para encontrar un sitio sin memorizar una IP.", {
+    x: 1.12,
+    y: 3.5,
+    w: 2.98,
+    h: 0.92,
     fontFace: "Aptos",
-    fontSize: 13,
+    fontSize: 14,
     color: "E0E7FF",
     margin: 0,
   });
+  slide.addShape(SH.roundRect, {
+    x: 1.1,
+    y: 5.12,
+    w: 2.78,
+    h: 0.54,
+    rectRadius: 0.04,
+    fill: { color: "173250" },
+    line: { color: "173250" },
+  });
+  slide.addText("No es el servidor ni la app", {
+    x: 1.28,
+    y: 5.3,
+    w: 2.42,
+    h: 0.12,
+    fontFace: "Aptos",
+    fontSize: 11,
+    bold: true,
+    color: C.gold,
+    margin: 0,
+    align: "center",
+  });
+
+  const concepts = [
+    { x: 5.12, y: 2.28, title: "Subdominio", body: "`app.example.com`\nServicio derivado o sección distinta.", accent: C.teal },
+    { x: 8.38, y: 2.28, title: "URL", body: "`https://.../cursos`\nDirección completa de un recurso.", accent: C.coral },
+    { x: 5.12, y: 4.22, title: "IP", body: "`192.0.2.10`\nIdentificador numérico en la red.", accent: C.navy },
+    { x: 8.38, y: 4.22, title: "Analogía útil", body: "Se parece al nombre visible con el que la gente ubica un local.", accent: C.gold },
+  ];
+
+  concepts.forEach((item) =>
+    addCard(slide, {
+      x: item.x,
+      y: item.y,
+      w: 3.02,
+      h: 1.62,
+      fill: item.title === "Analogía útil" ? C.warm : C.white,
+      line: item.title === "Analogía útil" ? C.orange : C.border,
+      accent: item.accent,
+      title: item.title,
+      body: item.body,
+      bodyFontSize: 12.8,
+      titleFontSize: 14.2,
+      bodyTop: 0.54,
+    })
+  );
 
   addFooter(slide, "Bloque 3 · Nombre legible frente a dirección técnica");
   validateSlide(slide);
@@ -2651,70 +2855,91 @@ function createDomainConfusionsSlide() {
     C.navy
   );
 
-  slide.addShape(SH.roundRect, {
-    x: 1.0,
+  addUrlBreakdown(slide, SH, {
+    x: 0.88,
     y: 2.28,
-    w: 11.2,
-    h: 0.9,
-    rectRadius: 0.05,
-    fill: { color: C.navy },
-    line: { color: C.navy },
-  });
-  slide.addText("https://campus.example.com/cursos?id=2", {
-    x: 1.35,
-    y: 2.57,
-    w: 10.5,
-    h: 0.2,
-    fontFace: "Consolas",
-    fontSize: 19,
-    bold: true,
-    color: C.white,
-    margin: 0,
-    align: "center",
+    w: 11.56,
+    h: 3.78,
+    title: "Dentro de la barra hay piezas distintas",
+    url: "https://campus.example.com/cursos?id=2",
+    segments: [
+      {
+        label: "Protocolo",
+        value: "https",
+        note: "Define el esquema con que se abre la conexión.",
+        accent: C.coral,
+        mono: true,
+        ratio: 0.9,
+      },
+      {
+        label: "Subdominio",
+        value: "campus",
+        note: "Apunta a una sección o servicio derivado.",
+        accent: C.teal,
+        mono: true,
+        ratio: 0.92,
+      },
+      {
+        label: "Dominio",
+        value: "example.com",
+        note: "Es la parte que nombra públicamente al sitio.",
+        accent: C.gold,
+        mono: true,
+        ratio: 1.26,
+      },
+      {
+        label: "Ruta",
+        value: "/cursos",
+        note: "Lleva al recurso o sección pedida.",
+        accent: C.navy,
+        mono: true,
+        ratio: 1.02,
+      },
+      {
+        label: "Parámetro",
+        value: "?id=2",
+        note: "Entrega un dato adicional a la solicitud.",
+        accent: C.orange,
+        mono: true,
+        ratio: 0.96,
+      },
+    ],
+    footer: "El dominio es solo una parte de la URL completa, no toda la barra.",
   });
 
-  const cards = [
-    {
-      x: 0.9,
-      accent: C.gold,
-      title: "URL completa",
-      body: "Incluye protocolo, dominio, ruta y, a veces, parámetros.",
-    },
-    {
-      x: 3.92,
-      accent: C.teal,
-      title: "Dominio",
-      body: "Es solo la parte que nombra públicamente al sitio o servicio.",
-    },
-    {
-      x: 6.94,
-      accent: C.coral,
-      title: "Servidor",
-      body: "Es el destino técnico donde vive la aplicación o el recurso.",
-    },
-    {
-      x: 9.96,
-      accent: C.orange,
-      title: "Registro",
-      body: "Comprar un dominio no publica la app por sí solo.",
-    },
-  ];
-
-  cards.forEach((item) =>
-    addCard(slide, {
-      x: item.x,
-      y: 4.0,
-      w: 2.32,
-      h: 1.9,
-      fill: C.white,
-      accent: item.accent,
-      title: item.title,
-      body: item.body,
-      bodyFontSize: 12.5,
-      titleFontSize: 14,
-      bodyTop: 0.56,
-    })
-  );
+  addCard(slide, {
+    x: 1.1,
+    y: 6.18,
+    w: 4.8,
+    h: 0.62,
+    fill: C.white,
+    accent: C.coral,
+    title: "Servidor",
+    body: "Sigue siendo el destino técnico donde vive la aplicación o el recurso.",
+    titleFontSize: 13.2,
+    bodyFontSize: 10.8,
+    titleTop: 0.12,
+    titleHeight: 0.16,
+    bodyTop: 0.32,
+    bottomPadding: 0.1,
+  });
+  addCard(slide, {
+    x: 6.2,
+    y: 6.18,
+    w: 4.8,
+    h: 0.62,
+    fill: C.warm,
+    line: C.orange,
+    accent: C.gold,
+    title: "Registro",
+    body: "Comprar un dominio no publica la app por sí solo ni reemplaza hosting o despliegue.",
+    titleFontSize: 13.2,
+    bodyFontSize: 10.8,
+    titleTop: 0.12,
+    titleHeight: 0.16,
+    bodyTop: 0.32,
+    bottomPadding: 0.1,
+  });
 
   addFooter(slide, "Bloque 3 · Dominio, URL y servidor no son lo mismo");
   validateSlide(slide);
@@ -2795,7 +3020,7 @@ function createLocalBusinessAnalogySlide() {
 function createHostingSlide() {
   const slide = pptx.addSlide();
   slide.background = { color: C.paper };
-  addTitle(slide, "Hosting: el lugar donde vive la aplicación", "Hoy no conviene pensarlo solo como “subir archivos”; también es entorno, servicios y disponibilidad.", 11, "Bloque 3", C.teal);
+  addTitle(slide, "Hosting: el lugar donde vive la aplicación", 'Hoy no conviene pensarlo solo como "subir archivos"; también es entorno, servicios y disponibilidad.', 11, "Bloque 3", C.teal);
 
   slide.addShape(SH.roundRect, {
     x: 0.82,
@@ -3029,7 +3254,7 @@ function createDeploySlide() {
     fill: C.white,
     accent: C.orange,
     title: "Qué implica",
-    body: "Desplegar no siempre es “subir archivos”. También puede incluir dependencias, variables de entorno, servicios externos y automatizaciones.",
+    body: 'Desplegar no siempre es "subir archivos". También puede incluir dependencias, variables de entorno, servicios externos y automatizaciones.',
     bodyFontSize: 14,
     bodyTop: 0.56,
   });
@@ -3167,10 +3392,10 @@ function createDeploymentModesSlide() {
     line: C.navy,
     accent: C.teal,
     title: "Automático",
-    body: "Un cambio en el repositorio o una acción programada dispara una secuencia que prepara, publica y valida.",
+    body: "Un cambio en el repositorio o una acción programada dispara una secuencia que prepara, publica y valida. Esto funciona mejor cuando intención, restricciones y pasos ya están claros.",
     titleColor: C.white,
     bodyColor: C.white,
-    bodyFontSize: 14,
+    bodyFontSize: 13.4,
     bodyTop: 0.56,
   });
 
@@ -3222,6 +3447,18 @@ function createDeploymentModesSlide() {
     }
   });
 
+  slide.addText("Flujo moderno: especificar qué se quiere publicar, dejar claras las restricciones y verificar el resultado después de automatizar.", {
+    x: 0.9,
+    y: 6.38,
+    w: 10.92,
+    h: 0.22,
+    fontFace: "Aptos",
+    fontSize: 11.4,
+    color: C.slate,
+    margin: 0,
+    align: "center",
+  });
+
   addFooter(slide, "Bloque 3 · Formas de publicar y entornos de trabajo");
   validateSlide(slide);
 }
@@ -3231,7 +3468,7 @@ function createSymptomsByLayerSlide() {
   slide.background = { color: C.paper };
   addSimpleTitle(
     slide,
-    "Un mismo “no funciona” puede significar cosas distintas",
+    'Un mismo "no funciona" puede significar cosas distintas',
     "La clave es asociar cada síntoma con la capa que conviene revisar primero.",
     "Bloque 3",
     C.teal,
@@ -3709,60 +3946,35 @@ function createExposureShiftSlide() {
     C.navy
   );
 
-  addCard(slide, {
+  addExposureCompare(slide, SH, {
     x: 0.82,
-    y: 2.4,
-    w: 3.65,
-    h: 3.55,
-    fill: C.navy,
-    line: C.navy,
-    accent: C.gold,
-    title: "Cambio de mirada",
-    body: "En local solemos pensar en si algo funciona. En Internet también importa quién puede verlo, qué datos mueve y qué pasa si alguien lo usa mal.",
-    titleColor: C.white,
-    bodyColor: C.white,
-    bodyFontSize: 15,
-    bodyTop: 0.58,
-  });
-
-  addCard(slide, {
-    x: 4.88,
-    y: 2.4,
-    w: 2.95,
-    h: 1.58,
-    fill: C.white,
-    accent: C.teal,
-    title: "En local",
-    body: "El proyecto depende del equipo del desarrollador y su exposición suele ser menor.",
-    bodyFontSize: 13,
-    bodyTop: 0.54,
-  });
-
-  addCard(slide, {
-    x: 8.06,
-    y: 2.4,
-    w: 3.48,
-    h: 1.58,
-    fill: C.white,
-    accent: C.coral,
-    title: "Publicado",
-    body: "La app queda disponible para personas, bots, errores de configuración y acceso no deseado.",
-    bodyFontSize: 13,
-    bodyTop: 0.54,
-  });
-
-  addCard(slide, {
-    x: 4.88,
-    y: 4.34,
-    w: 6.66,
-    h: 1.62,
-    fill: "FFF7E8",
-    line: C.orange,
-    accent: C.orange,
-    title: "Idea práctica",
-    body: "La seguridad empieza a importar antes de un ataque complejo: basta con una clave expuesta, una ruta de prueba abierta o una mala configuración.",
-    bodyFontSize: 14,
-    bodyTop: 0.56,
+    y: 2.34,
+    w: 10.72,
+    h: 3.74,
+    title: "Cambio de superficie al publicar",
+    bridgeLabel: "Sale a Internet",
+    bridgeAccent: C.orange,
+    bridgeW: 1.36,
+    bridgeFontSize: 8.2,
+    leftW: 2.94,
+    left: {
+      fill: C.navy,
+      accent: C.gold,
+      label: "En local",
+      title: "Control acotado",
+      body: "La app vive en el equipo del desarrollador y solemos mirarla casi solo desde el criterio de si funciona o no.",
+      bodyFontSize: 13.2,
+    },
+    right: {
+      fill: C.softBlue,
+      accent: C.coral,
+      label: "Publicado",
+      title: "Exposición real",
+      body: "Aparecen personas, bots, tráfico real, configuraciones visibles y usos que no siempre fueron previstos durante el desarrollo.",
+      bodyFontSize: 12.8,
+    },
+    footer:
+      "La seguridad empieza antes de un ataque complejo: basta con una clave expuesta, una ruta abierta o una mala configuración.",
   });
 
   addFooter(slide, "Bloque 4 · Publicar amplía la superficie de riesgo");
@@ -3781,27 +3993,45 @@ function createSecurityQuestionsSlide() {
     C.navy
   );
 
-  const items = [
-    { x: 0.82, y: 2.42, accent: C.gold, title: "¿Qué datos maneja?", body: "No es igual mostrar contenido público que procesar contraseñas o formularios." },
-    { x: 6.44, y: 2.42, accent: C.teal, title: "¿Quién puede entrar?", body: "Conviene distinguir acceso público, usuarios autenticados y administradores." },
-    { x: 0.82, y: 4.22, accent: C.coral, title: "¿Dónde están las credenciales?", body: "Una clave visible en código, capturas o repositorios ya es un problema." },
-    { x: 6.44, y: 4.22, accent: C.orange, title: "¿Qué pasa si se usa mal?", body: "Hay que pensar en formularios, rutas expuestas y configuraciones incompletas." },
-  ];
-
-  items.forEach((item) =>
-    addCard(slide, {
-      x: item.x,
-      y: item.y,
-      w: 5.22,
-      h: 1.46,
-      fill: C.white,
-      accent: item.accent,
-      title: item.title,
-      body: item.body,
-      bodyFontSize: 14,
-      bodyTop: 0.56,
-    })
-  );
+  addChecklistGrid(slide, SH, {
+    x: 0.82,
+    y: 2.34,
+    w: 10.72,
+    h: 3.76,
+    title: "Checklist mínimo antes de publicar",
+    columns: 2,
+    entries: [
+      {
+        badge: "Datos",
+        accent: C.gold,
+        title: "¿Qué datos maneja?",
+        body: "No es igual mostrar contenido público que procesar formularios, credenciales o información de contacto.",
+        bodyFontSize: 12.2,
+      },
+      {
+        badge: "Acceso",
+        accent: C.teal,
+        title: "¿Quién puede entrar?",
+        body: "Conviene distinguir acceso público, usuarios autenticados y espacios reservados para administración.",
+        bodyFontSize: 12.2,
+      },
+      {
+        badge: "Secretos",
+        accent: C.coral,
+        title: "¿Dónde están las credenciales?",
+        body: "Una clave visible en código, capturas o repositorios públicos ya es un problema aunque la interfaz se vea bien.",
+        bodyFontSize: 12.2,
+      },
+      {
+        badge: "Uso real",
+        accent: C.orange,
+        title: "¿Qué pasa si se usa mal?",
+        body: "Hay que pensar en formularios, rutas de prueba, configuraciones incompletas y acceso no previsto.",
+        bodyFontSize: 12.2,
+      },
+    ],
+    footer: "Estas preguntas no resuelven toda la seguridad, pero mejoran mucho el criterio antes de compartir un enlace.",
+  });
 
   addFooter(slide, "Bloque 4 · Preguntas de activación y revisión");
   validateSlide(slide);
@@ -3978,7 +4208,7 @@ function createHttpsLimitsSlide() {
   slide.background = { color: C.paper };
   addSimpleTitle(
     slide,
-    "El candado no significa “sitio perfecto”",
+    'El candado no significa "sitio perfecto"',
     "HTTPS mejora la conexión, pero no resuelve por sí solo todos los problemas de seguridad.",
     "Bloque 4",
     C.coral,
@@ -4104,8 +4334,8 @@ function createSecretsSlide() {
     line: C.orange,
     accent: C.teal,
     title: "Práctica mínima recomendable",
-    body: "No compartir claves por canales inseguros. No mostrarlas en capturas o repositorios públicos. No asumir que un proyecto pequeño pasa desapercibido.",
-    bodyFontSize: 14,
+    body: "No compartir claves por canales inseguros. No pegarlas en capturas, repositorios públicos ni agentes sin control. No asumir que un proyecto pequeño pasa desapercibido.",
+    bodyFontSize: 13.2,
     bodyTop: 0.56,
   });
 
@@ -4166,57 +4396,38 @@ function createAuthDistinctionsSlide() {
     C.navy
   );
 
-  const steps = [
-    { x: 0.92, accent: C.gold, title: "Credenciales", body: "Son los datos usados para identificarse: usuario, contraseña, token o clave.", fill: C.white, titleColor: C.navy, bodyColor: C.ink },
-    { x: 4.28, accent: C.teal, title: "Autenticación", body: "Es el proceso que verifica si esos datos corresponden realmente a quien intenta entrar.", fill: C.white, titleColor: C.navy, bodyColor: C.ink },
-    { x: 7.64, accent: C.coral, title: "Autorización", body: "Es la decisión sobre qué puede hacer esa persona una vez que ya fue reconocida.", fill: C.navy, titleColor: C.white, bodyColor: C.white },
-  ];
-
-  steps.forEach((item, index) => {
-    addCard(slide, {
-      x: item.x,
-      y: 2.46,
-      w: 2.84,
-      h: 2.1,
-      fill: item.fill,
-      line: item.fill === C.navy ? C.navy : C.border,
-      accent: item.accent,
-      title: item.title,
-      body: item.body,
-      titleColor: item.titleColor,
-      bodyColor: item.bodyColor,
-      bodyFontSize: 13,
-      bodyTop: 0.56,
-    });
-
-    if (index < steps.length - 1) {
-      slide.addShape(SH.chevron, {
-        x: item.x + 2.98,
-        y: 3.18,
-        w: 0.28,
-        h: 0.42,
-        fill: { color: C.orange },
-        line: { color: C.orange },
-      });
-    }
-  });
-
-  addCard(slide, {
-    x: 1.4,
-    y: 5.08,
-    w: 9.76,
-    h: 1.0,
-    fill: "FFF7E8",
-    line: C.orange,
-    accent: C.gold,
-    title: "Ejemplo mental",
-    body: "Ingresar una contraseña es credencial. Comprobarla es autenticación. Permitir entrar al panel de administración es autorización.",
-    bodyFontSize: 13,
-    titleFontSize: 14,
-    titleTop: 0.14,
-    titleHeight: 0.22,
-    bodyTop: 0.42,
-    bottomPadding: 0.12,
+  addAuthFlow(slide, SH, {
+    x: 0.86,
+    y: 2.36,
+    w: 10.66,
+    h: 3.76,
+    title: "Secuencia mínima de acceso",
+    steps: [
+      {
+        step: "1",
+        accent: C.gold,
+        title: "Credencial",
+        body: "Es el dato usado para presentarse: usuario, contraseña, token o clave.",
+        fill: C.white,
+      },
+      {
+        step: "2",
+        accent: C.teal,
+        title: "Autenticación",
+        body: "Es el proceso que comprueba si esos datos corresponden realmente a quien intenta entrar.",
+        fill: C.white,
+      },
+      {
+        step: "3",
+        accent: C.coral,
+        title: "Autorización",
+        body: "Es la decisión sobre lo que esa persona puede o no puede hacer una vez que ya fue reconocida.",
+        fill: C.navy,
+      },
+    ],
+    example:
+      "Ingresar una contraseña es credencial. Comprobarla es autenticación. Permitir entrar al panel de administración es autorización.",
+    footer: "Separar estas etapas ayuda a leer mejor cualquier sistema con cuentas, sesiones o permisos.",
   });
 
   addFooter(slide, "Bloque 4 · Distinciones básicas de acceso");
@@ -4260,7 +4471,7 @@ function createRisksHygieneSlide() {
     line: C.navy,
     accent: C.teal,
     title: "Checklist mínimo al publicar",
-    body: "Usar HTTPS. Evitar credenciales expuestas. Revisar qué archivos se suben. Mantener orden entre local, prueba y producción. Desconfiar del “es solo un proyecto pequeño”.",
+    body: 'Usar HTTPS. Evitar credenciales expuestas. Revisar qué archivos se suben. Mantener orden entre local, prueba y producción. Desconfiar del "es solo un proyecto pequeño".',
     titleColor: C.white,
     bodyColor: C.white,
     bodyFontSize: 13,
@@ -4305,27 +4516,45 @@ function createPublishingMistakesSlide() {
     C.navy
   );
 
-  const mistakes = [
-    { x: 0.82, y: 2.42, accent: C.coral, title: "Ruta de prueba visible", body: "Quedan paneles o funciones que no estaban pensadas para usuarios finales." },
-    { x: 6.44, y: 2.42, accent: C.gold, title: "Archivo sensible incluido", body: "Se suben configuraciones o datos que debieron quedarse fuera." },
-    { x: 0.82, y: 4.24, accent: C.teal, title: "Claves en capturas o repo", body: "El proyecto funciona, pero ya perdió confiabilidad al exponer acceso." },
-    { x: 6.44, y: 4.24, accent: C.orange, title: "Revisar solo la interfaz", body: "Se mira si carga bien, pero no qué quedó realmente publicado detrás." },
-  ];
-
-  mistakes.forEach((item) =>
-    addCard(slide, {
-      x: item.x,
-      y: item.y,
-      w: 5.18,
-      h: 1.48,
-      fill: C.white,
-      accent: item.accent,
-      title: item.title,
-      body: item.body,
-      bodyFontSize: 14,
-      bodyTop: 0.56,
-    })
-  );
+  addChecklistGrid(slide, SH, {
+    x: 0.82,
+    y: 2.36,
+    w: 10.72,
+    h: 3.74,
+    title: "Errores que aparecen en primeras publicaciones",
+    columns: 2,
+    entries: [
+      {
+        badge: "Ruta",
+        accent: C.coral,
+        title: "Ruta de prueba visible",
+        body: "Quedan paneles o funciones que no estaban pensadas para usuarios finales.",
+        bodyFontSize: 12.2,
+      },
+      {
+        badge: "Archivo",
+        accent: C.gold,
+        title: "Archivo sensible incluido",
+        body: "Se suben configuraciones o datos que debieron quedarse fuera del enlace público.",
+        bodyFontSize: 12.2,
+      },
+      {
+        badge: "Claves",
+        accent: C.teal,
+        title: "Claves en capturas o repo",
+        body: "El proyecto funciona, pero ya perdió confiabilidad al exponer acceso o secretos.",
+        bodyFontSize: 12.2,
+      },
+      {
+        badge: "Revisión",
+        accent: C.orange,
+        title: "Mirar solo la interfaz",
+        body: "Se comprueba si carga bonito, pero no qué quedó realmente publicado detrás.",
+        bodyFontSize: 12.2,
+      },
+    ],
+    footer: "Muchos errores iniciales no vienen de ataques complejos, sino de publicar con apuro y revisar muy poco.",
+  });
 
   addFooter(slide, "Bloque 4 · Errores comunes en primeras publicaciones");
   validateSlide(slide);
@@ -4343,30 +4572,59 @@ function createHygieneHabitsSlide() {
     C.navy
   );
 
-  const habits = [
-    { x: 0.92, y: 2.42, accent: C.gold, title: "Usar HTTPS", body: "No normalizar conexiones inseguras en proyectos publicados." },
-    { x: 4.08, y: 2.42, accent: C.teal, title: "Proteger secretos", body: "No dejar claves visibles en código, capturas o repositorios públicos." },
-    { x: 7.24, y: 2.42, accent: C.coral, title: "Revisar archivos", body: "Comprobar qué subimos realmente antes de compartir un enlace." },
-    { x: 0.92, y: 4.24, accent: C.orange, title: "Ordenar entornos", body: "Diferenciar local, prueba y producción para reducir errores." },
-    { x: 4.08, y: 4.24, accent: C.gold, title: "Claves seguras", body: "Evitar claves débiles, repetidas o compartidas sin control." },
-    { x: 7.24, y: 4.24, accent: C.teal, title: "Verificar antes de mostrar", body: "Una revisión final evita compartir algo mal configurado." },
-  ];
-
-  habits.forEach((item) =>
-    addCard(slide, {
-      x: item.x,
-      y: item.y,
-      w: 2.9,
-      h: 1.46,
-      fill: C.white,
-      accent: item.accent,
-      title: item.title,
-      body: item.body,
-      titleFontSize: 14,
-      bodyFontSize: 12.5,
-      bodyTop: 0.54,
-    })
-  );
+  addChecklistGrid(slide, SH, {
+    x: 0.82,
+    y: 2.34,
+    w: 10.72,
+    h: 3.78,
+    title: "Higiene mínima al trabajar y publicar",
+    columns: 3,
+    entries: [
+      {
+        badge: "Conexión",
+        accent: C.gold,
+        title: "Usar HTTPS",
+        body: "No normalizar conexiones inseguras en proyectos publicados.",
+        bodyFontSize: 10.6,
+      },
+      {
+        badge: "Secretos",
+        accent: C.teal,
+        title: "Proteger secretos",
+        body: "No dejar claves visibles en código, capturas o repositorios públicos.",
+        bodyFontSize: 10.6,
+      },
+      {
+        badge: "Entrega",
+        accent: C.coral,
+        title: "Revisar archivos",
+        body: "Comprobar qué subimos realmente antes de compartir un enlace.",
+        bodyFontSize: 10.6,
+      },
+      {
+        badge: "Entornos",
+        accent: C.orange,
+        title: "Ordenar entornos",
+        body: "Diferenciar local, prueba y producción para reducir errores.",
+        bodyFontSize: 10.6,
+      },
+      {
+        badge: "Acceso",
+        accent: C.gold,
+        title: "Claves seguras",
+        body: "Evitar claves débiles, repetidas o compartidas sin control.",
+        bodyFontSize: 10.6,
+      },
+      {
+        badge: "Cierre",
+        accent: C.teal,
+        title: "Verificar antes de mostrar",
+        body: "Una revisión final evita compartir algo mal configurado.",
+        bodyFontSize: 10.6,
+      },
+    ],
+    footer: "No vuelven perfecta a una app, pero sí elevan el estándar técnico del trabajo desde el inicio.",
+  });
 
   addFooter(slide, "Bloque 4 · Hábitos básicos de trabajo responsable");
   validateSlide(slide);
@@ -4377,7 +4635,7 @@ function createSmallProjectMythSlide() {
   slide.background = { color: C.paper };
   addSimpleTitle(
     slide,
-    "“Es solo un proyecto pequeño” es una mala excusa",
+    '"Es solo un proyecto pequeño" es una mala excusa',
     "El tamaño del proyecto no elimina la necesidad de trabajar con un mínimo de cuidado.",
     "Bloque 4",
     C.coral,
@@ -4524,68 +4782,33 @@ function createBlock4FlowCaseSlide() {
   slide.background = { color: C.paper };
   addTitle(slide, "Seguridad en el recorrido completo de una app", "Publicar rápido no siempre significa publicar bien.", 18, "Bloque 4", C.coral);
 
-  const flow = [
-    { x: 0.82, w: 2.0, title: "Usuario", body: "Accede desde el navegador.", accent: C.gold },
-    { x: 3.22, w: 2.4, title: "Dominio y DNS", body: "Orientan la solicitud.", accent: C.teal },
-    { x: 6.02, w: 2.0, title: "Hosting", body: "Aloja la aplicación.", accent: C.coral },
-    { x: 8.92, w: 2.15, title: "Aplicación", body: "Procesa datos y accesos.", accent: C.navy },
-  ];
-
-  flow.forEach((box, index) => {
-    addCard(slide, {
-      x: box.x,
-      y: 2.34,
-      w: box.w,
-      h: 1.4,
-      fill: box.accent === C.navy ? C.navy : C.white,
-      line: box.accent === C.navy ? C.navy : C.border,
-      accent: box.accent,
-      title: box.title,
-      body: box.body,
-      titleColor: box.accent === C.navy ? C.white : C.navy,
-      bodyColor: box.accent === C.navy ? C.white : C.ink,
-      bodyFontSize: 11,
-      titleFontSize: 13,
-      bodyTop: 0.6,
-    });
-
-    if (index < flow.length - 1) {
-      slide.addShape(SH.chevron, {
-        x: box.x + box.w + 0.08,
-        y: 2.75,
-        w: 0.2,
-        h: 0.34,
-        fill: { color: C.orange },
-        line: { color: C.orange },
-      });
-    }
-  });
-
-  addCard(slide, {
+  addStageChain(slide, SH, {
     x: 0.82,
-    y: 4.12,
-    w: 4.95,
-    h: 1.98,
-    fill: C.white,
-    accent: C.coral,
-    title: "Caso breve",
-    body: "Una estudiante publica su primer proyecto. La interfaz carga, pero deja una ruta de prueba expuesta, una configuración incompleta y una clave visible en el proyecto.",
-    bodyFontSize: 14,
-    bodyTop: 0.56,
-  });
-
-  addCard(slide, {
-    x: 6.08,
-    y: 4.12,
-    w: 5.45,
-    h: 1.98,
-    fill: "FFF7E8",
-    line: C.orange,
-    accent: C.gold,
-    title: "Lección",
-    body: "Que una app funcione no garantiza que sea confiable. Aprender desarrollo web también implica decidir qué publicar, cómo publicarlo y bajo qué condiciones mínimas.",
-    bodyFontSize: 14,
-    bodyTop: 0.56,
+    y: 2.3,
+    w: 10.72,
+    h: 3.88,
+    title: "Recorrido completo de una app publicada",
+    compact: true,
+    stages: [
+      { step: "1", title: "Usuario", body: "Accede desde navegador.", accent: C.gold },
+      { step: "2", title: "Dominio", body: "Encuentra el proyecto.", accent: C.teal },
+      { step: "3", title: "DNS", body: "Orienta la solicitud.", accent: C.orange },
+      { step: "4", title: "Hosting", body: "Aloja la aplicación.", accent: C.coral },
+      { step: "5", title: "App", body: "Procesa rutas y datos.", accent: C.navy, tone: "dark" },
+    ],
+    notes: [
+      {
+        title: "Caso breve",
+        accent: C.coral,
+        body: "La interfaz carga, pero queda una ruta de prueba expuesta, una configuración incompleta y una clave visible en el proyecto.",
+      },
+      {
+        title: "Lección",
+        accent: C.gold,
+        body: "Que una app funcione no garantiza que sea confiable. Publicar bien también implica revisar qué quedó realmente disponible.",
+      },
+    ],
+    footer: "La seguridad aparece en el recorrido completo: no conviene revisar solo la pantalla final.",
   });
 
   addFooter(slide, "Bloque 4 · Del funcionamiento al criterio técnico");
@@ -4669,11 +4892,11 @@ function createBlock4ClosingSlide() {
     accent: C.orange,
   });
 
-  addChip(slide, "Cierre de clase", 0.86, 6.15, 1.55, C.coral);
+  addChip(slide, "Cierre del bloque", 0.86, 6.15, 1.8, C.coral);
   slide.addText("Con esto completamos el mapa inicial de cómo funciona la Web y qué exige poner una aplicación en Internet.", {
-    x: 2.62,
+    x: 2.9,
     y: 6.22,
-    w: 7.1,
+    w: 6.9,
     h: 0.2,
     fontFace: "Aptos",
     fontSize: 12,
@@ -4684,8 +4907,713 @@ function createBlock4ClosingSlide() {
   validateSlide(slide);
 }
 
+function createClassClosingSlide() {
+  const slide = pptx.addSlide();
+  slide.background = { color: C.paper };
+  addSimpleTitle(
+    slide,
+    "Cierre de la clase",
+    "La Web deja de verse como magia cuando aprendemos a nombrar sus piezas, recorridos y riesgos.",
+    "Cierre",
+    C.coral,
+    C.white
+  );
+
+  slide.addShape(SH.roundRect, {
+    x: 0.82,
+    y: 2.22,
+    w: 4.28,
+    h: 3.78,
+    rectRadius: 0.06,
+    fill: { color: C.navy },
+    line: { color: C.navy },
+  });
+  addBarsMotif(slide, 1.1, 2.58, 0.9, C.red);
+  slide.addText("La Web no es magia.", {
+    x: 1.1,
+    y: 3.18,
+    w: 2.9,
+    h: 0.42,
+    fontFace: "Aptos Display",
+    fontSize: 24,
+    bold: true,
+    color: C.white,
+    margin: 0,
+  });
+  slide.addText(
+    "Es una coordinación entre direcciones, clientes, servidores, infraestructura, seguridad y decisiones de publicación.",
+    {
+      x: 1.1,
+      y: 3.86,
+      w: 3.24,
+      h: 1.08,
+      fontFace: "Aptos",
+      fontSize: 14,
+      color: "E7EEF8",
+      margin: 0,
+    }
+  );
+  slide.addShape(SH.roundRect, {
+    x: 1.08,
+    y: 5.2,
+    w: 3.16,
+    h: 0.5,
+    rectRadius: 0.04,
+    fill: { color: "173250" },
+    line: { color: "173250" },
+  });
+  slide.addText("Primera idea instalada del módulo", {
+    x: 1.56,
+    y: 5.36,
+    w: 2.24,
+    h: 0.12,
+    fontFace: "Aptos",
+    fontSize: 11.2,
+    bold: true,
+    color: C.gold,
+    margin: 0,
+    align: "center",
+  });
+
+  addCard(slide, {
+    x: 5.46,
+    y: 2.24,
+    w: 3.0,
+    h: 1.55,
+    fill: C.white,
+    accent: C.coral,
+    title: "Ideas que quedan",
+    body: "Internet, Web, navegador, servidor, dominio, hosting y despliegue ya no son lo mismo.",
+    bodyFontSize: 13.2,
+    bodyTop: 0.54,
+  });
+  addCard(slide, {
+    x: 8.78,
+    y: 2.24,
+    w: 3.0,
+    h: 1.55,
+    fill: C.softBlue,
+    line: C.softBlue,
+    accent: C.navy,
+    title: "Metodología",
+    body: "Entender el sistema, explicitar intención, apoyarse con inteligencia y verificar con criterio.",
+    bodyFontSize: 12.5,
+    bodyTop: 0.54,
+  });
+  addCard(slide, {
+    x: 5.46,
+    y: 4.08,
+    w: 3.0,
+    h: 1.55,
+    fill: C.warm,
+    line: C.orange,
+    accent: C.gold,
+    title: "Pregunta de salida",
+    body: "¿Qué parte del recorrido web te ayuda más a entender lo que antes parecía invisible?",
+    bodyFontSize: 13.2,
+    bodyTop: 0.54,
+  });
+  addCard(slide, {
+    x: 8.78,
+    y: 4.08,
+    w: 3.0,
+    h: 1.55,
+    fill: C.white,
+    accent: C.teal,
+    title: "Próxima clase",
+    body: "Seguimos con las herramientas del taller: editor, navegador, DevTools, Git y flujo de trabajo moderno.",
+    bodyFontSize: 13,
+    bodyTop: 0.54,
+  });
+
+  addFooter(slide, "Cierre · Mapa inicial completo y puente a la clase 02");
+  validateSlide(slide);
+}
+
+function createModernBlockIntroSlide(blockLabel, title, subtitle, cards, footerText) {
+  const slide = pptx.addSlide();
+  slide.background = { color: C.navy };
+
+  slide.addShape(SH.rect, {
+    x: 0.66,
+    y: 1.04,
+    w: 0.12,
+    h: 5.02,
+    fill: { color: C.red },
+    line: { color: C.red },
+  });
+  addBarsMotif(slide, 0.78, 0.94, 0.94, C.red);
+  addChip(slide, blockLabel, 1.22, 0.58, 1.18, C.red, C.white);
+  addMarkBox(slide, SH, logoMarkPath, {
+    x: 11.18,
+    y: 0.9,
+    w: 0.94,
+    h: 0.74,
+    fill: C.softNeutral,
+    imageX: 11.36,
+    imageY: 1.08,
+    imageW: 0.56,
+    imageH: 0.3,
+  });
+
+  slide.addText(title, {
+    x: 1.46,
+    y: 1.42,
+    w: 6.26,
+    h: 0.92,
+    fontFace: TYPOGRAPHY.display,
+    fontSize: 27.2,
+    bold: true,
+    color: C.white,
+    margin: 0,
+  });
+  slide.addText(subtitle, {
+    x: 1.48,
+    y: 2.38,
+    w: 6.3,
+    h: 0.9,
+    fontFace: TYPOGRAPHY.body,
+    fontSize: 15.4,
+    color: C.sand,
+    margin: 0,
+  });
+
+  cards.forEach((card, index) => {
+    addCard(slide, {
+      x: 1.02 + index * 3.56,
+      y: 3.62,
+      w: 3.08,
+      h: 1.42,
+      fill: index === 1 ? C.softBlue : C.white,
+      line: index === 1 ? C.softBlue : C.white,
+      accent: card.accent,
+      title: card.title,
+      body: card.body,
+      bodyFontSize: 13.2,
+    });
+  });
+
+  addPanel(slide, 1.02, 5.42, 10.5, 0.62, {
+    fill: "173A61",
+    line: "173A61",
+    rectRadius: 0.04,
+  });
+  slide.addText(footerText, {
+    x: 1.22,
+    y: 5.62,
+    w: 10.1,
+    h: 0.18,
+    fontFace: TYPOGRAPHY.body,
+    fontSize: 12.2,
+    bold: true,
+    color: C.white,
+    align: "center",
+    margin: 0,
+  });
+
+  validateSlide(slide);
+}
+
+function createTitleSlide() {
+  const slide = pptx.addSlide();
+  slide.background = { color: C.navy };
+
+  slide.addShape(SH.rect, {
+    x: 0.66,
+    y: 1.04,
+    w: 0.12,
+    h: 5.1,
+    fill: { color: C.red },
+    line: { color: C.red },
+  });
+  addBarsMotif(slide, 0.96, 0.92, 0.92, C.red);
+
+  addPanel(slide, 9.05, 0.8, 3.55, 1.24, {
+    fill: C.white,
+    line: C.white,
+    rectRadius: 0.05,
+  });
+  slide.addImage({
+    path: logoPath,
+    ...imageSizingContain(logoPath, 9.22, 0.94, 3.2, 0.94),
+  });
+
+  slide.addText("Clase 01 · Semana 01", {
+    x: 1.78,
+    y: 1.5,
+    w: 3.0,
+    h: 0.3,
+    fontFace: TYPOGRAPHY.body,
+    fontSize: 12,
+    bold: true,
+    color: C.sand,
+    margin: 0,
+  });
+  slide.addText("La Web No Es Magia", {
+    x: 1.38,
+    y: 2.02,
+    w: 5.1,
+    h: 0.6,
+    fontFace: TYPOGRAPHY.display,
+    fontSize: 28,
+    bold: true,
+    color: C.white,
+    margin: 0,
+  });
+  slide.addText("Internet, actores,\npublicación y seguridad básica", {
+    x: 1.4,
+    y: 2.8,
+    w: 5.4,
+    h: 0.94,
+    fontFace: TYPOGRAPHY.display,
+    fontSize: 21.8,
+    bold: true,
+    color: C.sand,
+    margin: 0,
+  });
+  slide.addText(
+    "Abrimos el módulo construyendo el mapa técnico inicial de la Web: qué pasa cuando cargamos una URL, cómo se comunica una solicitud y qué cambia cuando una aplicación se publica.",
+    {
+      x: 1.04,
+      x: 1.4,
+      y: 4.05,
+      w: 5.1,
+      h: 0.88,
+      fontFace: TYPOGRAPHY.body,
+      fontSize: 14,
+      color: C.sand,
+      margin: 0,
+    }
+  );
+
+  addPanel(slide, 1.04, 5.16, 3.12, 0.82, {
+    fill: "295596",
+    line: "295596",
+  });
+  addPanel(slide, 4.4, 5.16, 4.26, 0.82, {
+    fill: C.paleRed,
+    line: C.paleRed,
+  });
+  slide.addText("Lunes 16 de marzo de 2026\n10:00 - 13:00", {
+    x: 1.22,
+    y: 5.35,
+    w: 2.7,
+    h: 0.34,
+    fontFace: TYPOGRAPHY.body,
+    fontSize: 11,
+    color: C.white,
+    margin: 0,
+  });
+  slide.addText("La base del curso se instala aquí: entender antes de construir.", {
+    x: 4.64,
+    y: 5.4,
+    w: 3.78,
+    h: 0.16,
+    fontFace: TYPOGRAPHY.body,
+    fontSize: 11,
+    bold: true,
+    color: C.navy,
+    align: "center",
+    margin: 0,
+  });
+
+  validateSlide(slide);
+}
+
+function createBlock1IntroSlide() {
+  createModernBlockIntroSlide(
+    "Bloque 1",
+    "La Web no es magia",
+    "Abrimos la clase construyendo el mapa mental inicial del módulo: qué pasa cuando usamos una URL, qué diferencia hay entre Internet y Web y qué actores hacen posible una interacción.",
+    [
+      {
+        title: "URL y recorrido",
+        body: "Una acción cotidiana activa varias capas técnicas aunque el usuario no las vea.",
+        accent: C.red,
+      },
+      {
+        title: "Internet y Web",
+        body: "Dos conceptos cercanos, pero no equivalentes dentro del sistema.",
+        accent: C.gold,
+      },
+      {
+        title: "Actores base",
+        body: "Usuario, navegador, cliente, servidor y aplicación aparecen desde el inicio.",
+        accent: C.teal,
+      },
+    ],
+    "La meta del bloque es que abrir una página deje de verse como algo automático y pase a entenderse como un proceso técnico concreto."
+  );
+}
+
+function createBlock2IntroSlide() {
+  createModernBlockIntroSlide(
+    "Bloque 2",
+    "Cómo se comunican los actores",
+    "Ahora pasamos de identificar las piezas a entender el recorrido técnico de una solicitud web y la lógica que se repite detrás de muchas acciones cotidianas.",
+    [
+      {
+        title: "Solicitud y respuesta",
+        body: "Toda interacción web ocurre como una petición del cliente y una respuesta del servidor.",
+        accent: C.red,
+      },
+      {
+        title: "HTTP",
+        body: "Organiza la conversación con reglas compartidas y visibles.",
+        accent: C.gold,
+      },
+      {
+        title: "DNS",
+        body: "Ayuda a localizar el servidor correcto dentro de la red.",
+        accent: C.teal,
+      },
+    ],
+    "El objetivo del bloque es que la apertura de una página deje de verse como un acto invisible y pase a entenderse como una secuencia precisa."
+  );
+}
+
+function createBlock3IntroSlide() {
+  createModernBlockIntroSlide(
+    "Bloque 3",
+    "Dónde vive una aplicación web",
+    "Pasamos desde la comunicación técnica hacia la publicación real: dominio, hosting y despliegue como decisiones que sacan el proyecto del equipo local.",
+    [
+      {
+        title: "Dominio",
+        body: "Es el nombre legible con el que las personas encuentran un sitio o aplicación.",
+        accent: C.gold,
+      },
+      {
+        title: "Hosting",
+        body: "La infraestructura donde realmente viven los archivos y servicios del proyecto.",
+        accent: C.teal,
+      },
+      {
+        title: "Despliegue",
+        body: "El proceso que lleva una versión desde local a un entorno público.",
+        accent: C.red,
+      },
+    ],
+    "El objetivo del bloque es que publicar una app deje de verse como un acto misterioso y pase a entenderse como una cadena de decisiones técnicas."
+  );
+}
+
+function createBlock4IntroSlide() {
+  createModernBlockIntroSlide(
+    "Bloque 4",
+    "Seguridad básica y criterio al publicar",
+    "Cerramos la clase entendiendo que una app no solo debe funcionar: también debe publicarse con responsabilidad técnica desde la conexión hasta los secretos del proyecto.",
+    [
+      {
+        title: "Conexión segura",
+        body: "No es lo mismo HTTP que HTTPS cuando una aplicación circula por Internet.",
+        accent: C.gold,
+      },
+      {
+        title: "Secretos y acceso",
+        body: "Credenciales, claves y permisos no deberían quedar expuestos.",
+        accent: C.teal,
+      },
+      {
+        title: "Criterio al publicar",
+        body: "Que una app cargue bien no significa que esté bien publicada.",
+        accent: C.red,
+      },
+    ],
+    "El objetivo del bloque es pasar de una mirada técnica básica a una mirada más responsable sobre lo que significa dejar una aplicación expuesta en la Web."
+  );
+}
+
+function createUrlAnatomySlide() {
+  const slide = pptx.addSlide();
+  slide.background = { color: C.paper };
+  addSimpleTitle(
+    slide,
+    "Leer una URL tambi\u00e9n es una habilidad t\u00e9cnica",
+    "No es necesario memorizar todo hoy, pero s\u00ed reconocer qu\u00e9 partes aparecen en una direcci\u00f3n web."
+  );
+
+  addUrlBreakdown(slide, SH, {
+    x: 0.86,
+    y: 2.34,
+    w: 11.62,
+    h: 3.74,
+    title: "Partes que conviene reconocer",
+    url: "https://campus.example.com/cursos?id=3",
+    segments: [
+      {
+        label: "Protocolo",
+        value: "https",
+        note: "Define el esquema de acceso que usar\u00e1 el navegador.",
+        accent: C.coral,
+        mono: true,
+        ratio: 0.92,
+      },
+      {
+        label: "Dominio",
+        value: "campus.example.com",
+        note: "Nombra el sitio o servicio que queremos alcanzar.",
+        accent: C.teal,
+        mono: true,
+        ratio: 1.96,
+        valueFontSize: 12.6,
+      },
+      {
+        label: "Ruta",
+        value: "/cursos",
+        note: "Apunta al recurso o secci\u00f3n pedida dentro del sitio.",
+        accent: C.gold,
+        mono: true,
+        ratio: 1.02,
+      },
+      {
+        label: "Par\u00e1metro",
+        value: "?id=3",
+        note: "Entrega un dato adicional que acompa\u00f1a la solicitud.",
+        accent: C.orange,
+        mono: true,
+        ratio: 0.98,
+      },
+    ],
+    footer: "Primero no memorizamos todo: aprendemos a reconocer qu\u00e9 partes suelen aparecer.",
+  });
+
+  addFooter(slide, "Bloque 1 \u00b7 Primer vistazo a la anatom\u00eda de una URL");
+  validateSlide(slide);
+}
+
+function createMisconceptionsSlide() {
+  const slide = pptx.addSlide();
+  slide.background = { color: C.paper };
+  addSimpleTitle(
+    slide,
+    "Confusiones comunes que conviene corregir desde el inicio",
+    "Muchas dudas t\u00e9cnicas posteriores nacen de estas simplificaciones iniciales."
+  );
+
+  addMythRealityGrid(slide, SH, {
+    x: 0.82,
+    y: 2.28,
+    w: 11.68,
+    h: 4.24,
+    title: "Atajos mentales que luego confunden",
+    columns: 3,
+    entries: [
+      {
+        myth: '"Internet = Web"',
+        reality: "La Web es uno de los servicios que funciona sobre Internet.",
+        accent: C.coral,
+      },
+      {
+        myth: '"Navegador = Internet"',
+        reality: "El navegador es una herramienta cliente, no la red completa.",
+        accent: C.teal,
+        badgeFill: C.softBlue,
+      },
+      {
+        myth: '"Abrir una p\u00e1gina es instant\u00e1neo"',
+        reality: "Detr\u00e1s hay consultas, solicitudes y respuestas que ocurren muy r\u00e1pido.",
+        accent: C.gold,
+        badgeFill: C.warm,
+      },
+      {
+        myth: '"Dominio, sitio y servidor son lo mismo"',
+        reality: "Son piezas distintas que se coordinan cuando una app se publica.",
+        accent: C.orange,
+        badgeFill: "FFF6E6",
+      },
+      {
+        myth: '"Si algo carga, entonces est\u00e1 bien"',
+        reality: "Un sistema puede responder y seguir mal dise\u00f1ado, mal desplegado o expuesto.",
+        accent: C.coral,
+      },
+    ],
+    footer: "Corregir estas confusiones temprano mejora todo el resto del curso.",
+  });
+
+  addFooter(slide, "Bloque 1 \u00b7 Corregir estas ideas mejora todo el resto del curso");
+  validateSlide(slide);
+}
+
+function createActorsSlide() {
+  const slide = pptx.addSlide();
+  slide.background = { color: C.paper };
+  addTitle(
+    slide,
+    "Actores principales de una interacci\u00f3n web",
+    "Este mapa aparecer\u00e1 una y otra vez durante el m\u00f3dulo.",
+    3
+  );
+
+  addActorLane(slide, SH, {
+    x: 0.82,
+    y: 2.24,
+    w: 11.7,
+    h: 4.34,
+    title: "Quien interviene y que hace",
+    railYOffset: 1.84,
+    cardW: 2.04,
+    entries: [
+      {
+        label: "Usuario",
+        body: "Necesita acceder a un recurso o realizar una acci\u00f3n.",
+        accent: C.coral,
+      },
+      {
+        label: "Navegador",
+        body: "Interpreta la respuesta y presenta la interfaz.",
+        accent: C.teal,
+      },
+      {
+        label: "Cliente",
+        body: "Es el lado que emite la solicitud hacia la red.",
+        accent: C.gold,
+      },
+      {
+        label: "Servidor",
+        body: "Recibe, procesa y prepara una respuesta.",
+        accent: C.navy,
+        fill: C.navy,
+      },
+      {
+        label: "Sitio o app",
+        body: "Es el producto que finalmente consume la persona usuaria.",
+        accent: C.orange,
+      },
+    ],
+    footer: 'El navegador no "contiene Internet": media entre personas, clientes y servicios remotos.',
+  });
+
+  validateSlide(slide);
+}
+
+function createWebFlowSlide() {
+  const slide = pptx.addSlide();
+  slide.background = { color: C.paper };
+  addTitle(
+    slide,
+    "El recorrido completo de una solicitud web",
+    "Lo que parece instant\u00e1neo en realidad tiene varias etapas.",
+    8,
+    "Bloque 2",
+    C.orange,
+    C.navy
+  );
+
+  addStageChain(slide, SH, {
+    x: 0.82,
+    y: 2.26,
+    w: 11.7,
+    h: 4.38,
+    title: "Etapas que conviene poder nombrar",
+    compact: true,
+    stages: [
+      { step: "1", title: "URL", body: "Se escribe una direcci\u00f3n en el navegador.", accent: C.coral },
+      { step: "2", title: "Dominio", body: "Se identifica el nombre a resolver.", accent: C.gold },
+      { step: "3", title: "DNS", body: "Se traduce el nombre a direcci\u00f3n IP.", accent: C.teal },
+      { step: "4", title: "HTTP", body: "El cliente env\u00eda la solicitud.", accent: C.orange },
+      { step: "5", title: "Servidor", body: "Procesa y prepara la respuesta.", accent: C.navy, fill: C.navy, tone: "dark" },
+      { step: "6", title: "Pantalla", body: "El navegador representa el contenido.", accent: C.coral },
+    ],
+    notes: [
+      { title: "DNS", body: "Puede fallar antes de llegar al servidor.", accent: C.teal },
+      { title: "Servidor", body: "Puede responder con error o recurso ausente.", accent: C.orange },
+      { title: "Respuesta", body: "Puede llegar y aun as\u00ed verse mal o incompleta.", accent: C.coral },
+    ],
+  });
+
+  validateSlide(slide);
+}
+
+function createBlock3FlowSlide() {
+  const slide = pptx.addSlide();
+  slide.background = { color: C.paper };
+  addTitle(
+    slide,
+    "C\u00f3mo se conectan dominio, hosting y despliegue",
+    "Lo importante es entender la cadena completa, no memorizar herramientas aisladas.",
+    13,
+    "Bloque 3",
+    C.teal
+  );
+
+  addStageChain(slide, SH, {
+    x: 0.82,
+    y: 2.3,
+    w: 11.7,
+    h: 4.08,
+    title: "Cadena de publicaci\u00f3n",
+    stages: [
+      { step: "1", title: "En local", body: "La app se desarrolla y prueba.", accent: C.gold },
+      { step: "2", title: "Despliegue", body: "Se publica una versi\u00f3n lista.", accent: C.coral, fill: C.warm },
+      { step: "3", title: "Hosting", body: "La infraestructura la aloja.", accent: C.teal },
+      {
+        step: "4",
+        title: "Dominio + DNS",
+        body: "El nombre gu\u00eda el tr\u00e1fico al destino correcto.",
+        accent: C.gold,
+        fill: C.navy,
+        tone: "dark",
+      },
+    ],
+    notes: [
+      {
+        title: "Si una capa falla",
+        body: "Dominio mal configurado, DNS apuntando mal, hosting ca\u00eddo o despliegue incompleto pueden romper el acceso.",
+        accent: C.coral,
+      },
+      {
+        title: "Caso simple",
+        body: "Un portafolio se construye en local, se publica, se asocia a un dominio y se verifica despu\u00e9s de cada cambio.",
+        accent: C.teal,
+      },
+    ],
+  });
+
+  addFooter(slide, "Bloque 3 \u00b7 Cadena completa de publicaci\u00f3n");
+  validateSlide(slide);
+}
+
+function createSecurityLayersSlide() {
+  const slide = pptx.addSlide();
+  slide.background = { color: C.paper };
+  addSimpleTitle(
+    slide,
+    "La seguridad atraviesa varias capas",
+    "No depende de una sola pieza: aparece en el recorrido completo de la aplicaci\u00f3n.",
+    "Bloque 4",
+    C.coral,
+    C.navy
+  );
+
+  addStageChain(slide, SH, {
+    x: 0.82,
+    y: 2.32,
+    w: 11.68,
+    h: 3.92,
+    title: "Capas donde puede aparecer riesgo",
+    compact: true,
+    stages: [
+      { step: "1", title: "Navegador", body: "Entrega se\u00f1ales y recibe formularios.", accent: C.gold },
+      { step: "2", title: "Conexi\u00f3n", body: "HTTP o HTTPS cambia la protecci\u00f3n.", accent: C.teal },
+      { step: "3", title: "Hosting", body: "La infraestructura tambi\u00e9n puede fallar.", accent: C.coral },
+      { step: "4", title: "Aplicaci\u00f3n", body: "Procesa rutas, accesos y l\u00f3gica.", accent: C.orange },
+      { step: "5", title: "Datos", body: "Credenciales y recursos sensibles requieren cuidado.", accent: C.navy, fill: C.navy, tone: "dark" },
+    ],
+    notes: [
+      {
+        title: "Idea central",
+        body: "Cuando algo se expone o falla, conviene pensar en capas y revisar el recorrido completo antes de culpar a una sola pieza.",
+        accent: C.coral,
+      },
+    ],
+  });
+
+  addFooter(slide, "Bloque 4 \u00b7 Mirada sist\u00e9mica sobre el riesgo");
+  validateSlide(slide);
+}
+
 async function main() {
-  const rootDir = path.resolve(__dirname, "..");
   const outputPptx = process.env.PPTX_OUTPUT || path.join(rootDir, "Clase-01-Bloque-1-La-Web-No-Es-Magia.pptx");
   const outputJs = process.env.PPTX_SOURCE_OUTPUT || path.join(rootDir, "Clase-01-Bloque-1-La-Web-No-Es-Magia.js");
 
@@ -4749,6 +5677,7 @@ async function main() {
   createSecurityLayersSlide();
   createBlock4FlowCaseSlide();
   createBlock4ClosingSlide();
+  createClassClosingSlide();
 
   await pptx.writeFile({ fileName: outputPptx });
   fs.copyFileSync(__filename, outputJs);

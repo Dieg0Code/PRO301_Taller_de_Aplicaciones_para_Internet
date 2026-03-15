@@ -731,7 +731,7 @@ function createMapSlide() {
     fill: { color: C.softNeutral },
     line: { color: C.softNeutral },
   });
-  slide.addText("Desarrollar web exige coordinar herramientas, procesos y decisiones técnicas.", {
+  slide.addText("Desarrollar web exige coordinar herramientas, contexto, validación y criterio técnico.", {
     x: 1.34,
     y: 6.26,
     w: 10.46,
@@ -882,12 +882,12 @@ function createNotOnlyCodeSlide() {
     slide,
     4,
     "Desarrollar web no es solo escribir código",
-    "Trabajar en la web también implica archivos, navegador, pruebas, errores y decisiones técnicas."
+    "Trabajar en la web también implica contexto, navegador, pruebas, versiones y validación."
   );
   addBigStatement(
     slide,
     "Un desarrollador no trabaja solo con código.",
-    "Trabaja también con archivos, navegador, DevTools, terminal, historial de cambios, errores, pruebas y decisiones técnicas."
+    "Trabaja también con archivos, navegador, DevTools, terminal, historial, contexto, validación y decisiones técnicas."
   );
   validateSlide(slide);
 }
@@ -965,7 +965,7 @@ function createMythVsRealitySlide() {
     fill: { color: C.softNeutral },
     line: { color: C.softNeutral },
   });
-  slide.addText("La diferencia no es solo técnica: es una diferencia de oficio.", {
+  slide.addText("La diferencia no es solo técnica: también cambia cómo se valida el trabajo.", {
     x: 2.04,
     y: 6.16,
     w: 9.28,
@@ -2134,7 +2134,7 @@ function createDevToolsQuestionsSlide() {
     fill: { color: C.softNeutral },
     line: { color: C.softNeutral },
   });
-  slide.addText("Preguntar mejor permite observar mejor.", {
+  slide.addText("Preguntar mejor y validar con evidencia reduce la intuición ciega.", {
     x: 5.46,
     y: 6.18,
     w: 5.9,
@@ -3458,7 +3458,7 @@ function createVersioningHabitsSlide() {
     fill: { color: C.white },
     line: { color: C.border, pt: 1 },
   });
-  slide.addText("Git no solo guarda trabajo: organiza la memoria técnica del proyecto.", {
+  slide.addText("Git no solo guarda trabajo: organiza la memoria técnica del proyecto y vuelve revisables los cambios.", {
     x: 6.5,
     y: 3.08,
     w: 5.24,
@@ -3479,7 +3479,7 @@ function createVersioningHabitsSlide() {
     fill: { color: C.softBlue },
     line: { color: C.softBlue },
   });
-  slide.addText("Cambios pequeños + registro claro + historia comprensible", {
+  slide.addText("Cambios pequeños + revisión clara + historia verificable", {
     x: 7.1,
     y: 5.44,
     w: 4.04,
@@ -4772,7 +4772,7 @@ function createAgentSupportSlide() {
     slide,
     48,
     "Agentes como apoyo, no como reemplazo",
-    "La asistencia puede acelerar partes del trabajo, pero la validación sigue siendo responsabilidad del desarrollador."
+    "La asistencia puede ayudar a explorar, proponer o acelerar, pero intención, restricciones y validación siguen dependiendo del desarrollador."
   );
 
   slide.addShape(SH.roundRect, {
@@ -4784,7 +4784,7 @@ function createAgentSupportSlide() {
     fill: { color: C.softBlue },
     line: { color: C.softBlue },
   });
-  slide.addText("La IA puede ayudar a", {
+  slide.addText("Un agente puede ayudar a", {
     x: 1.34,
     y: 2.82,
     w: 2.82,
@@ -4796,10 +4796,10 @@ function createAgentSupportSlide() {
     margin: 0,
   });
   [
-    "sugerir cambios",
+    "aclarar un cambio",
+    "proponer una primera versión",
     "explicar un error",
-    "proponer un commit",
-    "acelerar documentación",
+    "sugerir una tarea o un mensaje",
   ].forEach((text, idx) => {
     addStripItem(slide, {
       x: 1.3,
@@ -4834,9 +4834,9 @@ function createAgentSupportSlide() {
   });
   [
     "comprobar en el navegador",
-    "revisar con DevTools",
+    "validar con DevTools",
     "decidir qué registrar",
-    "validar que el cambio tenga sentido",
+    "confirmar que el resultado coincide con la intención",
   ].forEach((text, idx) => {
     addStripItem(slide, {
       x: 6.64,
@@ -4905,21 +4905,21 @@ function createBlock4ClosingSlide() {
   addBlock4Header(
     slide,
     50,
-    "S\u00EDntesis del bloque",
-    "El flujo moderno integra edici\u00F3n, prueba, observaci\u00F3n, correcci\u00F3n, versionado y sincronizaci\u00F3n en ciclos cortos."
+    "Cierre de la clase",
+    "El trabajo moderno combina edici\u00F3n, prueba, observaci\u00F3n, versionado y validaci\u00F3n en ciclos cortos."
   );
   slide.addShape(SH.roundRect, {
     x: 0.98,
     y: 2.36,
     w: 7.12,
-    h: 3.54,
+    h: 3.72,
     rectRadius: 0.08,
     fill: { color: C.white },
     line: { color: C.border, pt: 1 },
   });
   slide.addText("Idea clave", {
     x: 1.3,
-    y: 2.7,
+    y: 2.66,
     w: 1.34,
     h: 0.22,
     fontFace: "Aptos",
@@ -4928,20 +4928,20 @@ function createBlock4ClosingSlide() {
     color: C.red,
     margin: 0,
   });
-  slide.addText("Desarrollar bien no es solo escribir c\u00F3digo:\nes sostener un proceso t\u00E9cnico legible y repetible.", {
+  slide.addText("Desarrollar bien no es solo escribir c\u00F3digo:\nes entender el sistema, explicitar intenci\u00F3n y sostener un proceso t\u00E9cnico legible.", {
     x: 1.3,
-    y: 3.02,
+    y: 3.08,
     w: 6.18,
-    h: 1.02,
+    h: 1.24,
     fontFace: "Aptos Display",
-    fontSize: 22.2,
+    fontSize: 19.6,
     bold: true,
     color: C.navy,
     margin: 0,
   });
   slide.addText("Ciclo corto de trabajo", {
     x: 1.3,
-    y: 4.44,
+    y: 4.6,
     w: 1.9,
     h: 0.18,
     fontFace: "Aptos",
@@ -4950,16 +4950,16 @@ function createBlock4ClosingSlide() {
     color: C.slate,
     margin: 0,
   });
-  addPill(slide, 1.3, 4.82, 1.02, "Editar", C.paleRed, C.navy);
-  addPill(slide, 2.48, 4.82, 1.02, "Probar", C.white, C.navy);
-  addPill(slide, 3.66, 4.82, 1.26, "Observar", C.softBlue, C.navy);
-  addPill(slide, 5.08, 4.82, 1.2, "Corregir", C.white, C.navy);
-  addPill(slide, 6.44, 4.82, 1.3, "Registrar", C.softNeutral, C.navy);
-  slide.addText("Este criterio acompa\u00F1a el resto del m\u00F3dulo.", {
+  addPill(slide, 1.3, 4.98, 1.02, "Editar", C.paleRed, C.navy);
+  addPill(slide, 2.48, 4.98, 1.02, "Probar", C.white, C.navy);
+  addPill(slide, 3.66, 4.98, 1.26, "Observar", C.softBlue, C.navy);
+  addPill(slide, 5.08, 4.98, 1.2, "Corregir", C.white, C.navy);
+  addPill(slide, 6.44, 4.98, 1.3, "Registrar", C.softNeutral, C.navy);
+  slide.addText("Entender, explicitar, apoyarse y verificar: ese ser\u00E1 el hilo metodol\u00F3gico del m\u00F3dulo.", {
     x: 1.3,
-    y: 5.46,
+    y: 5.58,
     w: 5.98,
-    h: 0.18,
+    h: 0.24,
     fontFace: "Aptos",
     fontSize: 11.6,
     color: C.ink,

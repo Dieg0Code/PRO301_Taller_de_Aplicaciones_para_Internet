@@ -28,6 +28,7 @@ Al finalizar la sesión, el estudiante será capaz de:
 - Pensamiento sistémico: comprender la web como un conjunto de componentes que trabajan de manera coordinada.
 - Comunicación técnica: explicar procesos digitales con claridad, orden y terminología básica adecuada.
 - Criterio profesional inicial: reconocer por qué estos fundamentos siguen siendo relevantes incluso en una época de desarrollo asistido por agentes de IA.
+- Trabajo supervisado con apoyo inteligente: distinguir entre usar agentes para apoyar comprensión o ejecución y delegar sin verificar conceptos que siguen exigiendo lectura técnica y juicio humano.
 
 ---
 
@@ -50,6 +51,8 @@ La idea central de este bloque es entender que:
 - abrir una página web no es "entrar a Internet";
 - detrás de esa acción hay varios componentes que se coordinan;
 - durante el módulo vamos a aprender a entender y construir sistemas que dependen de esa coordinación.
+
+En un flujo moderno de trabajo, un agente puede ayudarte a narrar este recorrido, resumirlo o proponer un diagrama inicial. Pero si tú no distingues navegador, cliente, servidor, dominio o solicitud, no podrás verificar si esa explicación tiene sentido o si mezcla conceptos distintos.
 
 ### 1.2 Internet no es lo mismo que la Web
 
@@ -247,6 +250,8 @@ Además, permite entender por qué una página puede fallar por distintas razone
 
 Comprender este recorrido es importante no solo para programar, sino también para analizar errores, diagnosticar problemas y comunicarse con mayor precisión en contextos técnicos.
 
+También importa por una razón cada vez más actual: un agente puede ayudarte a explicar HTTP, DNS o request/response, pero si no entiendes qué está pasando realmente, no tendrás cómo detectar una explicación falsa, incompleta o superficial. En otras palabras, aquí empieza una regla metodológica del módulo: entender primero, apoyarse después y verificar siempre.
+
 ### Preguntas guía
 
 - ¿Qué función cumple HTTP dentro de la Web?
@@ -399,6 +404,8 @@ Este concepto también suele simplificarse demasiado. Muchas veces se piensa que
 - comprobar que la aplicación quedó disponible y estable.
 
 En contextos modernos, el despliegue puede realizarse de forma manual o automática. En muchos equipos, una actualización del repositorio puede activar una cadena de pasos que termina publicando una nueva versión sin intervención manual directa.
+
+Esa lógica conecta muy bien con una forma más actual de trabajar: primero se explicita qué se quiere publicar, bajo qué restricciones y con qué pasos; luego una herramienta o un agente puede ayudar a ejecutar parte del proceso. Pero incluso en ese escenario, alguien debe comprobar que el destino correcto quedó configurado, que la versión publicada era la adecuada y que el resultado realmente coincide con la intención inicial.
 
 En este módulo no necesitamos dominar todavía todas esas herramientas, pero sí comprender el principio general:
 
@@ -576,6 +583,8 @@ Aunque más adelante veremos estos conceptos con mayor profundidad, desde ya con
 
 Ese tipo de descuidos es más común de lo que parece, especialmente cuando alguien está aprendiendo y prioriza que “funcione rápido”. Sin embargo, desde una mirada profesional, un proyecto que expone secretos deja de ser confiable aunque técnicamente funcione.
 
+Aquí aparece una advertencia especialmente importante para una época de desarrollo asistido por agentes: un agente puede sugerir configuraciones, bosquejar archivos o ayudar a automatizar tareas repetitivas, pero no debería recibir ni exponer credenciales reales sin control. Seguridad, secretos y publicación son justamente ejemplos de cosas que no se delegan ciegamente.
+
 ### 4.4 Riesgos comunes al publicar proyectos iniciales
 
 Cuando una persona publica su primera aplicación, suele concentrarse en que el dominio responda, que la interfaz cargue y que los botones funcionen. Eso es comprensible, pero no basta.
@@ -667,4 +676,22 @@ Por eso, aprender desarrollo web no consiste solo en producir pantallas. Tambié
 ### Cierre del bloque
 
 - Idea clave: una aplicación web no solo debe funcionar; también debe publicarse con un nivel mínimo de seguridad, criterio y responsabilidad técnica.
-- Cierre de la clase: con este bloque completamos una visión inicial de cómo funciona la web, cómo se comunican sus actores, dónde vive una aplicación y por qué publicarla exige algo más que hacer que cargue en un navegador.
+
+## Cierre de la clase
+
+Con esta sesión instalamos una primera visión técnica de la Web como sistema: quién participa, cómo viaja una solicitud, dónde vive una aplicación y qué cambia cuando esa aplicación se publica realmente en Internet.
+
+También queda instalada una idea metodológica que acompañará el resto del módulo: en desarrollo moderno no basta con “pedirle cosas” a una herramienta o a un agente. Primero hay que entender el sistema, después formular mejor la intención, y recién entonces apoyarse en herramientas inteligentes para avanzar con más velocidad y más criterio.
+
+En esta primera clase, eso se traduce en algo muy concreto:
+
+- si no distingues Internet de Web, un agente puede reforzar la confusión;
+- si no entiendes DNS, HTTP o cliente-servidor, no podrás validar una explicación técnica;
+- si no distingues dominio, hosting y despliegue, te costará leer el recorrido real de una aplicación;
+- y si no incorporas seguridad desde el inicio, automatizar rápido solo puede amplificar errores.
+
+La idea final no es desconfiar de las herramientas, sino usarlas mejor:
+
+> comprender el sistema, explicitar la intención, apoyarse con inteligencia y verificar con criterio.
+
+Ese será uno de los hilos conductores del curso.

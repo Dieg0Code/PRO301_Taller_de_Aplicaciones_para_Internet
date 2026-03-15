@@ -269,6 +269,164 @@ export interface TokenBoardOptions extends PositionedBox {
   footer?: string;
 }
 
+export interface UrlBreakdownSegment {
+  label?: string;
+  value?: string;
+  note?: string;
+  accent?: string;
+  fill?: string;
+  ratio?: number;
+  mono?: boolean;
+  valueFontSize?: number;
+  noteFontSize?: number;
+}
+
+export interface UrlBreakdownOptions extends PositionedBox {
+  title?: string;
+  url?: string;
+  urlFill?: string;
+  urlFontSize?: number;
+  headerFill?: string;
+  fill?: string;
+  line?: string;
+  segments?: UrlBreakdownSegment[];
+  footer?: string;
+}
+
+export interface MythRealityEntry {
+  badge?: string;
+  myth?: string;
+  reality?: string;
+  accent?: string;
+  fill?: string;
+  badgeFill?: string;
+  mythFontSize?: number;
+  realityFontSize?: number;
+}
+
+export interface MythRealityGridOptions extends PositionedBox {
+  title?: string;
+  entries?: MythRealityEntry[];
+  columns?: number;
+  fill?: string;
+  line?: string;
+  headerFill?: string;
+  footer?: string;
+}
+
+export interface ActorLaneEntry {
+  label?: string;
+  body?: string;
+  accent?: string;
+  fill?: string;
+  titleFontSize?: number;
+  bodyFontSize?: number;
+}
+
+export interface ActorLaneOptions extends PositionedBox {
+  title?: string;
+  entries?: ActorLaneEntry[];
+  fill?: string;
+  line?: string;
+  headerFill?: string;
+  railYOffset?: number;
+  cardW?: number;
+  cardH?: number;
+  footer?: string;
+}
+
+export interface StageChainStage {
+  step?: string;
+  title?: string;
+  body?: string;
+  accent?: string;
+  fill?: string;
+  tone?: "light" | "dark";
+}
+
+export interface StageChainNote {
+  title?: string;
+  body?: string;
+  accent?: string;
+  fill?: string;
+}
+
+export interface StageChainOptions extends PositionedBox {
+  title?: string;
+  stages?: StageChainStage[];
+  notes?: StageChainNote[];
+  fill?: string;
+  line?: string;
+  headerFill?: string;
+  chevronColor?: string;
+  compact?: boolean;
+  footer?: string;
+}
+
+export interface ExposureColumn {
+  label?: string;
+  title?: string;
+  body?: string;
+  accent?: string;
+  fill?: string;
+  bodyFontSize?: number;
+}
+
+export interface ExposureCompareOptions extends PositionedBox {
+  title?: string;
+  fill?: string;
+  line?: string;
+  headerFill?: string;
+  leftW?: number;
+  bridgeW?: number;
+  gap?: number;
+  bridgeLabel?: string;
+  bridgeAccent?: string;
+  left?: ExposureColumn;
+  right?: ExposureColumn;
+  footer?: string;
+}
+
+export interface ChecklistGridEntry {
+  badge?: string;
+  title?: string;
+  body?: string;
+  accent?: string;
+  fill?: string;
+  badgeFill?: string;
+  titleFontSize?: number;
+  bodyFontSize?: number;
+}
+
+export interface ChecklistGridOptions extends PositionedBox {
+  title?: string;
+  entries?: ChecklistGridEntry[];
+  columns?: number;
+  fill?: string;
+  line?: string;
+  headerFill?: string;
+  footer?: string;
+}
+
+export interface AuthFlowStep {
+  step?: string;
+  title?: string;
+  body?: string;
+  accent?: string;
+  fill?: string;
+}
+
+export interface AuthFlowOptions extends PositionedBox {
+  title?: string;
+  steps?: AuthFlowStep[];
+  fill?: string;
+  line?: string;
+  headerFill?: string;
+  chevronColor?: string;
+  example?: string;
+  footer?: string;
+}
+
 export interface BoxModelDiagramOptions extends PositionedBox {
   title?: string;
   margin?: string;
