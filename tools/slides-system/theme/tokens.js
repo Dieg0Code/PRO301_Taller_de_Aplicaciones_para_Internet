@@ -20,6 +20,11 @@ const TOKENS = {
   terminalPrompt: "E0BC5A",
   terminalOutput: "E6EEF7",
   terminalMuted: "8AA0B6",
+  success: "3FAE6A",
+  successSoft: "E9F6EE",
+  warning: "E0BC5A",
+  warningSoft: "FBF3DE",
+  shadow: "D9D0C4",
 };
 
 module.exports = {

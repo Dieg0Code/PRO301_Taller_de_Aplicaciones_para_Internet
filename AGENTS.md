@@ -112,6 +112,7 @@ No cambiar por cuenta propia fechas, evaluaciones, enfoque general del módulo o
 - `clases/semana-XX/YY/README.md`: desarrollo de cada clase.
 - `clases/semana-XX/YY/ppt/`: presentación final, fuente editable y `source/` de construcción.
 - `docs/`: documentos institucionales de referencia.
+- `tools/slides-system/`: sistema compartido para tema, componentes y utilidades de PPT.
 - `.agent/skills/`: skills locales del repositorio.
 
 ## Idioma y tono
@@ -136,7 +137,8 @@ Al crear o editar una clase:
    - cierre.
 4. Desarrollar el contenido por secciones antes de convertirlo a PPT.
 5. Solo después pasar el contenido al PPT.
-6. Hacer un pulido final de coherencia entre cronograma, README y deck.
+6. Antes del PPT, hacer una revisión global del README de la clase.
+7. Solo después hacer el pulido final entre cronograma, README y deck.
 
 ## Reglas para README de clases
 
@@ -150,9 +152,27 @@ Al crear o editar una clase:
 - Incluir ejemplos, preguntas guía y diagramas cuando aporten valor.
 - Mantener coherencia con el resto del módulo.
 
+## Revisión global del README antes del PPT
+
+Antes de convertir una clase a presentación, revisar el `README.md` completo como una unidad y no solo como suma de bloques.
+
+Ese repaso debe comprobar, como mínimo:
+
+- coherencia entre título, objetivos, bloques y cierre;
+- progresión interna de la clase;
+- alineación con el día de la semana y con el avance técnico del módulo;
+- que no falten secciones, puentes, cierres o remates importantes;
+- que no haya repeticiones innecesarias entre bloques;
+- que no queden párrafos cortados, ideas inconclusas o transiciones débiles;
+- que el texto esté en español correcto, con tildes, `ñ` y sin mojibake;
+- y que el cierre de la clase realmente sintetice y proyecte el siguiente paso.
+
+No empezar el PPT si el README todavía se siente fragmentado, incompleto o con problemas de redacción.
+
 ## Reglas para PPT
 
 - El deck debe respetar identidad visual AIEP.
+- Al trabajar decks de este repositorio, preferir `tools/slides-system/` para tema, componentes y utilidades compartidas en vez de copiar helpers por clase.
 - Para clases de `3 horas`, el PPT debe tener al menos `60` diapositivas.
 - No inflar el deck con relleno; expandir con ejemplos, mini casos, comparaciones, errores comunes, recapitulaciones y transiciones.
 - La composición visual no debe repetirse mecánicamente entre slides.
@@ -160,6 +180,28 @@ Al crear o editar una clase:
 - Evitar slides pesadas resueltas solo con 2 o 3 cajas grandes llenas de texto.
 - Revisar que no haya overflow, cortes, conectores absurdos ni composiciones confusas.
 - El texto del deck también es material para estudiantes, no notas para el docente.
+- Si un patrón visual o artefacto técnico se repite entre clases, moverlo al sistema compartido antes de seguir clonándolo dentro de distintos `source/`.
+
+## Flujo de validación para PPT y slides-system
+
+Cada vez que se cree, rehaga o amplíe un PPT de este repositorio, no basta con generar el `.pptx`: hay que compilar, validar y corregir antes de cerrar.
+
+Usar por defecto esta lógica:
+
+1. Si el deck depende de `tools/slides-system/`, comprobar primero que la base compartida esté al día.
+2. Si se modificó `tools/slides-system/`, ejecutar `npm run test:all` dentro de ese directorio y corregir cualquier fallo antes de volver al deck.
+3. Si la clase nueva usa TypeScript o consume `dist/`, ejecutar al menos `npm run build` en `tools/slides-system/` antes de regenerar el PPT.
+4. Regenerar el deck desde su fuente editable.
+5. Ejecutar validaciones de deck: overflow, render visual y apertura correcta en PowerPoint.
+6. Corregir solapes, cortes, conectores mal resueltos, mojibake, errores ortográficos o artefactos visuales extraños antes de dar el deck por terminado.
+
+No cerrar un trabajo de PPT si se cumple alguna de estas condiciones:
+
+- el build compartido falla;
+- la suite de `tools/slides-system/` falla tras tocar la librería;
+- el deck presenta overflow, solapes o composiciones rotas;
+- PowerPoint intenta reparar el archivo;
+- o el texto visible quedó con errores de español o encoding.
 
 ## Ejemplos y casos
 

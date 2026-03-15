@@ -10,19 +10,24 @@ Usar esta skill para definir la dirección visual de una presentación antes de 
 ## Relación con otras skills
 
 - `slides-aiep` decide cómo debe verse el deck.
+- `tools/slides-system/` concentra tema, componentes y utilidades compartidas del repositorio para construir decks.
 - `slides` construye, renderiza y valida el deck.
 - Orden recomendado:
   1. aplicar `slides-aiep`;
-  2. luego ejecutar `slides`.
+  2. reutilizar `tools/slides-system/` si el deck pertenece a este repositorio;
+  3. luego ejecutar `slides`.
 
 ## Flujo de trabajo
 
 1. Revisar el `README.md` de la clase y el contexto del módulo.
-2. Leer `references/palette.md` para fijar color, contraste y proporciones `60 / 30 / 10`.
-3. Leer `references/slide-patterns.md` para elegir layouts y ritmo visual según la función pedagógica de cada slide.
-4. Usar los assets oficiales del directorio `assets/`.
-5. Construir o ajustar el deck con `slides`.
-6. Antes de cerrar, leer `references/quality-gates.md` y comprobar cantidad de diapositivas, legibilidad y coherencia visual.
+2. Si el deck pertenece a este repositorio, revisar `tools/slides-system/README.md` y preferir sus componentes compartidos antes de copiar helpers locales.
+3. Leer `references/palette.md` para fijar color, contraste y proporciones `60 / 30 / 10`.
+4. Leer `references/slide-patterns.md` para elegir layouts y ritmo visual según la función pedagógica de cada slide.
+5. Usar los assets oficiales del directorio `assets/`.
+6. Construir o ajustar el deck con `slides`.
+7. Si se tocó `tools/slides-system/`, ejecutar `npm run test:all` en ese directorio y no cerrar mientras exista un fallo de tipos, build, pruebas o texto.
+8. Si el deck nuevo depende de `dist/` o de fuentes TypeScript, ejecutar al menos `npm run build` en `tools/slides-system/` antes de regenerar el `.pptx`.
+9. Antes de cerrar, leer `references/quality-gates.md` y comprobar cantidad de diapositivas, legibilidad, coherencia visual y validación operativa.
 
 ## Reglas visuales base
 
@@ -31,6 +36,7 @@ Usar esta skill para definir la dirección visual de una presentación antes de 
 - Usar geometría derivada del logo AIEP: barras verticales, módulos rectos, cortes limpios y bloques bien alineados.
 - Mantener bastante aire, contraste alto, títulos cortos y una composición con carácter.
 - La elegancia es un criterio de diseño, no un extra: si una slide se siente tosca, pesada o rígida, hay que rehacerla.
+- Si un patrón visual o artefacto técnico aparece en varias clases, debe migrarse al sistema compartido en `tools/slides-system/` en vez de seguir replicándose dentro de cada `source/`.
 - Diseñar cada slide alrededor de una idea principal.
 - La distribución de los elementos debe acompañar lo que se está enseñando; el layout también explica.
 - No usar el rojo como fondo dominante salvo casos puntuales de énfasis.
@@ -56,6 +62,7 @@ Usar esta skill para definir la dirección visual de una presentación antes de 
 - Esos conectores no deben ensuciar el snippet: idealmente salen desde el borde del panel de código y recorren pasillos externos, no atraviesan el bloque de texto ni pisan tokens importantes.
 - Los conectores deben ser visualmente secundarios: la marca de color puede vivir en el punto de origen y destino, mientras la línea de recorrido puede ser más silenciosa para no competir con el código.
 - Esta exigencia se extiende a otros artefactos técnicos: terminales, árboles de archivos, JSON, respuestas HTTP, paneles tipo DevTools o estructuras similares deben respetar la gramática visual de su herramienta de origen.
+- Cuando existan componentes compartidos para esos artefactos, reutilizarlos y mejorarlos en `tools/slides-system/` antes de crear otra versión local para una clase puntual.
 
 ## Reglas de logo
 
@@ -84,6 +91,7 @@ Usar esta skill para definir la dirección visual de una presentación antes de 
 - `references/palette.md`: siempre, al iniciar un deck nuevo o rehacer uno existente.
 - `references/slide-patterns.md`: cuando haya que decidir layouts, aperturas, comparaciones, cards o cierres.
 - `references/quality-gates.md`: al expandir el deck y antes de renderizar la versión final.
+- `tools/slides-system/README.md`: cuando el deck pertenezca a este repositorio y haga falta decidir si conviene reutilizar un componente o extraer uno nuevo.
 
 ## Assets disponibles
 
@@ -100,3 +108,6 @@ Usar esta skill para definir la dirección visual de una presentación antes de 
 - Hay consistencia entre portada, aperturas de bloque y slides internas.
 - La cantidad de diapositivas calza con la duración real de la clase.
 - El resultado final quedó legible, sin overflow y con ritmo visual.
+- Si se tocó `tools/slides-system/`, `npm run test:all` pasó completo.
+- Si el deck depende del build compartido, `npm run build` quedó verde antes de generar el `.pptx`.
+- PowerPoint abre el archivo sin intentar repararlo.

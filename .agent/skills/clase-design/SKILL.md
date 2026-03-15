@@ -23,6 +23,7 @@ Usar esta skill para convertir una entrada del cronograma en una clase clara, en
    - `35 min` bloque 4;
    - `20 min` cierre, preguntas o síntesis.
 4. Ajustar tiempos solo si el contexto del archivo o el docente pide otra distribución.
+5. Cuando ya estén redactados los objetivos y los 4 bloques, hacer una revisión global del `README.md` antes de empezar el PPT.
 
 ## Estructura esperada de una clase
 
@@ -134,6 +135,24 @@ Si un recurso trae ejemplos desactualizados, adaptar el lenguaje y la tecnologí
 - Si pide revisar, priorizar claridad pedagógica, secuencia, tiempo y alineación con el cronograma.
 - Mantener consistencia con la estructura que ya exista en el `README.md` de la clase, salvo que el docente pida refactorizarla.
 
+## Revisión global antes del PPT
+
+Cuando una clase ya tiene objetivos y sus 4 bloques redactados, no pasarla de inmediato a presentación. Hacer primero una lectura completa del `README.md` como una sesión unificada.
+
+Ese repaso debe revisar, cuando aplique:
+
+- coherencia entre título, objetivos, bloques y cierre;
+- progresión interna entre bloque 1, 2, 3 y 4;
+- alineación con el día del cronograma y con la progresión técnica semanal y acumulativa;
+- presencia de puentes claros entre bloques;
+- ausencia de repeticiones o solapamientos innecesarios;
+- existencia de un cierre de clase real, no solo del cierre del último bloque;
+- claridad pedagógica del recorrido completo;
+- ortografía, tildes, `ñ`, puntuación y redacción general;
+- y ausencia de párrafos cortados, ideas a medio cerrar o mojibake.
+
+Si el README todavía se siente fragmentado, desigual o incompleto, corregirlo antes de pasar al PPT.
+
 ## Checklist mínimo antes de cerrar una entrega
 
 - Los objetivos son observables o evaluables.
@@ -141,3 +160,5 @@ Si un recurso trae ejemplos desactualizados, adaptar el lenguaje y la tecnologí
 - Los 4 bloques se distinguen entre sí y no repiten contenido.
 - La clase conecta con el día del cronograma y prepara la siguiente.
 - El texto quedó en español correcto.
+- El README fue revisado completo antes de convertirse en PPT.
+- La clase tiene cierre general además del cierre de cada bloque, cuando corresponda.

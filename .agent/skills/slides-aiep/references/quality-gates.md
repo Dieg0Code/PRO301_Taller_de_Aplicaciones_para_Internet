@@ -52,6 +52,18 @@ No ampliar con:
 - Si los conectores pasan por encima del código, del texto explicativo o de otras tarjetas, el patrón está mal resuelto y debe rehacerse.
 - Si los conectores gritan más que el código o que la anotación, también están mal resueltos; el recorrido debe ser secundario respecto del snippet y la tarjeta explicativa.
 - Si una slide incluye comandos, JSON, árboles de archivos o paneles técnicos, esos artefactos deben verse nativos a su contexto y no como cajas de texto genéricas.
+- Si un artefacto técnico se repite entre clases y sigue resuelto ad hoc dentro de un deck, todavía no pasó el estándar del repositorio: debe extraerse a `tools/slides-system/`.
+- Un deck nuevo no debería nacer copiando helpers viejos desde otra clase si el sistema central ya ofrece tema, primitives o componentes equivalentes.
+
+## Validación operativa
+
+- Si se modificó `tools/slides-system/`, ejecutar `npm run test:all` dentro de ese directorio.
+- No cerrar una mejora de librería con `typecheck`, `build`, `vitest`, `cspell` o chequeo de mojibake fallando.
+- Si el deck nuevo usa TypeScript o depende de `dist/`, ejecutar `npm run build` en `tools/slides-system/` antes de regenerar el `.pptx`.
+- Después de generar el deck, ejecutar la validación de overflow y revisar el render visual.
+- Confirmar apertura correcta del archivo en PowerPoint; si PowerPoint intenta reparar, el deck no está listo.
+- Si la validación detecta fallos, corregir y regenerar antes de seguir.
+- No dar por bueno un deck solo porque “abre”: debe abrir limpio y además pasar revisión visual y textual.
 
 ## Validación pedagógica
 

@@ -10,6 +10,7 @@
 **/ppt/rendered*/
 **/ppt/_render*/
 **/ppt/montage*.png
+tools/slides-system/dist/
 
 # OS/editor noise
 .DS_Store

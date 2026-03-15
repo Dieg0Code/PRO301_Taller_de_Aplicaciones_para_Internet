@@ -5,4 +5,6 @@ module.exports = {
   ...require("./browser-mock"),
   ...require("./form-mock"),
   ...require("./dom-tree"),
+  ...require("./frontend-panels"),
+  ...require("./app-panels"),
 };

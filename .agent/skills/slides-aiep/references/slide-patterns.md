@@ -68,6 +68,7 @@
 - El layout debe reforzar la explicación del contenido concreto de esa clase, no solo mantener continuidad estética con el deck pasado.
 - Cuando una slide incluya maquetas de interfaz o componentes web, la composición también debe respetar lógica de UI real: alineación, agrupación, jerarquía y posición esperable de acciones primarias.
 - Cuando una slide muestre código o artefactos técnicos, la composición debe acercarse a su medio real: editor para código, terminal para comandos, árbol para archivos, panel para DevTools, etc.
+- Si ese artefacto ya existe como componente compartido en `tools/slides-system/`, reutilizarlo en vez de dibujarlo otra vez desde cero dentro de la clase.
 - Cuando una slide combine snippet más explicación lateral, la composición debe anclar la explicación al fragmento correspondiente mediante conectores, subrayados o marcas de lectura.
 - Si una tarjeta describe una línea, atributo o bloque específico, el estudiante debería poder encontrarlo visualmente sin adivinar.
 - Priorizar conectores ortogonales y rutas externas al panel de código; el recorrido debe ayudar a leer, no competir con el snippet.
@@ -82,6 +83,7 @@
 - Tratar el layout como decoración y no como parte del mensaje pedagógico.
 - Repetir entre clases el mismo mapa visual de cards, paneles o flujos aunque el contenido trate otra familia de ideas.
 - Conservar una slide porque “ya funciona” si su distribución no aporta nada específico a la explicación nueva.
+- Duplicar componentes técnicos dentro de cada `source/` cuando ya existe o debería existir una versión compartida en `tools/slides-system/`.
 
 ## Reglas de ritmo visual
 
