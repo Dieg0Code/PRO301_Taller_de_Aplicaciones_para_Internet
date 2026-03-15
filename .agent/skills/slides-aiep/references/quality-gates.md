@@ -43,6 +43,15 @@ No ampliar con:
 - Si apertura, desarrollo, preguntas y cierre se ven casi iguales, el deck está perdiendo capacidad de conducción.
 - Si tres slides consecutivas comparten el mismo esqueleto visual, revisar composición y ritmo.
 - La variación debe ser intencional: cambiar solo colores no cuenta como cambio de estructura.
+- Si un bloque nuevo parece una copia del bloque anterior con texto reemplazado, el deck no pasó la revisión visual.
+- Si una clase nueva recicla la misma distribución general de otra clase sin una razón pedagógica clara, rehacer composición.
+- Si una slide incluye componentes web simulados, esos componentes deben verse operables y bien resueltos: botones alineados, inputs consistentes, jerarquía clara y acciones ubicadas donde se esperan.
+- Ninguna maqueta de interfaz importante para el contenido debería sentirse improvisada, torcida o decorativa; si enseña UI, la UI debe estar bien hecha.
+- Si una slide incluye código, el snippet no debería verse como texto plano: debe usar tipografía monoespaciada, sintaxis resaltada y una composición coherente con un editor real.
+- Si una slide comenta partes del código, revisar que exista un anclaje visual claro entre explicación y snippet; no debería depender solo de proximidad espacial o intuición del estudiante.
+- Si los conectores pasan por encima del código, del texto explicativo o de otras tarjetas, el patrón está mal resuelto y debe rehacerse.
+- Si los conectores gritan más que el código o que la anotación, también están mal resueltos; el recorrido debe ser secundario respecto del snippet y la tarjeta explicativa.
+- Si una slide incluye comandos, JSON, árboles de archivos o paneles técnicos, esos artefactos deben verse nativos a su contexto y no como cajas de texto genéricas.
 
 ## Validación pedagógica
 
@@ -52,3 +61,5 @@ No ampliar con:
 - El deck debe apoyar al docente y no competir con su explicación.
 - La composición debe sostener la atención del estudiante y marcar cambios de función dentro del relato.
 - El lenguaje visual debe acompañar la explicación: comparar debe sentirse distinto de secuenciar, preguntar, sintetizar o cerrar.
+- El lenguaje visual también debe distinguir una clase de otra: continuidad institucional sí, clonación entre decks no.
+- Antes de cerrar, preguntar explícitamente: ¿esta distribución ayuda a enseñar este contenido o solo es la misma plantilla aplicada otra vez?

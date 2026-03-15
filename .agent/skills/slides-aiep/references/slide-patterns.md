@@ -52,6 +52,8 @@
 - La composición debe responder a la función de la idea: comparar, secuenciar, resumir, tensionar, abrir o cerrar no deberían verse igual.
 - Coherencia no significa clonación: el deck debe sentirse parte de una misma familia, pero no como una plantilla repetida.
 - No encadenar slides cuyo único cambio sea el texto dentro del mismo esqueleto visual.
+- La variedad no se limita a una sola clase: un deck nuevo no debería heredar mecánicamente la retícula del deck anterior.
+- La identidad AIEP debe venir del sistema visual compartido, no de reciclar la misma distribución de componentes en todas las presentaciones.
 
 ## Relación entre contenido y composición
 
@@ -62,6 +64,14 @@
 - Una slide de preguntas debe abrir conversación y respirar; no debe parecer una slide de definiciones reciclada.
 - Una síntesis o cierre debe reordenar lo visto y preparar el paso siguiente, no repetir la misma retícula del desarrollo.
 - Si el contenido cambia de propósito, la distribución también debería cambiar para que el estudiante sienta ese giro.
+- Si cambia la clase, el bloque o la intención didáctica, revisar primero si la composición anterior todavía tiene sentido antes de reutilizarla.
+- El layout debe reforzar la explicación del contenido concreto de esa clase, no solo mantener continuidad estética con el deck pasado.
+- Cuando una slide incluya maquetas de interfaz o componentes web, la composición también debe respetar lógica de UI real: alineación, agrupación, jerarquía y posición esperable de acciones primarias.
+- Cuando una slide muestre código o artefactos técnicos, la composición debe acercarse a su medio real: editor para código, terminal para comandos, árbol para archivos, panel para DevTools, etc.
+- Cuando una slide combine snippet más explicación lateral, la composición debe anclar la explicación al fragmento correspondiente mediante conectores, subrayados o marcas de lectura.
+- Si una tarjeta describe una línea, atributo o bloque específico, el estudiante debería poder encontrarlo visualmente sin adivinar.
+- Priorizar conectores ortogonales y rutas externas al panel de código; el recorrido debe ayudar a leer, no competir con el snippet.
+- Dar más protagonismo al punto de origen y al destino que al trayecto: el color fuerte puede vivir en las marcas de anclaje, mientras la línea de recorrido debe ser más silenciosa.
 
 ## Anti-patrones
 
@@ -70,6 +80,8 @@
 - Diseñar primero una retícula fija y forzar todo el contenido a entrar allí.
 - Hacer que apertura, desarrollo, preguntas y cierre se distingan solo por el texto y no por la composición.
 - Tratar el layout como decoración y no como parte del mensaje pedagógico.
+- Repetir entre clases el mismo mapa visual de cards, paneles o flujos aunque el contenido trate otra familia de ideas.
+- Conservar una slide porque “ya funciona” si su distribución no aporta nada específico a la explicación nueva.
 
 ## Reglas de ritmo visual
 

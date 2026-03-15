@@ -46,6 +46,56 @@ Se debe priorizar:
 
 Si aparecen tecnologías antiguas o legadas, deben tratarse con contexto y criterio, no como centro formativo por defecto.
 
+## Progresión temporal de profundidad técnica
+
+La progresión técnica del módulo debe leerse en dos ejes al mismo tiempo:
+
+- dentro de una misma semana;
+- y entre semanas consecutivas.
+
+La dificultad no debe quedarse estática. El curso debe avanzar desde comprensión inicial hacia trabajo técnico cada vez más concreto, visible y exigente.
+
+### 1. Progresión dentro de la semana
+
+Dentro de una misma semana debe existir una progresión clara de profundidad técnica. La semana no debe sentirse plana ni repetir el mismo nivel de exigencia conceptual en cada sesión.
+
+Usar por defecto esta lógica:
+
+- `lunes`: instalar marco conceptual, vocabulario, mapa mental, motivación y primeras distinciones técnicas;
+- `martes`: mantener la comprensión conceptual, pero aumentar contacto con herramientas, flujos reales, primeros comandos, primeras estructuras de código o lectura guiada;
+- `miércoles`: subir la densidad técnica de forma visible con más código, más comandos, más inspección, más estructura real, más lectura de archivos, más debugging y más contacto con piezas concretas del trabajo técnico.
+
+Eso no significa abandonar la intuición pedagógica, sino hacer que la intuición desemboque en práctica técnica más dura a medida que avanza la semana.
+
+### 2. Progresión entre semanas
+
+La dificultad también debe crecer de una semana a otra. Un día equivalente de una semana posterior no debería sentirse técnicamente igual al de una semana anterior, salvo que el cronograma justifique una pausa, repaso o evaluación.
+
+En términos prácticos:
+
+- el `lunes` de la semana 1 puede ser más introductorio que el `lunes` de la semana 2;
+- el `martes` de una semana posterior debería operar sobre herramientas, código o estructuras con más soltura que el `martes` inicial;
+- el `miércoles` de una semana posterior debería mostrar más exigencia técnica acumulada que el `miércoles` de la primera semana.
+
+Esto implica que, a medida que avanza el módulo, debe aumentar gradualmente la presencia de:
+
+- snippets;
+- comandos;
+- lectura de código y de estructura real;
+- análisis técnico de errores;
+- inspección en navegador;
+- integración entre herramientas;
+- y tareas donde el estudiante tenga que interpretar material menos “amigable” y más cercano al trabajo real.
+
+En términos prácticos:
+
+- una clase del miércoles no debería sentirse como un lunes con contenido distinto;
+- una clase de la semana 4 no debería sentirse como una reescritura suavizada de la semana 1;
+- hacia mitad y fin de semana debe crecer la presencia de snippets, comandos, estructura real de documentos, inspección técnica y casos de uso concretos;
+- a medida que pasan las semanas debe crecer la tolerancia del curso a material más duro, más concreto y más técnico;
+- el aumento de dificultad debe ser gradual, pero perceptible;
+- si el cronograma no indica otra cosa, el módulo debe avanzar desde comprensión general hacia mayor ejecución, lectura técnica, diagnóstico y resolución concreta.
+
 ## Jerarquía de verdad del repositorio
 
 Cuando exista tensión entre archivos, usar este orden:
@@ -130,6 +180,7 @@ Evitar ejemplos vacíos o demasiado abstractos si no ayudan a fijar criterio té
 Cuando corresponda, usar estas skills del repositorio:
 
 - `clase-design`: para estructurar y redactar clases.
+- `cohort-comms`: para redactar mensajes docentes breves y estratégicos para WhatsApp u otros canales de estudiantes.
 - `slides-aiep`: para dirección visual institucional de los PPT.
 - `slides`: para construir, renderizar y validar decks.
 

@@ -1,0 +1,27 @@
+const TOKENS = {
+  paper: "F8F3EC",
+  white: "FFFFFF",
+  navy: "102A43",
+  red: "D62027",
+  ink: "243B53",
+  slate: "52606D",
+  guide: "96A3B2",
+  border: "D8CFC4",
+  softBlue: "E6EEF7",
+  softNeutral: "EDE6DA",
+  paleRed: "F8E4E5",
+  sand: "EADFD0",
+  gold: "E0BC5A",
+  warm: "F2E7D9",
+  mist: "EEF2F6",
+  titleFill: "284B75",
+  editorBg: "102A43",
+  terminalBg: "0F1720",
+  terminalPrompt: "E0BC5A",
+  terminalOutput: "E6EEF7",
+  terminalMuted: "8AA0B6",
+};
+
+module.exports = {
+  TOKENS,
+};

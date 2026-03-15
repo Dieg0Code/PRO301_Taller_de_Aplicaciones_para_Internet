@@ -42,6 +42,20 @@ Usar esta skill para definir la dirección visual de una presentación antes de 
 - Si dos ideas cumplen funciones distintas dentro de la clase, su composición también debe diferenciarse.
 - Repetir una misma distribución en cadena debilita la atención del estudiante y empobrece el lenguaje visual del deck.
 - La consistencia debe venir de la paleta, la tipografía, los márgenes y el sistema gráfico; la composición puede y debe variar.
+- No tratar un deck nuevo como clon del anterior: cada clase debe hablar con identidad propia dentro de la familia AIEP.
+- No reutilizar por defecto la distribución de bloques, cards o recorridos de una clase previa si el nuevo contenido pide otra lógica visual.
+- El lenguaje visual debe cambiar entre bloques y entre clases cuando cambia la función pedagógica: comparar, abrir, secuenciar, preguntar y cerrar no deberían heredar el mismo esqueleto.
+- Si una slide de una clase nueva puede intercambiarse con una de otra clase sin que se note el cambio más allá del texto, el diseño quedó demasiado genérico.
+- Si una slide representa componentes web como formularios, botones, inputs, menús, cards o modales, esos componentes deben verse plausibles y bien resueltos.
+- No usar UI ficticia descuidada como simple decoración: alineación, espaciado, jerarquía, tamaño de controles y ubicación de acciones deben respetar convenciones básicas de interfaz.
+- Si un componente sería importante dentro del módulo real, también debe estar bien construido en la diapositiva; una maqueta torpe enseña mal.
+- Cuando una slide incluya código, el snippet debe verse como código real: tipografía monoespaciada, sintaxis coloreada y una presentación cercana a un editor.
+- Evitar bloques de código planos, monocromos o sin jerarquía visual; si el material pretende enseñar técnica, el snippet también debe comunicarla visualmente.
+- Si una slide explica partes concretas de un snippet, la relación debe verse: usar conectores, subrayados, marcas o anotaciones que calcen con la zona del código que se está comentando.
+- No dejar que las tarjetas explicativas “floten” al lado del código sin anclaje visual; si una observación depende de una línea o atributo puntual, esa dependencia debe leerse en la composición.
+- Esos conectores no deben ensuciar el snippet: idealmente salen desde el borde del panel de código y recorren pasillos externos, no atraviesan el bloque de texto ni pisan tokens importantes.
+- Los conectores deben ser visualmente secundarios: la marca de color puede vivir en el punto de origen y destino, mientras la línea de recorrido puede ser más silenciosa para no competir con el código.
+- Esta exigencia se extiende a otros artefactos técnicos: terminales, árboles de archivos, JSON, respuestas HTTP, paneles tipo DevTools o estructuras similares deben respetar la gramática visual de su herramienta de origen.
 
 ## Reglas de logo
 

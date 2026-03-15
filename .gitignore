@@ -8,6 +8,7 @@
 
 # Generated preview assets for slide review
 **/ppt/rendered*/
+**/ppt/_render*/
 **/ppt/montage*.png
 
 # OS/editor noise
