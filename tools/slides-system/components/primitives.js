@@ -163,6 +163,10 @@ function addMiniCard(slide, SH, opts = {}) {
   const y = opts.y;
   const w = opts.w;
   const h = opts.h;
+  const accentH = Math.max(0.02, h - 0.24);
+  const titleH = Math.min(0.24, Math.max(0.18, h - 0.18));
+  const bodyY = y + 0.44;
+  const bodyH = Math.max(0, h - 0.54);
   slide.addShape(SH.roundRect, {
     x,
     y,
@@ -176,7 +180,7 @@ function addMiniCard(slide, SH, opts = {}) {
     x: x + 0.08,
     y: y + 0.12,
     w: 0.11,
-    h: h - 0.24,
+    h: accentH,
     fill: { color: opts.accent || TOKENS.red },
     line: { color: opts.accent || TOKENS.red },
   });
@@ -184,19 +188,19 @@ function addMiniCard(slide, SH, opts = {}) {
     x: x + 0.28,
     y: y + 0.14,
     w: w - 0.36,
-    h: 0.24,
+    h: titleH,
     fontFace: TYPOGRAPHY.display,
     fontSize: opts.titleFontSize || 12.5,
     bold: true,
     color: TOKENS.navy,
     margin: 0,
   });
-  if (opts.body) {
+  if (opts.body && bodyH > 0.08) {
     slide.addText(opts.body, {
       x: x + 0.28,
-      y: y + 0.44,
+      y: bodyY,
       w: w - 0.36,
-      h: h - 0.54,
+      h: bodyH,
       fontFace: TYPOGRAPHY.body,
       fontSize: opts.bodyFontSize || 10.5,
       color: TOKENS.ink,

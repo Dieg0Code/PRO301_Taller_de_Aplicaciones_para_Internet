@@ -34,8 +34,9 @@ La base nueva vive en `src/` con TypeScript. La implementación JS actual se man
 - `browser-mock`: maqueta de navegador.
 - `form-mock`: maqueta de formulario con CTA centrado.
 - `dom-tree`: árbol DOM integrado al lenguaje visual del deck.
-- `frontend-panels`: responsive compare, cascada CSS, inspector de cascada, escala de especificidad, token board, box model, layout Flex/Grid y auditoría estilo Lighthouse.
+- `frontend-panels`: responsive compare, reflow responsive, panel de decision de breakpoint, panel de dimensiones de calidad web, tablero de evidencias de auditoria, scorecards de auditoria, checklist inicial de accesibilidad, matriz de prioridad de hallazgos, panel de rubrica de evaluación, panel de suma y baja de puntos, flujo de trabajo de proyecto, comparación de calidad de prompt, tablero de variantes de componente, comparación de consistencia entre piezas, cascada CSS, inspector de cascada, escala de especificidad, token board, matriz de criterio para frameworks, box model, layout Flex/Grid y auditoria estilo Lighthouse.
 - `app-panels`: JSON, request/response y árbol de componentes.
+- `agentic-panels`: flujo de trabajo con agentes, mapa spec-driven y reparto entre apoyo del agente y validación humana.
 
 ## Dirección visual
 

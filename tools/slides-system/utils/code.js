@@ -1,5 +1,6 @@
 const fs = require("fs");
 const Prism = require("prismjs");
+const { svgToDataUri } = require("../vendor/pptxgenjs_helpers/svg");
 
 let THEME_MAP;
 const FALLBACK_COLORS = {
@@ -88,6 +89,49 @@ function createRun(text, type = "plain", fontSize = 11.5) {
   };
 }
 
+function escapeXml(text) {
+  return String(text || "")
+    .replace(/&/g, "&amp;")
+    .replace(/</g, "&lt;")
+    .replace(/>/g, "&gt;")
+    .replace(/"/g, "&quot;")
+    .replace(/'/g, "&apos;");
+}
+
+function normalizeSegmentText(text) {
+  return String(text || "").replace(/\t/g, "  ");
+}
+
+function mergeSegment(segments, text, type = "plain") {
+  if (!text) return;
+  const color = resolveColor(type);
+  const last = segments[segments.length - 1];
+  if (last && last.color === color) {
+    last.text += text;
+    return;
+  }
+  segments.push({ text, color });
+}
+
+function tokensToSegments(tokens, inheritedType = "plain", segments = []) {
+  tokens.forEach((token) => {
+    if (typeof token === "string") {
+      mergeSegment(segments, token, inheritedType);
+      return;
+    }
+
+    const nextType = token.alias || token.type || inheritedType;
+    if (Array.isArray(token.content)) {
+      tokensToSegments(token.content, nextType, segments);
+      return;
+    }
+
+    mergeSegment(segments, token.content, nextType);
+  });
+
+  return segments;
+}
+
 function tokensToRuns(tokens, fontSize, inheritedType = "plain") {
   return tokens.flatMap((token) =>
     typeof token === "string"
@@ -102,14 +146,107 @@ function makeCodeRuns(code, lang = "html", fontSize = 11.5) {
   const grammar = loadPrismLanguage(lang);
   const lines = String(code || "").split("\n");
   const pad = lines.length.toString().length;
-  return lines.flatMap((line, index) => [
-    createRun(`${(index + 1).toString().padStart(pad, " ")} `, "comment", fontSize),
-    ...tokensToRuns(Prism.tokenize(line, grammar), fontSize),
-    ...(index < lines.length - 1 ? [createRun("\n", "plain", fontSize)] : []),
-  ]);
+  return lines.flatMap((line, index) => {
+    const lineRuns = [
+      createRun(`${(index + 1).toString().padStart(pad, " ")} `, "comment", fontSize),
+      ...tokensToRuns(Prism.tokenize(line, grammar), fontSize),
+    ];
+
+    if (index < lines.length - 1 && lineRuns.length > 0) {
+      const last = lineRuns[lineRuns.length - 1];
+      lineRuns[lineRuns.length - 1] = {
+        ...last,
+        options: {
+          ...(last.options || {}),
+          breakLine: true,
+        },
+      };
+    }
+
+    return lineRuns;
+  });
+}
+
+function makeCodeText(code) {
+  const lines = String(code || "").split("\n");
+  const pad = lines.length.toString().length;
+  return {
+    lineNumbers: lines.map((_, index) => String(index + 1).padStart(pad, " ")).join("\n"),
+    codeText: lines.join("\n"),
+    totalLines: lines.length,
+    lineDigits: pad,
+  };
+}
+
+function makeCodeLines(code, lang = "html") {
+  const grammar = loadPrismLanguage(lang);
+  return String(code || "").split("\n").map((line) => ({
+    segments: tokensToSegments(Prism.tokenize(line, grammar)),
+  }));
+}
+
+function makeCodeLineRuns(code, lang = "html", fontSize = 11.5) {
+  const grammar = loadPrismLanguage(lang);
+  return String(code || "").split("\n").map((line) => {
+    const runs = tokensToRuns(Prism.tokenize(line, grammar), fontSize);
+    return runs.length > 0 ? runs : [createRun(" ", "plain", fontSize)];
+  });
+}
+
+function makeCodeSvgData(code, lang = "html", opts = {}) {
+  const codeData = makeCodeText(code);
+  const lines = makeCodeLines(code, lang);
+  const pxPerIn = opts.pxPerIn || 240;
+  const widthPx = Math.max(160, Math.round((opts.width || 4.2) * pxPerIn));
+  const heightPx = Math.max(80, Math.round((opts.height || 2.4) * pxPerIn));
+  const fontSizePt = opts.fontSize || 11.5;
+  const fontSizePx = Math.max(11, Math.round((fontSizePt / 72) * pxPerIn));
+  const charWidthPx = Math.max(6, (opts.charW || 0.07) * pxPerIn);
+  const linePitchPx = Math.max(16, (opts.linePitch || 0.18) * pxPerIn);
+  const lineDigits = opts.lineDigits || codeData.lineDigits || 1;
+  const lineNumberRightX = Math.max(18, Math.round((lineDigits + 0.72) * charWidthPx));
+  const codeStartX = Math.round((lineDigits + 1) * charWidthPx);
+  const topOffsetPx = Math.max(0, Math.round((opts.topOffset || 0) * pxPerIn));
+  const lineTopInsetPx = Math.round(linePitchPx * 0.04);
+  const clipId = `code-clip-${codeData.totalLines}-${lineDigits}-${widthPx}-${heightPx}`;
+  const numberColor = resolveColor("comment");
+  const svgLines = [];
+
+  lines.forEach((line, index) => {
+    const lineTop = topOffsetPx + index * linePitchPx + lineTopInsetPx;
+    const lineNumber = escapeXml(String(index + 1).padStart(lineDigits, " "));
+    svgLines.push(
+      `<text x="${lineNumberRightX}" y="${lineTop}" fill="#${numberColor}" text-anchor="end" dominant-baseline="hanging">${lineNumber}</text>`
+    );
+
+    let cursorX = codeStartX;
+    line.segments.forEach((segment) => {
+      const segmentText = normalizeSegmentText(segment.text);
+      if (!segmentText) return;
+      svgLines.push(
+        `<text x="${Math.round(cursorX)}" y="${lineTop}" fill="#${segment.color}" dominant-baseline="hanging" xml:space="preserve">${escapeXml(segmentText)}</text>`
+      );
+      cursorX += segmentText.length * charWidthPx;
+    });
+  });
+
+  const svg = [
+    `<svg xmlns="http://www.w3.org/2000/svg" width="${widthPx}" height="${heightPx}" viewBox="0 0 ${widthPx} ${heightPx}" overflow="hidden">`,
+    `<defs><clipPath id="${clipId}"><rect x="0" y="0" width="${widthPx}" height="${heightPx}" rx="0" ry="0"/></clipPath></defs>`,
+    `<g clip-path="url(#${clipId})" font-family="Consolas, 'Courier New', monospace" font-size="${fontSizePx}" font-weight="400">`,
+    svgLines.join(""),
+    "</g>",
+    "</svg>",
+  ].join("");
+
+  return svgToDataUri(svg).slice(5);
 }
 
 module.exports = {
   makeCodeRuns,
+  makeCodeText,
+  makeCodeLines,
+  makeCodeLineRuns,
+  makeCodeSvgData,
   buildThemeMap,
 };

@@ -8,13 +8,27 @@ import * as frontendPanelsJs from "../../components/frontend-panels";
 import * as foundationPanelsJs from "../../components/foundation-panels";
 import * as securityPanelsJs from "../../components/security-panels";
 import * as appPanelsJs from "../../components/app-panels";
+import * as agenticPanelsJs from "../../components/agentic-panels";
 import type {
+  AccessibilityChecklistPanelOptions,
+  AgenticFlowOptions,
   ActorLaneOptions,
+  AuditScorePanelOptions,
+  DelegationSplitOptions,
   AuthFlowOptions,
+  BreakpointDecisionPanelOptions,
   BrowserMockOptions,
   BoxModelDiagramOptions,
   CascadeInspectorOptions,
   CardOptions,
+  ComponentConsistencyPanelOptions,
+  ComponentVariantBoardOptions,
+  AuditEvidenceBoardOptions,
+  EvaluationRubricPanelOptions,
+  ScoreBoostsAndPenaltiesOptions,
+  ProjectWorkflowPanelOptions,
+  PromptQualityCompareOptions,
+  SeoSnippetPreviewOptions,
   ChecklistGridOptions,
   CenterStatementOptions,
   ChipOptions,
@@ -26,19 +40,26 @@ import type {
   ExposureCompareOptions,
   FormMockOptions,
   FlexGridLayoutOptions,
+  FrameworkDecisionMatrixOptions,
   HeaderOptions,
   JsonPanelOptions,
+  IssuePriorityMatrixOptions,
   LighthouseAuditCardOptions,
+  NetworkLoadBoardOptions,
   MarkBoxOptions,
   MythRealityGridOptions,
   MiniCardOptions,
   PillOptions,
+  PerformanceMetricsBoardOptions,
   PptxLike,
+  QualityDimensionsPanelOptions,
   RequestResponseFlowOptions,
+  ResponsiveReflowPanelOptions,
   ResponsiveViewportCompareOptions,
   ShapeCatalog,
   SlideLike,
   SlideNumberOptions,
+  SpecWorkflowOptions,
   SpecificityScaleOptions,
   StageChainOptions,
   TerminalPanelOptions,
@@ -103,6 +124,41 @@ type FrontendPanelExports = {
     SH: ShapeCatalog,
     opts: ResponsiveViewportCompareOptions
   ) => void;
+  addResponsiveReflowPanel: (
+    slide: SlideLike,
+    SH: ShapeCatalog,
+    opts: ResponsiveReflowPanelOptions
+  ) => void;
+  addBreakpointDecisionPanel: (
+    slide: SlideLike,
+    SH: ShapeCatalog,
+    opts: BreakpointDecisionPanelOptions
+  ) => void;
+  addComponentVariantBoard: (
+    slide: SlideLike,
+    SH: ShapeCatalog,
+    opts: ComponentVariantBoardOptions
+  ) => void;
+  addQualityDimensionsPanel: (
+    slide: SlideLike,
+    SH: ShapeCatalog,
+    opts: QualityDimensionsPanelOptions
+  ) => void;
+  addAuditEvidenceBoard: (
+    slide: SlideLike,
+    SH: ShapeCatalog,
+    opts: AuditEvidenceBoardOptions
+  ) => void;
+  addSeoSnippetPreview: (
+    slide: SlideLike,
+    SH: ShapeCatalog,
+    opts: SeoSnippetPreviewOptions
+  ) => void;
+  addComponentConsistencyPanel: (
+    slide: SlideLike,
+    SH: ShapeCatalog,
+    opts: ComponentConsistencyPanelOptions
+  ) => void;
   addCssRuleStack: (slide: SlideLike, SH: ShapeCatalog, opts: CssRuleStackOptions) => void;
   addCascadeInspector: (
     slide: SlideLike,
@@ -115,6 +171,11 @@ type FrontendPanelExports = {
     opts: SpecificityScaleOptions
   ) => void;
   addTokenBoard: (slide: SlideLike, SH: ShapeCatalog, opts: TokenBoardOptions) => void;
+  addFrameworkDecisionMatrix: (
+    slide: SlideLike,
+    SH: ShapeCatalog,
+    opts: FrameworkDecisionMatrixOptions
+  ) => void;
   addBoxModelDiagram: (
     slide: SlideLike,
     SH: ShapeCatalog,
@@ -129,6 +190,51 @@ type FrontendPanelExports = {
     slide: SlideLike,
     SH: ShapeCatalog,
     opts: LighthouseAuditCardOptions
+  ) => void;
+  addPerformanceMetricsBoard: (
+    slide: SlideLike,
+    SH: ShapeCatalog,
+    opts: PerformanceMetricsBoardOptions
+  ) => void;
+  addNetworkLoadBoard: (
+    slide: SlideLike,
+    SH: ShapeCatalog,
+    opts: NetworkLoadBoardOptions
+  ) => void;
+  addAuditScorePanel: (
+    slide: SlideLike,
+    SH: ShapeCatalog,
+    opts: AuditScorePanelOptions
+  ) => void;
+  addAccessibilityChecklistPanel: (
+    slide: SlideLike,
+    SH: ShapeCatalog,
+    opts: AccessibilityChecklistPanelOptions
+  ) => void;
+  addIssuePriorityMatrix: (
+    slide: SlideLike,
+    SH: ShapeCatalog,
+    opts: IssuePriorityMatrixOptions
+  ) => void;
+  addEvaluationRubricPanel: (
+    slide: SlideLike,
+    SH: ShapeCatalog,
+    opts: EvaluationRubricPanelOptions
+  ) => void;
+  addScoreBoostsAndPenalties: (
+    slide: SlideLike,
+    SH: ShapeCatalog,
+    opts: ScoreBoostsAndPenaltiesOptions
+  ) => void;
+  addProjectWorkflowPanel: (
+    slide: SlideLike,
+    SH: ShapeCatalog,
+    opts: ProjectWorkflowPanelOptions
+  ) => void;
+  addPromptQualityCompare: (
+    slide: SlideLike,
+    SH: ShapeCatalog,
+    opts: PromptQualityCompareOptions
   ) => void;
 };
 
@@ -171,6 +277,16 @@ type AppPanelExports = {
   ) => void;
 };
 
+type AgenticPanelExports = {
+  addAgenticFlow: (slide: SlideLike, SH: ShapeCatalog, opts: AgenticFlowOptions) => void;
+  addSpecWorkflow: (slide: SlideLike, SH: ShapeCatalog, opts: SpecWorkflowOptions) => void;
+  addDelegationSplit: (
+    slide: SlideLike,
+    SH: ShapeCatalog,
+    opts: DelegationSplitOptions
+  ) => void;
+};
+
 const primitives = primitivesJs as unknown as PrimitiveExports;
 const codePanel = codePanelJs as unknown as CodePanelExports;
 const terminalPanel = terminalPanelJs as unknown as TerminalExports;
@@ -181,6 +297,7 @@ const frontendPanels = frontendPanelsJs as unknown as FrontendPanelExports;
 const foundationPanels = foundationPanelsJs as unknown as FoundationPanelExports;
 const securityPanels = securityPanelsJs as unknown as SecurityPanelExports;
 const appPanels = appPanelsJs as unknown as AppPanelExports;
+const agenticPanels = agenticPanelsJs as unknown as AgenticPanelExports;
 
 export const setBackground = primitives.setBackground;
 export const addTopRule = primitives.addTopRule;
@@ -201,13 +318,30 @@ export const addBrowserMock = browserMock.addBrowserMock;
 export const addFormMock = formMock.addFormMock;
 export const addDomTreePanel = domTree.addDomTreePanel;
 export const addResponsiveViewportCompare = frontendPanels.addResponsiveViewportCompare;
+export const addResponsiveReflowPanel = frontendPanels.addResponsiveReflowPanel;
+export const addBreakpointDecisionPanel = frontendPanels.addBreakpointDecisionPanel;
+export const addComponentVariantBoard = frontendPanels.addComponentVariantBoard;
+export const addQualityDimensionsPanel = frontendPanels.addQualityDimensionsPanel;
+export const addAuditEvidenceBoard = frontendPanels.addAuditEvidenceBoard;
+export const addSeoSnippetPreview = frontendPanels.addSeoSnippetPreview;
+export const addComponentConsistencyPanel = frontendPanels.addComponentConsistencyPanel;
 export const addCssRuleStack = frontendPanels.addCssRuleStack;
 export const addCascadeInspector = frontendPanels.addCascadeInspector;
 export const addSpecificityScale = frontendPanels.addSpecificityScale;
 export const addTokenBoard = frontendPanels.addTokenBoard;
+export const addFrameworkDecisionMatrix = frontendPanels.addFrameworkDecisionMatrix;
 export const addBoxModelDiagram = frontendPanels.addBoxModelDiagram;
 export const addFlexGridLayout = frontendPanels.addFlexGridLayout;
 export const addLighthouseAuditCard = frontendPanels.addLighthouseAuditCard;
+export const addPerformanceMetricsBoard = frontendPanels.addPerformanceMetricsBoard;
+export const addNetworkLoadBoard = frontendPanels.addNetworkLoadBoard;
+export const addAuditScorePanel = frontendPanels.addAuditScorePanel;
+export const addAccessibilityChecklistPanel = frontendPanels.addAccessibilityChecklistPanel;
+export const addIssuePriorityMatrix = frontendPanels.addIssuePriorityMatrix;
+export const addEvaluationRubricPanel = frontendPanels.addEvaluationRubricPanel;
+export const addScoreBoostsAndPenalties = frontendPanels.addScoreBoostsAndPenalties;
+export const addProjectWorkflowPanel = frontendPanels.addProjectWorkflowPanel;
+export const addPromptQualityCompare = frontendPanels.addPromptQualityCompare;
 export const addUrlBreakdown = foundationPanels.addUrlBreakdown;
 export const addMythRealityGrid = foundationPanels.addMythRealityGrid;
 export const addActorLane = foundationPanels.addActorLane;
@@ -218,3 +352,6 @@ export const addAuthFlow = securityPanels.addAuthFlow;
 export const addJsonPanel = appPanels.addJsonPanel;
 export const addRequestResponseFlow = appPanels.addRequestResponseFlow;
 export const addComponentTree = appPanels.addComponentTree;
+export const addAgenticFlow = agenticPanels.addAgenticFlow;
+export const addSpecWorkflow = agenticPanels.addSpecWorkflow;
+export const addDelegationSplit = agenticPanels.addDelegationSplit;

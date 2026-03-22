@@ -13,6 +13,25 @@ type ValidationModule = {
 
 type CodeModule = {
   makeCodeRuns: (code: string, lang?: string, fontSize?: number) => TextRun[];
+  makeCodeText: (
+    code: string
+  ) => { lineNumbers: string; codeText: string; totalLines: number; lineDigits: number };
+  makeCodeLines: (code: string, lang?: string) => Array<{ segments: Array<{ text: string; color: string }> }>;
+  makeCodeLineRuns: (code: string, lang?: string, fontSize?: number) => TextRun[][];
+  makeCodeSvgData: (
+    code: string,
+    lang?: string,
+    opts?: {
+      width?: number;
+      height?: number;
+      fontSize?: number;
+      linePitch?: number;
+      charW?: number;
+      lineDigits?: number;
+      pxPerIn?: number;
+      topOffset?: number;
+    }
+  ) => string;
   buildThemeMap: (themeCssModule?: string) => Record<string, string>;
 };
 
@@ -23,6 +42,10 @@ const code = codeJs as unknown as CodeModule;
 export const SPACING = spacing.SPACING;
 export const validateSlide = validation.validateSlide;
 export const makeCodeRuns = code.makeCodeRuns;
+export const makeCodeText = code.makeCodeText;
+export const makeCodeLines = code.makeCodeLines;
+export const makeCodeLineRuns = code.makeCodeLineRuns;
+export const makeCodeSvgData = code.makeCodeSvgData;
 export const buildThemeMap = code.buildThemeMap;
 
 export * from "./text-quality";

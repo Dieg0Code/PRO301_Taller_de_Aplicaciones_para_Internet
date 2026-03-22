@@ -1,6 +1,6 @@
 const { TOKENS } = require("../theme/tokens");
 const { TYPOGRAPHY } = require("../theme/typography");
-const { makeCodeRuns } = require("../utils/code");
+const { makeCodeText, makeCodeSvgData } = require("../utils/code");
 
 function resolveHighlightFill(color) {
   if (color === TOKENS.red) return TOKENS.paleRed;
@@ -173,6 +173,11 @@ function addCodePanel(slide, SH, opts = {}) {
   }
 
   const metrics = getCodeMetrics(opts);
+  const codeData = makeCodeText(opts.code || "");
+  const codeImageX = metrics.codeX + metrics.textOffsetX;
+  const codeImageY = metrics.codeY + metrics.textOffsetY;
+  const codeImageW = Math.max(0.4, metrics.codeW - metrics.textOffsetX - 0.22);
+  const codeImageH = Math.max(0.2, metrics.textAreaH);
 
   if (Array.isArray(opts.annotations)) {
     opts.annotations.forEach((annotation) => {
@@ -180,17 +185,26 @@ function addCodePanel(slide, SH, opts = {}) {
     });
   }
 
-  slide.addText(makeCodeRuns(opts.code || "", opts.lang || "html", opts.fontSize || 11.2), {
-    x: metrics.codeX + metrics.textOffsetX,
-    y: metrics.codeY + metrics.textOffsetY,
-    w: metrics.codeW - 0.48,
-    h: metrics.textAreaH,
-    margin: 0,
-    breakLine: false,
-    valign: "top",
+  slide.addImage({
+    data: makeCodeSvgData(opts.code || "", opts.lang || "html", {
+      width: codeImageW,
+      height: codeImageH,
+      fontSize: metrics.fontSize,
+      linePitch: metrics.linePitch,
+      charW: metrics.charW,
+      lineDigits: codeData.lineDigits,
+    }),
+    x: codeImageX,
+    y: codeImageY,
+    w: codeImageW,
+    h: codeImageH,
   });
 
-  return metrics;
+  return {
+    ...metrics,
+    totalLines: codeData.totalLines,
+    lineDigits: codeData.lineDigits,
+  };
 }
 
 function addSegment(slide, SH, x, y, w, h, color) {

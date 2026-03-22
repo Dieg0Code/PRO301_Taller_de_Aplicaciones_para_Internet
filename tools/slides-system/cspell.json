@@ -50,6 +50,14 @@
     "accion",
     "geometria",
     "parametro",
-    "seccion"
+    "seccion",
+    "agentic",
+    "intencion",
+    "validacion",
+    "ambiguedad",
+    "guia",
+    "exploracion",
+    "rapido",
+    "tecnica"
   ]
 }

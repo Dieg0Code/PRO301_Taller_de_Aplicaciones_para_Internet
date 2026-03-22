@@ -17,4 +17,11 @@ describe("makeCodeRuns", () => {
 
     expect(colors.size).toBeGreaterThan(2);
   });
+
+  it("usa breakLine en vez de runs con salto literal", () => {
+    const runs = makeCodeRuns("const ok = true;\nconsole.log(ok);", "js", 11);
+
+    expect(runs.some((run) => String(run.text).includes("\n"))).toBe(false);
+    expect(runs.some((run) => run.options?.breakLine === true)).toBe(true);
+  });
 });

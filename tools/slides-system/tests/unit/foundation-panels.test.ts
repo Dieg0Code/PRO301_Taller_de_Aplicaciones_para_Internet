@@ -130,4 +130,32 @@ describe("foundation panels", () => {
     expect(slide.shapes.some((entry) => entry.shapeType === SH.chevron)).toBe(true);
     expectGeometryIsValid(slide);
   });
+
+  it("addStageChain ensancha el badge cuando el paso es una hora", () => {
+    const slide = new RecordingSlide();
+
+    addStageChain(slide, SH, {
+      x: 0.8,
+      y: 1,
+      w: 8.4,
+      h: 3.1,
+      stages: [
+        { step: "10:50", title: "Encuadre", body: "Se revisa la consigna." },
+        { step: "11:05", title: "Demo", body: "Se muestra el flujo." },
+      ],
+    });
+
+    const timeText = slide.texts.find((entry) => String(entry.text).includes("10:50"));
+    const timeBadge = slide.shapes.find(
+      (entry) =>
+        entry.shapeType === SH.roundRect &&
+        Number(entry.options?.x) >= 1 &&
+        Number(entry.options?.x) <= 1.2 &&
+        Number(entry.options?.w) >= 0.5
+    );
+
+    expect(timeText).toBeTruthy();
+    expect(timeBadge).toBeTruthy();
+    expect(Number(timeText?.options.w)).toBeGreaterThanOrEqual(0.5);
+  });
 });

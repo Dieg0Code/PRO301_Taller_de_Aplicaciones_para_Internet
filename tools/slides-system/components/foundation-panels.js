@@ -443,6 +443,16 @@ function addStageChain(slide, SH, opts = {}) {
     const accent = stage.accent || TOKENS.red;
     const fill = stage.fill || (stage.tone === "dark" ? TOKENS.navy : TOKENS.white);
     const dark = fill === TOKENS.navy;
+    const stepLabel = String(stage.step || String(index + 1));
+    const timeLike = /[:.]/.test(stepLabel) || stepLabel.length >= 4;
+    const badgeW = compact
+      ? (timeLike ? 0.56 : 0.22)
+      : (timeLike ? 0.72 : 0.24);
+    const badgeH = compact ? 0.2 : 0.22;
+    const badgeX = stageX + 0.18;
+    const badgeY = stageY + 0.12;
+    const titleX = badgeX + badgeW + 0.08;
+    const titleW = Math.max(0.54, stageW - (titleX - stageX) - 0.12);
 
     addSurface(slide, SH, stageX, stageY, stageW, stageH, {
       fill,
@@ -456,30 +466,34 @@ function addStageChain(slide, SH, opts = {}) {
       fill: { color: accent },
       line: { color: accent },
     });
-    slide.addShape(SH.ellipse, {
-      x: stageX + 0.18,
-      y: stageY + 0.12,
-      w: compact ? 0.18 : 0.2,
-      h: compact ? 0.18 : 0.2,
+    slide.addShape(SH.roundRect, {
+      x: badgeX,
+      y: badgeY,
+      w: badgeW,
+      h: badgeH,
+      rectRadius: 0.03,
       fill: { color: accent },
       line: { color: accent },
     });
-    slide.addText(stage.step || String(index + 1), {
-      x: stageX + 0.18,
-      y: stageY + 0.17,
-      w: compact ? 0.18 : 0.2,
-      h: 0.08,
-      fontFace: TYPOGRAPHY.body,
-      fontSize: compact ? 7.8 : 8.2,
+    slide.addText(stepLabel, {
+      x: badgeX,
+      y: badgeY + 0.05,
+      w: badgeW,
+      h: 0.1,
+      fontFace: timeLike ? TYPOGRAPHY.mono : TYPOGRAPHY.body,
+      fontSize: timeLike ? (compact ? 5.8 : 6.2) : (compact ? 6.8 : 7.2),
       bold: true,
       color: accent === TOKENS.navy ? TOKENS.white : TOKENS.navy,
       margin: 0,
       align: "center",
+      breakLine: false,
+      fit: "shrink",
+      valign: "mid",
     });
     slide.addText(stage.title || "", {
-      x: stageX + 0.44,
+      x: titleX,
       y: stageY + 0.11,
-      w: stageW - 0.54,
+      w: titleW,
       h: 0.2,
       fontFace: TYPOGRAPHY.display,
       fontSize: compact ? 11.4 : 12.4,

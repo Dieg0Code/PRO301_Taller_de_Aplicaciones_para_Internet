@@ -164,6 +164,39 @@ No cambiar por cuenta propia fechas, evaluaciones, enfoque general del módulo o
 - `tools/slides-system/`: sistema compartido para tema, componentes y utilidades de PPT.
 - `.agent/skills/`: skills locales del repositorio.
 
+## Tooling auxiliar y `uv`
+
+Este entorno cuenta con `uv` disponible. Usarlo por defecto cuando haga falta ejecutar utilidades Python, leer documentos, probar scripts aislados o instalar herramientas auxiliares sin ensuciar el entorno global.
+
+Usar esta preferencia:
+
+- `uv run ...` para scripts o utilidades puntuales;
+- `uv tool install ...` para herramientas CLI que convenga tener disponibles;
+- `uv add ...` solo cuando realmente corresponda dejar una dependencia persistente dentro de un proyecto del repositorio.
+
+No asumir que una tarea Python no se puede resolver solo porque falte un paquete global. Antes de descartar una vía, considerar si `uv` permite ejecutarla o instalar la herramienta adecuada de forma controlada.
+
+## Automatización visual con `playwright-cli`
+
+Este entorno también cuenta con `playwright-cli` disponible como herramienta auxiliar de navegador.
+
+Usarlo cuando convenga:
+
+- abrir páginas locales o remotas y revisarlas con navegador real;
+- comprobar comportamiento responsive;
+- capturar screenshots;
+- inspeccionar rápidamente una interfaz HTML/CSS durante ejemplos, demos o materiales prácticos;
+- y validar cambios visuales antes de cerrar un ejemplo web.
+
+Usarlo especialmente en tareas como:
+
+- ejemplos estáticos dentro de `clases/.../ejemplo-web/`;
+- revisiones visuales de `index.html` y `styles.css`;
+- comparación entre versión desktop y móvil;
+- y chequeos rápidos de interacción o estructura visible.
+
+No asumir que reemplaza criterio humano ni revisión manual: su valor principal aquí es acelerar validación visual y responsive con evidencia directa en navegador.
+
 ## Documentos estratégicos de referencia
 
 Además del cronograma y de los README de clase, este repo puede contener documentos de trabajo que actualizan el marco conceptual del módulo cuando el material oficial queda atrasado frente al estado real del oficio.

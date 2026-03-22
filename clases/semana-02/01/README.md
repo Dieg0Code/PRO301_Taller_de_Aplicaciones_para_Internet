@@ -28,6 +28,7 @@ Al finalizar la sesión, el estudiante será capaz de:
 - Lectura técnica de estilos: comenzar a interpretar una interfaz no solo por su apariencia final, sino por las reglas que la construyen y organizan.
 - Criterio de mantenibilidad visual: reconocer que una buena capa de estilos debe ser coherente, reutilizable y razonable de extender.
 - Organización estructural de interfaces: comprender que la distribución visual también responde a decisiones técnicas y no solo a intuiciones estéticas.
+- Trabajo supervisado con apoyo inteligente: comenzar a usar agentes para proponer reglas, refactorizar estilos o sugerir layouts, distinguiendo siempre entre ayuda útil y validación humana obligatoria en navegador y DevTools.
 
 ---
 
@@ -147,6 +148,26 @@ Esto será especialmente importante en los siguientes bloques, donde entraremos 
 
 CSS no es una capa superficial separada del razonamiento técnico. También forma parte del diseño de un sistema web.
 
+### 1.5 CSS, intención visual y apoyo con agentes
+
+En esta etapa ya conviene instalar una práctica moderna: un agente puede ayudar a proponer una primera versión de estilos, sugerir nombres de variables o bosquejar una jerarquía visual inicial, pero eso no reemplaza la comprensión del sistema.
+
+En CSS, pedir una solución sin contexto suele producir resultados aparentes pero frágiles. Por eso conviene explicitar al menos:
+
+- qué parte de la interfaz se está estilizando;
+- qué intención visual se busca;
+- qué restricciones existen;
+- y qué elementos deben mantenerse consistentes con el resto del sistema.
+
+Ese paso vuelve más útil la ayuda del agente, pero no elimina la revisión humana. Lo que sigue dependiendo del desarrollador es:
+
+- comprobar si el estilo realmente coincide con la estructura HTML;
+- revisar si la decisión visual tiene sentido en contexto;
+- detectar repeticiones innecesarias;
+- y decidir si la solución mejora o empeora la mantenibilidad.
+
+En otras palabras: el agente puede acelerar una primera propuesta, pero el criterio visual y técnico sigue siendo responsabilidad humana.
+
 ### Preguntas guía
 
 - ¿Por qué HTML y CSS no deberían entenderse como si cumplieran la misma función?
@@ -156,6 +177,7 @@ CSS no es una capa superficial separada del razonamiento técnico. También form
 ### Cierre del bloque
 
 - Idea clave: CSS no maquilla una página terminada, sino que define reglas de presentación sobre una estructura HTML previa.
+- Huella metodológica: un agente puede proponer una primera capa de estilos, pero el valor real aparece cuando la intención está clara y la interfaz se revisa con criterio.
 - Puente: en el siguiente bloque entraremos a la lógica de la cascada, la herencia y la especificidad para entender por qué algunas reglas se aplican, otras se combinan y otras se sobreescriben.
 
 ---
@@ -303,6 +325,26 @@ flowchart LR
 
 Este diagrama deja una idea clave para todo lo que viene después: una interfaz no se estiliza bien solo por tener muchas reglas, sino por entender cómo interactúan entre sí.
 
+### 2.5 Un agente puede sugerir hipótesis, pero el conflicto se valida en DevTools
+
+Cuando una regla no se aplica como esperabas, un agente puede ser útil para proponer hipótesis:
+
+- qué selector parece más débil;
+- si la herencia está influyendo;
+- si convendría revisar el orden de carga;
+- o si existe otra regla más específica que domina el resultado.
+
+Eso puede acelerar el diagnóstico inicial, pero no conviene cerrar la explicación sin leer evidencia real. En CSS, el conflicto se confirma mirando:
+
+- qué regla aparece activa;
+- cuál queda tachada;
+- qué selector gana;
+- y en qué orden se están resolviendo las declaraciones.
+
+Por eso, el paso profesional no es “preguntarle a la IA por qué no funciona” y aceptar la primera explicación, sino combinar hipótesis rápidas con verificación en DevTools.
+
+Un error frecuente en esta etapa es sumar selectores o `!important` antes de leer el conflicto. Ese hábito produce CSS más difícil de mantener y oculta el problema en vez de resolverlo.
+
 ### Preguntas guía
 
 - ¿Por qué CSS necesita una lógica de cascada cuando varias reglas afectan un mismo elemento?
@@ -313,6 +355,7 @@ Este diagrama deja una idea clave para todo lo que viene después: una interfaz 
 ### Cierre del bloque
 
 - Idea clave: cascada, herencia y especificidad explican cómo conviven las reglas CSS y por qué unas se aplican mientras otras quedan desplazadas.
+- Huella metodológica: un agente puede acelerar hipótesis de debugging, pero la lectura final del conflicto debe salir del inspector de estilos y no de intuición ciega.
 - Puente: en el siguiente bloque entraremos a variables CSS y consistencia visual, donde estas mismas decisiones se vuelven importantes para construir estilos más mantenibles y menos repetitivos.
 
 ---
@@ -480,6 +523,28 @@ Por eso, una lectura técnica útil de este bloque podría ser:
 
 Eso prepara bien el paso siguiente: ya no pensar solo en reglas individuales, sino en cómo se distribuyen elementos en pantalla con Flexbox y Grid.
 
+### 3.6 Variables, intención explícita y refactor guiado
+
+Las variables CSS conectan muy bien con una forma más madura de trabajar con agentes. Si vas a pedir ayuda para refactorizar estilos, conviene no pedir solo “mejora este CSS”, sino explicitar:
+
+- qué decisiones visuales deben centralizarse;
+- qué nombres deberían resultar legibles para el equipo;
+- qué componentes comparten esos criterios;
+- y qué parte del comportamiento no debería cambiar.
+
+Eso se acerca más a una lógica spec-driven: intención clara, restricciones visibles y tareas más pequeñas. En ese contexto, un agente puede ayudar a:
+
+- detectar valores repetidos;
+- proponer tokens iniciales;
+- sugerir nombres consistentes;
+- o convertir reglas dispersas en una base más reutilizable.
+
+Pero siguen siendo decisiones humanas:
+
+- si los nombres comunican bien;
+- si la abstracción realmente simplifica;
+- y si el sistema resultante queda más claro o más confuso.
+
 ### Preguntas guía
 
 - ¿Qué problemas aparecen cuando un mismo color, espacio o radio se repite muchas veces de forma manual?
@@ -490,6 +555,7 @@ Eso prepara bien el paso siguiente: ya no pensar solo en reglas individuales, si
 ### Cierre del bloque
 
 - Idea clave: las variables CSS permiten centralizar decisiones visuales y construir una capa de estilos más coherente, legible y mantenible.
+- Huella metodológica: un agente puede ayudar a detectar repetición y proponer tokens, pero la intención de diseño y la calidad de los nombres no conviene delegarlas sin revisión.
 - Puente: en el siguiente bloque entraremos a Flexbox y Grid para ver cómo esa misma lógica de orden y consistencia se aplica ahora a la distribución de elementos en pantalla.
 
 ---
@@ -657,6 +723,23 @@ Una interfaz bien distribuida:
 
 Por eso, aprender Flexbox y Grid no consiste solo en memorizar propiedades. También consiste en desarrollar una mirada más madura sobre cómo se organiza una pantalla.
 
+### 4.6 Layout asistido no es layout verificado
+
+En este punto del curso ya se vuelve natural usar agentes para pedir una primera propuesta de layout con Flexbox o Grid. Eso puede ahorrar tiempo, sobre todo cuando necesitas:
+
+- bosquejar una barra de navegación;
+- organizar un panel lateral y contenido principal;
+- o proponer una grilla inicial de tarjetas.
+
+Sin embargo, aquí aparece un límite importante: un layout generado no queda validado solo porque el CSS “se vea razonable” en texto. Todavía hay que comprobar:
+
+- cómo se comporta en pantalla;
+- si la alineación realmente coincide con la intención;
+- si los espacios, ejes y áreas están bien resueltos;
+- y si la solución seguirá siendo mantenible cuando la interfaz crezca.
+
+En otras palabras, el agente puede acelerar una primera versión del layout, pero Flexbox y Grid siguen exigiendo inspección visual, lectura del resultado y criterio técnico sobre distribución.
+
 ### Preguntas guía
 
 - ¿Qué tipo de problema resuelve Flexbox con más naturalidad?
@@ -667,6 +750,7 @@ Por eso, aprender Flexbox y Grid no consiste solo en memorizar propiedades. Tamb
 ### Cierre del bloque
 
 - Idea clave: Flexbox y Grid permiten resolver distribución visual moderna con más claridad, precisión y control que enfoques antiguos o improvisados.
+- Huella metodológica: un agente puede bosquejar un layout inicial, pero ejes, áreas, responsive y comportamiento real deben verificarse en pantalla y no darse por correctos por defecto.
 - Puente: en la próxima clase seguiremos con responsive design y sistemas visuales, donde estas herramientas se vuelven fundamentales para que una interfaz no solo se vea bien, sino que también responda bien al contexto.
 
 ---
@@ -686,19 +770,30 @@ La sesión avanzó desde cuatro ideas conectadas:
 
 Una lectura madura de CSS empieza justamente aquí: no basta con cambiar colores o alinear bloques hasta que algo “se vea bien”. También importa comprender por qué una regla gana, qué decisiones se repiten, qué conviene centralizar y qué herramienta de layout resulta más adecuada según el problema.
 
+Esta clase también deja instalada una metodología de trabajo más actual: en CSS, un agente puede ayudar a proponer reglas, explicar conflictos, sugerir tokens o bosquejar layouts, pero el desarrollador sigue siendo responsable de explicitar intención, revisar el comportamiento real, inspeccionar en DevTools y decidir qué solución merece quedarse.
+
 ## Ideas que deberían quedar instaladas
 
 - HTML estructura; CSS presenta.
 - CSS no actúa al azar: resuelve reglas mediante cascada, herencia y especificidad.
 - Una interfaz mantenible necesita consistencia, no solo apariencia.
 - Flexbox y Grid no compiten: resuelven problemas distintos y suelen convivir en una misma interfaz.
+- En CSS moderno, la ayuda de un agente sirve más cuando existe intención clara, restricciones visibles y validación humana del resultado.
 
 ## Preguntas de salida
 
 - ¿Qué diferencia existe entre escribir CSS para “ajustar cosas” y escribir CSS con criterio de sistema?
 - ¿Qué señales permiten detectar que una hoja de estilos se está volviendo difícil de mantener?
 - ¿En qué casos parece más natural pensar un layout con Flexbox y en cuáles con Grid?
+- ¿Qué partes del trabajo con CSS puede acelerar un agente y cuáles siguen exigiendo inspección y validación manual?
 
 ## Próximo paso
 
 En la próxima clase profundizaremos en responsive design, sistemas visuales y decisiones de layout más adaptables. Para llegar mejor preparados, conviene revisar con calma los ejemplos de selectores, variables y contenedores vistos hoy, porque serán la base del trabajo que sigue.
+
+Como hilo metodológico, conviene retener esta secuencia:
+
+1. entender cómo decide CSS;
+2. explicitar intención y restricciones;
+3. apoyarse con inteligencia para acelerar una primera versión;
+4. verificar en navegador y DevTools antes de dar algo por correcto.

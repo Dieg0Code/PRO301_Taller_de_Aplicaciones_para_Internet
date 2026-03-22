@@ -200,6 +200,117 @@ export interface ResponsiveViewportCompareOptions extends PositionedBox {
   right?: ViewportCardDescriptor;
 }
 
+export interface ResponsiveReflowStage {
+  label?: string;
+  sizeLabel?: string;
+  behavior?: string;
+  layout?: "desktop" | "tablet" | "mobile";
+  tone?: string;
+  toneFill?: string;
+  behaviorFill?: string;
+}
+
+export interface ResponsiveReflowPanelOptions extends PositionedBox {
+  title?: string;
+  stages?: ResponsiveReflowStage[];
+  footer?: string;
+}
+
+export interface BreakpointDecisionStage {
+  label?: string;
+  sizeLabel?: string;
+  note?: string;
+  accent?: string;
+  fill?: string;
+  active?: boolean;
+}
+
+export interface BreakpointDecisionPanelOptions extends PositionedBox {
+  title?: string;
+  stages?: BreakpointDecisionStage[];
+  signalTitle?: string;
+  signalBody?: string;
+  breakpointTitle?: string;
+  breakpointBody?: string;
+  focusSizeLabel?: string;
+  decisionTitle?: string;
+  decisionBody?: string;
+  footer?: string;
+}
+
+export interface ComponentVariant {
+  label?: string;
+  role?: string;
+  description?: string;
+  accent?: string;
+  fill?: string;
+  preview?: "card" | "button" | "nav" | "stack";
+  ctaLabel?: string;
+}
+
+export interface ComponentVariantBoardOptions extends PositionedBox {
+  title?: string;
+  variants?: ComponentVariant[];
+  footer?: string;
+}
+
+export interface ComponentConsistencyPanelOptions extends PositionedBox {
+  title?: string;
+  leftTitle?: string;
+  leftSubtitle?: string;
+  leftBody?: string;
+  leftFill?: string;
+  leftAccent?: string;
+  rightTitle?: string;
+  rightSubtitle?: string;
+  rightBody?: string;
+  rightFill?: string;
+  rightAccent?: string;
+  footer?: string;
+}
+
+export interface QualityDimension {
+  title?: string;
+  body?: string;
+  accent?: string;
+  fill?: string;
+}
+
+export interface QualityDimensionsPanelOptions extends PositionedBox {
+  title?: string;
+  centerLabel?: string;
+  dimensions?: QualityDimension[];
+  footer?: string;
+}
+
+export interface AuditEvidenceItem {
+  title?: string;
+  body?: string;
+  accent?: string;
+  fill?: string;
+}
+
+export interface AuditEvidenceBoardOptions extends PositionedBox {
+  title?: string;
+  items?: AuditEvidenceItem[];
+  insightTitle?: string;
+  insightBody?: string;
+  steps?: string[];
+  footer?: string;
+}
+
+export interface SeoSnippetPreviewOptions extends PositionedBox {
+  title?: string;
+  url?: string;
+  description?: string;
+  breadcrumb?: string;
+  titleColor?: string;
+  urlColor?: string;
+  descriptionColor?: string;
+  borderColor?: string;
+  fill?: string;
+}
+
 export interface CssRuleEntry {
   selector?: string;
   declaration?: string;
@@ -266,6 +377,20 @@ export interface TokenBoardGroup {
 export interface TokenBoardOptions extends PositionedBox {
   title?: string;
   groups?: TokenBoardGroup[];
+  footer?: string;
+}
+
+export interface FrameworkDecisionRow {
+  label?: string;
+  helps?: string;
+  risk?: string;
+  decision?: string;
+  accent?: string;
+}
+
+export interface FrameworkDecisionMatrixOptions extends PositionedBox {
+  title?: string;
+  rows?: FrameworkDecisionRow[];
   footer?: string;
 }
 
@@ -427,6 +552,70 @@ export interface AuthFlowOptions extends PositionedBox {
   footer?: string;
 }
 
+export interface AgenticFlowStep {
+  step?: string;
+  title?: string;
+  body?: string;
+  accent?: string;
+  fill?: string;
+  tone?: "light" | "dark";
+}
+
+export interface AgenticFlowOptions extends PositionedBox {
+  title?: string;
+  steps?: AgenticFlowStep[];
+  fill?: string;
+  line?: string;
+  headerFill?: string;
+  chevronColor?: string;
+  compact?: boolean;
+  footer?: string;
+}
+
+export interface SpecWorkflowPhase {
+  step?: string;
+  title?: string;
+  question?: string;
+  artifact?: string;
+  control?: string;
+  accent?: string;
+  fill?: string;
+}
+
+export interface SpecWorkflowOptions extends PositionedBox {
+  title?: string;
+  phases?: SpecWorkflowPhase[];
+  fill?: string;
+  line?: string;
+  headerFill?: string;
+  compact?: boolean;
+  footer?: string;
+}
+
+export interface DelegationColumn {
+  title?: string;
+  subtitle?: string;
+  items?: string[];
+  accent?: string;
+  fill?: string;
+  dark?: boolean;
+}
+
+export interface DelegationSplitOptions extends PositionedBox {
+  title?: string;
+  left?: DelegationColumn;
+  right?: DelegationColumn;
+  fill?: string;
+  line?: string;
+  headerFill?: string;
+  bridgeW?: number;
+  bridgeFill?: string;
+  bridgeAccent?: string;
+  bridgeLabel?: string;
+  bridgeBody?: string;
+  footer?: string;
+}
+
 export interface BoxModelDiagramOptions extends PositionedBox {
   title?: string;
   margin?: string;
@@ -451,6 +640,140 @@ export interface LighthouseAuditCardOptions extends PositionedBox {
   title?: string;
   scores?: LighthouseScore[];
   summary?: string;
+}
+
+export interface PerformanceMetricItem {
+  label?: string;
+  value?: string;
+  note?: string;
+  accent?: string;
+  fill?: string;
+}
+
+export interface PerformanceMetricsBoardOptions extends PositionedBox {
+  title?: string;
+  metrics?: PerformanceMetricItem[];
+  footer?: string;
+}
+
+export interface NetworkResourceItem {
+  label?: string;
+  kind?: string;
+  sizeLabel?: string;
+  durationLabel?: string;
+  weight?: number;
+  accent?: string;
+  fill?: string;
+}
+
+export interface NetworkLoadBoardOptions extends PositionedBox {
+  title?: string;
+  resources?: NetworkResourceItem[];
+  summaryTitle?: string;
+  summaryBody?: string;
+  footer?: string;
+}
+
+export interface AuditScoreItem {
+  label?: string;
+  score?: number;
+  note?: string;
+}
+
+export interface AuditScorePanelOptions extends PositionedBox {
+  title?: string;
+  items?: AuditScoreItem[];
+  footer?: string;
+}
+
+export interface AccessibilityChecklistItem {
+  label?: string;
+  note?: string;
+  status?: "ok" | "warn" | "critical";
+}
+
+export interface AccessibilityChecklistPanelOptions extends PositionedBox {
+  title?: string;
+  items?: AccessibilityChecklistItem[];
+  footer?: string;
+}
+
+export interface IssuePriorityItem {
+  label?: string;
+  impact?: "low" | "high";
+  urgency?: "low" | "high";
+  accent?: string;
+  fill?: string;
+}
+
+export interface IssuePriorityMatrixOptions extends PositionedBox {
+  title?: string;
+  xAxisLabel?: string;
+  yAxisLabel?: string;
+  items?: IssuePriorityItem[];
+  footer?: string;
+}
+
+export interface EvaluationRubricRow {
+  label?: string;
+  weight?: number;
+  weightLabel?: string;
+  note?: string;
+  accent?: string;
+  fill?: string;
+}
+
+export interface EvaluationRubricPanelOptions extends PositionedBox {
+  title?: string;
+  rows?: EvaluationRubricRow[];
+  totalLabel?: string;
+  footer?: string;
+}
+
+export interface ScoreBoostItem {
+  title?: string;
+  body?: string;
+  accent?: string;
+  fill?: string;
+}
+
+export interface ScoreBoostsAndPenaltiesOptions extends PositionedBox {
+  title?: string;
+  boostsTitle?: string;
+  boostsSubtitle?: string;
+  boosts?: ScoreBoostItem[];
+  penaltiesTitle?: string;
+  penaltiesSubtitle?: string;
+  penalties?: ScoreBoostItem[];
+  footer?: string;
+}
+
+export interface ProjectWorkflowStage {
+  step?: string;
+  title?: string;
+  artifact?: string;
+  body?: string;
+  accent?: string;
+  fill?: string;
+}
+
+export interface ProjectWorkflowPanelOptions extends PositionedBox {
+  title?: string;
+  stages?: ProjectWorkflowStage[];
+  footer?: string;
+}
+
+export interface PromptQualityCompareOptions extends PositionedBox {
+  title?: string;
+  badTitle?: string;
+  badSubtitle?: string;
+  badPrompt?: string;
+  badNotes?: string[];
+  goodTitle?: string;
+  goodSubtitle?: string;
+  goodPrompt?: string;
+  goodNotes?: string[];
+  footer?: string;
 }
 
 export interface JsonPanelOptions extends PositionedBox {

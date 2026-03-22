@@ -1,6 +1,6 @@
 const { TOKENS } = require("../theme/tokens");
 const { TYPOGRAPHY } = require("../theme/typography");
-const { makeCodeRuns } = require("../utils/code");
+const { makeCodeText } = require("../utils/code");
 
 function addSurface(slide, SH, x, y, w, h, opts = {}) {
   slide.addShape(SH.roundRect, {
@@ -72,14 +72,38 @@ function addJsonPanel(slide, SH, opts = {}) {
     color: TOKENS.white,
     margin: 0,
   });
-  slide.addText(makeCodeRuns(opts.code || '{\n  "ok": true\n}', "json", opts.fontSize || 10.6), {
+  const codeData = makeCodeText(opts.code || '{\n  "ok": true\n}');
+  const fontSize = opts.fontSize || 10.6;
+  const digits = codeData.lineDigits;
+  const charW = Math.min(0.085, Math.max(0.058, fontSize * 0.0068));
+  const numbersW = charW * (digits + 0.6);
+  const codeX = x + 0.24 + numbersW + 0.08;
+  const codeW = Math.max(0.4, w - (codeX - x) - 0.24);
+
+  slide.addText(codeData.lineNumbers, {
     x: x + 0.24,
     y: y + 0.62,
-    w: w - 0.48,
+    w: numbersW,
     h: h - 0.82,
     margin: 0,
     breakLine: false,
     valign: "top",
+    align: "right",
+    fontFace: "Consolas",
+    fontSize,
+    color: TOKENS.slate,
+  });
+  slide.addText(codeData.codeText, {
+    x: codeX,
+    y: y + 0.62,
+    w: codeW,
+    h: h - 0.82,
+    margin: 0,
+    breakLine: false,
+    valign: "top",
+    fontFace: "Consolas",
+    fontSize,
+    color: TOKENS.white,
   });
 }
 
@@ -202,7 +226,11 @@ function addComponentTree(slide, SH, opts = {}) {
   const w = opts.w;
   const h = opts.h;
   const nodes = opts.nodes || [];
-  const laneX = x + w / 2;
+  const compact = w <= 3.6;
+  const rowStep = compact ? 0.5 : 0.54;
+  const nodeHeight = compact ? 0.28 : 0.32;
+  const nodeLabelInset = compact ? 0.08 : 0.1;
+  const nodeLabelY = compact ? 0.065 : 0.08;
 
   addSurface(slide, SH, x, y, w, h, {
     fill: TOKENS.white,
@@ -213,16 +241,18 @@ function addComponentTree(slide, SH, opts = {}) {
   });
 
   nodes.forEach((node, index) => {
-    const nodeY = y + 0.74 + index * 0.54;
+    const nodeY = y + 0.74 + index * rowStep;
     const depth = node.depth || 0;
     const nodeX = x + 0.34 + depth * 1.02;
     const fill = depth === 0 ? TOKENS.paleRed : depth % 2 === 0 ? TOKENS.softNeutral : TOKENS.softBlue;
     const line = depth === 0 ? TOKENS.red : depth % 2 === 0 ? TOKENS.gold : TOKENS.navy;
+    const nodeWidth = Math.min(1.64, 0.74 + (node.label || "").length * 0.1);
+    const labelWidth = Math.min(1.44, 0.54 + (node.label || "").length * 0.1);
 
     if (depth > 0) {
       slide.addShape(SH.line, {
         x: nodeX - 0.16,
-        y: nodeY + 0.16,
+        y: nodeY + nodeHeight / 2,
         w: 0.16,
         h: 0,
         line: { color: TOKENS.guide, pt: 1 },
@@ -232,9 +262,9 @@ function addComponentTree(slide, SH, opts = {}) {
     if (index < nodes.length - 1 && (nodes[index + 1].depth || 0) > depth) {
       slide.addShape(SH.line, {
         x: nodeX - 0.16,
-        y: nodeY + 0.16,
+        y: nodeY + nodeHeight / 2,
         w: 0,
-        h: 0.54,
+        h: rowStep,
         line: { color: TOKENS.guide, pt: 1 },
       });
     }
@@ -242,19 +272,19 @@ function addComponentTree(slide, SH, opts = {}) {
     slide.addShape(SH.roundRect, {
       x: nodeX,
       y: nodeY,
-      w: Math.min(1.64, 0.74 + (node.label || "").length * 0.1),
-      h: 0.32,
+      w: nodeWidth,
+      h: nodeHeight,
       rectRadius: 0.03,
       fill: { color: fill },
       line: { color: line, pt: 1 },
     });
     slide.addText(node.label || "Component", {
-      x: nodeX + 0.1,
-      y: nodeY + 0.08,
-      w: Math.min(1.44, 0.54 + (node.label || "").length * 0.1),
+      x: nodeX + nodeLabelInset,
+      y: nodeY + nodeLabelY,
+      w: labelWidth,
       h: 0.12,
       fontFace: TYPOGRAPHY.body,
-      fontSize: 9.4,
+      fontSize: compact ? 8.8 : 9.4,
       bold: true,
       color: TOKENS.navy,
       margin: 0,
@@ -262,15 +292,39 @@ function addComponentTree(slide, SH, opts = {}) {
     });
 
     if (node.meta) {
+      const sideMetaX = nodeX + nodeWidth + 0.18;
+      const sideMetaW = x + w - sideMetaX - 0.18;
+      const metaOptions = compact
+        ? {
+            x: nodeX + 0.08,
+            y: nodeY + 0.31,
+            w: Math.max(0.84, w - (nodeX - x) - 0.24),
+            h: 0.1,
+            fontSize: 7.1,
+          }
+        : sideMetaW >= 0.92
+          ? {
+              x: sideMetaX,
+              y: nodeY + 0.04,
+              w: sideMetaW,
+              h: 0.22,
+              fontSize: sideMetaW < 1.28 ? 7.2 : 7.8,
+            }
+          : {
+              x: nodeX + 0.08,
+              y: nodeY + 0.35,
+              w: Math.max(0.9, w - (nodeX - x) - 0.24),
+              h: 0.1,
+              fontSize: 7,
+            };
+
       slide.addText(node.meta, {
-        x: Math.min(nodeX + 1.82, laneX + 1.2),
-        y: nodeY + 0.08,
-        w: w - (Math.min(nodeX + 1.82, laneX + 1.2) - x) - 0.2,
-        h: 0.12,
+        ...metaOptions,
         fontFace: TYPOGRAPHY.body,
-        fontSize: 8.6,
         color: TOKENS.slate,
         margin: 0,
+        fit: "shrink",
+        valign: "mid",
       });
     }
   });

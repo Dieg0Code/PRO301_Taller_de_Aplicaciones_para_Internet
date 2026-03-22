@@ -8,6 +8,7 @@ const { theme, components, utils } = slidesSystem;
 const { applyAiepTheme, TOKENS: C, TYPOGRAPHY } = theme;
 const {
   addHeader: systemAddHeader,
+  addAgenticFlow,
   addCard,
   addMiniCard,
   addCenterStatement,
@@ -17,8 +18,10 @@ const {
   addCascadeInspector,
   addDomTreePanel,
   addBoxModelDiagram,
+  addDelegationSplit,
   addFlexGridLayout,
   addPill,
+  addSpecWorkflow,
   addSpecificityScale,
   addTokenBoard,
 } = components;
@@ -749,34 +752,40 @@ function createBlockIntroSlide() {
     x: 9.72,
     y: 2.46,
     w: 2.12,
-    h: 0.82,
+    h: 0.94,
     title: "Reglas",
     body: "La interfaz visible nace desde declaraciones concretas.",
     fill: C.softBlue,
     line: C.softBlue,
     accent: C.navy,
+    titleFontSize: 15.6,
+    bodyFontSize: 9.2,
   });
   addCard(slide, SH, {
     x: 9.72,
-    y: 3.46,
+    y: 3.44,
     w: 2.12,
-    h: 0.82,
+    h: 0.94,
     title: "Jerarquía",
     body: "No todo pesa igual ni todo debería escribirse al azar.",
     fill: C.paleRed,
     line: C.paleRed,
     accent: C.red,
+    titleFontSize: 15.6,
+    bodyFontSize: 9.2,
   });
   addCard(slide, SH, {
     x: 9.72,
-    y: 4.46,
+    y: 4.42,
     w: 2.12,
-    h: 0.82,
+    h: 0.96,
     title: "Espacio",
     body: "CSS también decide cómo se ordena lo que aparece en pantalla.",
     fill: C.warm,
     line: C.warm,
     accent: C.gold,
+    titleFontSize: 15.6,
+    bodyFontSize: 9.2,
   });
 
   validateSlide(slide, pptx);
@@ -1194,64 +1203,71 @@ function createTechnicalJudgmentSlide() {
   const slide = pptx.addSlide();
   addHeader(
     slide,
-    "CSS también expresa criterio técnico",
-    "Una hoja de estilos ordenada comunica intención, alcance y control sobre la interfaz."
+    "CSS, intención visual y apoyo con agentes",
+    "Un agente puede acelerar una primera versión, pero la lectura real del sistema sigue dependiendo de contexto y validación."
   );
 
-  addPanel(slide, 0.92, 2.28, 3.3, 3.68, { fill: C.white, line: C.border });
-  slide.addText("Trabajar con criterio implica", {
-    x: 1.2,
-    y: 2.58,
-    w: 2.64,
-    h: 0.22,
-    fontFace: TYPOGRAPHY.display,
-    fontSize: 17.5,
-    bold: true,
-    color: C.navy,
-    margin: 0,
-  });
-  ["alcance de reglas", "reutilización razonable", "coherencia entre componentes", "control de complejidad"].forEach(
-    (text, index) => {
-      addMiniCard(slide, SH, {
-        x: 1.16,
-        y: 3.12 + index * 0.62,
-        w: 2.76,
-        h: 0.46,
-        title: text,
-        fill: index % 2 === 0 ? C.paleRed : C.softBlue,
-        line: index % 2 === 0 ? C.paleRed : C.softBlue,
-        accent: index % 2 === 0 ? C.red : C.navy,
-        titleFontSize: 11.2,
-      });
-    }
-  );
-
-  addCard(slide, SH, {
-    x: 4.58,
-    y: 2.28,
-    w: 3.42,
-    h: 3.68,
-    title: "Leer CSS mejor",
-    body: "No se trata de mover propiedades al azar hasta que algo parezca funcionar. Se trata de entender qué regla actúa, qué decisión se repite y qué conviene centralizar.",
-    fill: C.softBlue,
-    line: C.softBlue,
-    accent: C.navy,
-    titleFontSize: 20,
-    bodyFontSize: 12.4,
-  });
-
-  addPanel(slide, 8.34, 2.28, 3.76, 3.68, { fill: C.navy, line: C.navy });
-  addBarsMotif(slide, 8.68, 2.66, 0.9, C.red);
-  slide.addText("Una interfaz\nordenada se\nmantiene mejor.", {
-    x: 8.72,
-    y: 3.34,
-    w: 2.64,
-    h: 1.18,
+  addPanel(slide, 0.92, 2.3, 3.08, 3.78, { fill: C.navy, line: C.navy });
+  addBarsMotif(slide, 1.22, 2.64, 0.86, C.red);
+  slide.addText("CSS también\nse trabaja mejor\ncuando la intención\nestá clara.", {
+    x: 1.18,
+    y: 3.18,
+    w: 2.38,
+    h: 1.54,
     fontFace: TYPOGRAPHY.display,
     fontSize: 22,
     bold: true,
     color: C.white,
     margin: 0,
+  });
+  slide.addText("reglas · alcance · consistencia · validación", {
+    x: 1.18,
+    y: 5.18,
+    w: 2.44,
+    h: 0.16,
+    fontFace: TYPOGRAPHY.body,
+    fontSize: 9.4,
+    color: C.sand,
+    margin: 0,
+  });
+
+  addAgenticFlow(slide, SH, {
+    x: 4.28,
+    y: 2.3,
+    w: 7.56,
+    h: 3.78,
+    title: "Apoyo útil para CSS",
+    steps: [
+      {
+        step: "1",
+        title: "Intención",
+        body: "Qué parte de la interfaz cambia y qué coherencia visual quieres sostener.",
+        accent: C.red,
+        fill: C.paleRed,
+      },
+      {
+        step: "2",
+        title: "Contexto",
+        body: "HTML real, componentes afectados, restricciones y criterios ya existentes.",
+        accent: C.gold,
+        fill: C.warm,
+      },
+      {
+        step: "3",
+        title: "Agente",
+        body: "Puede proponer reglas, variables o una primera pasada más ordenada.",
+        accent: C.navy,
+        fill: C.softBlue,
+      },
+      {
+        step: "4",
+        title: "Validación",
+        body: "Leer resultado real, revisar en navegador y decidir qué merece quedarse.",
+        accent: C.red,
+        fill: C.white,
+      },
+    ],
+    footer: "El agente acelera una primera versión; el desarrollador verifica si la interfaz realmente mejoró.",
   });
 
   validateSlide(slide, pptx);
@@ -2140,49 +2156,43 @@ function createBlock2ClosingSlide() {
   addHeader(
     slide,
     "Cierre del bloque",
-    "Una regla CSS no se entiende sola: se entiende por cómo compite, se hereda y termina resolviéndose en el navegador.",
+    "Un conflicto CSS puede discutirse rápido con apoyo, pero solo se cierra bien cuando el inspector confirma qué regla manda.",
     "Bloque 2"
   );
 
-  addPanel(slide, 0.94, 2.34, 3.4, 3.62, { fill: C.navy, line: C.navy });
-  addBarsMotif(slide, 1.26, 2.66, 0.84, C.red);
-  slide.addText("Cascada,\nherencia y\nespecificidad\nexplican el\nresultado final.", {
-    x: 1.24,
-    y: 3.18,
-    w: 2.44,
-    h: 1.96,
-    fontFace: TYPOGRAPHY.display,
-    fontSize: 22,
-    bold: true,
-    color: C.white,
-    margin: 0,
-  });
-
-  addCard(slide, SH, {
-    x: 4.68,
+  addDelegationSplit(slide, SH, {
+    x: 0.94,
     y: 2.34,
-    w: 4.26,
-    h: 3.62,
-    title: "Idea clave",
-    body: "Trabajar mejor con CSS significa leer por qué una regla gana, qué decisiones ya vienen heredadas y qué selector está pesando más sobre el resultado.",
-    fill: C.white,
-    line: C.border,
-    accent: C.red,
-    titleFontSize: 18.4,
-    bodyFontSize: 12.2,
-  });
-  addCard(slide, SH, {
-    x: 9.24,
-    y: 2.34,
-    w: 2.56,
-    h: 3.62,
-    title: "Puente al bloque 3",
-    body: "En el siguiente tramo veremos cómo estas decisiones pasan a un CSS más mantenible con variables y consistencia visual.",
-    fill: C.softBlue,
-    line: C.softBlue,
-    accent: C.navy,
-    titleFontSize: 16.8,
-    bodyFontSize: 10.8,
+    w: 10.88,
+    h: 3.74,
+    title: "Hipótesis rápida sí, validación ciega no",
+    left: {
+      title: "El agente puede ayudar con",
+      subtitle: "lectura inicial del conflicto",
+      items: [
+        "sugerir por qué una regla parece no aplicarse",
+        "comparar selectores y pesos relativos",
+        "proponer hipótesis sobre herencia u orden",
+        "explicar un primer mapa del problema",
+      ],
+      accent: C.navy,
+      fill: C.softBlue,
+    },
+    right: {
+      title: "No conviene delegar",
+      subtitle: "lectura final del navegador",
+      items: [
+        "confirmar la regla activa en DevTools",
+        "decidir si el conflicto es de especificidad u orden",
+        "corregir sin subir complejidad innecesaria",
+        "dar por válida una explicación sin evidencia real",
+      ],
+      accent: C.red,
+      fill: C.white,
+    },
+    bridgeLabel: "Inspector",
+    bridgeBody: "La evidencia del navegador manda sobre la intuición.",
+    footer: "Primero hipótesis útiles; después lectura técnica real del conflicto.",
   });
 
   validateSlide(slide, pptx);
@@ -2814,60 +2824,56 @@ function createMatureReadingSlide() {
   const slide = pptx.addSlide();
   addHeader(
     slide,
-    "Una lectura técnica más madura",
-    "Trabajar con variables CSS implica detectar repetición, centralizar criterio, nombrarlo bien y reutilizarlo con sentido.",
+    "Refactorizar estilos mejora cuando la intención está explícita",
+    "Variables CSS y tokens se vuelven más útiles cuando el cambio se piensa como flujo y no como parche suelto.",
     "Bloque 3"
   );
 
-  const steps = [
-    { x: 0.98, title: "1. detectar", body: "repetición innecesaria", fill: C.white, line: C.border, accent: C.red },
-    { x: 3.1, title: "2. centralizar", body: "la decisión visual", fill: C.paleRed, line: C.paleRed, accent: C.red },
-    { x: 5.22, title: "3. nombrar", body: "el token con intención", fill: C.softBlue, line: C.softBlue, accent: C.navy },
-    { x: 7.34, title: "4. reutilizar", body: "entre varios componentes", fill: C.warm, line: C.warm, accent: C.gold },
-  ];
-
-  steps.forEach((step, index) => {
-    addCard(slide, SH, {
-      x: step.x,
-      y: 3.08,
-      w: 1.72,
-      h: 1.4,
-      title: step.title,
-      body: step.body,
-      fill: step.fill,
-      line: step.line,
-      accent: step.accent,
-      titleFontSize: 14.8,
-      bodyFontSize: 9.8,
-    });
-    if (index < steps.length - 1) {
-      addArrow(slide, step.x + 1.84, 3.64, 0.16, 0.22, index % 2 === 0 ? C.red : C.gold);
-    }
-  });
-
-  addCard(slide, SH, {
-    x: 9.54,
-    y: 2.76,
-    w: 2.36,
-    h: 2.18,
-    title: "Esto prepara lo siguiente",
-    body: "Responsive, layout moderno y sistemas visuales ya empiezan a apoyarse en esta misma lógica de decisiones.",
-    fill: C.navy,
-    line: C.navy,
-    accent: C.red,
-    titleFontSize: 15.2,
-    bodyFontSize: 8.9,
-    titleColor: C.white,
-    bodyColor: C.sand,
-  });
-
-  addCenterStatement(slide, SH, "Una hoja de estilos madura no solo se ve bien hoy: también es razonable de modificar mañana.", {
-    x: 1.16,
-    y: 5.36,
-    w: 10.62,
-    h: 0.68,
-    fill: C.softNeutral,
-    fontSize: 17,
+  addSpecWorkflow(slide, SH, {
+    x: 0.98,
+    y: 2.34,
+    w: 10.76,
+    h: 3.92,
+    title: "Spec-driven para refactor de estilos",
+    phases: [
+      {
+        step: "1",
+        title: "Spec",
+        question: "¿Qué decisión visual se repite o debería quedar centralizada?",
+        artifact: "color, espacio, radio o superficie con intención clara",
+        control: "claridad sobre qué no debería cambiar",
+        accent: C.red,
+        fill: C.paleRed,
+      },
+      {
+        step: "2",
+        title: "Plan",
+        question: "¿Qué variable o token conviene crear y dónde vive?",
+        artifact: "nombre, alcance y relación con componentes",
+        control: "consistencia técnica del sistema",
+        accent: C.navy,
+        fill: C.softBlue,
+      },
+      {
+        step: "3",
+        title: "Tasks",
+        question: "¿Qué reglas deben moverse primero y cómo se prueba el cambio?",
+        artifact: "cambios pequeños, revisables y trazables",
+        control: "aislamiento y orden del refactor",
+        accent: C.gold,
+        fill: C.warm,
+      },
+      {
+        step: "4",
+        title: "Implement",
+        question: "¿Qué CSS cambió y cómo confirmas que la interfaz sigue coherente?",
+        artifact: "reglas refactorizadas y revisión visual",
+        control: "resultado verificable en pantalla",
+        accent: C.red,
+        fill: C.white,
+      },
+    ],
+    footer: "Un agente puede acelerar detección y propuesta de tokens, pero la calidad del refactor depende de intención clara y revisión humana.",
   });
 
   validateSlide(slide, pptx);
@@ -3772,88 +3778,44 @@ function createModernLayoutJudgmentSlide() {
   const slide = pptx.addSlide();
   addHeader(
     slide,
-    "Layout moderno también expresa criterio",
-    "No basta con que algo entre en la pantalla: conviene que la distribución sea legible, razonable y mantenible.",
+    "Layout asistido no es layout verificado",
+    "Flexbox y Grid pueden bosquejarse rápido con ayuda, pero el comportamiento real sigue exigiendo inspección y criterio.",
     "Bloque 4"
   );
 
-  addBoxModelDiagram(slide, SH, {
-    x: 0.94,
+  addDelegationSplit(slide, SH, {
+    x: 0.96,
     y: 2.34,
-    w: 3.38,
-    h: 3.28,
-    title: "Caja y espacio",
-    margin: "24px",
-    border: "2px",
-    padding: "16px",
-    content: "320 x 120",
-  });
-
-  addCard(slide, SH, {
-    x: 4.64,
-    y: 2.48,
-    w: 2.04,
-    h: 1.16,
-    title: "legibilidad",
-    body: "bloques mejor organizados se entienden y recorren mejor",
-    fill: C.white,
-    line: C.border,
-    accent: C.red,
-    titleFontSize: 15.4,
-    bodyFontSize: 9.8,
-  });
-  addCard(slide, SH, {
-    x: 4.64,
-    y: 3.9,
-    w: 2.04,
-    h: 1.16,
-    title: "mantenimiento",
-    body: "menos hacks y más intención hacen más razonable corregir después",
-    fill: C.softBlue,
-    line: C.softBlue,
-    accent: C.navy,
-    titleFontSize: 15.4,
-    bodyFontSize: 9.8,
-  });
-  addCard(slide, SH, {
-    x: 6.96,
-    y: 2.48,
-    w: 2.04,
-    h: 1.16,
-    title: "adaptación",
-    body: "responsive mejora cuando el layout ya nació con criterio",
-    fill: C.warm,
-    line: C.warm,
-    accent: C.gold,
-    titleFontSize: 15.4,
-    bodyFontSize: 9.8,
-  });
-  addCard(slide, SH, {
-    x: 6.96,
-    y: 3.9,
-    w: 2.04,
-    h: 1.16,
-    title: "diagnóstico",
-    body: "una estructura clara se inspecciona mejor y se rompe menos",
-    fill: C.paleRed,
-    line: C.paleRed,
-    accent: C.red,
-    titleFontSize: 15.4,
-    bodyFontSize: 9.8,
-  });
-
-  addPanel(slide, 9.34, 2.34, 2.34, 3.28, { fill: C.navy, line: C.navy });
-  slide.addText("Un layout bien elegido\nno solo se ve mejor:\npiensa mejor el espacio.", {
-    x: 9.62,
-    y: 3.2,
-    w: 1.8,
-    h: 1.12,
-    fontFace: TYPOGRAPHY.display,
-    fontSize: 18.4,
-    bold: true,
-    color: C.white,
-    margin: 0,
-    align: "center",
+    w: 10.84,
+    h: 3.74,
+    title: "Qué puede acelerar un agente y qué sigue siendo tuyo",
+    left: {
+      title: "Puede ayudar con",
+      subtitle: "primera versión del layout",
+      items: [
+        "proponer una barra o toolbar en Flexbox",
+        "bosquejar una grilla inicial de tarjetas",
+        "comparar si un caso suena más a eje o a estructura",
+        "sugerir un primer reparto de espacios",
+      ],
+      accent: C.navy,
+      fill: C.softBlue,
+    },
+    right: {
+      title: "No conviene delegar",
+      subtitle: "lectura espacial final",
+      items: [
+        "comprobar alineación y ejes reales en pantalla",
+        "validar si el layout sigue siendo legible al crecer",
+        "revisar responsive y comportamiento concreto",
+        "decidir si la distribución mejora o solo acomoda",
+      ],
+      accent: C.red,
+      fill: C.white,
+    },
+    bridgeLabel: "Pantalla real",
+    bridgeBody: "Flexbox y Grid se validan mirando comportamiento, no solo leyendo CSS.",
+    footer: "Un layout generado puede verse razonable en texto y aun así fallar cuando se inspecciona de verdad.",
   });
 
   validateSlide(slide, pptx);
@@ -3996,21 +3958,22 @@ function createClassIdeasInstalledSlide() {
     "Cuando el estilo no cambia, conviene leer cascada, herencia y especificidad antes de tocar cosas al azar.",
     "Variables CSS ayudan a centralizar decisiones y a hablar de tokens en vez de repetir valores.",
     "Flexbox y Grid no compiten: resuelven problemas espaciales distintos y suelen convivir.",
+    "Un agente puede acelerar una primera versión, pero CSS se valida leyendo el resultado real en navegador y DevTools.",
   ];
 
   ideas.forEach((idea, index) => {
     addCard(slide, SH, {
       x: 1.08,
-      y: 2.34 + index * 0.94,
+      y: 2.28 + index * 0.82,
       w: 10.52,
-      h: 0.74,
+      h: 0.68,
       title: `${index + 1}.`,
       body: idea,
       fill: index % 2 === 0 ? C.white : C.softBlue,
       line: index % 2 === 0 ? C.border : C.softBlue,
       accent: index % 2 === 0 ? C.red : C.navy,
-      titleFontSize: 15.8,
-      bodyFontSize: 12.2,
+      titleFontSize: 14.8,
+      bodyFontSize: 11.2,
     });
   });
 
@@ -4094,8 +4057,8 @@ function createClassExitSlide() {
     y: 2.46,
     w: 5.18,
     h: 1.22,
-    title: "Para cerrar",
-    body: "reglas, conflicto, variables y layout forman una misma conversación técnica sobre interfaces.",
+    title: "Hilo metodológico",
+    body: "entender cómo decide CSS, explicitar intención, apoyarse con inteligencia y verificar el resultado real.",
     fill: C.white,
     line: C.border,
     accent: C.red,

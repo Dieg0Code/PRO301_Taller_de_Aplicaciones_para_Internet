@@ -1,5 +1,5 @@
 import { describe, expect, it } from "vitest";
-import { addCodeAnnotation } from "../../src/components";
+import { addCodeAnnotation, addCodePanel } from "../../src/components";
 import { boxesIntersect, getEntryBounds, RecordingSlide } from "../../src/adapters/recording-slide";
 import { TOKENS } from "../../src/theme";
 
@@ -9,6 +9,26 @@ const SH = {
 } as const;
 
 describe("addCodeAnnotation", () => {
+  it("renderiza el snippet coloreado como un SVG seguro para PowerPoint", () => {
+    const slide = new RecordingSlide();
+
+    addCodePanel(slide, SH, {
+      x: 1,
+      y: 1,
+      w: 4.8,
+      h: 2.6,
+      lang: "js",
+      code: 'const button = document.querySelector("#ok");',
+      title: "Snippet",
+    });
+
+    const codeImage = slide.images.find((entry) =>
+      String(entry.options.data ?? "").startsWith("image/svg+xml;base64,")
+    );
+
+    expect(codeImage).toBeTruthy();
+  });
+
   it("mantiene los conectores fuera del interior del snippet", () => {
     const slide = new RecordingSlide();
 

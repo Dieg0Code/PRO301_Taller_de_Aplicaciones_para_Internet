@@ -9,4 +9,5 @@ module.exports = {
   ...require("./foundation-panels"),
   ...require("./security-panels"),
   ...require("./app-panels"),
+  ...require("./agentic-panels"),
 };

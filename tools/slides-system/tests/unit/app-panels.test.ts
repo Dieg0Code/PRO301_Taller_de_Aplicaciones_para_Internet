@@ -21,8 +21,8 @@ describe("app panels", () => {
       code: '{\n  "ok": true,\n  "items": 3\n}',
     });
 
-    const codeBlock = slide.texts.find((entry) => Array.isArray(entry.text));
-    expect(Array.isArray(codeBlock?.text)).toBe(true);
+    expect(slide.texts.some((entry) => String(entry.text).includes('"ok": true'))).toBe(true);
+    expect(slide.texts.some((entry) => String(entry.text).includes("1\n2\n3"))).toBe(true);
   });
 
   it("addRequestResponseFlow deja visibles request y response", () => {
@@ -56,5 +56,56 @@ describe("app panels", () => {
 
     expect(slide.texts.some((entry) => String(entry.text).includes("Sidebar"))).toBe(true);
     expect(slide.shapes.some((shape) => shape.shapeType === SH.line)).toBe(true);
+  });
+
+  it("addComponentTree compacta los meta debajo del nodo cuando el panel es estrecho", () => {
+    const slide = new RecordingSlide();
+
+    addComponentTree(slide, SH, {
+      x: 0.8,
+      y: 1,
+      w: 3.3,
+      h: 2.8,
+      nodes: [
+        { label: "Tokens", depth: 0, meta: "base" },
+        { label: "Button", depth: 1, meta: "acción" },
+      ],
+    });
+
+    const buttonLabel = slide.texts.find((entry) => String(entry.text).includes("Button"));
+    const buttonMeta = slide.texts.find((entry) => String(entry.text).includes("acción"));
+
+    expect(buttonLabel).toBeTruthy();
+    expect(buttonMeta).toBeTruthy();
+    expect(Number(buttonMeta?.options.y)).toBeGreaterThan(Number(buttonLabel?.options.y));
+    expect(Number(buttonMeta?.options.w)).toBeGreaterThan(1);
+  });
+
+  it("addComponentTree separa el meta del ancho real del nodo en panel ancho", () => {
+    const slide = new RecordingSlide();
+
+    addComponentTree(slide, SH, {
+      x: 0.8,
+      y: 1,
+      w: 5.4,
+      h: 4.2,
+      nodes: [
+        { label: "BRIEF-EJEMPLO.md", depth: 2, meta: "negocio, publico, mensaje" },
+      ],
+    });
+
+    const nodeShape = slide.shapes.find(
+      (shape) =>
+        shape.shapeType === SH.roundRect &&
+        Number(shape.options?.x) > 2.5 &&
+        Number(shape.options?.w) > 1.5 &&
+        Number(shape.options?.w) < 1.7
+    );
+    const meta = slide.texts.find((entry) => String(entry.text).includes("negocio, publico, mensaje"));
+
+    expect(nodeShape).toBeTruthy();
+    expect(meta).toBeTruthy();
+    expect(Number(meta?.options.x)).toBeGreaterThanOrEqual(Number(nodeShape?.options.x) + Number(nodeShape?.options.w) + 0.17);
+    expect(Number(meta?.options.h)).toBeGreaterThanOrEqual(0.2);
   });
 });
