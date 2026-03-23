@@ -25,9 +25,13 @@ import type {
   ComponentVariantBoardOptions,
   AuditEvidenceBoardOptions,
   EvaluationRubricPanelOptions,
+  EventReactionPanelOptions,
   ScoreBoostsAndPenaltiesOptions,
   ProjectWorkflowPanelOptions,
   PromptQualityCompareOptions,
+  StaticVsInteractiveCompareOptions,
+  DataTypesBoardOptions,
+  ControlFlowPanelOptions,
   SeoSnippetPreviewOptions,
   ChecklistGridOptions,
   CenterStatementOptions,
@@ -236,6 +240,26 @@ type FrontendPanelExports = {
     SH: ShapeCatalog,
     opts: PromptQualityCompareOptions
   ) => void;
+  addStaticVsInteractiveCompare: (
+    slide: SlideLike,
+    SH: ShapeCatalog,
+    opts: StaticVsInteractiveCompareOptions
+  ) => void;
+  addDataTypesBoard: (
+    slide: SlideLike,
+    SH: ShapeCatalog,
+    opts: DataTypesBoardOptions
+  ) => void;
+  addControlFlowPanel: (
+    slide: SlideLike,
+    SH: ShapeCatalog,
+    opts: ControlFlowPanelOptions
+  ) => void;
+  addEventReactionPanel: (
+    slide: SlideLike,
+    SH: ShapeCatalog,
+    opts: EventReactionPanelOptions
+  ) => void;
 };
 
 type FoundationPanelExports = {
@@ -342,6 +366,10 @@ export const addEvaluationRubricPanel = frontendPanels.addEvaluationRubricPanel;
 export const addScoreBoostsAndPenalties = frontendPanels.addScoreBoostsAndPenalties;
 export const addProjectWorkflowPanel = frontendPanels.addProjectWorkflowPanel;
 export const addPromptQualityCompare = frontendPanels.addPromptQualityCompare;
+export const addStaticVsInteractiveCompare = frontendPanels.addStaticVsInteractiveCompare;
+export const addDataTypesBoard = frontendPanels.addDataTypesBoard;
+export const addControlFlowPanel = frontendPanels.addControlFlowPanel;
+export const addEventReactionPanel = frontendPanels.addEventReactionPanel;
 export const addUrlBreakdown = foundationPanels.addUrlBreakdown;
 export const addMythRealityGrid = foundationPanels.addMythRealityGrid;
 export const addActorLane = foundationPanels.addActorLane;

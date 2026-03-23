@@ -193,6 +193,7 @@ function addCodePanel(slide, SH, opts = {}) {
       linePitch: metrics.linePitch,
       charW: metrics.charW,
       lineDigits: codeData.lineDigits,
+      topOffset: opts.topOffset != null ? opts.topOffset : opts.title ? 0.06 : 0.03,
     }),
     x: codeImageX,
     y: codeImageY,

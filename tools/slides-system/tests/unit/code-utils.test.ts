@@ -1,5 +1,5 @@
 import { describe, expect, it } from "vitest";
-import { makeCodeRuns } from "../../src/utils";
+import { makeCodeRuns, makeCodeSvgData } from "../../src/utils";
 
 describe("makeCodeRuns", () => {
   it("genera varios colores al resaltar HTML", () => {
@@ -23,5 +23,22 @@ describe("makeCodeRuns", () => {
 
     expect(runs.some((run) => String(run.text).includes("\n"))).toBe(false);
     expect(runs.some((run) => run.options?.breakLine === true)).toBe(true);
+  });
+
+  it("agrupa cada linea del SVG en un text con tspan para no aplastar signos ni espacios", () => {
+    const data = makeCodeSvgData('const estado = "JS activo";\nconsole.log(estado);', "js", {
+      width: 4.8,
+      height: 1.8,
+      fontSize: 10,
+    });
+
+    const svg = Buffer.from(String(data).replace(/^image\/svg\+xml;base64,/, ""), "base64").toString("utf8");
+
+    expect(svg.includes("<tspan")).toBe(true);
+    expect(svg.includes(">const</tspan>")).toBe(true);
+    expect(svg.includes("> estado </tspan>")).toBe(true);
+    expect(svg.includes(">.</tspan>")).toBe(true);
+    expect(svg.includes(">;</tspan>")).toBe(true);
+    expect(svg.includes('dominant-baseline="hanging"')).toBe(false);
   });
 });

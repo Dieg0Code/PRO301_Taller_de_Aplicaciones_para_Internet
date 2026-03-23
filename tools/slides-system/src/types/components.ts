@@ -776,6 +776,68 @@ export interface PromptQualityCompareOptions extends PositionedBox {
   footer?: string;
 }
 
+export interface StaticVsInteractiveCompareOptions extends PositionedBox {
+  title?: string;
+  leftTitle?: string;
+  leftSubtitle?: string;
+  leftCta?: string;
+  leftNote?: string;
+  leftSideLabel?: string;
+  rightTitle?: string;
+  rightSubtitle?: string;
+  rightCta?: string;
+  rightNote?: string;
+  rightSideLabel?: string;
+  footer?: string;
+}
+
+export interface DataTypesBoardCard {
+  label?: string;
+  sample?: string;
+  note?: string;
+  accent?: string;
+  fill?: string;
+}
+
+export interface DataTypesBoardOptions extends PositionedBox {
+  title?: string;
+  cards?: DataTypesBoardCard[];
+  footer?: string;
+}
+
+export interface ControlFlowPanelOptions extends PositionedBox {
+  title?: string;
+  inputTitle?: string;
+  inputCode?: string;
+  inputBody?: string;
+  conditionTitle?: string;
+  conditionLabel?: string;
+  conditionBody?: string;
+  outputTitle?: string;
+  trueTitle?: string;
+  trueBody?: string;
+  falseTitle?: string;
+  falseBody?: string;
+  footer?: string;
+}
+
+export interface EventReactionStage {
+  title?: string;
+  body?: string;
+  accent?: string;
+  fill?: string;
+}
+
+export interface EventReactionPanelOptions extends PositionedBox {
+  title?: string;
+  stages?: EventReactionStage[];
+  browserLabel?: string;
+  triggerLabel?: string;
+  responseLabel?: string;
+  browserNote?: string;
+  footer?: string;
+}
+
 export interface JsonPanelOptions extends PositionedBox {
   title?: string;
   code?: string;

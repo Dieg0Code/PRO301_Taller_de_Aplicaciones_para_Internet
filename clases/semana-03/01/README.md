@@ -9,22 +9,6 @@
 
 ---
 
-# Cómo se Evaluará
-
-La evaluación considera estos criterios:
-
-- HTML y semántica: `20%`
-- CSS y sistema visual: `20%`
-- responsive y versión móvil: `20%`
-- calidad visual general: `15%`
-- accesibilidad básica: `10%`
-- uso de Codex con criterio: `10%`
-- orden y entrega: `5%`
-
-En simple: no se evalúa solo que la página “se vea bonita”, sino que esté bien estructurada, se adapte bien, se sienta profesional y haya sido trabajada con criterio.
-
----
-
 # Qué Tienes que Hacer
 
 Durante esta evaluación debes construir una página web estática individual que se sienta como un producto o servicio real, no como una maqueta escolar ni como una demo genérica.
@@ -61,7 +45,7 @@ La página debe mostrar, como mínimo:
 
 ## Uso de Codex
 
-Puedes apoyarte en Codex durante la evaluación, pero no conviene delegar ciegamente la calidad final.
+Puedes apoyarte en Codex durante la evaluación, pero no se evaluará “magia” ni dependencia ciega del agente.
 
 Codex puede ayudarte a:
 
@@ -85,5 +69,41 @@ La entrega ideal es en un repositorio de GitHub bien ordenado.
 Si no puedes usar GitHub, puedes entregar un archivo comprimido (`.zip` o `.rar`) con la estructura del proyecto limpia y completa.
 
 Entregas desordenadas, archivos sueltos o envíos informales bajan puntaje en la parte de método de trabajo y presentación.
+
+---
+
+# Cómo se Evaluará
+
+La evaluación considera estos criterios:
+
+- HTML y semántica: `20%`
+- CSS y sistema visual: `20%`
+- responsive y versión móvil: `20%`
+- calidad visual general: `15%`
+- accesibilidad básica: `10%`
+- uso de Codex con criterio: `10%`
+- orden y entrega: `5%`
+
+En simple: no se evalúa solo que la página “se vea bonita”, sino que esté bien estructurada, se adapte bien, se sienta profesional y haya sido trabajada con criterio.
+
+---
+
+# Qué Suma y Qué Baja Puntos
+
+## Suma puntos
+
+- HTML semántico real y jerarquía clara de contenido;
+- CSS ordenado, con variables o tokens y consistencia visual;
+- versión móvil bien resuelta;
+- interfaz que se sienta como producto o servicio real;
+- y entrega limpia, idealmente en GitHub.
+
+## Baja puntos
+
+- texto meta visible, contenido genérico o tono de demo;
+- interfaz infantil, improvisada o poco profesional;
+- responsive mal resuelto;
+- confiar ciegamente en la primera salida de Codex;
+- y entrega desordenada o por medios informales.
 
 ---

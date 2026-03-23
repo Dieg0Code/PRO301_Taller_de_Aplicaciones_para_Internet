@@ -207,27 +207,30 @@ function makeCodeSvgData(code, lang = "html", opts = {}) {
   const lineNumberRightX = Math.max(18, Math.round((lineDigits + 0.72) * charWidthPx));
   const codeStartX = Math.round((lineDigits + 1) * charWidthPx);
   const topOffsetPx = Math.max(0, Math.round((opts.topOffset || 0) * pxPerIn));
-  const lineTopInsetPx = Math.round(linePitchPx * 0.04);
+  const lineBaselineOffsetPx = Math.max(12, Math.round(fontSizePx * 0.84));
   const clipId = `code-clip-${codeData.totalLines}-${lineDigits}-${widthPx}-${heightPx}`;
   const numberColor = resolveColor("comment");
   const svgLines = [];
 
   lines.forEach((line, index) => {
-    const lineTop = topOffsetPx + index * linePitchPx + lineTopInsetPx;
+    const lineTop = topOffsetPx + index * linePitchPx + lineBaselineOffsetPx;
     const lineNumber = escapeXml(String(index + 1).padStart(lineDigits, " "));
     svgLines.push(
-      `<text x="${lineNumberRightX}" y="${lineTop}" fill="#${numberColor}" text-anchor="end" dominant-baseline="hanging">${lineNumber}</text>`
+      `<text x="${lineNumberRightX}" y="${lineTop}" fill="#${numberColor}" text-anchor="end">${lineNumber}</text>`
     );
 
-    let cursorX = codeStartX;
-    line.segments.forEach((segment) => {
-      const segmentText = normalizeSegmentText(segment.text);
-      if (!segmentText) return;
-      svgLines.push(
-        `<text x="${Math.round(cursorX)}" y="${lineTop}" fill="#${segment.color}" dominant-baseline="hanging" xml:space="preserve">${escapeXml(segmentText)}</text>`
-      );
-      cursorX += segmentText.length * charWidthPx;
-    });
+    const tspans = line.segments
+      .map((segment) => {
+        const segmentText = normalizeSegmentText(segment.text);
+        if (!segmentText) return "";
+        return `<tspan fill="#${segment.color}" xml:space="preserve">${escapeXml(segmentText)}</tspan>`;
+      })
+      .filter(Boolean)
+      .join("");
+
+    svgLines.push(
+      `<text x="${codeStartX}" y="${lineTop}" xml:space="preserve">${tspans || " "}</text>`
+    );
   });
 
   const svg = [

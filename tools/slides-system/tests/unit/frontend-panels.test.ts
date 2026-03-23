@@ -9,11 +9,14 @@ import {
   addComponentConsistencyPanel,
   addComponentVariantBoard,
   addCssRuleStack,
+  addDataTypesBoard,
   addFlexGridLayout,
   addFrameworkDecisionMatrix,
   addLighthouseAuditCard,
   addNetworkLoadBoard,
+  addControlFlowPanel,
   addEvaluationRubricPanel,
+  addEventReactionPanel,
   addProjectWorkflowPanel,
   addPromptQualityCompare,
   addIssuePriorityMatrix,
@@ -24,6 +27,7 @@ import {
   addResponsiveReflowPanel,
   addResponsiveViewportCompare,
   addSpecificityScale,
+  addStaticVsInteractiveCompare,
   addTokenBoard,
 } from "../../src/components";
 import { getEntryBounds, RecordingSlide } from "../../src/adapters/recording-slide";
@@ -524,6 +528,117 @@ describe("frontend panels", () => {
     expect(slide.texts.some((entry) => String(entry.text).includes("Prompt flojo"))).toBe(true);
     expect(slide.texts.some((entry) => String(entry.text).includes("contexto, criterio y restricciones"))).toBe(true);
     expect(slide.texts.some((entry) => String(entry.text).includes("sin contexto ni criterio"))).toBe(true);
+    expectGeometryIsValid(slide);
+  });
+
+  it("addStaticVsInteractiveCompare contrasta interfaz fija contra interfaz que responde", () => {
+    const slide = new RecordingSlide();
+
+    addStaticVsInteractiveCompare(slide, SH, {
+      x: 0.9,
+      y: 1,
+      w: 8.6,
+      h: 3.7,
+      footer: "JavaScript aparece cuando la interfaz necesita reaccionar.",
+    });
+
+    expect(slide.texts.some((entry) => String(entry.text).includes("Solo HTML + CSS"))).toBe(true);
+    expect(slide.texts.some((entry) => String(entry.text).includes("Con JavaScript"))).toBe(true);
+    expect(slide.texts.some((entry) => String(entry.text).includes("click -> mensaje en consola"))).toBe(true);
+    expectGeometryIsValid(slide);
+  });
+
+  it("addDataTypesBoard muestra cards de tipos y variables", () => {
+    const slide = new RecordingSlide();
+
+    addDataTypesBoard(slide, SH, {
+      x: 0.9,
+      y: 1,
+      w: 8.6,
+      h: 3.4,
+      footer: "Los datos permiten guardar, comparar y transformar valores.",
+    });
+
+    expect(slide.texts.some((entry) => String(entry.text).includes("string"))).toBe(true);
+    expect(slide.texts.some((entry) => String(entry.text).includes("number"))).toBe(true);
+    expect(slide.texts.some((entry) => String(entry.text).includes("boolean"))).toBe(true);
+    expect(slide.texts.some((entry) => String(entry.text).includes("variable"))).toBe(true);
+    expectGeometryIsValid(slide);
+  });
+
+  it("addDataTypesBoard pasa a grilla cuando el panel es estrecho", () => {
+    const slide = new RecordingSlide();
+
+    addDataTypesBoard(slide, SH, {
+      x: 0.9,
+      y: 1,
+      w: 5.1,
+      h: 3.8,
+      footer: "Sin datos claros no hay decisiones claras.",
+    });
+
+    const labelYs = slide.texts
+      .filter((entry) => ["string", "number", "boolean", "variable"].includes(String(entry.text)))
+      .map((entry) => Number((entry.options.y ?? 0).toFixed(2)));
+
+    expect(new Set(labelYs).size).toBeGreaterThan(1);
+    expectGeometryIsValid(slide);
+  });
+
+  it("addControlFlowPanel conecta entrada, decision y salidas", () => {
+    const slide = new RecordingSlide();
+
+    addControlFlowPanel(slide, SH, {
+      x: 0.9,
+      y: 1,
+      w: 8.4,
+      h: 3.5,
+      conditionLabel: "edad >= 18",
+    });
+
+    expect(slide.texts.some((entry) => String(entry.text).includes("Entrada"))).toBe(true);
+    expect(slide.texts.some((entry) => String(entry.text).includes("edad >= 18"))).toBe(true);
+    expect(slide.texts.some((entry) => String(entry.text).includes("Salidas posibles"))).toBe(true);
+    expect(slide.texts.some((entry) => String(entry.text).includes("Acceso permitido"))).toBe(true);
+    expectGeometryIsValid(slide);
+  });
+
+  it("addControlFlowPanel compacta bien cuando el panel es bajo", () => {
+    const slide = new RecordingSlide();
+
+    addControlFlowPanel(slide, SH, {
+      x: 0.9,
+      y: 1,
+      w: 5.1,
+      h: 2,
+      outputTitle: "Salidas",
+      trueTitle: "Si",
+      trueBody: "Permite",
+      falseTitle: "No",
+      falseBody: "Niega",
+    });
+
+    expect(slide.texts.some((entry) => String(entry.text).includes("Salidas"))).toBe(true);
+    expect(slide.texts.some((entry) => String(entry.text).includes("Permite"))).toBe(true);
+    expect(slide.texts.some((entry) => String(entry.text).includes("Niega"))).toBe(true);
+    expectGeometryIsValid(slide);
+  });
+
+  it("addEventReactionPanel ordena evento y respuesta sin romper geometria", () => {
+    const slide = new RecordingSlide();
+
+    addEventReactionPanel(slide, SH, {
+      x: 0.9,
+      y: 1,
+      w: 8.6,
+      h: 3.7,
+      footer: "La interactividad se valida en la UI y en consola.",
+    });
+
+    expect(slide.texts.some((entry) => String(entry.text).includes("Usuario"))).toBe(true);
+    expect(slide.texts.some((entry) => String(entry.text).includes("Evento"))).toBe(true);
+    expect(slide.texts.some((entry) => String(entry.text).includes("Handler"))).toBe(true);
+    expect(slide.texts.some((entry) => String(entry.text).includes("Respuesta"))).toBe(true);
     expectGeometryIsValid(slide);
   });
 

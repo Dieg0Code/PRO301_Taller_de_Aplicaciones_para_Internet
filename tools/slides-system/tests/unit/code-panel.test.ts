@@ -29,6 +29,34 @@ describe("addCodeAnnotation", () => {
     expect(codeImage).toBeTruthy();
   });
 
+  it("agrega margen superior interno al SVG para que la primera linea no roce el header", () => {
+    const slide = new RecordingSlide();
+
+    addCodePanel(slide, SH, {
+      x: 1,
+      y: 1,
+      w: 4.8,
+      h: 1.5,
+      lang: "js",
+      code: 'const estado = "ok";\nconsole.log(estado);',
+      title: "Snippet",
+      fontSize: 10.2,
+    });
+
+    const codeImage = slide.images.find((entry) =>
+      String(entry.options.data ?? "").startsWith("image/svg+xml;base64,")
+    );
+
+    expect(codeImage).toBeTruthy();
+
+    const encoded = String(codeImage?.options.data ?? "").replace(/^image\/svg\+xml;base64,/, "");
+    const svg = Buffer.from(encoded, "base64").toString("utf8");
+    const yMatches = [...svg.matchAll(/<text[^>]* y="(\d+)"/g)].map((match) => Number(match[1]));
+    const minY = Math.min(...yMatches);
+
+    expect(minY).toBeGreaterThanOrEqual(10);
+  });
+
   it("mantiene los conectores fuera del interior del snippet", () => {
     const slide = new RecordingSlide();
 

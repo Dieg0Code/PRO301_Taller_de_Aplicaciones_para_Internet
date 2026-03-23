@@ -3979,6 +3979,843 @@ function addPromptQualityCompare(slide, SH, opts = {}) {
   }
 }
 
+function addStaticVsInteractiveCompare(slide, SH, opts = {}) {
+  const x = opts.x;
+  const y = opts.y;
+  const w = opts.w;
+  const h = opts.h;
+  const footerReserve = opts.footer ? 0.28 : 0;
+  const gap = 0.18;
+  const columnW = (w - 0.5) / 2;
+  const bodyY = y + 0.62;
+  const bodyH = h - 0.82 - footerReserve;
+
+  addSurface(slide, SH, x, y, w, h, {
+    fill: TOKENS.white,
+    line: TOKENS.border,
+  });
+  addSurfaceHeader(slide, SH, x + 0.14, y + 0.14, w - 0.28, opts.title || "Statico vs interactivo", {
+    fill: TOKENS.softNeutral,
+  });
+
+  const columns = [
+    {
+      x: x + 0.16,
+      title: opts.leftTitle || "Solo HTML + CSS",
+      subtitle: opts.leftSubtitle || "la interfaz se ve correcta, pero todavia no responde",
+      accent: TOKENS.red,
+      fill: TOKENS.paleRed,
+      cta: opts.leftCta || "Boton visible",
+      note: opts.leftNote || "sin evento ni respuesta",
+      sideLabel: opts.leftSideLabel || "estado fijo",
+    },
+    {
+      x: x + 0.16 + columnW + gap,
+      title: opts.rightTitle || "Con JavaScript",
+      subtitle: opts.rightSubtitle || "la accion del usuario dispara una respuesta observable",
+      accent: TOKENS.navy,
+      fill: TOKENS.softBlue,
+      cta: opts.rightCta || "Boton activo",
+      note: opts.rightNote || "click -> mensaje en consola",
+      sideLabel: opts.rightSideLabel || "comportamiento",
+    },
+  ];
+
+  columns.forEach((column, index) => {
+    addSurface(slide, SH, column.x, bodyY, columnW, bodyH, {
+      fill: TOKENS.white,
+      line: TOKENS.border,
+    });
+    slide.addShape(SH.rect, {
+      x: column.x,
+      y: bodyY,
+      w: 0.08,
+      h: bodyH,
+      fill: { color: column.accent },
+      line: { color: column.accent },
+    });
+    slide.addShape(SH.roundRect, {
+      x: column.x + 0.18,
+      y: bodyY + 0.16,
+      w: columnW - 0.34,
+      h: 0.34,
+      rectRadius: 0.03,
+      fill: { color: column.fill },
+      line: { color: column.fill },
+    });
+    slide.addText(column.title, {
+      x: column.x + 0.28,
+      y: bodyY + 0.24,
+      w: columnW - 0.54,
+      h: 0.12,
+      fontFace: TYPOGRAPHY.display,
+      fontSize: 11.4,
+      bold: true,
+      color: TOKENS.navy,
+      margin: 0,
+      fit: "shrink",
+    });
+    slide.addText(column.subtitle, {
+      x: column.x + 0.22,
+      y: bodyY + 0.58,
+      w: columnW - 0.4,
+      h: 0.24,
+      fontFace: TYPOGRAPHY.body,
+      fontSize: 7.8,
+      color: TOKENS.slate,
+      margin: 0,
+      fit: "shrink",
+      valign: "mid",
+    });
+
+    const browserX = column.x + 0.2;
+    const browserY = bodyY + 0.94;
+    const browserW = columnW - 0.4;
+    const browserH = Math.min(1.18, Math.max(1.02, bodyH - 1.72));
+
+    slide.addShape(SH.roundRect, {
+      x: browserX,
+      y: browserY,
+      w: browserW,
+      h: browserH,
+      rectRadius: 0.03,
+      fill: { color: TOKENS.paper },
+      line: { color: TOKENS.border, pt: 1 },
+    });
+    slide.addShape(SH.roundRect, {
+      x: browserX,
+      y: browserY,
+      w: browserW,
+      h: 0.22,
+      rectRadius: 0.03,
+      fill: { color: TOKENS.softNeutral },
+      line: { color: TOKENS.softNeutral },
+    });
+    ["D62027", "E0BC5A", "52606D"].forEach((color, dotIndex) => {
+      slide.addShape(SH.ellipse, {
+        x: browserX + 0.08 + dotIndex * 0.1,
+        y: browserY + 0.08,
+        w: 0.05,
+        h: 0.05,
+        fill: { color },
+        line: { color },
+      });
+    });
+
+    slide.addShape(SH.roundRect, {
+      x: browserX + 0.12,
+      y: browserY + 0.34,
+      w: browserW - 0.24,
+      h: 0.26,
+      rectRadius: 0.02,
+      fill: { color: index === 0 ? TOKENS.white : TOKENS.softBlue },
+      line: { color: index === 0 ? TOKENS.border : TOKENS.softBlue, pt: 1 },
+    });
+    slide.addShape(SH.roundRect, {
+      x: browserX + 0.12,
+      y: browserY + 0.68,
+      w: browserW * 0.42,
+      h: 0.44,
+      rectRadius: 0.02,
+      fill: { color: TOKENS.white },
+      line: { color: TOKENS.border, pt: 1 },
+    });
+    slide.addShape(SH.roundRect, {
+      x: browserX + browserW * 0.5,
+      y: browserY + 0.68,
+      w: browserW * 0.34,
+      h: 0.22,
+      rectRadius: 0.03,
+      fill: { color: column.accent },
+      line: { color: column.accent },
+    });
+    slide.addText(column.cta, {
+      x: browserX + browserW * 0.5 + 0.06,
+      y: browserY + 0.75,
+      w: browserW * 0.34 - 0.12,
+      h: 0.08,
+      fontFace: TYPOGRAPHY.body,
+      fontSize: 7.4,
+      bold: true,
+      color: TOKENS.white,
+      align: "center",
+      margin: 0,
+      fit: "shrink",
+    });
+
+    slide.addShape(SH.roundRect, {
+      x: column.x + 0.2,
+      y: bodyY + bodyH - 0.44,
+      w: columnW - 0.4,
+      h: 0.24,
+      rectRadius: 0.03,
+      fill: { color: index === 0 ? TOKENS.warm : TOKENS.successSoft },
+      line: { color: index === 0 ? TOKENS.warm : TOKENS.successSoft },
+    });
+    slide.addText(column.note, {
+      x: column.x + 0.28,
+      y: bodyY + bodyH - 0.37,
+      w: columnW - 0.56,
+      h: 0.08,
+      fontFace: TYPOGRAPHY.body,
+      fontSize: 7.3,
+      color: TOKENS.navy,
+      align: "center",
+      margin: 0,
+      fit: "shrink",
+    });
+    slide.addText(column.sideLabel, {
+      x: column.x + 0.22,
+      y: browserY + browserH + 0.06,
+      w: columnW - 0.44,
+      h: 0.1,
+      fontFace: TYPOGRAPHY.body,
+      fontSize: 7.4,
+      color: TOKENS.slate,
+      align: "center",
+      margin: 0,
+    });
+  });
+
+  slide.addShape(SH.chevron, {
+    x: x + columnW + 0.19,
+    y: bodyY + bodyH / 2 - 0.16,
+    w: 0.12,
+    h: 0.32,
+    fill: { color: TOKENS.gold },
+    line: { color: TOKENS.gold },
+  });
+
+  if (opts.footer) {
+    slide.addText(opts.footer, {
+      x: x + 0.2,
+      y: y + h - 0.18,
+      w: w - 0.4,
+      h: 0.12,
+      fontFace: TYPOGRAPHY.body,
+      fontSize: 8.4,
+      color: TOKENS.slate,
+      align: "center",
+      margin: 0,
+    });
+  }
+}
+
+function addDataTypesBoard(slide, SH, opts = {}) {
+  const x = opts.x;
+  const y = opts.y;
+  const w = opts.w;
+  const h = opts.h;
+  const footerReserve = opts.footer ? 0.24 : 0;
+  const gap = 0.14;
+  const rowGap = 0.16;
+  const cards = (opts.cards || [
+    {
+      label: "string",
+      sample: '"Nodo Web"',
+      note: "texto para nombres, mensajes y contenido",
+      accent: TOKENS.red,
+      fill: TOKENS.paleRed,
+    },
+    {
+      label: "number",
+      sample: "14990",
+      note: "sirve para calcular, contar o comparar",
+      accent: TOKENS.gold,
+      fill: TOKENS.warm,
+    },
+    {
+      label: "boolean",
+      sample: "true",
+      note: "marca si una condicion se cumple o no",
+      accent: TOKENS.navy,
+      fill: TOKENS.softBlue,
+    },
+    {
+      label: "variable",
+      sample: "const precio = 14990",
+      note: "un nombre que guarda un valor util",
+      accent: TOKENS.navy,
+      fill: TOKENS.mist,
+    },
+  ]).slice(0, 4);
+  const innerX = x + 0.22;
+  const topY = y + 0.62;
+  const bodyH = Math.max(1.2, h - 0.84 - footerReserve);
+  const minCardW = opts.minCardWidth || 1.55;
+  let columns = Math.max(1, Math.min(cards.length, opts.columns || cards.length));
+
+  while (columns > 1) {
+    const candidate = (w - 0.44 - gap * (columns - 1)) / columns;
+    if (candidate >= minCardW) {
+      break;
+    }
+    columns -= 1;
+  }
+
+  const rows = Math.max(1, Math.ceil(cards.length / columns));
+  const cardW = (w - 0.44 - gap * (columns - 1)) / Math.max(columns, 1);
+  const cardH = (bodyH - rowGap * (rows - 1)) / rows;
+  const compactLayout = rows > 1 || cardH < 1.55;
+  const pillH = compactLayout ? 0.24 : 0.3;
+  const pillTop = compactLayout ? 0.12 : 0.16;
+  const sampleTop = pillTop + pillH + (compactLayout ? 0.08 : 0.12);
+  const sampleH = compactLayout ? 0.38 : 0.52;
+  const sampleSide = compactLayout ? 0.14 : 0.16;
+  const noteTop = sampleTop + sampleH + (compactLayout ? 0.08 : 0.14);
+  const noteBottom = compactLayout ? 0.12 : 0.18;
+  const labelFontSize = compactLayout ? 10.4 : 11.2;
+  const sampleFontSize = compactLayout ? 7.4 : 8.4;
+  const noteFontSize = compactLayout ? 7.0 : 7.6;
+
+  addSurface(slide, SH, x, y, w, h, {
+    fill: TOKENS.white,
+    line: TOKENS.border,
+  });
+  addSurfaceHeader(slide, SH, x + 0.14, y + 0.14, w - 0.28, opts.title || "Tipos de datos y variables", {
+    fill: TOKENS.softNeutral,
+  });
+
+  cards.forEach((card, index) => {
+    const row = Math.floor(index / columns);
+    const col = index % columns;
+    const cardX = innerX + col * (cardW + gap);
+    const cardY = topY + row * (cardH + rowGap);
+
+    addSurface(slide, SH, cardX, cardY, cardW, cardH, {
+      fill: TOKENS.white,
+      line: TOKENS.border,
+    });
+    slide.addShape(SH.rect, {
+      x: cardX,
+      y: cardY,
+      w: 0.08,
+      h: cardH,
+      fill: { color: card.accent || TOKENS.navy },
+      line: { color: card.accent || TOKENS.navy },
+    });
+    slide.addShape(SH.roundRect, {
+      x: cardX + sampleSide,
+      y: cardY + pillTop,
+      w: cardW - sampleSide * 2,
+      h: pillH,
+      rectRadius: 0.03,
+      fill: { color: card.fill || TOKENS.softBlue },
+      line: { color: card.fill || TOKENS.softBlue },
+    });
+    slide.addText(card.label || "tipo", {
+      x: cardX + sampleSide + 0.06,
+      y: cardY + pillTop,
+      w: cardW - sampleSide * 2 - 0.12,
+      h: pillH,
+      fontFace: TYPOGRAPHY.display,
+      fontSize: labelFontSize,
+      bold: true,
+      color: TOKENS.navy,
+      align: "center",
+      valign: "mid",
+      margin: 0,
+      fit: "shrink",
+    });
+    addSurface(slide, SH, cardX + sampleSide, cardY + sampleTop, cardW - sampleSide * 2, sampleH, {
+      fill: TOKENS.editorBg,
+      line: TOKENS.editorBg,
+    });
+    slide.addText(card.sample || "", {
+      x: cardX + sampleSide + 0.08,
+      y: cardY + sampleTop,
+      w: cardW - sampleSide * 2 - 0.16,
+      h: sampleH,
+      fontFace: TYPOGRAPHY.mono,
+      fontSize: sampleFontSize,
+      color: TOKENS.white,
+      align: "center",
+      valign: "mid",
+      margin: 0,
+      fit: "shrink",
+    });
+    slide.addText(card.note || "", {
+      x: cardX + 0.16,
+      y: cardY + noteTop,
+      w: cardW - 0.32,
+      h: Math.max(0.18, cardH - noteTop - noteBottom),
+      fontFace: TYPOGRAPHY.body,
+      fontSize: noteFontSize,
+      color: TOKENS.ink,
+      margin: 0,
+      valign: "mid",
+      fit: "shrink",
+      align: "center",
+    });
+  });
+
+  if (opts.footer) {
+    slide.addText(opts.footer, {
+      x: x + 0.2,
+      y: y + h - 0.18,
+      w: w - 0.4,
+      h: 0.12,
+      fontFace: TYPOGRAPHY.body,
+      fontSize: 8.4,
+      color: TOKENS.slate,
+      align: "center",
+      margin: 0,
+    });
+  }
+}
+
+function addControlFlowPanel(slide, SH, opts = {}) {
+  const x = opts.x;
+  const y = opts.y;
+  const w = opts.w;
+  const h = opts.h;
+  const footerReserve = opts.footer ? 0.28 : 0;
+  const bodyY = y + 0.62;
+  const bodyH = h - 0.82 - footerReserve;
+  const sideW = Math.max(1.5, w * 0.25);
+  const centerW = Math.max(1.4, w * 0.18);
+  const gap = 0.18;
+  const rightW = w - sideW - centerW - gap * 2 - 0.36;
+  const leftX = x + 0.18;
+  const centerX = leftX + sideW + gap;
+  const rightX = centerX + centerW + gap;
+  const compactLayout = bodyH < 1.8;
+  const panelTitleY = bodyY + (compactLayout ? 0.12 : 0.18);
+  const panelTitleH = compactLayout ? 0.1 : 0.14;
+  const panelTitleFont = compactLayout ? 10.6 : 12;
+  const codeBoxY = bodyY + (compactLayout ? 0.36 : 0.52);
+  const codeBoxH = compactLayout ? 0.34 : 0.54;
+  const codeTextY = codeBoxY + (compactLayout ? 0.11 : 0.19);
+  const codeTextH = compactLayout ? 0.08 : 0.12;
+  const codeFont = compactLayout ? 7.2 : 8.4;
+  const bodyTextY = codeBoxY + codeBoxH + (compactLayout ? 0.08 : 0.2);
+  const bodyTextFont = compactLayout ? 6.5 : 7.8;
+  const bodyTextH = Math.max(0.16, bodyH - (bodyTextY - bodyY) - 0.12);
+  const centerArrowY = compactLayout ? bodyY + 0.52 : bodyY + 0.62;
+  const centerArrowW = compactLayout ? 0.5 : 0.68;
+  const centerArrowH = compactLayout ? 0.24 : 0.34;
+  const conditionLabelY = centerArrowY + centerArrowH + (compactLayout ? 0.1 : 0.12);
+  const conditionLabelFont = compactLayout ? 7.4 : 8.2;
+  const conditionBodyY = conditionLabelY + (compactLayout ? 0.16 : 0.34);
+  const conditionBodyFont = compactLayout ? 6.5 : 7.3;
+  const conditionBodyH = Math.max(0.14, bodyH - (conditionBodyY - bodyY) - 0.12);
+  const outputTitleY = bodyY + (compactLayout ? 0.1 : 0.18);
+  const outputTitleFont = compactLayout ? 10.6 : 11.6;
+  const outputCardsTop = bodyY + (compactLayout ? 0.34 : 0.54);
+  const outputGap = compactLayout ? 0.08 : 0.18;
+  const outputCardH = Math.max(0.28, (bodyH - (outputCardsTop - bodyY) - outputGap - 0.12) / 2);
+  const outputTitleInnerY = compactLayout ? 0.08 : 0.12;
+  const outputBodyInnerY = compactLayout ? 0.22 : 0.3;
+  const outputInnerTitleFont = compactLayout ? 7.4 : 8.8;
+  const outputInnerBodyFont = compactLayout ? 6.7 : 7.8;
+
+  addSurface(slide, SH, x, y, w, h, {
+    fill: TOKENS.white,
+    line: TOKENS.border,
+  });
+  addSurfaceHeader(slide, SH, x + 0.14, y + 0.14, w - 0.28, opts.title || "Funcion -> condicion -> salida", {
+    fill: TOKENS.softNeutral,
+  });
+
+  addSurface(slide, SH, leftX, bodyY, sideW, bodyH, {
+    fill: TOKENS.softBlue,
+    line: TOKENS.softBlue,
+  });
+  slide.addText(opts.inputTitle || "Entrada", {
+    x: leftX + 0.18,
+    y: panelTitleY,
+    w: sideW - 0.36,
+    h: panelTitleH,
+    fontFace: TYPOGRAPHY.display,
+    fontSize: panelTitleFont,
+    bold: true,
+    color: TOKENS.navy,
+    margin: 0,
+    align: "center",
+    fit: "shrink",
+  });
+  addSurface(slide, SH, leftX + 0.18, codeBoxY, sideW - 0.36, codeBoxH, {
+    fill: TOKENS.editorBg,
+    line: TOKENS.editorBg,
+  });
+  slide.addText(opts.inputCode || "verificarAcceso(edad)", {
+    x: leftX + 0.26,
+    y: codeTextY,
+    w: sideW - 0.52,
+    h: codeTextH,
+    fontFace: TYPOGRAPHY.mono,
+    fontSize: codeFont,
+    color: TOKENS.white,
+    margin: 0,
+    fit: "shrink",
+    align: "center",
+  });
+  slide.addText(opts.inputBody || "entra un dato que la funcion debe interpretar", {
+    x: leftX + 0.18,
+    y: bodyTextY,
+    w: sideW - 0.36,
+    h: bodyTextH,
+    fontFace: TYPOGRAPHY.body,
+    fontSize: bodyTextFont,
+    color: TOKENS.ink,
+    margin: 0,
+    fit: "shrink",
+    valign: "mid",
+    align: "center",
+  });
+
+  slide.addShape(SH.chevron, {
+    x: leftX + sideW + (gap - 0.12) / 2,
+    y: bodyY + bodyH / 2 - 0.16,
+    w: 0.12,
+    h: 0.32,
+    fill: { color: TOKENS.gold },
+    line: { color: TOKENS.gold },
+  });
+
+  addSurface(slide, SH, centerX, bodyY, centerW, bodyH, {
+    fill: TOKENS.warm,
+    line: TOKENS.warm,
+  });
+  slide.addText(opts.conditionTitle || "Condicion", {
+    x: centerX + 0.12,
+    y: panelTitleY,
+    w: centerW - 0.24,
+    h: panelTitleH,
+    fontFace: TYPOGRAPHY.display,
+    fontSize: compactLayout ? 9.8 : 10.8,
+    bold: true,
+    color: TOKENS.navy,
+    align: "center",
+    margin: 0,
+    fit: "shrink",
+  });
+  slide.addShape(SH.chevron, {
+    x: centerX + centerW / 2 - centerArrowW / 2,
+    y: centerArrowY,
+    w: centerArrowW,
+    h: centerArrowH,
+    fill: { color: TOKENS.red },
+    line: { color: TOKENS.red },
+  });
+  slide.addText(opts.conditionLabel || "edad >= 18", {
+    x: centerX + 0.14,
+    y: conditionLabelY,
+    w: centerW - 0.28,
+    h: 0.14,
+    fontFace: TYPOGRAPHY.mono,
+    fontSize: conditionLabelFont,
+    bold: true,
+    color: TOKENS.navy,
+    align: "center",
+    margin: 0,
+    fit: "shrink",
+  });
+  slide.addText(opts.conditionBody || "segun el resultado, el programa toma un camino u otro", {
+    x: centerX + 0.12,
+    y: conditionBodyY,
+    w: centerW - 0.24,
+    h: conditionBodyH,
+    fontFace: TYPOGRAPHY.body,
+    fontSize: conditionBodyFont,
+    color: TOKENS.slate,
+    margin: 0,
+    fit: "shrink",
+    valign: "mid",
+    align: "center",
+  });
+
+  slide.addShape(SH.chevron, {
+    x: centerX + centerW + (gap - 0.12) / 2,
+    y: bodyY + bodyH / 2 - 0.16,
+    w: 0.12,
+    h: 0.32,
+    fill: { color: TOKENS.gold },
+    line: { color: TOKENS.gold },
+  });
+
+  addSurface(slide, SH, rightX, bodyY, rightW, bodyH, {
+    fill: TOKENS.white,
+    line: TOKENS.border,
+  });
+  slide.addText(opts.outputTitle || "Salidas posibles", {
+    x: rightX + 0.16,
+    y: outputTitleY,
+    w: rightW - 0.32,
+    h: panelTitleH,
+    fontFace: TYPOGRAPHY.display,
+    fontSize: outputTitleFont,
+    bold: true,
+    color: TOKENS.navy,
+    align: "center",
+    margin: 0,
+    fit: "shrink",
+  });
+
+  [
+    {
+      title: opts.trueTitle || "Si se cumple",
+      body: opts.trueBody || "Acceso permitido",
+      fill: TOKENS.successSoft,
+      accent: TOKENS.success,
+      y: outputCardsTop,
+    },
+    {
+      title: opts.falseTitle || "Si no se cumple",
+      body: opts.falseBody || "Acceso denegado",
+      fill: TOKENS.paleRed,
+      accent: TOKENS.red,
+      y: outputCardsTop + outputCardH + outputGap,
+    },
+  ].forEach((item) => {
+    addSurface(slide, SH, rightX + 0.14, item.y, rightW - 0.28, outputCardH, {
+      fill: item.fill,
+      line: item.fill,
+    });
+    slide.addShape(SH.rect, {
+      x: rightX + 0.14,
+      y: item.y,
+      w: 0.08,
+      h: outputCardH,
+      fill: { color: item.accent },
+      line: { color: item.accent },
+    });
+    slide.addText(item.title, {
+      x: rightX + 0.28,
+      y: item.y + outputTitleInnerY,
+      w: rightW - 0.48,
+      h: 0.1,
+      fontFace: TYPOGRAPHY.body,
+      fontSize: outputInnerTitleFont,
+      bold: true,
+      color: TOKENS.navy,
+      margin: 0,
+      fit: "shrink",
+    });
+    slide.addText(item.body, {
+      x: rightX + 0.28,
+      y: item.y + outputBodyInnerY,
+      w: rightW - 0.48,
+      h: Math.max(0.1, outputCardH - outputBodyInnerY - 0.08),
+      fontFace: TYPOGRAPHY.body,
+      fontSize: outputInnerBodyFont,
+      color: TOKENS.ink,
+      margin: 0,
+      fit: "shrink",
+    });
+  });
+
+  if (opts.footer) {
+    slide.addText(opts.footer, {
+      x: x + 0.2,
+      y: y + h - 0.18,
+      w: w - 0.4,
+      h: 0.12,
+      fontFace: TYPOGRAPHY.body,
+      fontSize: 8.4,
+      color: TOKENS.slate,
+      align: "center",
+      margin: 0,
+    });
+  }
+}
+
+function addEventReactionPanel(slide, SH, opts = {}) {
+  const x = opts.x;
+  const y = opts.y;
+  const w = opts.w;
+  const h = opts.h;
+  const footerReserve = opts.footer ? 0.28 : 0;
+  const stages = (opts.stages || [
+    { title: "Usuario", body: "hace click", accent: TOKENS.red, fill: TOKENS.paleRed },
+    { title: "Evento", body: "click", accent: TOKENS.gold, fill: TOKENS.warm },
+    { title: "Handler", body: "listener corre", accent: TOKENS.navy, fill: TOKENS.softBlue },
+    { title: "Respuesta", body: "console.log()", accent: TOKENS.success, fill: TOKENS.successSoft },
+  ]).slice(0, 4);
+  const gap = 0.12;
+  const laneY = y + 0.68;
+  const laneH = 0.86;
+  const stageW = (w - 0.44 - gap * (stages.length - 1)) / Math.max(stages.length, 1);
+  const browserY = laneY + laneH + 0.18;
+  const browserH = h - (browserY - y) - 0.2 - footerReserve;
+
+  addSurface(slide, SH, x, y, w, h, {
+    fill: TOKENS.white,
+    line: TOKENS.border,
+  });
+  addSurfaceHeader(slide, SH, x + 0.14, y + 0.14, w - 0.28, opts.title || "Evento -> reaccion", {
+    fill: TOKENS.softNeutral,
+  });
+
+  stages.forEach((stage, index) => {
+    const stageX = x + 0.22 + index * (stageW + gap);
+    addSurface(slide, SH, stageX, laneY, stageW, laneH, {
+      fill: stage.fill || TOKENS.softBlue,
+      line: stage.fill || TOKENS.softBlue,
+    });
+    slide.addShape(SH.rect, {
+      x: stageX,
+      y: laneY,
+      w: 0.08,
+      h: laneH,
+      fill: { color: stage.accent || TOKENS.navy },
+      line: { color: stage.accent || TOKENS.navy },
+    });
+    slide.addText(stage.title || "Etapa", {
+      x: stageX + 0.16,
+      y: laneY + 0.16,
+      w: stageW - 0.24,
+      h: 0.12,
+      fontFace: TYPOGRAPHY.display,
+      fontSize: 10.4,
+      bold: true,
+      color: TOKENS.navy,
+      margin: 0,
+      align: "center",
+      fit: "shrink",
+    });
+    slide.addText(stage.body || "", {
+      x: stageX + 0.14,
+      y: laneY + 0.42,
+      w: stageW - 0.22,
+      h: 0.18,
+      fontFace: TYPOGRAPHY.body,
+      fontSize: 7.6,
+      color: TOKENS.ink,
+      margin: 0,
+      align: "center",
+      fit: "shrink",
+      valign: "mid",
+    });
+
+    if (index < stages.length - 1) {
+      const laneStart = stageX + stageW;
+      const laneEnd = laneStart + gap;
+      const arrowW = Math.min(0.1, gap);
+      slide.addShape(SH.chevron, {
+        x: laneStart + Math.max(0, (gap - arrowW) / 2),
+        y: laneY + laneH / 2 - 0.12,
+        w: Math.max(0.08, Math.min(arrowW, laneEnd - (laneStart + Math.max(0, (gap - arrowW) / 2)))),
+        h: 0.24,
+        fill: { color: TOKENS.gold },
+        line: { color: TOKENS.gold },
+      });
+    }
+  });
+
+  const browserX = x + 0.22;
+  const browserW = w - 0.44;
+  addSurface(slide, SH, browserX, browserY, browserW, browserH, {
+    fill: TOKENS.paper,
+    line: TOKENS.border,
+  });
+  slide.addShape(SH.roundRect, {
+    x: browserX,
+    y: browserY,
+    w: browserW,
+    h: 0.24,
+    rectRadius: 0.03,
+    fill: { color: TOKENS.softNeutral },
+    line: { color: TOKENS.softNeutral },
+  });
+  ["D62027", "E0BC5A", "52606D"].forEach((color, dotIndex) => {
+    slide.addShape(SH.ellipse, {
+      x: browserX + 0.1 + dotIndex * 0.1,
+      y: browserY + 0.09,
+      w: 0.05,
+      h: 0.05,
+      fill: { color },
+      line: { color },
+    });
+  });
+  slide.addText(opts.browserLabel || "Interfaz observada", {
+    x: browserX + 0.2,
+    y: browserY + 0.38,
+    w: browserW - 0.4,
+    h: 0.12,
+    fontFace: TYPOGRAPHY.display,
+    fontSize: 11,
+    bold: true,
+    color: TOKENS.navy,
+    margin: 0,
+  });
+  slide.addShape(SH.roundRect, {
+    x: browserX + 0.2,
+    y: browserY + 0.66,
+    w: browserW * 0.34,
+    h: 0.34,
+    rectRadius: 0.03,
+    fill: { color: TOKENS.red },
+    line: { color: TOKENS.red },
+  });
+  slide.addText(opts.triggerLabel || "Click en boton", {
+    x: browserX + 0.28,
+    y: browserY + 0.77,
+    w: browserW * 0.34 - 0.16,
+    h: 0.1,
+    fontFace: TYPOGRAPHY.body,
+    fontSize: 8,
+    bold: true,
+    color: TOKENS.white,
+    align: "center",
+    margin: 0,
+    fit: "shrink",
+  });
+  slide.addShape(SH.chevron, {
+    x: browserX + browserW * 0.4,
+    y: browserY + 0.73,
+    w: 0.22,
+    h: 0.2,
+    fill: { color: TOKENS.gold },
+    line: { color: TOKENS.gold },
+  });
+  addSurface(slide, SH, browserX + browserW * 0.48, browserY + 0.58, browserW * 0.38, 0.5, {
+    fill: TOKENS.successSoft,
+    line: TOKENS.successSoft,
+  });
+  slide.addText(opts.responseLabel || "Respuesta en consola o en la UI", {
+    x: browserX + browserW * 0.48 + 0.1,
+    y: browserY + 0.76,
+    w: browserW * 0.38 - 0.2,
+    h: 0.12,
+    fontFace: TYPOGRAPHY.body,
+    fontSize: 8,
+    color: TOKENS.navy,
+    margin: 0,
+    align: "center",
+    fit: "shrink",
+  });
+  slide.addText(
+    opts.browserNote || "el codigo importa porque escucha una accion y corre en el momento correcto",
+    {
+      x: browserX + 0.2,
+      y: browserY + browserH - 0.26,
+      w: browserW - 0.4,
+      h: 0.1,
+      fontFace: TYPOGRAPHY.body,
+      fontSize: 7.6,
+      color: TOKENS.slate,
+      margin: 0,
+      align: "center",
+      fit: "shrink",
+    }
+  );
+
+  if (opts.footer) {
+    slide.addText(opts.footer, {
+      x: x + 0.2,
+      y: y + h - 0.18,
+      w: w - 0.4,
+      h: 0.12,
+      fontFace: TYPOGRAPHY.body,
+      fontSize: 8.4,
+      color: TOKENS.slate,
+      align: "center",
+      margin: 0,
+    });
+  }
+}
+
 function addFrameworkDecisionMatrix(slide, SH, opts = {}) {
   const x = opts.x;
   const y = opts.y;
@@ -4165,4 +5002,8 @@ module.exports = {
   addScoreBoostsAndPenalties,
   addProjectWorkflowPanel,
   addPromptQualityCompare,
+  addStaticVsInteractiveCompare,
+  addDataTypesBoard,
+  addControlFlowPanel,
+  addEventReactionPanel,
 };
