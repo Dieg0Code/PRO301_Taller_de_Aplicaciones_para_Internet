@@ -838,6 +838,109 @@ export interface EventReactionPanelOptions extends PositionedBox {
   footer?: string;
 }
 
+export interface DomMutationFlowOptions extends PositionedBox {
+  title?: string;
+  selectorTitle?: string;
+  selectorBody?: string;
+  mutationTitle?: string;
+  mutationBody?: string;
+  resultTitle?: string;
+  resultBadge?: string;
+  resultBody?: string;
+  footer?: string;
+}
+
+export interface DebugEvidenceCard {
+  title?: string;
+  body?: string;
+  question?: string;
+  accent?: string;
+  fill?: string;
+  icon?: string;
+}
+
+export interface DebugEvidenceBoardOptions extends PositionedBox {
+  title?: string;
+  cards?: DebugEvidenceCard[];
+  footer?: string;
+}
+
+export interface SpreadsheetProblemHighlight {
+  row?: number;
+  col?: number;
+  accent?: string;
+  fill?: string;
+}
+
+export interface SpreadsheetProblemCallout {
+  title?: string;
+  body?: string;
+  accent?: string;
+  fill?: string;
+}
+
+export interface SpreadsheetProblemPanelOptions extends PositionedBox {
+  title?: string;
+  columns?: string[];
+  rows?: string[][];
+  highlights?: SpreadsheetProblemHighlight[];
+  callouts?: SpreadsheetProblemCallout[];
+  footer?: string;
+}
+
+export interface BlueprintEntity {
+  title?: string;
+  icon?: string;
+  fields?: string[];
+  accent?: string;
+  fill?: string;
+}
+
+export interface BlueprintRelation {
+  from?: number;
+  to?: number;
+  label?: string;
+  accent?: string;
+}
+
+export interface EntityRelationshipBlueprintOptions extends PositionedBox {
+  title?: string;
+  entities?: BlueprintEntity[];
+  relations?: BlueprintRelation[];
+  footer?: string;
+}
+
+export interface NormalizationStage {
+  badge?: string;
+  title?: string;
+  focus?: string;
+  note?: string;
+  accent?: string;
+  fill?: string;
+  sample?: string[];
+}
+
+export interface NormalizationStepperOptions extends PositionedBox {
+  title?: string;
+  stages?: NormalizationStage[];
+  footer?: string;
+}
+
+export interface SqlBridgeTableChip {
+  title?: string;
+  meta?: string;
+  accent?: string;
+  fill?: string;
+}
+
+export interface SqlBridgePanelOptions extends PositionedBox {
+  title?: string;
+  tables?: SqlBridgeTableChip[];
+  codeTitle?: string;
+  codeLines?: string[];
+  footer?: string;
+}
+
 export interface JsonPanelOptions extends PositionedBox {
   title?: string;
   code?: string;

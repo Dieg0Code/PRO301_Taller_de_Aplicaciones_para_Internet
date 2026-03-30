@@ -30,8 +30,8 @@ const pptx = new PptxGenJS();
 applyAiepTheme(pptx, {
   author: "Codex",
   company: "AIEP",
-  subject: "Clase 01 - Bloques 1 a 4",
-  title: "La Web No Es Magia",
+  subject: "Presentacion del modulo y Clase 01 - Bloques 1 a 4",
+  title: "PRO301 - Taller de Aplicaciones para Internet",
 });
 
 const SH = pptx.ShapeType;
@@ -66,6 +66,111 @@ const C = {
   mist: TOKENS.mist,
   guide: TOKENS.guide,
 };
+
+const MODULE_INFO = {
+  code: "PRO301",
+  name: "Taller de Aplicaciones para Internet",
+  plan: "Plan 2025",
+  semester: "Semestre III",
+  modality: "Presencial",
+  credits: "5 SCT-AIEP",
+  classHours: "90 horas",
+  autonomousHours: "90 horas",
+  learningSpace: "Laboratorio PC",
+  labHours: "90 horas",
+  workshopHours: "No contempla",
+  fieldworkHours: "No contempla",
+  teacher: "Diego Obando",
+  institutionalEmail: "diego.obandoag@correoaiep.cl",
+  personalEmail: "diegoobando20@gmail.com",
+  competence:
+    "Programar aplicaciones de internet mediante programacion web con conexion a base de datos.",
+};
+
+const PROFILE_CONTRIBUTIONS = [
+  {
+    title: "Perfil Tecnico 1",
+    body:
+      "Disenar sistemas de informacion seguros, considerando levantamiento de requerimientos funcionales y no funcionales, y modelos de procesos de negocio segun necesidades del cliente.",
+    accent: C.coral,
+    fill: C.paleRed,
+  },
+  {
+    title: "Perfil Tecnico 2",
+    body:
+      "Desarrollar software considerando modelos de diseno logicos y fisicos de bases de datos, integracion de componentes y servicios, pruebas e instalacion en el entorno de produccion.",
+    accent: C.gold,
+    fill: C.warm,
+  },
+  {
+    title: "Perfil Profesional 1",
+    body:
+      "Disenar sistemas de informacion seguros, considerando levantamiento de requerimientos funcionales y no funcionales y modelos de procesos de negocio resultantes del levantamiento de necesidades del cliente.",
+    accent: C.teal,
+    fill: C.softBlue,
+  },
+  {
+    title: "Perfil Profesional 2",
+    body:
+      "Desarrollar software considerando modelos de diseno logicos y fisicos de bases de datos, integracion de componentes y servicios de software, pruebas e instalacion segun requerimientos del cliente.",
+    accent: C.navy,
+    fill: C.softNeutral,
+  },
+];
+
+const UNIT_SUMMARY = [
+  {
+    tag: "Unidad 1",
+    hours: "20 horas",
+    title: "Introduccion a Aplicaciones para Internet",
+    body:
+      "Fundamentos web, arquitectura cliente-servidor, herramientas, HTML semantico, CSS moderno y JavaScript inicial.",
+    accent: C.coral,
+    fill: C.paleRed,
+  },
+  {
+    tag: "Unidad 2",
+    hours: "40 horas",
+    title: "Diseno y Programacion de Aplicaciones para Internet",
+    body:
+      "Frontend moderno, componentes, APIs, backend, integracion con codigo legado, arquitectura y uso responsable de agentes.",
+    accent: C.gold,
+    fill: C.warm,
+  },
+  {
+    tag: "Unidad 3",
+    hours: "30 horas",
+    title: "Conexion a bases de datos relacionales",
+    body:
+      "Persistencia, SQL, integracion con aplicaciones web y cierre del modulo con proyecto y validacion tecnica.",
+    accent: C.teal,
+    fill: C.softBlue,
+  },
+];
+
+const EVALUATION_CALENDAR = [
+  {
+    date: "30/03/2026",
+    title: "Evaluacion Parcial 1",
+    body: "Sitio estatico accesible, responsivo y optimizado.",
+    accent: C.coral,
+    fill: C.paleRed,
+  },
+  {
+    date: "27/04/2026",
+    title: "Evaluacion Parcial 2",
+    body: "Aplicacion web conectada a una API o servicio legado, con uso documentado de agentes.",
+    accent: C.gold,
+    fill: C.warm,
+  },
+  {
+    date: "19/05/2026",
+    title: "Evaluacion Final",
+    body: "Sistema web con frontend moderno, datos persistentes y una capacidad asistida por IA o automatizacion.",
+    accent: C.teal,
+    fill: C.softBlue,
+  },
+];
 
 function validateSlide(slide) {
   systemValidateSlide(slide, pptx);
@@ -134,7 +239,7 @@ function addChip(slide, text, x, y, w, fill = C.red, color = C.white) {
   });
 }
 
-function addTitle(slide, title, subtitle, step, blockLabel = "Bloque 1") {
+function addTitle(slide, title, subtitle, step, blockLabel = "Bloque 1", chipFill = C.red, chipColor = C.white) {
   slide.background = { color: C.paper };
   addTopRule(slide, SH, C.navy);
   addSoftNumber(slide, step);
@@ -285,6 +390,322 @@ function addFooter(slide, text) {
     color: C.slate,
     margin: 0,
   });
+}
+
+function addBulletBlock(slide, x, y, w, h, lines, opts = {}) {
+  slide.addText(lines.map((line) => `• ${line}`).join("\n"), {
+    x,
+    y,
+    w,
+    h,
+    fontFace: opts.fontFace || "Aptos",
+    fontSize: opts.fontSize || 12.5,
+    color: opts.color || C.ink,
+    margin: 0,
+    valign: "top",
+    breakLine: false,
+  });
+}
+
+function createModulePresentationSlide() {
+  const slide = pptx.addSlide();
+  slide.background = { color: C.paper };
+  addTopRule(slide, SH, C.navy);
+  addChip(slide, "Presentacion", 0.72, 0.48, 1.32, C.coral);
+  addChip(slide, MODULE_INFO.code, 2.1, 0.48, 0.9, C.gold, C.navy);
+
+  slide.addText(MODULE_INFO.name, {
+    x: 0.72,
+    y: 1.02,
+    w: 7.6,
+    h: 0.8,
+    fontFace: "Aptos Display",
+    fontSize: 26,
+    bold: true,
+    color: C.navy,
+    margin: 0,
+  });
+
+  slide.addText(`${MODULE_INFO.plan} · ${MODULE_INFO.semester} · ${MODULE_INFO.modality}`, {
+    x: 0.74,
+    y: 1.9,
+    w: 4.6,
+    h: 0.28,
+    fontFace: "Aptos",
+    fontSize: 13,
+    color: C.slate,
+    margin: 0,
+  });
+
+  addCard(slide, {
+    x: 0.82,
+    y: 2.38,
+    w: 5.1,
+    h: 3.48,
+    fill: C.navy,
+    line: C.navy,
+    title: "Unidad de competencia",
+    titleColor: C.white,
+    body: MODULE_INFO.competence,
+    bodyColor: "E8EEF5",
+    accent: C.coral,
+    bodyFontSize: 16,
+    titleFontSize: 16,
+    bodyTop: 0.82,
+    bottomPadding: 0.3,
+  });
+
+  addCard(slide, {
+    x: 6.18,
+    y: 2.38,
+    w: 2.9,
+    h: 1.56,
+    fill: C.white,
+    line: C.border,
+    title: "Docente",
+    body: `${MODULE_INFO.teacher}\n${MODULE_INFO.institutionalEmail}\n${MODULE_INFO.personalEmail}`,
+    accent: C.teal,
+    bodyFontSize: 12.4,
+    titleFontSize: 15.2,
+    bodyTop: 0.56,
+  });
+
+  addCard(slide, {
+    x: 9.34,
+    y: 2.38,
+    w: 2.18,
+    h: 1.56,
+    fill: C.white,
+    line: C.border,
+    title: "Carga",
+    body: `${MODULE_INFO.classHours} clase\n${MODULE_INFO.autonomousHours} autonomo\n${MODULE_INFO.credits}`,
+    accent: C.gold,
+    bodyFontSize: 12.6,
+    titleFontSize: 15.2,
+    bodyTop: 0.56,
+  });
+
+  addCard(slide, {
+    x: 6.18,
+    y: 4.22,
+    w: 5.34,
+    h: 1.64,
+    fill: C.white,
+    line: C.border,
+    title: "Espacio principal de aprendizaje",
+    body: `Asignatura desarrollada en ${MODULE_INFO.learningSpace} (${MODULE_INFO.labHours}).\nNo contempla taller especifico ni salidas a terreno programadas.`,
+    accent: C.coral,
+    bodyFontSize: 13.2,
+    titleFontSize: 15.2,
+    bodyTop: 0.56,
+  });
+
+  addFooter(slide, "Presentacion institucional del modulo para publicacion en intranet");
+  validateSlide(slide);
+}
+
+function createProfileContributionSlide() {
+  const slide = pptx.addSlide();
+  slide.background = { color: C.paper };
+  addSimpleTitle(
+    slide,
+    "Tributacion al perfil de egreso",
+    "Resumen de las competencias del perfil a las que aporta el modulo PRO301.",
+    "Presentacion",
+    C.gold,
+    C.navy
+  );
+
+  PROFILE_CONTRIBUTIONS.forEach((item, index) => {
+    const col = index % 2;
+    const row = Math.floor(index / 2);
+    addCard(slide, {
+      x: 0.82 + col * 5.9,
+      y: 2.26 + row * 2.05,
+      w: 5.42,
+      h: 1.74,
+      fill: item.fill,
+      line: C.border,
+      title: item.title,
+      body: item.body,
+      accent: item.accent,
+      bodyFontSize: 11.6,
+      titleFontSize: 14.6,
+      bodyTop: 0.56,
+      bottomPadding: 0.16,
+    });
+  });
+
+  addFooter(slide, "Fuente: Programa de asignatura PRO301 - Plan 2025");
+  validateSlide(slide);
+}
+
+function createUnitsOverviewSlide() {
+  const slide = pptx.addSlide();
+  slide.background = { color: C.paper };
+  addSimpleTitle(
+    slide,
+    "Unidades del modulo",
+    "Secuencia oficial del programa y foco general de cada tramo de aprendizaje.",
+    "Presentacion",
+    C.teal,
+    C.white
+  );
+
+  UNIT_SUMMARY.forEach((unit, index) => {
+    addCard(slide, {
+      x: 0.82 + index * 3.96,
+      y: 2.3,
+      w: 3.55,
+      h: 3.65,
+      fill: unit.fill,
+      line: C.border,
+      title: `${unit.tag} · ${unit.hours}`,
+      body: `${unit.title}\n\n${unit.body}`,
+      accent: unit.accent,
+      bodyFontSize: 12.2,
+      titleFontSize: 14.2,
+      bodyTop: 0.62,
+      bottomPadding: 0.2,
+    });
+  });
+
+  addFooter(slide, "La clase 01 abre la Unidad 1 y entrega el marco conceptual inicial del modulo.");
+  validateSlide(slide);
+}
+
+function createEvaluationCalendarSlide() {
+  const slide = pptx.addSlide();
+  slide.background = { color: C.paper };
+  addSimpleTitle(
+    slide,
+    "Calendario de evaluaciones",
+    "Hitos principales considerados en el cronograma actualizado del modulo.",
+    "Presentacion",
+    C.coral,
+    C.white
+  );
+
+  EVALUATION_CALENDAR.forEach((item, index) => {
+    addCard(slide, {
+      x: 0.92 + index * 4.02,
+      y: 2.36,
+      w: 3.5,
+      h: 3.18,
+      fill: item.fill,
+      line: C.border,
+      title: item.title,
+      body: `${item.date}\n\n${item.body}`,
+      accent: item.accent,
+      bodyFontSize: 13.1,
+      titleFontSize: 15.2,
+      bodyTop: 0.64,
+    });
+  });
+
+  addCard(slide, {
+    x: 0.92,
+    y: 5.84,
+    w: 11.48,
+    h: 0.92,
+    fill: C.white,
+    line: C.border,
+    title: "Nota",
+    body: "La asignatura se desarrolla en progresion: fundamentos web, interfaces modernas, interactividad, datos, IA aplicada y proyecto integrador.",
+    accent: C.navy,
+    bodyFontSize: 11.4,
+    titleFontSize: 13.2,
+    bodyTop: 0.4,
+    titleTop: 0.12,
+    titleHeight: 0.16,
+    bottomPadding: 0.12,
+  });
+
+  validateSlide(slide);
+}
+
+function createLearningSpaceSlide() {
+  const slide = pptx.addSlide();
+  slide.background = { color: C.paper };
+  addSimpleTitle(
+    slide,
+    "Laboratorio PC, dinamica y alcances",
+    "Resumen del espacio de aprendizaje informado en la planificacion lectiva del modulo.",
+    "Presentacion",
+    C.navy,
+    C.white
+  );
+
+  addCard(slide, {
+    x: 0.82,
+    y: 2.28,
+    w: 3.2,
+    h: 3.88,
+    fill: C.navy,
+    line: C.navy,
+    title: "Espacio declarado",
+    titleColor: C.white,
+    body: `${MODULE_INFO.learningSpace}\n${MODULE_INFO.labHours}\n\nTaller: ${MODULE_INFO.workshopHours}\nTerreno: ${MODULE_INFO.fieldworkHours}`,
+    bodyColor: "E8EEF5",
+    accent: C.gold,
+    bodyFontSize: 15.2,
+    titleFontSize: 16,
+    bodyTop: 0.84,
+  });
+
+  addCard(slide, {
+    x: 4.3,
+    y: 2.28,
+    w: 3.85,
+    h: 3.88,
+    fill: C.white,
+    line: C.border,
+    title: "Actividades habituales en laboratorio",
+    accent: C.coral,
+    body: "",
+    bodyTop: 0.6,
+  });
+
+  addBulletBlock(slide, 4.62, 2.98, 3.25, 2.7, [
+    "Trabajo con editor, navegador y DevTools.",
+    "Ejercicios de HTML, CSS y JavaScript en entorno guiado.",
+    "Validacion visual, responsive, accesibilidad y debugging.",
+    "Uso de Git, GitHub y herramientas actuales del flujo web.",
+    "Practicas de consumo de APIs, datos y criterios tecnicos de revision.",
+  ], { fontSize: 11.8 });
+
+  addCard(slide, {
+    x: 8.46,
+    y: 2.28,
+    w: 3.96,
+    h: 1.82,
+    fill: C.white,
+    line: C.border,
+    title: "Terreno",
+    body: "La planificacion lectiva no declara actividades de terreno para este modulo.",
+    accent: C.teal,
+    bodyFontSize: 12.4,
+    titleFontSize: 15,
+    bodyTop: 0.58,
+  });
+
+  addCard(slide, {
+    x: 8.46,
+    y: 4.34,
+    w: 3.96,
+    h: 1.82,
+    fill: C.white,
+    line: C.border,
+    title: "Sentido del espacio",
+    body: "El laboratorio permite combinar exposicion, practica guiada, ejecucion real de herramientas y validacion tecnica en tiempo de clase.",
+    accent: C.gold,
+    bodyFontSize: 12.2,
+    titleFontSize: 15,
+    bodyTop: 0.58,
+  });
+
+  addFooter(slide, "El modulo se apoya de forma sostenida en practicas de laboratorio PC.");
+  validateSlide(slide);
 }
 
 function addChip(slide, text, x, y, w, fill = C.red, color = C.white) {
@@ -5617,6 +6038,11 @@ async function main() {
   const outputPptx = process.env.PPTX_OUTPUT || path.join(rootDir, "Clase-01-Bloque-1-La-Web-No-Es-Magia.pptx");
   const outputJs = process.env.PPTX_SOURCE_OUTPUT || path.join(rootDir, "Clase-01-Bloque-1-La-Web-No-Es-Magia.js");
 
+  createModulePresentationSlide();
+  createProfileContributionSlide();
+  createUnitsOverviewSlide();
+  createEvaluationCalendarSlide();
+  createLearningSpaceSlide();
   createTitleSlide();
   createBlock1IntroSlide();
   createWhyFoundationsMatterSlide();

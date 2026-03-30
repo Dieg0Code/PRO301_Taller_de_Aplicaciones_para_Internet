@@ -1,4 +1,5 @@
 import { describe, expect, it } from "vitest";
+// cspell:ignore Asignacion informacion logico
 import {
   addAccessibilityChecklistPanel,
   addAuditEvidenceBoard,
@@ -10,19 +11,25 @@ import {
   addComponentVariantBoard,
   addCssRuleStack,
   addDataTypesBoard,
+  addEntityRelationshipBlueprint,
   addFlexGridLayout,
   addFrameworkDecisionMatrix,
   addLighthouseAuditCard,
+  addNormalizationStepper,
   addNetworkLoadBoard,
   addControlFlowPanel,
+  addDebugEvidenceBoard,
+  addDomMutationFlow,
   addEvaluationRubricPanel,
   addEventReactionPanel,
   addProjectWorkflowPanel,
   addPromptQualityCompare,
+  addSpreadsheetProblemPanel,
   addIssuePriorityMatrix,
   addQualityDimensionsPanel,
   addSeoSnippetPreview,
   addScoreBoostsAndPenalties,
+  addSqlBridgePanel,
   addPerformanceMetricsBoard,
   addResponsiveReflowPanel,
   addResponsiveViewportCompare,
@@ -531,6 +538,75 @@ describe("frontend panels", () => {
     expectGeometryIsValid(slide);
   });
 
+  it("addSpreadsheetProblemPanel muestra redundancia dentro de una pseudo planilla", () => {
+    const slide = new RecordingSlide();
+
+    addSpreadsheetProblemPanel(slide, SH, {
+      x: 0.9,
+      y: 1,
+      w: 8.8,
+      h: 3.8,
+      footer: "La redundancia empieza a doler antes de que el archivo se vea grande.",
+    });
+
+    expect(slide.texts.some((entry) => String(entry.text).includes("Cliente"))).toBe(true);
+    expect(slide.texts.some((entry) => String(entry.text).includes("Redundancia visible"))).toBe(true);
+    expect(slide.images.length).toBeGreaterThanOrEqual(1);
+    expectGeometryIsValid(slide);
+  });
+
+  it("addEntityRelationshipBlueprint conecta entidades y relaciones base", () => {
+    const slide = new RecordingSlide();
+
+    addEntityRelationshipBlueprint(slide, SH, {
+      x: 0.9,
+      y: 1,
+      w: 8.8,
+      h: 4,
+      footer: "Cada tabla representa un tipo de hecho y se conecta por llaves.",
+    });
+
+    expect(slide.texts.some((entry) => String(entry.text).includes("Cliente"))).toBe(true);
+    expect(slide.texts.some((entry) => String(entry.text).includes("Obra"))).toBe(true);
+    expect(slide.texts.some((entry) => String(entry.text).includes("Profesional"))).toBe(true);
+    expect(slide.texts.some((entry) => String(entry.text).includes("Asignacion"))).toBe(true);
+    expectGeometryIsValid(slide);
+  });
+
+  it("addNormalizationStepper hace visible el recorrido de 1NF a 3NF", () => {
+    const slide = new RecordingSlide();
+
+    addNormalizationStepper(slide, SH, {
+      x: 0.9,
+      y: 1,
+      w: 8.8,
+      h: 3.9,
+      footer: "Normalizar separa hechos para que la informacion deje de contradecirse.",
+    });
+
+    expect(slide.texts.some((entry) => String(entry.text).includes("1NF"))).toBe(true);
+    expect(slide.texts.some((entry) => String(entry.text).includes("2NF"))).toBe(true);
+    expect(slide.texts.some((entry) => String(entry.text).includes("3NF"))).toBe(true);
+    expectGeometryIsValid(slide);
+  });
+
+  it("addSqlBridgePanel conecta el modelo con SQL visible", () => {
+    const slide = new RecordingSlide();
+
+    addSqlBridgePanel(slide, SH, {
+      x: 0.9,
+      y: 1,
+      w: 8.6,
+      h: 3.6,
+      footer: "SQL implementa lo que antes ya estaba claro en el modelo.",
+    });
+
+    expect(slide.texts.some((entry) => String(entry.text).includes("Modelo logico"))).toBe(true);
+    expect(slide.texts.some((entry) => String(entry.text).includes("CREATE TABLE"))).toBe(true);
+    expect(slide.texts.some((entry) => String(entry.text).includes("SELECT * FROM obra;"))).toBe(true);
+    expectGeometryIsValid(slide);
+  });
+
   it("addStaticVsInteractiveCompare contrasta interfaz fija contra interfaz que responde", () => {
     const slide = new RecordingSlide();
 
@@ -639,6 +715,69 @@ describe("frontend panels", () => {
     expect(slide.texts.some((entry) => String(entry.text).includes("Evento"))).toBe(true);
     expect(slide.texts.some((entry) => String(entry.text).includes("Handler"))).toBe(true);
     expect(slide.texts.some((entry) => String(entry.text).includes("Respuesta"))).toBe(true);
+    expectGeometryIsValid(slide);
+  });
+
+  it("addDomMutationFlow conecta selector, mutación y resultado visible", () => {
+    const slide = new RecordingSlide();
+
+    addDomMutationFlow(slide, SH, {
+      x: 0.9,
+      y: 1,
+      w: 8.6,
+      h: 3.3,
+      footer: "Cambiar la interfaz exige ubicar bien el nodo y validar el efecto.",
+    });
+
+    expect(slide.texts.some((entry) => String(entry.text).includes("Selector"))).toBe(true);
+    expect(slide.texts.some((entry) => String(entry.text).includes("Mutación"))).toBe(true);
+    expect(slide.texts.some((entry) => String(entry.text).includes("Resultado"))).toBe(true);
+    expect(slide.texts.some((entry) => String(entry.text).includes("document.querySelector"))).toBe(true);
+    expectGeometryIsValid(slide);
+  });
+
+  it("addDomMutationFlow cambia a layout apilado cuando el panel es estrecho", () => {
+    const slide = new RecordingSlide();
+
+    addDomMutationFlow(slide, SH, {
+      x: 1,
+      y: 1,
+      w: 4.3,
+      h: 3.7,
+      footer: "Cuando falta ancho, el flujo debe seguir legible.",
+    });
+
+    const accentBars = slide.shapes
+      .filter(
+        (shape) =>
+          shape.shapeType === SH.rect &&
+          Number(shape.options.w) === 0.08 &&
+          typeof shape.options.x === "number" &&
+          typeof shape.options.y === "number"
+      )
+      .sort((a, b) => Number(a.options.y) - Number(b.options.y) || Number(a.options.x) - Number(b.options.x));
+
+    expect(accentBars.length).toBeGreaterThanOrEqual(3);
+    expect(Number(accentBars[2].options.y)).toBeGreaterThan(Number(accentBars[0].options.y) + 0.6);
+    expect(slide.texts.some((entry) => String(entry.text).includes("Resultado"))).toBe(true);
+    expectGeometryIsValid(slide);
+  });
+
+  it("addDebugEvidenceBoard organiza evidencias de Elements, Console y Network", () => {
+    const slide = new RecordingSlide();
+
+    addDebugEvidenceBoard(slide, SH, {
+      x: 0.9,
+      y: 1,
+      w: 8.8,
+      h: 3.5,
+      footer: "La evidencia manda antes que cualquier hipótesis.",
+    });
+
+    expect(slide.texts.some((entry) => String(entry.text).includes("Elements"))).toBe(true);
+    expect(slide.texts.some((entry) => String(entry.text).includes("Console"))).toBe(true);
+    expect(slide.texts.some((entry) => String(entry.text).includes("Network"))).toBe(true);
+    expect(slide.texts.some((entry) => String(entry.text).includes("evidencia"))).toBe(true);
     expectGeometryIsValid(slide);
   });
 

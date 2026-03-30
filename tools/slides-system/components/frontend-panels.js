@@ -1,5 +1,100 @@
 const { TOKENS } = require("../theme/tokens");
 const { TYPOGRAPHY } = require("../theme/typography");
+const { svgToDataUri } = require("../vendor/pptxgenjs_helpers/svg");
+
+function escapeXml(text = "") {
+  return String(text)
+    .replace(/&/g, "&amp;")
+    .replace(/</g, "&lt;")
+    .replace(/>/g, "&gt;")
+    .replace(/"/g, "&quot;")
+    .replace(/'/g, "&apos;");
+}
+
+function asSvgColor(color) {
+  const value = String(color || TOKENS.navy).trim();
+  return value.startsWith("#") ? value : `#${value}`;
+}
+
+function getBlueprintIcon(kind, opts = {}) {
+  const stroke = asSvgColor(opts.stroke || TOKENS.navy);
+  const accent = asSvgColor(opts.accent || TOKENS.red);
+  const secondary = asSvgColor(opts.secondary || TOKENS.gold);
+  const icons = {
+    sheet: `
+      <rect x="14" y="12" width="36" height="40" rx="5" fill="none" stroke="${stroke}" stroke-width="3"/>
+      <path d="M22 24 H42" stroke="${stroke}" stroke-width="3" stroke-linecap="round"/>
+      <path d="M22 32 H42" stroke="${stroke}" stroke-width="3" stroke-linecap="round"/>
+      <path d="M22 40 H34" stroke="${stroke}" stroke-width="3" stroke-linecap="round"/>
+      <rect x="18" y="16" width="10" height="6" rx="2" fill="${accent}"/>
+    `,
+    database: `
+      <ellipse cx="32" cy="16" rx="16" ry="6" fill="none" stroke="${stroke}" stroke-width="3"/>
+      <path d="M16 16 V38 C16 41.5 23.2 44 32 44 C40.8 44 48 41.5 48 38 V16" fill="none" stroke="${stroke}" stroke-width="3"/>
+      <path d="M16 27 C16 30.5 23.2 33 32 33 C40.8 33 48 30.5 48 27" fill="none" stroke="${accent}" stroke-width="3"/>
+      <path d="M16 38 C16 41.5 23.2 44 32 44 C40.8 44 48 41.5 48 38" fill="none" stroke="${secondary}" stroke-width="3"/>
+    `,
+    building: `
+      <rect x="18" y="14" width="28" height="36" rx="4" fill="none" stroke="${stroke}" stroke-width="3"/>
+      <rect x="24" y="20" width="5" height="5" rx="1.2" fill="${accent}"/>
+      <rect x="35" y="20" width="5" height="5" rx="1.2" fill="${secondary}"/>
+      <rect x="24" y="30" width="5" height="5" rx="1.2" fill="${secondary}"/>
+      <rect x="35" y="30" width="5" height="5" rx="1.2" fill="${accent}"/>
+      <rect x="29" y="40" width="6" height="10" rx="1.5" fill="none" stroke="${stroke}" stroke-width="3"/>
+    `,
+    user: `
+      <circle cx="32" cy="22" r="8" fill="none" stroke="${stroke}" stroke-width="3"/>
+      <path d="M18 47 C20.5 39.5 26 36 32 36 C38 36 43.5 39.5 46 47" fill="none" stroke="${accent}" stroke-width="3" stroke-linecap="round"/>
+    `,
+    link: `
+      <rect x="12" y="24" width="18" height="12" rx="6" fill="none" stroke="${stroke}" stroke-width="3"/>
+      <rect x="34" y="24" width="18" height="12" rx="6" fill="none" stroke="${stroke}" stroke-width="3"/>
+      <path d="M26 30 H38" stroke="${accent}" stroke-width="3" stroke-linecap="round"/>
+    `,
+    key: `
+      <circle cx="22" cy="28" r="8" fill="none" stroke="${stroke}" stroke-width="3"/>
+      <path d="M30 28 H46" stroke="${accent}" stroke-width="3" stroke-linecap="round"/>
+      <path d="M40 28 V34" stroke="${accent}" stroke-width="3" stroke-linecap="round"/>
+      <path d="M46 28 V32" stroke="${secondary}" stroke-width="3" stroke-linecap="round"/>
+    `,
+    sql: `
+      <rect x="12" y="14" width="40" height="36" rx="5" fill="none" stroke="${stroke}" stroke-width="3"/>
+      <path d="M20 24 H44" stroke="${stroke}" stroke-width="3" stroke-linecap="round"/>
+      <path d="M20 32 H36" stroke="${accent}" stroke-width="3" stroke-linecap="round"/>
+      <path d="M20 40 H30" stroke="${secondary}" stroke-width="3" stroke-linecap="round"/>
+      <path d="M42 36 L48 30 L42 24" fill="none" stroke="${accent}" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+    `,
+  };
+
+  return svgToDataUri(`
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
+      ${icons[kind] || icons.sheet}
+    </svg>
+  `);
+}
+
+function addIconBadge(slide, SH, x, y, w, h, kind, opts = {}) {
+  slide.addShape(SH.roundRect, {
+    x,
+    y,
+    w,
+    h,
+    rectRadius: 0.08,
+    fill: { color: opts.fill || TOKENS.softNeutral },
+    line: { color: opts.line || opts.fill || TOKENS.softNeutral, pt: 1 },
+  });
+  slide.addImage({
+    data: getBlueprintIcon(kind, {
+      stroke: opts.stroke || TOKENS.navy,
+      accent: opts.accent || TOKENS.red,
+      secondary: opts.secondary || TOKENS.gold,
+    }),
+    x: x + w * 0.18,
+    y: y + h * 0.18,
+    w: w * 0.64,
+    h: h * 0.64,
+  });
+}
 
 function addSurface(slide, SH, x, y, w, h, opts = {}) {
   slide.addShape(SH.roundRect, {
@@ -4816,6 +4911,1139 @@ function addEventReactionPanel(slide, SH, opts = {}) {
   }
 }
 
+function addDomMutationFlow(slide, SH, opts = {}) {
+  const x = opts.x;
+  const y = opts.y;
+  const w = opts.w;
+  const h = opts.h;
+  const footerReserve = opts.footer ? 0.28 : 0;
+  const gap = 0.16;
+  const bodyY = y + 0.62;
+  const bodyH = h - 0.84 - footerReserve;
+  const colW = (w - 0.44 - gap * 2) / 3;
+  const columns = [
+    {
+      title: opts.selectorTitle || "Selector",
+      badge: "document.querySelector(...)",
+      body: opts.selectorBody || "Ubica el nodo correcto dentro del DOM real.",
+      accent: TOKENS.red,
+      fill: TOKENS.paleRed,
+      icon: "link",
+    },
+    {
+      title: opts.mutationTitle || "Mutación",
+      badge: "nodo.textContent = ...",
+      body: opts.mutationBody || "Cambia una propiedad observable del elemento.",
+      accent: TOKENS.gold,
+      fill: TOKENS.warm,
+      icon: "key",
+    },
+    {
+      title: opts.resultTitle || "Resultado",
+      badge: opts.resultBadge || "La interfaz se actualiza",
+      body: opts.resultBody || "El cambio debe verse y también poder comprobarse.",
+      accent: TOKENS.navy,
+      fill: TOKENS.softBlue,
+      icon: "building",
+    },
+  ];
+
+  addSurface(slide, SH, x, y, w, h, {
+    fill: TOKENS.white,
+    line: TOKENS.border,
+  });
+  addSurfaceHeader(slide, SH, x + 0.14, y + 0.14, w - 0.28, opts.title || "Selector -> mutacion -> resultado visible", {
+    fill: TOKENS.softNeutral,
+  });
+
+  function renderFlowCard(column, colX, colY, cardW, cardH, cardOpts = {}) {
+    addSurface(slide, SH, colX, colY, cardW, cardH, {
+      fill: TOKENS.white,
+      line: TOKENS.border,
+    });
+    slide.addShape(SH.rect, {
+      x: colX,
+      y: colY,
+      w: 0.08,
+      h: cardH,
+      fill: { color: column.accent },
+      line: { color: column.accent },
+    });
+    addIconBadge(
+      slide,
+      SH,
+      colX + 0.16,
+      colY + 0.16,
+      cardOpts.iconSize || 0.48,
+      cardOpts.iconSize || 0.48,
+      column.icon,
+      {
+      fill: column.fill,
+      stroke: column.accent,
+      accent: column.accent,
+      secondary: TOKENS.navy,
+      line: column.fill,
+      }
+    );
+    slide.addText(column.title, {
+      x: colX + (cardOpts.titleXOffset || 0.74),
+      y: colY + 0.22,
+      w: cardW - (cardOpts.titleXOffset || 0.74) - 0.18,
+      h: 0.14,
+      fontFace: TYPOGRAPHY.display,
+      fontSize: cardOpts.titleFontSize || 11.2,
+      bold: true,
+      color: TOKENS.navy,
+      margin: 0,
+      fit: "shrink",
+    });
+    slide.addShape(SH.roundRect, {
+      x: colX + 0.16,
+      y: colY + (cardOpts.badgeY || 0.78),
+      w: cardW - 0.32,
+      h: cardOpts.badgeH || 0.42,
+      rectRadius: 0.03,
+      fill: { color: TOKENS.editorBg },
+      line: { color: TOKENS.editorBg },
+    });
+    slide.addText(column.badge, {
+      x: colX + 0.24,
+      y: colY + (cardOpts.badgeTextY || 0.91),
+      w: cardW - 0.48,
+      h: 0.12,
+      fontFace: TYPOGRAPHY.mono,
+      fontSize: cardOpts.badgeFontSize || 8,
+      color: TOKENS.white,
+      align: "center",
+      margin: 0,
+      fit: "shrink",
+    });
+    slide.addText(column.body, {
+      x: colX + 0.16,
+      y: colY + (cardOpts.bodyY || 1.38),
+      w: cardW - 0.32,
+      h: Math.max(0.22, cardH - (cardOpts.bodyY || 1.38) - 0.16),
+      fontFace: TYPOGRAPHY.body,
+      fontSize: cardOpts.bodyFontSize || 8,
+      color: TOKENS.ink,
+      margin: 0,
+      valign: cardOpts.bodyVAlign || "mid",
+      align: "center",
+      fit: "shrink",
+    });
+  }
+
+  const useStackedLayout = colW < 1.55;
+
+  if (useStackedLayout) {
+    const laneY = bodyY + 0.14;
+    const cardGap = 0.1;
+    const cardW = w - 0.44;
+    const cardH = Math.max(0.72, (bodyH - 0.14 - cardGap * 2) / 3);
+    const leftX = x + 0.22;
+
+    renderFlowCard(columns[0], leftX, laneY, cardW, cardH, {
+      iconSize: 0.34,
+      titleXOffset: 0.56,
+      titleFontSize: 9.8,
+      badgeY: 0.3,
+      badgeH: 0.22,
+      badgeTextY: 0.36,
+      badgeFontSize: 5.8,
+      bodyY: 0.56,
+      bodyFontSize: 6.4,
+      bodyVAlign: "top",
+    });
+    renderFlowCard(columns[1], leftX, laneY + cardH + cardGap, cardW, cardH, {
+      iconSize: 0.34,
+      titleXOffset: 0.56,
+      titleFontSize: 9.8,
+      badgeY: 0.3,
+      badgeH: 0.22,
+      badgeTextY: 0.36,
+      badgeFontSize: 5.8,
+      bodyY: 0.56,
+      bodyFontSize: 6.4,
+      bodyVAlign: "top",
+    });
+    renderFlowCard(columns[2], leftX, laneY + (cardH + cardGap) * 2, cardW, cardH, {
+      iconSize: 0.34,
+      titleXOffset: 0.56,
+      titleFontSize: 9.8,
+      badgeY: 0.3,
+      badgeH: 0.22,
+      badgeTextY: 0.36,
+      badgeFontSize: 5.8,
+      bodyY: 0.56,
+      bodyFontSize: 6.4,
+      bodyVAlign: "top",
+    });
+  } else {
+    const laneY = bodyY + 0.14;
+    const laneH = Math.max(1.28, bodyH - 0.54);
+
+    columns.forEach((column, index) => {
+      const colX = x + 0.22 + index * (colW + gap);
+
+      renderFlowCard(column, colX, laneY, colW, laneH);
+
+      if (index < columns.length - 1) {
+        slide.addShape(SH.chevron, {
+          x: colX + colW + (gap - 0.1) / 2,
+          y: laneY + laneH / 2 - 0.13,
+          w: 0.1,
+          h: 0.26,
+          fill: { color: TOKENS.gold },
+          line: { color: TOKENS.gold },
+        });
+      }
+    });
+  }
+
+  if (opts.footer) {
+    slide.addText(opts.footer, {
+      x: x + 0.2,
+      y: y + h - (useStackedLayout ? 0.16 : 0.18),
+      w: w - 0.4,
+      h: 0.12,
+      fontFace: TYPOGRAPHY.body,
+      fontSize: useStackedLayout ? 7.6 : 8.4,
+      color: TOKENS.slate,
+      align: "center",
+      margin: 0,
+    });
+  }
+}
+
+function addDebugEvidenceBoard(slide, SH, opts = {}) {
+  const x = opts.x;
+  const y = opts.y;
+  const w = opts.w;
+  const h = opts.h;
+  const footerReserve = opts.footer ? 0.28 : 0;
+  const gap = 0.16;
+  const bodyY = y + 0.62;
+  const bodyH = h - 0.84 - footerReserve;
+  const cardH = Math.max(0.9, bodyH - 0.58);
+  const cardW = (w - 0.44 - gap * 2) / 3;
+  const cards = (opts.cards || [
+    {
+      title: "Elements",
+      body: "Confirma si el nodo existe y si el selector apunta al lugar correcto.",
+      question: "¿Ese elemento está realmente en el DOM?",
+      accent: TOKENS.red,
+      fill: TOKENS.paleRed,
+      icon: "sheet",
+    },
+    {
+      title: "Console",
+      body: "Mira valores, errores y el punto exacto donde el flujo se corta.",
+      question: "¿Qué evidencia entrega el código al ejecutarse?",
+      accent: TOKENS.gold,
+      fill: TOKENS.warm,
+      icon: "sql",
+    },
+    {
+      title: "Network",
+      body: "Verifica si `fetch` salió, respondió y devolvió la estructura esperada.",
+      question: "¿La solicitud ocurrió y trajo datos válidos?",
+      accent: TOKENS.navy,
+      fill: TOKENS.softBlue,
+      icon: "database",
+    },
+  ]).slice(0, 3);
+
+  addSurface(slide, SH, x, y, w, h, {
+    fill: TOKENS.white,
+    line: TOKENS.border,
+  });
+  addSurfaceHeader(slide, SH, x + 0.14, y + 0.14, w - 0.28, opts.title || "Evidencia de debugging", {
+    fill: TOKENS.softNeutral,
+  });
+
+  cards.forEach((card, index) => {
+    const cardX = x + 0.22 + index * (cardW + gap);
+
+    addSurface(slide, SH, cardX, bodyY, cardW, cardH, {
+      fill: TOKENS.white,
+      line: TOKENS.border,
+    });
+    slide.addShape(SH.rect, {
+      x: cardX,
+      y: bodyY,
+      w: 0.08,
+      h: cardH,
+      fill: { color: card.accent || TOKENS.navy },
+      line: { color: card.accent || TOKENS.navy },
+    });
+    addIconBadge(slide, SH, cardX + 0.16, bodyY + 0.16, 0.48, 0.48, card.icon || "sheet", {
+      fill: card.fill || TOKENS.softBlue,
+      stroke: card.accent || TOKENS.navy,
+      accent: card.accent || TOKENS.navy,
+      secondary: TOKENS.gold,
+      line: card.fill || TOKENS.softBlue,
+    });
+    slide.addText(card.title || "Panel", {
+      x: cardX + 0.74,
+      y: bodyY + 0.22,
+      w: cardW - 0.92,
+      h: 0.14,
+      fontFace: TYPOGRAPHY.display,
+      fontSize: 11,
+      bold: true,
+      color: TOKENS.navy,
+      margin: 0,
+      fit: "shrink",
+    });
+    slide.addText(card.body || "", {
+      x: cardX + 0.16,
+      y: bodyY + 0.8,
+      w: cardW - 0.32,
+      h: 0.5,
+      fontFace: TYPOGRAPHY.body,
+      fontSize: 7.8,
+      color: TOKENS.ink,
+      margin: 0,
+      fit: "shrink",
+      valign: "mid",
+    });
+    slide.addShape(SH.roundRect, {
+      x: cardX + 0.16,
+      y: bodyY + cardH - 0.54,
+      w: cardW - 0.32,
+      h: 0.34,
+      rectRadius: 0.03,
+      fill: { color: card.fill || TOKENS.softBlue },
+      line: { color: card.fill || TOKENS.softBlue },
+    });
+    slide.addText(card.question || "", {
+      x: cardX + 0.24,
+      y: bodyY + cardH - 0.45,
+      w: cardW - 0.48,
+      h: 0.16,
+      fontFace: TYPOGRAPHY.body,
+      fontSize: 7.2,
+      bold: true,
+      color: TOKENS.navy,
+      margin: 0,
+      align: "center",
+      fit: "shrink",
+      valign: "mid",
+    });
+  });
+
+  if (opts.footer) {
+    slide.addText(opts.footer, {
+      x: x + 0.2,
+      y: y + h - 0.18,
+      w: w - 0.4,
+      h: 0.12,
+      fontFace: TYPOGRAPHY.body,
+      fontSize: 8.4,
+      color: TOKENS.slate,
+      align: "center",
+      margin: 0,
+    });
+  }
+}
+
+function addSpreadsheetProblemPanel(slide, SH, opts = {}) {
+  const x = opts.x;
+  const y = opts.y;
+  const w = opts.w;
+  const h = opts.h;
+  const footerReserve = opts.footer ? 0.26 : 0;
+  const columns = (opts.columns || ["Obra", "Cliente", "Direccion", "Profesional"]).slice(0, 5);
+  const rows = (opts.rows || [
+    ["Edificio A", "Constructora Sur", "Los Aromos 220", "Patricia Rojas"],
+    ["Edificio A", "Constructora Sur", "Los Aromos 220", "Patricia Rojas"],
+    ["Casa B", "Inmobiliaria Norte", "Ruta 5 km 18", "Diego Salas"],
+    ["Casa B", "Inmobiliaria Norte", "Ruta 5 km 18", "Diego Salas"],
+  ]).slice(0, 5);
+  const highlights = opts.highlights || [
+    { row: 0, col: 1, accent: TOKENS.red, fill: TOKENS.paleRed },
+    { row: 1, col: 1, accent: TOKENS.red, fill: TOKENS.paleRed },
+    { row: 0, col: 3, accent: TOKENS.gold, fill: TOKENS.warm },
+    { row: 1, col: 3, accent: TOKENS.gold, fill: TOKENS.warm },
+  ];
+  const callouts = (opts.callouts || [
+    {
+      title: "Redundancia visible",
+      body: "Cliente y profesional se repiten en cada fila de obra.",
+      accent: TOKENS.red,
+      fill: TOKENS.paleRed,
+    },
+    {
+      title: "Riesgo operativo",
+      body: "Si cambia un telefono o un nombre, hay que editar muchas celdas.",
+      accent: TOKENS.gold,
+      fill: TOKENS.warm,
+    },
+  ]).slice(0, 3);
+  const bodyY = y + 0.62;
+  const bodyH = h - 0.82 - footerReserve;
+  const tableW = w * 0.6;
+  const calloutW = w - tableW - 0.54;
+  const tableX = x + 0.18;
+  const tableY = bodyY + 0.02;
+  const tableH = bodyH - 0.04;
+  const headerH = 0.36;
+  const rowGap = 0.06;
+  const cellGap = 0.04;
+  const rowH = (tableH - headerH - rowGap * rows.length) / Math.max(rows.length, 1);
+  const colW = (tableW - cellGap * (columns.length - 1)) / Math.max(columns.length, 1);
+
+  addSurface(slide, SH, x, y, w, h, {
+    fill: TOKENS.white,
+    line: TOKENS.border,
+  });
+  addSurfaceHeader(slide, SH, x + 0.14, y + 0.14, w - 0.28, opts.title || "De planilla util a planilla fragil", {
+    fill: TOKENS.softNeutral,
+  });
+  addIconBadge(slide, SH, x + w - 0.78, y + 0.56, 0.42, 0.42, "sheet", {
+    fill: TOKENS.softBlue,
+    stroke: TOKENS.navy,
+    accent: TOKENS.red,
+    secondary: TOKENS.gold,
+    line: TOKENS.softBlue,
+  });
+
+  columns.forEach((column, colIndex) => {
+    const cellX = tableX + colIndex * (colW + cellGap);
+    slide.addShape(SH.roundRect, {
+      x: cellX,
+      y: tableY,
+      w: colW,
+      h: headerH,
+      rectRadius: 0.03,
+      fill: { color: TOKENS.navy },
+      line: { color: TOKENS.navy, pt: 1 },
+    });
+    slide.addText(column, {
+      x: cellX + 0.08,
+      y: tableY + 0.11,
+      w: colW - 0.16,
+      h: 0.12,
+      fontFace: TYPOGRAPHY.body,
+      fontSize: 8.8,
+      bold: true,
+      color: TOKENS.white,
+      margin: 0,
+      align: "center",
+      fit: "shrink",
+    });
+  });
+
+  rows.forEach((row, rowIndex) => {
+    const cellY = tableY + headerH + rowGap + rowIndex * (rowH + rowGap);
+    columns.forEach((_, colIndex) => {
+      const cellX = tableX + colIndex * (colW + cellGap);
+      const highlighted = highlights.find(
+        (entry) => entry.row === rowIndex && entry.col === colIndex
+      );
+      slide.addShape(SH.roundRect, {
+        x: cellX,
+        y: cellY,
+        w: colW,
+        h: rowH,
+        rectRadius: 0.02,
+        fill: { color: highlighted?.fill || (rowIndex % 2 === 0 ? TOKENS.paper : TOKENS.white) },
+        line: { color: highlighted?.accent || TOKENS.border, pt: highlighted ? 1.25 : 1 },
+      });
+      slide.addText(row[colIndex] || "", {
+        x: cellX + 0.08,
+        y: cellY + 0.09,
+        w: colW - 0.16,
+        h: rowH - 0.16,
+        fontFace: TYPOGRAPHY.body,
+        fontSize: 7.6,
+        color: TOKENS.ink,
+        margin: 0,
+        valign: "mid",
+        fit: "shrink",
+      });
+    });
+  });
+
+  const calloutX = tableX + tableW + 0.18;
+  const calloutGap = 0.12;
+  const calloutH = (tableH - calloutGap * (callouts.length - 1)) / Math.max(callouts.length, 1);
+
+  callouts.forEach((callout, index) => {
+    const cardY = tableY + index * (calloutH + calloutGap);
+    addSurface(slide, SH, calloutX, cardY, calloutW, calloutH, {
+      fill: callout.fill || TOKENS.softBlue,
+      line: callout.fill || TOKENS.softBlue,
+    });
+    slide.addShape(SH.rect, {
+      x: calloutX,
+      y: cardY,
+      w: 0.08,
+      h: calloutH,
+      fill: { color: callout.accent || TOKENS.red },
+      line: { color: callout.accent || TOKENS.red },
+    });
+    slide.addText(callout.title || "", {
+      x: calloutX + 0.14,
+      y: cardY + 0.14,
+      w: calloutW - 0.24,
+      h: 0.16,
+      fontFace: TYPOGRAPHY.display,
+      fontSize: 11,
+      bold: true,
+      color: TOKENS.navy,
+      margin: 0,
+    });
+    slide.addText(callout.body || "", {
+      x: calloutX + 0.14,
+      y: cardY + 0.36,
+      w: calloutW - 0.24,
+      h: calloutH - 0.46,
+      fontFace: TYPOGRAPHY.body,
+      fontSize: 8.4,
+      color: TOKENS.ink,
+      margin: 0,
+      valign: "mid",
+      fit: "shrink",
+    });
+  });
+
+  if (opts.footer) {
+    slide.addText(opts.footer, {
+      x: x + 0.2,
+      y: y + h - 0.18,
+      w: w - 0.4,
+      h: 0.12,
+      fontFace: TYPOGRAPHY.body,
+      fontSize: 8.4,
+      color: TOKENS.slate,
+      align: "center",
+      margin: 0,
+    });
+  }
+}
+
+function addEntityRelationshipBlueprint(slide, SH, opts = {}) {
+  const x = opts.x;
+  const y = opts.y;
+  const w = opts.w;
+  const h = opts.h;
+  const footerReserve = opts.footer ? 0.24 : 0;
+  const entities = (opts.entities || [
+    {
+      title: "Cliente",
+      icon: "user",
+      fields: ["cliente_id (PK)", "nombre", "rut", "telefono"],
+      accent: TOKENS.red,
+      fill: TOKENS.paleRed,
+    },
+    {
+      title: "Obra",
+      icon: "building",
+      fields: ["obra_id (PK)", "cliente_id (FK)", "nombre", "direccion"],
+      accent: TOKENS.navy,
+      fill: TOKENS.softBlue,
+    },
+    {
+      title: "Profesional",
+      icon: "user",
+      fields: ["profesional_id (PK)", "nombre", "especialidad"],
+      accent: TOKENS.gold,
+      fill: TOKENS.warm,
+    },
+    {
+      title: "Asignacion",
+      icon: "link",
+      fields: ["asignacion_id (PK)", "obra_id (FK)", "profesional_id (FK)"],
+      accent: TOKENS.navy,
+      fill: TOKENS.mist,
+    },
+  ]).slice(0, 4);
+  const relations = (opts.relations || [
+    { from: 0, to: 1, label: "1:N", accent: TOKENS.red },
+    { from: 1, to: 3, label: "1:N", accent: TOKENS.gold },
+    { from: 2, to: 3, label: "1:N", accent: TOKENS.navy },
+  ]).slice(0, 4);
+  const bodyY = y + 0.62;
+  const bodyH = h - 0.82 - footerReserve;
+  const gapX = 0.32;
+  const gapY = 0.24;
+  const cardW = (w - 0.36 - gapX) / 2;
+  const cardH = (bodyH - gapY) / 2;
+  const positions = [
+    { x: x + 0.18, y: bodyY },
+    { x: x + 0.18 + cardW + gapX, y: bodyY },
+    { x: x + 0.18, y: bodyY + cardH + gapY },
+    { x: x + 0.18 + cardW + gapX, y: bodyY + cardH + gapY },
+  ];
+
+  addSurface(slide, SH, x, y, w, h, {
+    fill: TOKENS.paper,
+    line: TOKENS.border,
+  });
+  addSurfaceHeader(slide, SH, x + 0.14, y + 0.14, w - 0.28, opts.title || "MER del caso de obras", {
+    fill: TOKENS.softNeutral,
+  });
+
+  const centers = positions.map((position) => ({
+    cx: position.x + cardW / 2,
+    cy: position.y + cardH / 2,
+  }));
+
+  relations.forEach((relation) => {
+    const from = centers[relation.from ?? 0];
+    const to = centers[relation.to ?? 1];
+    if (!from || !to) {
+      return;
+    }
+
+    if (Math.abs(from.cy - to.cy) < 0.1) {
+      const startX = Math.min(from.cx, to.cx);
+      const endX = Math.max(from.cx, to.cx);
+      slide.addShape(SH.rect, {
+        x: startX,
+        y: from.cy - 0.02,
+        w: Math.max(0.1, endX - startX),
+        h: 0.04,
+        fill: { color: relation.accent || TOKENS.gold },
+        line: { color: relation.accent || TOKENS.gold },
+      });
+      slide.addText(relation.label || "", {
+        x: startX + (endX - startX) / 2 - 0.2,
+        y: from.cy - 0.18,
+        w: 0.4,
+        h: 0.1,
+        fontFace: TYPOGRAPHY.body,
+        fontSize: 8,
+        bold: true,
+        color: relation.accent || TOKENS.gold,
+        margin: 0,
+        align: "center",
+      });
+    } else {
+      const topY = Math.min(from.cy, to.cy);
+      const leftX = Math.min(from.cx, to.cx);
+      slide.addShape(SH.rect, {
+        x: leftX - 0.02,
+        y: topY,
+        w: 0.04,
+        h: Math.abs(from.cy - to.cy),
+        fill: { color: relation.accent || TOKENS.gold },
+        line: { color: relation.accent || TOKENS.gold },
+      });
+      slide.addText(relation.label || "", {
+        x: leftX + 0.08,
+        y: topY + Math.abs(from.cy - to.cy) / 2 - 0.05,
+        w: 0.4,
+        h: 0.1,
+        fontFace: TYPOGRAPHY.body,
+        fontSize: 8,
+        bold: true,
+        color: relation.accent || TOKENS.gold,
+        margin: 0,
+      });
+    }
+  });
+
+  entities.forEach((entity, index) => {
+    const position = positions[index];
+    addSurface(slide, SH, position.x, position.y, cardW, cardH, {
+      fill: TOKENS.white,
+      line: entity.accent || TOKENS.border,
+      linePt: 1.2,
+    });
+    slide.addShape(SH.rect, {
+      x: position.x,
+      y: position.y,
+      w: 0.08,
+      h: cardH,
+      fill: { color: entity.accent || TOKENS.red },
+      line: { color: entity.accent || TOKENS.red },
+    });
+    addIconBadge(slide, SH, position.x + 0.14, position.y + 0.12, 0.42, 0.42, entity.icon || "database", {
+      fill: entity.fill || TOKENS.softNeutral,
+      accent: entity.accent || TOKENS.red,
+      secondary: TOKENS.gold,
+    });
+    slide.addText(entity.title || "", {
+      x: position.x + 0.64,
+      y: position.y + 0.18,
+      w: cardW - 0.78,
+      h: 0.14,
+      fontFace: TYPOGRAPHY.display,
+      fontSize: 11.6,
+      bold: true,
+      color: TOKENS.navy,
+      margin: 0,
+    });
+
+    (entity.fields || []).slice(0, 4).forEach((field, fieldIndex) => {
+      const rowY = position.y + 0.62 + fieldIndex * 0.28;
+      slide.addShape(SH.roundRect, {
+        x: position.x + 0.14,
+        y: rowY,
+        w: cardW - 0.28,
+        h: 0.22,
+        rectRadius: 0.02,
+        fill: { color: field.includes("(PK)") ? TOKENS.softBlue : field.includes("(FK)") ? TOKENS.warm : TOKENS.paper },
+        line: { color: field.includes("(PK)") ? TOKENS.navy : field.includes("(FK)") ? TOKENS.gold : TOKENS.border, pt: 1 },
+      });
+      slide.addText(field, {
+        x: position.x + 0.24,
+        y: rowY + 0.06,
+        w: cardW - 0.46,
+        h: 0.1,
+        fontFace: TYPOGRAPHY.body,
+        fontSize: 8.1,
+        color: TOKENS.ink,
+        margin: 0,
+        fit: "shrink",
+      });
+    });
+  });
+
+  if (opts.footer) {
+    slide.addText(opts.footer, {
+      x: x + 0.2,
+      y: y + h - 0.18,
+      w: w - 0.4,
+      h: 0.12,
+      fontFace: TYPOGRAPHY.body,
+      fontSize: 8.4,
+      color: TOKENS.slate,
+      align: "center",
+      margin: 0,
+    });
+  }
+}
+
+function addNormalizationStepper(slide, SH, opts = {}) {
+  const x = opts.x;
+  const y = opts.y;
+  const w = opts.w;
+  const h = opts.h;
+  const footerReserve = opts.footer ? 0.26 : 0;
+  const stages = (opts.stages || [
+    {
+      badge: "0",
+      title: "Tabla inicial",
+      focus: "todo mezclado",
+      note: "Cliente, obra y profesional viven en la misma hoja.",
+      accent: TOKENS.red,
+      fill: TOKENS.paleRed,
+      sample: ["obra", "cliente", "direccion", "profesional"],
+    },
+    {
+      badge: "1NF",
+      title: "Valores atómicos",
+      focus: "una celda, un valor",
+      note: "Se evitan listas o datos compuestos en una misma columna.",
+      accent: TOKENS.navy,
+      fill: TOKENS.softBlue,
+      sample: ["obra", "cliente", "direccion", "profesional"],
+    },
+    {
+      badge: "2NF",
+      title: "Sin dependencia parcial",
+      focus: "cada dato depende de la llave completa",
+      note: "Los datos de cliente y profesional se separan de la obra.",
+      accent: TOKENS.gold,
+      fill: TOKENS.warm,
+      sample: ["cliente", "obra", "profesional", "asignacion"],
+    },
+    {
+      badge: "3NF",
+      title: "Sin dependencia transitiva",
+      focus: "cada tabla guarda un solo tipo de hecho",
+      note: "El modelo queda listo para mantener consistencia y crecer.",
+      accent: TOKENS.success,
+      fill: TOKENS.successSoft,
+      sample: ["cliente", "obra", "profesional", "asignacion"],
+    },
+  ]).slice(0, 4);
+  const footerY = y + h - 0.18;
+  const wide = w >= 8.2;
+
+  addSurface(slide, SH, x, y, w, h, {
+    fill: TOKENS.white,
+    line: TOKENS.border,
+  });
+  addSurfaceHeader(slide, SH, x + 0.14, y + 0.14, w - 0.28, opts.title || "Normalizacion paso a paso", {
+    fill: TOKENS.softNeutral,
+  });
+
+  if (wide) {
+    const gap = 0.16;
+    const cardW = (w - 0.36 - gap * (stages.length - 1)) / stages.length;
+    const cardH = h - 1 - footerReserve;
+    stages.forEach((stage, index) => {
+      const cardX = x + 0.18 + index * (cardW + gap);
+      const cardY = y + 0.64;
+      addSurface(slide, SH, cardX, cardY, cardW, cardH, {
+        fill: stage.fill || TOKENS.paper,
+        line: stage.accent || TOKENS.border,
+        linePt: 1.1,
+      });
+      slide.addShape(SH.roundRect, {
+        x: cardX + 0.12,
+        y: cardY + 0.1,
+        w: 0.54,
+        h: 0.24,
+        rectRadius: 0.04,
+        fill: { color: stage.accent || TOKENS.red },
+        line: { color: stage.accent || TOKENS.red },
+      });
+      slide.addText(stage.badge || "", {
+        x: cardX + 0.16,
+        y: cardY + 0.15,
+        w: 0.46,
+        h: 0.1,
+        fontFace: TYPOGRAPHY.body,
+        fontSize: 8.2,
+        bold: true,
+        color: TOKENS.white,
+        margin: 0,
+        align: "center",
+      });
+      slide.addText(stage.title || "", {
+        x: cardX + 0.12,
+        y: cardY + 0.42,
+        w: cardW - 0.24,
+        h: 0.16,
+        fontFace: TYPOGRAPHY.display,
+        fontSize: 11.2,
+        bold: true,
+        color: TOKENS.navy,
+        margin: 0,
+      });
+      slide.addShape(SH.roundRect, {
+        x: cardX + 0.12,
+        y: cardY + 0.7,
+        w: cardW - 0.24,
+        h: 0.28,
+        rectRadius: 0.03,
+        fill: { color: TOKENS.navy },
+        line: { color: TOKENS.navy },
+      });
+      slide.addText(stage.focus || "", {
+        x: cardX + 0.16,
+        y: cardY + 0.78,
+        w: cardW - 0.32,
+        h: 0.1,
+        fontFace: TYPOGRAPHY.body,
+        fontSize: 7.6,
+        bold: true,
+        color: TOKENS.white,
+        margin: 0,
+        align: "center",
+        fit: "shrink",
+      });
+      (stage.sample || []).slice(0, 4).forEach((item, itemIndex) => {
+        const rowY = cardY + 1.14 + itemIndex * 0.26;
+        slide.addShape(SH.roundRect, {
+          x: cardX + 0.12,
+          y: rowY,
+          w: cardW - 0.24,
+          h: 0.2,
+          rectRadius: 0.02,
+          fill: { color: itemIndex % 2 === 0 ? TOKENS.white : TOKENS.mist },
+          line: { color: TOKENS.border, pt: 1 },
+        });
+        slide.addText(item, {
+          x: cardX + 0.2,
+          y: rowY + 0.05,
+          w: cardW - 0.4,
+          h: 0.08,
+          fontFace: TYPOGRAPHY.body,
+          fontSize: 7.8,
+          color: TOKENS.ink,
+          margin: 0,
+          fit: "shrink",
+        });
+      });
+      slide.addText(stage.note || "", {
+        x: cardX + 0.12,
+        y: cardY + cardH - 0.54,
+        w: cardW - 0.24,
+        h: 0.42,
+        fontFace: TYPOGRAPHY.body,
+        fontSize: 7.7,
+        color: TOKENS.slate,
+        margin: 0,
+        valign: "mid",
+      });
+
+      if (index < stages.length - 1) {
+        slide.addShape(SH.chevron, {
+          x: cardX + cardW + 0.03,
+          y: cardY + cardH / 2 - 0.14,
+          w: 0.1,
+          h: 0.28,
+          fill: { color: TOKENS.gold },
+          line: { color: TOKENS.gold },
+        });
+      }
+    });
+  } else {
+    const gapX = 0.14;
+    const gapY = 0.16;
+    const cardW = (w - 0.36 - gapX) / 2;
+    const cardH = (h - 1 - footerReserve - gapY) / 2;
+    stages.forEach((stage, index) => {
+      const col = index % 2;
+      const row = Math.floor(index / 2);
+      const cardX = x + 0.18 + col * (cardW + gapX);
+      const cardY = y + 0.64 + row * (cardH + gapY);
+      addSurface(slide, SH, cardX, cardY, cardW, cardH, {
+        fill: stage.fill || TOKENS.paper,
+        line: stage.accent || TOKENS.border,
+        linePt: 1.1,
+      });
+      slide.addShape(SH.roundRect, {
+        x: cardX + 0.12,
+        y: cardY + 0.1,
+        w: 0.58,
+        h: 0.24,
+        rectRadius: 0.04,
+        fill: { color: stage.accent || TOKENS.red },
+        line: { color: stage.accent || TOKENS.red },
+      });
+      slide.addText(stage.badge || "", {
+        x: cardX + 0.16,
+        y: cardY + 0.15,
+        w: 0.5,
+        h: 0.1,
+        fontFace: TYPOGRAPHY.body,
+        fontSize: 8.1,
+        bold: true,
+        color: TOKENS.white,
+        margin: 0,
+        align: "center",
+      });
+      slide.addText(stage.title || "", {
+        x: cardX + 0.12,
+        y: cardY + 0.42,
+        w: cardW - 0.24,
+        h: 0.16,
+        fontFace: TYPOGRAPHY.display,
+        fontSize: 10.4,
+        bold: true,
+        color: TOKENS.navy,
+        margin: 0,
+      });
+      slide.addText(stage.focus || "", {
+        x: cardX + 0.12,
+        y: cardY + 0.66,
+        w: cardW - 0.24,
+        h: 0.16,
+        fontFace: TYPOGRAPHY.body,
+        fontSize: 7.4,
+        bold: true,
+        color: stage.accent || TOKENS.red,
+        margin: 0,
+      });
+      slide.addText(stage.note || "", {
+        x: cardX + 0.12,
+        y: cardY + 0.92,
+        w: cardW - 0.24,
+        h: cardH - 1.04,
+        fontFace: TYPOGRAPHY.body,
+        fontSize: 7.4,
+        color: TOKENS.slate,
+        margin: 0,
+        valign: "mid",
+      });
+    });
+  }
+
+  if (opts.footer) {
+    slide.addText(opts.footer, {
+      x: x + 0.2,
+      y: footerY,
+      w: w - 0.4,
+      h: 0.12,
+      fontFace: TYPOGRAPHY.body,
+      fontSize: 8.4,
+      color: TOKENS.slate,
+      align: "center",
+      margin: 0,
+    });
+  }
+}
+
+function addSqlBridgePanel(slide, SH, opts = {}) {
+  const x = opts.x;
+  const y = opts.y;
+  const w = opts.w;
+  const h = opts.h;
+  const footerReserve = opts.footer ? 0.26 : 0;
+  const tables = (opts.tables || [
+    { title: "Cliente", meta: "cliente_id (PK)", accent: TOKENS.red, fill: TOKENS.paleRed },
+    { title: "Obra", meta: "cliente_id (FK)", accent: TOKENS.navy, fill: TOKENS.softBlue },
+    { title: "Asignacion", meta: "obra_id + profesional_id", accent: TOKENS.gold, fill: TOKENS.warm },
+  ]).slice(0, 4);
+  const codeLines = (opts.codeLines || [
+    "CREATE TABLE cliente (",
+    "  cliente_id INT PRIMARY KEY,",
+    "  nombre VARCHAR(120) NOT NULL",
+    ");",
+    "SELECT * FROM obra;",
+  ]).slice(0, 8);
+  const bodyY = y + 0.62;
+  const bodyH = h - 0.82 - footerReserve;
+  const leftW = w * 0.38;
+  const bridgeW = 0.44;
+  const rightW = w - leftW - bridgeW - 0.54;
+  const leftX = x + 0.18;
+  const rightX = leftX + leftW + bridgeW + 0.18;
+
+  addSurface(slide, SH, x, y, w, h, {
+    fill: TOKENS.paper,
+    line: TOKENS.border,
+  });
+  addSurfaceHeader(slide, SH, x + 0.14, y + 0.14, w - 0.28, opts.title || "Del modelo relacional a SQL", {
+    fill: TOKENS.softNeutral,
+  });
+
+  addSurface(slide, SH, leftX, bodyY, leftW, bodyH, {
+    fill: TOKENS.white,
+    line: TOKENS.border,
+  });
+  slide.addText("Modelo logico", {
+    x: leftX + 0.14,
+    y: bodyY + 0.14,
+    w: leftW - 0.28,
+    h: 0.14,
+    fontFace: TYPOGRAPHY.display,
+    fontSize: 11.6,
+    bold: true,
+    color: TOKENS.navy,
+    margin: 0,
+  });
+
+  const chipGap = 0.14;
+  const chipH = (bodyH - 0.64 - chipGap * (tables.length - 1)) / Math.max(tables.length, 1);
+  tables.forEach((table, index) => {
+    const chipY = bodyY + 0.46 + index * (chipH + chipGap);
+    addSurface(slide, SH, leftX + 0.12, chipY, leftW - 0.24, chipH, {
+      fill: table.fill || TOKENS.softBlue,
+      line: table.accent || TOKENS.border,
+      linePt: 1.1,
+    });
+    addIconBadge(slide, SH, leftX + 0.24, chipY + 0.12, 0.38, 0.38, index === 0 ? "user" : index === 1 ? "building" : "link", {
+      fill: TOKENS.white,
+      accent: table.accent || TOKENS.red,
+      secondary: TOKENS.gold,
+    });
+    slide.addText(table.title || "", {
+      x: leftX + 0.72,
+      y: chipY + 0.16,
+      w: leftW - 0.96,
+      h: 0.12,
+      fontFace: TYPOGRAPHY.display,
+      fontSize: 10.8,
+      bold: true,
+      color: TOKENS.navy,
+      margin: 0,
+    });
+    slide.addText(table.meta || "", {
+      x: leftX + 0.72,
+      y: chipY + 0.38,
+      w: leftW - 0.96,
+      h: chipH - 0.46,
+      fontFace: TYPOGRAPHY.body,
+      fontSize: 7.8,
+      color: TOKENS.ink,
+      margin: 0,
+      valign: "mid",
+      fit: "shrink",
+    });
+  });
+
+  slide.addShape(SH.chevron, {
+    x: leftX + leftW + 0.1,
+    y: bodyY + bodyH / 2 - 0.28,
+    w: 0.24,
+    h: 0.56,
+    fill: { color: TOKENS.gold },
+    line: { color: TOKENS.gold },
+  });
+
+  addSurface(slide, SH, rightX, bodyY, rightW, bodyH, {
+    fill: TOKENS.editorBg,
+    line: TOKENS.editorBg,
+  });
+  slide.addShape(SH.roundRect, {
+    x: rightX + 0.1,
+    y: bodyY + 0.1,
+    w: rightW - 0.2,
+    h: 0.28,
+    rectRadius: 0.03,
+    fill: { color: TOKENS.titleFill },
+    line: { color: TOKENS.titleFill },
+  });
+  slide.addText(opts.codeTitle || "SQL minimo", {
+    x: rightX + 0.18,
+    y: bodyY + 0.17,
+    w: rightW - 1.16,
+    h: 0.1,
+    fontFace: TYPOGRAPHY.body,
+    fontSize: 8.4,
+    bold: true,
+    color: TOKENS.white,
+    margin: 0,
+  });
+  addIconBadge(slide, SH, rightX + rightW - 0.34, bodyY + 0.15, 0.14, 0.14, "sql", {
+    fill: TOKENS.softNeutral,
+    accent: TOKENS.red,
+    secondary: TOKENS.gold,
+  });
+  codeLines.forEach((line, index) => {
+    const lineY = bodyY + 0.5 + index * 0.24;
+    slide.addText(`${index + 1}`, {
+      x: rightX + 0.12,
+      y: lineY,
+      w: 0.16,
+      h: 0.1,
+      fontFace: TYPOGRAPHY.mono,
+      fontSize: 7.2,
+      color: TOKENS.terminalMuted,
+      margin: 0,
+      align: "right",
+    });
+    slide.addText(line, {
+      x: rightX + 0.34,
+      y: lineY,
+      w: rightW - 0.46,
+      h: 0.1,
+      fontFace: TYPOGRAPHY.mono,
+      fontSize: 8,
+      color:
+        line.includes("CREATE TABLE") || line.includes("SELECT")
+          ? TOKENS.warning
+          : line.includes("PRIMARY KEY") || line.includes("NOT NULL")
+            ? TOKENS.success
+            : TOKENS.white,
+      margin: 0,
+      fit: "shrink",
+    });
+  });
+
+  if (opts.footer) {
+    slide.addText(opts.footer, {
+      x: x + 0.2,
+      y: y + h - 0.18,
+      w: w - 0.4,
+      h: 0.12,
+      fontFace: TYPOGRAPHY.body,
+      fontSize: 8.4,
+      color: TOKENS.slate,
+      align: "center",
+      margin: 0,
+    });
+  }
+}
+
 function addFrameworkDecisionMatrix(slide, SH, opts = {}) {
   const x = opts.x;
   const y = opts.y;
@@ -5002,8 +6230,14 @@ module.exports = {
   addScoreBoostsAndPenalties,
   addProjectWorkflowPanel,
   addPromptQualityCompare,
+  addSpreadsheetProblemPanel,
+  addEntityRelationshipBlueprint,
+  addNormalizationStepper,
+  addSqlBridgePanel,
   addStaticVsInteractiveCompare,
   addDataTypesBoard,
   addControlFlowPanel,
   addEventReactionPanel,
+  addDomMutationFlow,
+  addDebugEvidenceBoard,
 };

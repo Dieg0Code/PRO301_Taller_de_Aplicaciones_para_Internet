@@ -15,6 +15,7 @@ import type {
   ActorLaneOptions,
   AuditScorePanelOptions,
   DelegationSplitOptions,
+  DebugEvidenceBoardOptions,
   AuthFlowOptions,
   BreakpointDecisionPanelOptions,
   BrowserMockOptions,
@@ -26,12 +27,16 @@ import type {
   AuditEvidenceBoardOptions,
   EvaluationRubricPanelOptions,
   EventReactionPanelOptions,
+  EntityRelationshipBlueprintOptions,
   ScoreBoostsAndPenaltiesOptions,
   ProjectWorkflowPanelOptions,
   PromptQualityCompareOptions,
+  SpreadsheetProblemPanelOptions,
   StaticVsInteractiveCompareOptions,
   DataTypesBoardOptions,
   ControlFlowPanelOptions,
+  NormalizationStepperOptions,
+  SqlBridgePanelOptions,
   SeoSnippetPreviewOptions,
   ChecklistGridOptions,
   CenterStatementOptions,
@@ -41,6 +46,7 @@ import type {
   CodePanelOptions,
   CssRuleStackOptions,
   DomTreePanelOptions,
+  DomMutationFlowOptions,
   ExposureCompareOptions,
   FormMockOptions,
   FlexGridLayoutOptions,
@@ -240,6 +246,26 @@ type FrontendPanelExports = {
     SH: ShapeCatalog,
     opts: PromptQualityCompareOptions
   ) => void;
+  addSpreadsheetProblemPanel: (
+    slide: SlideLike,
+    SH: ShapeCatalog,
+    opts: SpreadsheetProblemPanelOptions
+  ) => void;
+  addEntityRelationshipBlueprint: (
+    slide: SlideLike,
+    SH: ShapeCatalog,
+    opts: EntityRelationshipBlueprintOptions
+  ) => void;
+  addNormalizationStepper: (
+    slide: SlideLike,
+    SH: ShapeCatalog,
+    opts: NormalizationStepperOptions
+  ) => void;
+  addSqlBridgePanel: (
+    slide: SlideLike,
+    SH: ShapeCatalog,
+    opts: SqlBridgePanelOptions
+  ) => void;
   addStaticVsInteractiveCompare: (
     slide: SlideLike,
     SH: ShapeCatalog,
@@ -259,6 +285,16 @@ type FrontendPanelExports = {
     slide: SlideLike,
     SH: ShapeCatalog,
     opts: EventReactionPanelOptions
+  ) => void;
+  addDomMutationFlow: (
+    slide: SlideLike,
+    SH: ShapeCatalog,
+    opts: DomMutationFlowOptions
+  ) => void;
+  addDebugEvidenceBoard: (
+    slide: SlideLike,
+    SH: ShapeCatalog,
+    opts: DebugEvidenceBoardOptions
   ) => void;
 };
 
@@ -366,10 +402,16 @@ export const addEvaluationRubricPanel = frontendPanels.addEvaluationRubricPanel;
 export const addScoreBoostsAndPenalties = frontendPanels.addScoreBoostsAndPenalties;
 export const addProjectWorkflowPanel = frontendPanels.addProjectWorkflowPanel;
 export const addPromptQualityCompare = frontendPanels.addPromptQualityCompare;
+export const addSpreadsheetProblemPanel = frontendPanels.addSpreadsheetProblemPanel;
+export const addEntityRelationshipBlueprint = frontendPanels.addEntityRelationshipBlueprint;
+export const addNormalizationStepper = frontendPanels.addNormalizationStepper;
+export const addSqlBridgePanel = frontendPanels.addSqlBridgePanel;
 export const addStaticVsInteractiveCompare = frontendPanels.addStaticVsInteractiveCompare;
 export const addDataTypesBoard = frontendPanels.addDataTypesBoard;
 export const addControlFlowPanel = frontendPanels.addControlFlowPanel;
 export const addEventReactionPanel = frontendPanels.addEventReactionPanel;
+export const addDomMutationFlow = frontendPanels.addDomMutationFlow;
+export const addDebugEvidenceBoard = frontendPanels.addDebugEvidenceBoard;
 export const addUrlBreakdown = foundationPanels.addUrlBreakdown;
 export const addMythRealityGrid = foundationPanels.addMythRealityGrid;
 export const addActorLane = foundationPanels.addActorLane;

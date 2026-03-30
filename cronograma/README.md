@@ -3,18 +3,19 @@
 ## Información General
 
 - Período: 16 de Marzo - 20 de Mayo de 2026
-- Horario: Lunes, Martes y Miércoles de 10:00 a 13:00
+- Horario: Lunes, Martes y Miércoles de 10:50 a 13:10
 - Total: 90 horas
 
-## Enfoque Actualizado del Módulo
+## Enfoque del Módulo
 
-Este cronograma actualiza el módulo para un contexto de desarrollo más cercano a 2026:
+El módulo se organiza con foco en:
 
-- Se priorizan fundamentos transferibles sobre lenguajes o frameworks puntuales.
-- PHP se aborda como tecnología de interoperabilidad y mantención de sistemas legados, no como eje central del curso.
-- Bootstrap deja de ser un foco; se reemplaza por CSS moderno, sistemas de diseño y enfoques componentizados.
-- Se incorpora uso práctico de agentes de IA para análisis, generación, depuración y documentación.
-- Se introducen fundamentos de deep learning y su relación con LLMs y agentes, con foco aplicado y no solo teórico.
+- fundamentos transferibles de arquitectura web, frontend, datos y aplicaciones para Internet;
+- interfaces accesibles, responsivas y mantenibles;
+- integración entre componentes, servicios y persistencia;
+- trabajo con herramientas reales de desarrollo, inspección y validación técnica;
+- uso responsable de agentes e IA como apoyo de análisis, generación, depuración y documentación;
+- y comprensión aplicada de tecnologías emergentes relevantes para el desarrollo actual.
 
 ## Cronograma Detallado
 

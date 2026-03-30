@@ -16,3 +16,9 @@ tools/slides-system/dist/
 .DS_Store
 Thumbs.db
 ~$*
+
+# Local work outside the course repo
+clases-particulares/
+
+# Local browser automation artifacts
+.playwright-cli/
