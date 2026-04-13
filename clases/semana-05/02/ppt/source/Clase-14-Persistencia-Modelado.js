@@ -848,12 +848,28 @@ function create3FNTheorySlide() {
     x: 0.88, y: 2.0, w: 10.26, h: 1.12, fill: C.navy, color: C.white, fontSize: 20
   });
   const points = [
-    { t: "Adiós al Teléfono", b: "Si cambio el nombre de la Ciudad, solo lo hago en un registro único." },
-    { t: "Independencia", b: "Los atributos no clave no deben conocerse entre sí." },
-    { t: "Pureza", b: "Se alcanza el nivel máximo de eficiencia en almacenamiento." },
+    { 
+      t: "Independencia Lógica", 
+      b: "Los atributos no clave deben ser independientes entre sí. Si cambias el nombre de una ciudad, solo lo haces en una tabla de referencia, no en mil perfiles de usuario.", 
+      accent: C.red 
+    },
+    { 
+      t: "Eficiencia de Almacenamiento", 
+      b: "Elimina la repetición masiva de cadenas de texto (ej: nombres de países o categorías). Esto reduce el peso de la DB y acelera los respaldos.", 
+      accent: C.red 
+    },
+    { 
+      t: "Mantenimiento Predictivo", 
+      b: "Previene anomalías de actualización: evita que un dato cambie en una fila pero se mantenga antiguo en otra, rompiendo la 'verdad' del sistema.", 
+      accent: C.red 
+    },
   ];
   points.forEach((p, i) => {
-    addMiniCard(slide, SH, { x: 0.88 + i * 3.44, y: 3.42, w: 3.2, h: 3.0, title: p.t, body: p.body, accent: C.red, fill: C.white, line: C.border });
+    addMiniCard(slide, SH, { 
+      x: 0.88 + i * 3.44, y: 3.42, w: 3.2, h: 3.0, 
+      title: p.t, body: p.body, accent: p.accent, 
+      fill: C.white, line: C.border, titleFontSize: 13, bodyFontSize: 10.5 
+    });
   });
   validateSlide(slide, pptx);
 }
@@ -992,8 +1008,11 @@ createWhyDesignSlide();
 createCrowsFootSlide();
 createDiagramToSqlSlide();
 createFirstNormalFormSlide();
+create1FNTheorySlide();
 createSecondNormalFormSlide();
+create2FNTheorySlide();
 createThirdNormalFormSlide();
+create3FNTheorySlide();
 createManyToManySqlSlide();
 createStrongWeakEntitiesSlide();
 createIAAuditorSlide();
