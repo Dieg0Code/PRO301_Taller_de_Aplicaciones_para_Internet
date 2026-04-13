@@ -1,4 +1,5 @@
-import * as primitivesJs from "../../components/primitives";
+// cspell:ignore Supabase
+﻿import * as primitivesJs from "../../components/primitives";
 import * as codePanelJs from "../../components/code-panel";
 import * as terminalPanelJs from "../../components/terminal-panel";
 import * as browserMockJs from "../../components/browser-mock";
@@ -9,7 +10,11 @@ import * as foundationPanelsJs from "../../components/foundation-panels";
 import * as securityPanelsJs from "../../components/security-panels";
 import * as appPanelsJs from "../../components/app-panels";
 import * as agenticPanelsJs from "../../components/agentic-panels";
+import * as asyncPanelsJs from "../../components/async-panels";
+import * as backendPanelsJs from "../../components/backend-panels";
 import type {
+  EventLoopDiagramOptions,
+  SyntaxCompareOptions,
   AccessibilityChecklistPanelOptions,
   AgenticFlowOptions,
   ActorLaneOptions,
@@ -75,6 +80,16 @@ import type {
   TerminalPanelOptions,
   TokenBoardOptions,
   UrlBreakdownOptions,
+  ServerCycleOptions,
+  RestResourceOptions,
+  LayerStackOptions,
+  TableSchemaOptions,
+  ErRelationshipOptions,
+  SupabaseProjectSetupPanelOptions,
+  SupabaseTableEditorPanelOptions,
+  IntelTimelinePanelOptions,
+  DecisionPipelinePanelOptions,
+  PowerNetworkMapOptions,
 } from "../types";
 
 type PrimitiveExports = {
@@ -307,6 +322,21 @@ type FoundationPanelExports = {
   ) => void;
   addActorLane: (slide: SlideLike, SH: ShapeCatalog, opts: ActorLaneOptions) => void;
   addStageChain: (slide: SlideLike, SH: ShapeCatalog, opts: StageChainOptions) => void;
+  addIntelTimelinePanel: (
+    slide: SlideLike,
+    SH: ShapeCatalog,
+    opts: IntelTimelinePanelOptions
+  ) => void;
+  addDecisionPipelinePanel: (
+    slide: SlideLike,
+    SH: ShapeCatalog,
+    opts: DecisionPipelinePanelOptions
+  ) => void;
+  addPowerNetworkMap: (
+    slide: SlideLike,
+    SH: ShapeCatalog,
+    opts: PowerNetworkMapOptions
+  ) => void;
 };
 
 type SecurityPanelExports = {
@@ -347,6 +377,37 @@ type AgenticPanelExports = {
   ) => void;
 };
 
+type AsyncPanelExports = {
+  addEventLoopDiagram: (
+    slide: SlideLike,
+    SH: ShapeCatalog,
+    opts: EventLoopDiagramOptions
+  ) => void;
+  addSyntaxCompare: (
+    slide: SlideLike,
+    SH: ShapeCatalog,
+    opts: SyntaxCompareOptions
+  ) => void;
+};
+
+type BackendPanelExports = {
+  addServerCycle: (slide: SlideLike, SH: ShapeCatalog, opts: ServerCycleOptions) => void;
+  addRestResource: (slide: SlideLike, SH: ShapeCatalog, opts: RestResourceOptions) => void;
+  addLayerStack: (slide: SlideLike, SH: ShapeCatalog, opts: LayerStackOptions) => void;
+  addTableSchema: (slide: SlideLike, SH: ShapeCatalog, opts: TableSchemaOptions) => void;
+  addErRelationship: (slide: SlideLike, SH: ShapeCatalog, opts: ErRelationshipOptions) => void;
+  addSupabaseProjectSetupPanel: (
+    slide: SlideLike,
+    SH: ShapeCatalog,
+    opts: SupabaseProjectSetupPanelOptions
+  ) => void;
+  addSupabaseTableEditorPanel: (
+    slide: SlideLike,
+    SH: ShapeCatalog,
+    opts: SupabaseTableEditorPanelOptions
+  ) => void;
+};
+
 const primitives = primitivesJs as unknown as PrimitiveExports;
 const codePanel = codePanelJs as unknown as CodePanelExports;
 const terminalPanel = terminalPanelJs as unknown as TerminalExports;
@@ -358,6 +419,8 @@ const foundationPanels = foundationPanelsJs as unknown as FoundationPanelExports
 const securityPanels = securityPanelsJs as unknown as SecurityPanelExports;
 const appPanels = appPanelsJs as unknown as AppPanelExports;
 const agenticPanels = agenticPanelsJs as unknown as AgenticPanelExports;
+const asyncPanels = asyncPanelsJs as unknown as AsyncPanelExports;
+const backendPanels = backendPanelsJs as unknown as BackendPanelExports;
 
 export const setBackground = primitives.setBackground;
 export const addTopRule = primitives.addTopRule;
@@ -416,6 +479,9 @@ export const addUrlBreakdown = foundationPanels.addUrlBreakdown;
 export const addMythRealityGrid = foundationPanels.addMythRealityGrid;
 export const addActorLane = foundationPanels.addActorLane;
 export const addStageChain = foundationPanels.addStageChain;
+export const addIntelTimelinePanel = foundationPanels.addIntelTimelinePanel;
+export const addDecisionPipelinePanel = foundationPanels.addDecisionPipelinePanel;
+export const addPowerNetworkMap = foundationPanels.addPowerNetworkMap;
 export const addExposureCompare = securityPanels.addExposureCompare;
 export const addChecklistGrid = securityPanels.addChecklistGrid;
 export const addAuthFlow = securityPanels.addAuthFlow;
@@ -425,3 +491,15 @@ export const addComponentTree = appPanels.addComponentTree;
 export const addAgenticFlow = agenticPanels.addAgenticFlow;
 export const addSpecWorkflow = agenticPanels.addSpecWorkflow;
 export const addDelegationSplit = agenticPanels.addDelegationSplit;
+export const addEventLoopDiagram = asyncPanels.addEventLoopDiagram;
+export const addSyntaxCompare = asyncPanels.addSyntaxCompare;
+
+export const addServerCycle = backendPanels.addServerCycle;
+export const addRestResource = backendPanels.addRestResource;
+export const addLayerStack = backendPanels.addLayerStack;
+export const addTableSchema = backendPanels.addTableSchema;
+export const addErRelationship = backendPanels.addErRelationship;
+export const addSupabaseProjectSetupPanel = backendPanels.addSupabaseProjectSetupPanel;
+export const addSupabaseTableEditorPanel = backendPanels.addSupabaseTableEditorPanel;
+
+

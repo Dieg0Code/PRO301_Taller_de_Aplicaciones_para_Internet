@@ -1,0 +1,1065 @@
+/*
+================================================================================
+VARIABLES CSS PARA ASSETS Y COLORES PUROS NEÓN
+================================================================================
+*/
+:root {
+  --background-fixed-url: url("assets/asset-background.png");
+  --color-primary: #ffcb05; 
+  --color-dark: #1b1734;   
+  --color-white: #ffffff;
+  --color-gray-light: #e0e0e0;
+  --color-gray-dark: #2a2538;
+  
+  --font-primary: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Helvetica Neue', sans-serif;
+  --font-size-sm: 0.875rem;
+  --font-size-base: 1rem;
+  --font-size-lg: 1.125rem;
+  
+  --sobre-a-url: url("assets/Sobre_A.png");
+  --sobre-b-url: url("assets/Sobre_B.png");
+  --sobre-c-url: url("assets/Sobre_C.png");
+
+  --carta-a1-url: url("assets/Carta_A1.png");
+  --carta-a2-url: url("assets/Carta_A2.png");
+  --carta-a3-url: url("assets/Carta_A3.png");
+  --carta-a4-url: url("assets/Carta_A4.png");
+  
+  --carta-b1-url: url("assets/Carta_B1.png");
+  --carta-b2-url: url("assets/Carta_B2.png");
+  --carta-b3-url: url("assets/Carta_B3.png");
+  --carta-b4-url: url("assets/Carta_B4.png");
+  
+  --carta-c1-url: url("assets/Carta_C1.png");
+  --carta-c2-url: url("assets/Carta_C2.png");
+  --carta-c3-url: url("assets/Carta_C3.png");
+  --carta-c4-url: url("assets/Carta_C4.png");
+
+  --neon-green-rgb: 57, 255, 20;
+  --neon-purple-rgb: 188, 19, 254;
+
+  --holo-gradient-cards: linear-gradient(
+    110deg,
+    rgba(var(--neon-green-rgb), 0.45) 0%,
+    rgba(var(--neon-purple-rgb), 0.45) 25%,
+    rgba(var(--neon-green-rgb), 0.45) 50%,
+    rgba(var(--neon-purple-rgb), 0.45) 75%,
+    rgba(var(--neon-green-rgb), 0.45) 100%
+  );
+}
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700&display=swap');
+
+*, *::before, *::after {
+  box-sizing: border-box; 
+  margin: 0; 
+  padding: 0;
+}
+
+body {
+  font-family: var(--font-primary);
+  font-size: var(--font-size-base);
+  line-height: 1.5;
+  font-weight: 400;
+  overflow-x: hidden;
+  background-color: var(--color-dark);
+  color: var(--color-white);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+input[type="radio"] { display: none; }
+
+body:has(input[name="app-state"]:not(#state-home):checked),
+body:has(input[name="footer-state"]:not(#footer-none):checked) {
+  overflow: hidden;
+}
+
+/* ================================================================================
+COMPONENTES OFICIALES (TOP NAV & SIDEBAR)
+================================================================================ */
+
+.official-top-nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background-color: var(--color-white);
+  z-index: 1000;
+  display: flex;
+  justify-content: center;
+  align-items: center; 
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.4);
+  /* Añadimos transform a la transición para que suba y baje suavemente */
+  transition: opacity 0.4s ease, transform 0.4s ease; 
+  animation: fadeOutNavOnScroll linear forwards;
+  animation-timeline: scroll(root);
+}
+
+@keyframes fadeOutNavOnScroll {
+  0%, 2% { opacity: 1; transform: translateY(0); pointer-events: auto; }
+  15%, 100% { opacity: 0; transform: translateY(-100%); pointer-events: none; visibility: hidden; }
+}
+
+.nav-logo-link {
+  position: absolute;
+  left: 2vw; 
+  display: flex;
+  align-items: center;
+  z-index: 10; 
+}
+
+.nav-logo {
+  height: 45px; 
+  width: auto;
+  transition: transform 0.3s ease;
+}
+
+.nav-logo:hover {
+  transform: scale(1.05);
+}
+
+.main-menu {
+  display: flex;
+  list-style: none;
+  height: 75px;
+}
+
+.menu-item {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  width: 150px;
+  height: 100%;
+  padding: 0 15px;
+  text-decoration: none;
+  color: #4a4a4a;
+  font-weight: 700;
+  font-size: 0.8rem;
+  border-bottom: 6px solid transparent;
+  border-right: 1px solid #e0e0e0;
+  transition: all 0.2s ease;
+  background-color: var(--color-white);
+}
+
+.main-menu li:first-child .menu-item { border-left: 1px solid #e0e0e0; }
+.menu-item:hover { background-color: #f2f2f2; color: var(--color-dark); }
+.menu-item.inicio { border-bottom-color: #919191; }
+.menu-item.pokedex { border-bottom-color: #e3350d; }
+.menu-item.videojuegos { border-bottom-color: #e67e22; }
+.menu-item.eventos { border-bottom-color: #3498db; }
+.menu-item.noticias { border-bottom-color: #1b53ba; }
+
+.official-side-nav {
+  position: fixed;
+  top: 15vh;
+  left: 0;
+  z-index: 1000;
+  display: flex;
+  flex-direction: column;
+  transition: opacity 0.3s ease;
+}
+
+.btn-login {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 80px;
+  height: 110px;
+  background-color: #4dad5b;
+  color: var(--color-white);
+  text-decoration: none;
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-align: center;
+  padding: 10px 5px;
+  gap: 8px;
+  transition: background-color 0.2s;
+  box-shadow: 2px 2px 8px rgba(0,0,0,0.3);
+}
+
+.btn-login:hover { background-color: #3e8e49; }
+
+.btn-search {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 80px;
+  height: 80px;
+  background-color: #30a7d7;
+  color: var(--color-white);
+  text-decoration: none;
+  transition: background-color 0.2s;
+  box-shadow: 2px 2px 8px rgba(0,0,0,0.3);
+}
+
+.btn-search:hover { background-color: #268bb5; }
+
+/* ================================================================================
+SISTEMA DE ESTADOS PURE CSS Y CONSERVACIÓN DE SCROLL
+================================================================================ */
+.view-home { 
+  display: block; 
+  height: 150vh; 
+  transition: opacity 0.3s ease; 
+}
+
+/* Separamos la lógica para que la barra superior se deslice hacia arriba */
+body:has(input[name="app-state"]:not(#state-home):checked) .view-home,
+body:has(input[name="app-state"]:not(#state-home):checked) .official-side-nav {
+  opacity: 0;
+  pointer-events: none;
+}
+
+body:has(input[name="app-state"]:not(#state-home):checked) .official-top-nav {
+  opacity: 0 !important;
+  pointer-events: none !important;
+  transform: translateY(-100%) !important; /* Esto hace que la barra suba y desaparezca */
+}
+
+.view-packs, .view-cards { display: none; width: 100%; }
+
+#state-packs:checked ~ main .view-packs {
+  display: flex; 
+  position: fixed; 
+  top: 0; 
+  left: 0; 
+  width: 100%; 
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.9);
+  justify-content: center; 
+  align-items: center; 
+  z-index: 10;
+  animation: fadeIn 0.5s ease-out forwards;
+}
+
+#state-pack-a:checked ~ main .view-cards,
+#state-pack-b:checked ~ main .view-cards,
+#state-pack-c:checked ~ main .view-cards {
+  display: flex; 
+  position: fixed; 
+  top: 0; 
+  left: 0; 
+  width: 100%; 
+  height: 100vh;
+  justify-content: center; 
+  align-items: center; 
+  z-index: 20;
+  animation: fadeIn 0.5s ease-out forwards;
+}
+
+@keyframes fadeIn { 
+  from { opacity: 0; } 
+  to { opacity: 1; } 
+}
+
+/* ================================================================================
+VISTA 1: INICIO
+================================================================================ */
+.page-background-container {
+  position: fixed; 
+  top: 0; 
+  left: 0; 
+  width: 100%; 
+  height: 100vh;
+  background-image: var(--background-fixed-url);
+  background-size: cover; 
+  background-position: center; 
+  z-index: 1;
+}
+
+.scroll-layer { position: absolute; height: 150vh; width: 100%; z-index: 2; }
+
+/* ================================================================================
+   NUEVOS ESTILOS DEL HERO (Layout 2 Columnas)
+================================================================================ */
+.hero-content-wrapper {
+  position: fixed; 
+  top: 0;
+  left: 0; 
+  width: 100%; 
+  height: 100vh;
+  display: flex; 
+  justify-content: center; 
+  align-items: center;
+  gap: 15vw; 
+  z-index: 3; 
+  animation: fadeOutHeroOnScroll linear forwards;
+  animation-timeline: scroll(root);
+  padding: 0 5%;
+}
+
+/* ================================================================================
+   ESTILOS Y ANIMACIÓN DEL LOGO PRINCIPAL (Aparece al bajar)
+================================================================================ */
+.hero-logo-wrapper {
+  position: fixed; 
+  top: 15vh; 
+  left: 0; 
+  width: 100%; 
+  display: flex; 
+  justify-content: center; 
+  z-index: 3; 
+  opacity: 0;
+  animation: fadeLogoInOnScroll linear forwards;
+  animation-timeline: scroll(root);
+}
+
+.hero-logo { 
+  width: 100%; 
+  max-width: 350px; 
+  height: auto; 
+  display: block; 
+}
+
+@keyframes fadeLogoInOnScroll {
+  0%, 40% { opacity: 0; transform: translateY(-20px); pointer-events: none; }
+  60%, 100% { opacity: 1; transform: translateY(0); pointer-events: auto; }
+}
+
+@keyframes fadeOutHeroOnScroll {
+  0%, 15% { 
+    opacity: 1; 
+    transform: translateY(0); 
+    pointer-events: auto;
+  }
+  70%, 100% { 
+    opacity: 0; 
+    transform: translateY(-40px);
+    pointer-events: none; 
+  }
+}
+
+.hero-left-col {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+}
+
+.hero-logo-caja {
+  width: 100%; 
+  max-width: 400px; 
+  height: auto; 
+  display: block;
+}
+
+.hero-badge {
+  width: 100%;
+  max-width: 250px;
+  height: auto;
+  display: block;
+}
+
+.hero-right-col {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.hero-box-floating {
+  width: 100%;
+  max-width: 380px;
+  height: auto;
+  display: block;
+  transition: transform 0.3s ease, filter 0.3s ease;
+}
+
+.hero-box-floating:hover {
+  transform: scale(1.05) translateY(-5px);
+  filter: drop-shadow(0 10px 15px rgba(255, 203, 5, 0.4));
+}
+
+@keyframes floatSlowBox { 
+  0%, 100% { transform: translateY(0); } 
+  50% { transform: translateY(20px); } 
+}
+
+.arrow-down-container {
+  position: fixed; 
+  bottom: 8vh; 
+  left: 0; 
+  width: 100%;
+  display: flex; 
+  justify-content: center; 
+  z-index: 4; 
+  opacity: 0;
+  animation: fadeArrowOnScroll linear forwards;
+  animation-timeline: scroll(root);
+}
+
+@keyframes fadeOnScroll {
+  0% { opacity: 0; transform: translateY(-20px); }
+  30% { opacity: 1; transform: translateY(0); }
+  100% { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes fadeArrowOnScroll {
+  0%, 80% { opacity: 0; visibility: hidden; }
+  95%, 100% { opacity: 1; visibility: visible; }
+}
+
+.arrow-action-wrapper {
+  display: flex; flex-direction: column; align-items: center;
+  cursor: pointer; animation: bounceArrow 2s infinite ease-in-out; gap: 5px; 
+}
+.ver-sobres-img { width: 100%; max-width: 250px; height: auto; }
+
+@keyframes bounceArrow { 
+  0%, 100% { transform: translateY(0); } 
+  50% { transform: translateY(10px); } 
+}
+
+.arrow-down-btn { display: block; width: 60px; height: 60px; position: relative; }
+.arrow-down-btn::before, .arrow-down-btn::after {
+  content: ""; position: absolute; top: 30%; left: 50%; width: 20px; height: 20px;
+  border-right: 4px solid #00bfff; border-bottom: 4px solid #00bfff;
+  transform: translateX(-50%) rotate(45deg); transition: all 0.3s;
+}
+.arrow-down-btn::after { top: 45%; }
+.arrow-action-wrapper:hover .arrow-down-btn::before, 
+.arrow-action-wrapper:hover .arrow-down-btn::after { border-color: var(--color-white); }
+
+/* ================================================================================
+COMPONENTES COMUNES (Botones y Grids)
+================================================================================ */
+.nav-return-packs { transition: opacity 0.4s ease; }
+
+.close-btn {
+  position: absolute; top: 90px; right: 25px;
+  background: var(--color-white); color: var(--color-dark);
+  padding: 10px 20px; border-radius: 5px; cursor: pointer;
+  z-index: 30; font-weight: 600; font-size: var(--font-size-sm);
+  transition: all 0.3s ease; text-decoration: none;
+  font-family: var(--font-primary); box-shadow: 0 4px 10px rgba(0,0,0,0.5);
+}
+.close-btn:hover { background: var(--color-primary); transform: translateY(-2px); }
+
+.packs-grid { 
+  display: grid; grid-template-columns: repeat(3, 1fr); gap: 15px; max-width: 900px; width: 90%; perspective: 1000px; 
+  list-style: none; 
+}
+.cards-grid { 
+  display: grid; grid-template-columns: repeat(2, 1fr); gap: 15px; max-width: 550px; width: 90%; perspective: 1000px; z-index: 2; 
+  list-style: none; 
+}
+.cards-display-background { position: absolute; top: 0; left: 0; width: 100%; height: 100%; background-color: rgba(0, 0, 0, 0.85); z-index: 1; }
+
+/* ================================================================================
+FOOTER PRINCIPAL
+================================================================================ */
+.main-footer {
+  position: relative; z-index: 5; background-color: rgba(27, 23, 52, 0.95);
+  backdrop-filter: blur(10px); border-top: 1px solid rgba(255, 203, 5, 0.2);
+  padding: 0.5rem 1.5rem; margin-top: auto;
+}
+.footer-content { max-width: 1400px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem; }
+.copyright { font-size: 0.7rem; color: var(--color-gray-light); opacity: 0.8; letter-spacing: 0.3px; }
+.footer-nav { display: flex; gap: 1.25rem; flex-wrap: wrap; justify-content: flex-end; }
+.footer-link {
+  color: var(--color-gray-light); text-decoration: none; font-size: 0.7rem;
+  transition: all 0.2s ease; font-weight: 500; letter-spacing: 0.3px; cursor: pointer;
+}
+.footer-link:hover { color: var(--color-primary); text-decoration: underline; }
+
+body:has(#state-packs:checked) .main-footer, body:has(#state-pack-a:checked) .main-footer,
+body:has(#state-pack-b:checked) .main-footer, body:has(#state-pack-c:checked) .main-footer {
+  opacity: 0; pointer-events: none;
+}
+
+/* ================================================================================
+SOBRES Y CARTAS
+================================================================================ */
+.pack, .card { display: block; position: relative; transform-style: preserve-3d; }
+.pack { cursor: pointer; aspect-ratio: 780 / 1429; max-width: 220px; width: 100%; }
+.card { aspect-ratio: 780 / 1100; max-width: 200px; width: 100%; transition: all 0.6s cubic-bezier(0.25, 1, 0.5, 1); z-index: 1; }
+.pack-inner, .card-inner {
+  width: 100%; height: 100%; border-radius: 10px; transform-style: preserve-3d;
+  transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275); box-shadow: 0 5px 15px rgba(0, 0, 0, 0.7);
+}
+.pack img, .card-front, .card-back {
+  position: absolute; width: 100%; height: 100%; border-radius: 10px; backface-visibility: hidden; background-size: 100% 100%; background-position: center; background-repeat: no-repeat;
+}
+.pack img { object-fit: fill; } 
+.card-back { background-image: url("assets/Carta_Reverso.png"); transform: rotateY(180deg); }
+.card-front { background-size: cover; background-position: center; }
+
+.pack:hover .pack-inner, .card-label:hover .card .card-inner { transform: scale(1.03) rotateY(5deg) rotateX(2deg); }
+.pack:active .pack-inner, .card-label:active .card .card-inner { transform: scale(0.97) rotateY(-5deg) rotateX(-2deg); }
+
+.holo-gradient-layer {
+  position: absolute; top: 0; left: 0; width: 100%; height: 100%; border-radius: 10px; pointer-events: none; mix-blend-mode: color-dodge; filter: blur(15px); background-size: 400% 400%; background-position: 0% 50%; opacity: 0; transition: opacity 0.5s ease-in-out;
+}
+@keyframes holoNeonSweep { 0% { background-position: 0% 50%; } 50% { background-position: 100% 50%; } 100% { background-position: 0% 50%; } }
+.pack .holo-gradient-layer, .card .holo-gradient-layer, .card-label:hover .card .holo-gradient-layer { background-image: none; opacity: 0; animation: none; }
+.view-cards .card-1 .holo-gradient-layer { background-image: var(--holo-gradient-cards); opacity: 1; animation: holoNeonSweep 10s ease-in-out infinite; }
+
+#state-pack-a:checked ~ main .view-cards .card-1 .card-front { background-image: var(--carta-a1-url); }
+#state-pack-a:checked ~ main .view-cards .card-2 .card-front { background-image: var(--carta-a2-url); }
+#state-pack-a:checked ~ main .view-cards .card-3 .card-front { background-image: var(--carta-a3-url); }
+#state-pack-a:checked ~ main .view-cards .card-4 .card-front { background-image: var(--carta-a4-url); }
+#state-pack-b:checked ~ main .view-cards .card-1 .card-front { background-image: var(--carta-b1-url); }
+#state-pack-b:checked ~ main .view-cards .card-2 .card-front { background-image: var(--carta-b2-url); }
+#state-pack-b:checked ~ main .view-cards .card-3 .card-front { background-image: var(--carta-b3-url); }
+#state-pack-b:checked ~ main .view-cards .card-4 .card-front { background-image: var(--carta-b4-url); }
+#state-pack-c:checked ~ main .view-cards .card-1 .card-front { background-image: var(--carta-c1-url); }
+#state-pack-c:checked ~ main .view-cards .card-2 .card-front { background-image: var(--carta-c2-url); }
+#state-pack-c:checked ~ main .view-cards .card-3 .card-front { background-image: var(--carta-c3-url); }
+#state-pack-c:checked ~ main .view-cards .card-4 .card-front { background-image: var(--carta-c4-url); }
+
+/* SELECCIÓN DE CARTAS */
+body:has(input[name="card-state"]:not(#card-none):checked) .nav-return-packs { opacity: 0; pointer-events: none; }
+.card-label { display: block; width: 100%; height: 100%; cursor: pointer; -webkit-tap-highlight-color: transparent; }
+.card-close-overlay { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100vh; z-index: 45; cursor: pointer; }
+body:has(input[name="card-state"]:not(#card-none):checked) .card-close-overlay { display: block; }
+body:has(input[name="card-state"]:not(#card-none):checked) .cards-grid { perspective: none; }
+body:has(input[name="card-state"]:not(#card-none):checked) .card-slot { opacity: 0.15; filter: blur(8px); pointer-events: none; transition: all 0.5s ease; }
+
+body:has(#card-1-selected:checked) .slot-1, body:has(#card-2-selected:checked) .slot-2, body:has(#card-3-selected:checked) .slot-3, body:has(#card-4-selected:checked) .slot-4 {
+  opacity: 1 !important; filter: none !important; pointer-events: auto !important; z-index: 60;
+}
+body:has(#card-1-selected:checked) .slot-1 .card, body:has(#card-2-selected:checked) .slot-2 .card, body:has(#card-3-selected:checked) .slot-3 .card, body:has(#card-4-selected:checked) .slot-4 .card {
+  position: fixed; top: 55vh; left: 35vw; transform: translate(-50%, -50%) scale(1.6); z-index: 60;
+}
+body:has(#card-1-selected:checked) .slot-1 .card .card-inner, body:has(#card-2-selected:checked) .slot-2 .card .card-inner, body:has(#card-3-selected:checked) .slot-3 .card .card-inner, body:has(#card-4-selected:checked) .slot-4 .card .card-inner {
+  transform: none !important; box-shadow: 0 15px 40px rgba(0,0,0,0.9); cursor: default;
+}
+
+.card-details {
+  position: fixed; top: 55vh; left: 52vw; transform: translateY(-50%) translateX(60px); 
+  width: 80%; max-width: 450px; background: rgba(27, 23, 52, 0.85); backdrop-filter: blur(15px);
+  border: 1px solid rgba(255, 203, 5, 0.4); padding: 2.5rem; border-radius: 12px; color: var(--color-white);
+  opacity: 0; visibility: hidden; transition: all 0.6s cubic-bezier(0.25, 1, 0.5, 1); z-index: 50; box-shadow: 0 10px 40px rgba(0,0,0,0.8);
+}
+.card-details h2 { color: var(--color-primary); margin-bottom: 1rem; font-size: var(--font-size-lg); text-transform: uppercase; letter-spacing: 1px; border-bottom: 1px solid rgba(255, 203, 5, 0.3); padding-bottom: 0.5rem; }
+.card-details p { font-size: var(--font-size-sm); color: var(--color-gray-light); line-height: 1.7; margin-bottom: 2rem; }
+
+.close-details-btn { display: inline-block; padding: 0.6rem 1.5rem; background-color: transparent; color: var(--color-white); border: 1px solid var(--color-primary); border-radius: 6px; cursor: pointer; font-weight: 600; font-size: var(--font-size-sm); transition: all 0.3s ease; text-transform: uppercase; }
+.close-details-btn:hover { background-color: var(--color-primary); color: var(--color-dark); box-shadow: 0 0 15px rgba(255, 203, 5, 0.5); }
+
+body:has(#card-1-selected:checked) .slot-1 .card-details, body:has(#card-2-selected:checked) .slot-2 .card-details, body:has(#card-3-selected:checked) .slot-3 .card-details, body:has(#card-4-selected:checked) .slot-4 .card-details {
+  opacity: 1; visibility: visible; transform: translateY(-50%) translateX(0);
+}
+
+/* ================================================================================
+GRID DEL FOOTER MODAL (Políticas, Términos, Contacto)
+================================================================================ */
+.view-footer-modal {
+  display: none;
+  position: fixed; top: 0; left: 0; width: 100%; height: 100vh;
+  justify-content: center; align-items: center; z-index: 2000;
+}
+
+body:has(input[name="footer-state"]:not(#footer-none):checked) .view-footer-modal {
+  display: flex; animation: fadeIn 0.4s ease-out forwards;
+}
+
+.footer-modal-box {
+  background: rgba(27, 23, 52, 0.95);
+  backdrop-filter: blur(15px);
+  border: 1px solid rgba(255, 203, 5, 0.4);
+  padding: 3rem;
+  border-radius: 12px;
+  width: 90%;
+  max-width: 800px;
+  color: var(--color-white);
+  box-shadow: 0 10px 50px rgba(0,0,0,0.9);
+  position: relative;
+  z-index: 50;
+}
+
+.footer-modal-box h2 {
+  color: var(--color-primary);
+  border-bottom: 2px solid rgba(255, 203, 5, 0.3);
+  padding-bottom: 1rem;
+  margin-bottom: 2rem;
+  text-transform: uppercase;
+  font-size: var(--font-size-lg);
+}
+
+.footer-grid-content {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2rem;
+}
+
+.footer-grid-content h3 {
+  font-size: 1rem;
+  color: var(--color-white);
+  margin-bottom: 0.5rem;
+}
+
+.footer-grid-content p {
+  font-size: 0.85rem;
+  color: var(--color-gray-light);
+  line-height: 1.6;
+}
+
+/* Lógica de pestañas del modal */
+.footer-info { display: none; }
+
+#footer-terms:checked ~ main .view-footer-modal .content-terms,
+#footer-privacy:checked ~ main .view-footer-modal .content-privacy,
+#footer-contact:checked ~ main .view-footer-modal .content-contact {
+  display: block;
+}
+
+/* ================================================================================
+BOTÓN PARA ABRIR NOTICIAS (FLECHA IZQUIERDA)
+================================================================================ */
+.arrow-left-container {
+  position: fixed; 
+  top: 50%; 
+  right: 2vw; 
+  transform: translateY(-50%);
+  z-index: 10; /* Aseguramos que esté por encima de otros elementos */
+  opacity: 1; /* Visible desde el principio sin necesidad de scroll */
+}
+
+/* ================================================================================
+BOTÓN PARA ABRIR NOTICIAS (FLECHA MIRANDO AL BORDE)
+================================================================================ */
+.arrow-action-wrapper-left {
+  display: flex; 
+  align-items: center; 
+  cursor: pointer; 
+  animation: bounceArrowRight 2s infinite ease-in-out; /* Cambiamos el nombre de la animación */
+  padding: 20px;
+}
+
+/* Ahora rebota hacia la derecha (hacia el borde) en lugar de la izquierda */
+@keyframes bounceArrowRight { 
+  0%, 100% { transform: translateX(0); } 
+  50% { transform: translateX(10px); } 
+}
+
+.arrow-left-btn { 
+  display: block; 
+  width: 50px; 
+  height: 50px; 
+  position: relative; 
+}
+
+/* Invertimos los bordes para que las flechas apunten hacia la derecha (>) */
+.arrow-left-btn::before, .arrow-left-btn::after {
+  content: ""; 
+  position: absolute; 
+  top: 50%; 
+  right: 20%; 
+  width: 18px; 
+  height: 18px;
+  border-top: 4px solid #00bfff; /* Cambiado a top */
+  border-right: 4px solid #00bfff; /* Cambiado a right */
+  border-left: none;
+  border-bottom: none;
+  transform: translateY(-50%) rotate(45deg); 
+  transition: all 0.3s;
+}
+
+.arrow-left-btn::after { right: 45%; } 
+
+.arrow-action-wrapper-left:hover .arrow-left-btn::before, 
+.arrow-action-wrapper-left:hover .arrow-left-btn::after { 
+  border-color: var(--color-white); 
+}
+
+/* ================================================================================
+VISTA DE NOTICIAS (SLIDE DESDE LA DERECHA)
+================================================================================ */
+.view-news {
+  display: flex;
+  position: fixed;
+  top: 0;
+  right: 0;
+  width: 100%;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.92);
+  backdrop-filter: blur(10px);
+  justify-content: center;
+  align-items: center;
+  z-index: 100;
+  
+  /* Animación de entrada gradual */
+  transform: translateX(100%); /* Fuera de la pantalla por la derecha */
+  visibility: hidden;
+  transition: transform 0.6s cubic-bezier(0.25, 1, 0.5, 1), visibility 0.6s;
+}
+
+#state-news:checked ~ main .view-news {
+  transform: translateX(0); /* Se desliza hacia la izquierda ocupando la pantalla */
+  visibility: visible;
+}
+
+.news-content-wrapper {
+  position: relative;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* Grid dinámico que respeta las proporciones de las imágenes */
+.news-grid {
+  display: grid;
+  grid-template-columns: 2fr 1fr; /* Aproximadamente 574px vs 278px */
+  gap: 15px;
+  max-width: 900px;
+  width: 90%;
+  list-style: none;
+}
+
+.news-item {
+  overflow: hidden;
+  border-radius: 12px;
+  box-shadow: 0 8px 25px rgba(0,0,0,0.6); /* Sombra negra neutra */
+  transition: transform 0.3s ease; /* Eliminamos la transición de sombra */
+  cursor: pointer;
+}
+
+.news-item img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.5s ease;
+}
+
+.news-item:hover {
+  transform: translateY(-5px);
+  /* Brillo dorado eliminado */
+}
+
+.news-item:hover img {
+  transform: scale(1.05); /* Zoom interno suave */
+}
+
+/* Asignación de posiciones exactas y tamaños */
+.item-left {
+  grid-column: 1 / 2;
+  grid-row: 1 / 3; 
+  aspect-ratio: 574 / 483;
+}
+
+.item-right-top {
+  grid-column: 2 / 3;
+  grid-row: 1 / 2;
+  aspect-ratio: 275 / 145;
+}
+
+.item-right-bottom {
+  grid-column: 2 / 3;
+  grid-row: 2 / 3;
+  aspect-ratio: 278 / 279;
+}
+
+.btn-close-news {
+  position: static; 
+  margin-top: 40px;
+  display: inline-block;
+}
+
+/* ================================================================================
+MEDIA QUERIES - RESPONSIVE DESIGN
+================================================================================ */
+
+@media (max-width: 900px) {
+  .official-side-nav {
+    transform: scale(0.7);
+    transform-origin: left top;
+    top: 90px;
+  }
+
+  .packs-grid {
+    max-width: 720px;
+    gap: 12px;
+  }
+  .pack {
+    max-width: 176px; 
+  }
+
+  .cards-grid {
+    max-width: 440px; 
+    gap: 12px;
+  }
+  .card {
+    max-width: 160px; 
+  }
+
+  body:has(#card-1-selected:checked) .slot-1 .card, 
+  body:has(#card-2-selected:checked) .slot-2 .card, 
+  body:has(#card-3-selected:checked) .slot-3 .card, 
+  body:has(#card-4-selected:checked) .slot-4 .card {
+    left: 50vw; 
+    top: 25vh; 
+    /* Aumentamos la escala de 0.75 a 1.1 para que la carta se vea mucho más grande */
+    transform: translate(-50%, -50%) scale(1.1); 
+  }
+
+  .card-details { 
+    left: 50vw; 
+    top: 55vh; 
+    transform: translate(-50%, 0); 
+    max-width: 85%; 
+    padding: 1.2rem; 
+  }
+
+  body:has(#card-1-selected:checked) .slot-1 .card-details, 
+  body:has(#card-2-selected:checked) .slot-2 .card-details, 
+  body:has(#card-3-selected:checked) .slot-3 .card-details, 
+  body:has(#card-4-selected:checked) .slot-4 .card-details {
+    transform: translate(-50%, 0);
+  }
+
+  .news-grid {
+    max-width: 540px; /* Reducimos exactamente un 40% (de 900px a 540px) */
+    grid-template-columns: 1fr 1fr; /* Creamos 2 columnas del mismo ancho */
+    gap: 15px; 
+  }
+  /* Reorganización: La imagen grande arriba, y las otras dos abajo */
+  .item-left { 
+    grid-column: 1 / 3; /* Se expande desde la columna 1 hasta el final de la 2 */
+    grid-row: 1 / 2;    /* Fila 1 */
+  }
+  .item-right-top { 
+    grid-column: 1 / 2; /* Columna 1 (Izquierda) */
+    grid-row: 2 / 3;    /* Fila 2 */
+  }
+  .item-right-bottom { 
+    grid-column: 2 / 3; /* Columna 2 (Derecha) */
+    grid-row: 2 / 3;    /* Fila 2 */
+  }
+  .btn-close-news {
+    margin-top: 25px;
+  }
+}
+
+@media (max-width: 768px) {
+  .hero-logo { max-width: 275px; } 
+  .ver-sobres-img { max-width: 200px; }
+  .packs-grid { gap: 10px; grid-template-columns: repeat(3, 1fr); }
+  .cards-grid { gap: 10px; grid-template-columns: repeat(2, 1fr); max-width: 480px; }
+  
+  .nav-logo-link { left: 10px; }
+  .nav-logo { height: 30px; } 
+
+  .official-top-nav { 
+    justify-content: flex-start;
+    overflow-x: auto; 
+  }
+  .main-menu { 
+    height: auto; 
+    min-height: 45px;
+    padding-left: 100px; 
+  } 
+  .menu-item { 
+    width: 65px; 
+    padding: 4px 2px; 
+    font-size: 0.55rem; 
+    white-space: normal; 
+    line-height: 1.1; 
+    border-bottom-width: 3px; 
+  }
+  
+  .official-side-nav { 
+    display: flex; 
+    transform: scale(0.6); 
+    transform-origin: left top; 
+    top: 8vh; 
+  }
+
+  .footer-modal-box { padding: 1.5rem; max-width: 85%; }
+  .footer-modal-box h2 { font-size: 0.95rem; margin-bottom: 1rem; padding-bottom: 0.5rem; }
+  .footer-grid-content { grid-template-columns: 1fr; gap: 1rem; }
+  .footer-grid-content h3 { font-size: 0.8rem; }
+  .footer-grid-content p { font-size: 0.75rem; line-height: 1.4; }
+  .close-details-btn { padding: 0.4rem 1rem; font-size: 0.7rem; }
+  
+  .main-footer { padding: 0.4rem 1rem; }
+  .copyright, .footer-link { font-size: 0.6rem; }
+  
+  .close-btn { top: 15px; right: 15px; z-index: 1100; padding: 6px 12px; font-size: 0.75rem; }
+
+  .view-news {
+    align-items: flex-start; /* Quita el centrado vertical y empuja todo hacia arriba */
+    padding-top: 12vh; /* Le da un pequeño respiro respecto al borde superior */
+  }
+
+  /* 2. REDUCCIÓN EXTREMA Y GRID EN 2 COLUMNAS */
+  .news-grid {
+    max-width: 380px; /* Reducción drástica manteniendo espacio para 2 columnas */
+    grid-template-columns: 2fr 1fr; /* Columna izquierda más ancha, derecha más angosta */
+    gap: 10px;
+  }
+  
+  /* 3. REUBICACIÓN EXACTA DE LAS IMÁGENES */
+  .item-left { 
+    grid-column: 1 / 2; 
+    grid-row: 1 / 3; 
+  }
+
+  /* "Noticia_Derecha_Abajo.png" pasa a la derecha ARRIBA */
+  .item-right-bottom { 
+    grid-column: 2 / 3; 
+    grid-row: 1 / 2; 
+  }
+
+  /* "Noticia_Derecha.png" pasa a la derecha ABAJO */
+  .item-right-top { 
+    grid-column: 2 / 3; 
+    grid-row: 2 / 3; 
+  }
+
+  /* Botón más compacto y visible */
+  .btn-close-news {
+    margin-top: 20px;
+    padding: 8px 16px;
+    font-size: 0.8rem;
+  }
+
+}
+
+@media (max-width: 600px) {
+  .footer-content { flex-direction: column; text-align: center; gap: 0.25rem; }
+  .copyright { order: 2; }
+  .footer-nav { order: 1; justify-content: center; gap: 0.8rem; }
+
+  .news-grid {
+    max-width: 270px; /* El 30% de 900px */
+    gap: 5px; /* Margen pequeño para pantallas chicas */
+  }
+  
+  /* Ajustamos el botón de cerrar para que no quede muy lejos */
+  .btn-close-news {
+    margin-top: 25px;
+    padding: 8px 16px;
+    font-size: 0.8rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .hero-logo { max-width: 225px; } 
+  .ver-sobres-img { max-width: 160px; }
+  
+  .close-btn { top: 10px; right: 10px; padding: 5px 10px; font-size: 0.7rem; }
+  .official-side-nav { transform: scale(0.5); }
+
+  .nav-logo-link { left: 4px; }
+  .nav-logo { height: 22px; }
+
+  .main-menu { 
+    padding-left: 70px; 
+  } 
+  .menu-item { 
+    width: 48px; 
+    font-size: 0.45rem; 
+    padding: 2px 1px; 
+    word-break: break-word; 
+    hyphens: auto;
+  }
+
+  body:has(#card-1-selected:checked) .slot-1 .card, 
+  body:has(#card-2-selected:checked) .slot-2 .card, 
+  body:has(#card-3-selected:checked) .slot-3 .card, 
+  body:has(#card-4-selected:checked) .slot-4 .card {
+    top: 25vh; 
+    transform: translate(-50%, -50%) scale(0.75);
+  }
+
+  .card-details { top: 65vh; padding: 1rem; max-width: 95%; }
+  .card-details h2 { font-size: 0.85rem; margin-bottom: 0.5rem; }
+  .card-details p { font-size: 0.7rem; margin-bottom: 1rem; line-height: 1.5; }
+
+  .hero-content-wrapper {
+    flex-direction: column;
+    justify-content: flex-start; 
+    padding-top: 16vh; 
+  }
+
+  .hero-left-col {
+    gap: 8px; 
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .hero-right-col {
+    position: absolute;
+    bottom: 12vh; 
+    left: 50%;
+    transform: translateX(-50%); 
+    width: 100%;
+    display: flex;
+    justify-content: center;
+  }
+
+  .hero-logo-caja {
+    max-width: 180px; 
+  }
+
+  .hero-badge {
+    max-width: 110px; 
+  }
+
+  .hero-box-floating {
+    max-width: 160px; 
+  }
+}
+
+@media (max-width: 350px) {
+  .news-grid {
+    max-width: 270px; /* Mantenemos el 30% de 900px */
+    gap: 5px;
+  }
+} 
+
+/* ================================================================================
+CONTROL DE DESCRIPCIONES DE CARTAS SEGÚN EL SOBRE
+================================================================================ */
+
+.info-pack-a, 
+.info-pack-b, 
+.info-pack-c { 
+    display: none; 
+}
+
+#state-pack-a:checked ~ main .info-pack-a {
+    display: block;
+    animation: fadeIn 0.4s ease-out forwards;
+}
+
+#state-pack-b:checked ~ main .info-pack-b {
+    display: block;
+    animation: fadeIn 0.4s ease-out forwards;
+}
+
+#state-pack-c:checked ~ main .info-pack-c {
+    display: block;
+    animation: fadeIn 0.4s ease-out forwards;
+}
+
+/* ================================================================================
+AJUSTES DE CARTAS PARA MÓVILES
+================================================================================ 
+*/
+@media (max-width: 480px) {
+  body:has(#card-1-selected:checked) .slot-1 .card, 
+  body:has(#card-2-selected:checked) .slot-2 .card, 
+  body:has(#card-3-selected:checked) .slot-3 .card, 
+  body:has(#card-4-selected:checked) .slot-4 .card {
+    top: 23vh; /* Subimos la carta un pelín para que no choque con el texto al ser más grande */
+    transform: translate(-50%, -50%) scale(0.95); /* Aumentamos la escala para que no se vea pequeña */
+  }
+
+  .card-details { 
+    top: 50vh; /* Subimos la caja de detalles (en móviles más grandes estaba en 65vh) */
+    padding: 0.8rem; /* Reducimos ligerísimamente el padding interno para aprovechar el espacio */
+  }
+  
+  /* Hacemos el texto un poquito más compacto para que no haya que hacer tanto scroll */
+  .card-details p {
+    margin-bottom: 0.5rem;
+    font-size: 0.65rem;
+  }
+}

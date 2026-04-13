@@ -1,5 +1,5 @@
-import { describe, expect, it } from "vitest";
-// cspell:ignore Asignacion informacion logico
+﻿import { describe, expect, it } from "vitest";
+// cspell:ignore Asignacion informacion logico senal jerarquia utiles comun repeticion tecnico acompana metricas senales descripcion guias introduccion semantica basica interaccion movil metodo mutacion hipotesis progresion rigido palantir estrategica analisis deteccion
 import {
   addAccessibilityChecklistPanel,
   addAuditEvidenceBoard,
@@ -36,6 +36,9 @@ import {
   addSpecificityScale,
   addStaticVsInteractiveCompare,
   addTokenBoard,
+  addDecisionPipelinePanel,
+  addIntelTimelinePanel,
+  addPowerNetworkMap,
 } from "../../src/components";
 import { getEntryBounds, RecordingSlide } from "../../src/adapters/recording-slide";
 import { TOKENS } from "../../src/theme";
@@ -76,7 +79,7 @@ describe("frontend panels", () => {
       h: 3.6,
     });
 
-    expect(slide.texts.some((entry) => String(entry.text).includes("Móvil"))).toBe(true);
+    expect(slide.texts.some((entry) => String(entry.text).includes("390 px"))).toBe(true);
     expect(slide.texts.some((entry) => String(entry.text).includes("Desktop"))).toBe(true);
     expectGeometryIsValid(slide);
   });
@@ -134,7 +137,7 @@ describe("frontend panels", () => {
     expectGeometryIsValid(slide);
   });
 
-  it("addBreakpointDecisionPanel conecta ancho, señal y decisión sin geometría inválida", () => {
+  it("addBreakpointDecisionPanel conecta ancho, senal y decision sin geometria invalida", () => {
     const slide = new RecordingSlide();
 
     addBreakpointDecisionPanel(slide, SH, {
@@ -154,16 +157,16 @@ describe("frontend panels", () => {
         },
         { label: "Quiebre", sizeLabel: "640 px", note: "el layout pide cambio", accent: TOKENS.red, fill: TOKENS.paleRed },
       ],
-      signalTitle: "Señal visible",
+      signalTitle: "Senal visible",
       signalBody: "El CTA pierde foco y la segunda columna ya no ayuda.",
-      decisionTitle: "Respuesta útil",
-      decisionBody: "Apilar y redistribuir para recuperar jerarquía.",
-      footer: "Los breakpoints útiles nacen del contenido y su lectura.",
+      decisionTitle: "Respuesta util",
+      decisionBody: "Apilar y redistribuir para recuperar jerarquia.",
+      footer: "Los breakpoints utiles nacen del contenido y su lectura.",
     });
 
     expect(slide.texts.some((entry) => String(entry.text).includes("Tension"))).toBe(true);
     expect(slide.texts.some((entry) => String(entry.text).includes("Quiebre real"))).toBe(true);
-    expect(slide.texts.some((entry) => String(entry.text).includes("Respuesta útil"))).toBe(true);
+    expect(slide.texts.some((entry) => String(entry.text).includes("Respuesta util"))).toBe(true);
     expectGeometryIsValid(slide);
   });
 
@@ -176,16 +179,16 @@ describe("frontend panels", () => {
       w: 8.8,
       h: 3.8,
       variants: [
-        { label: "Base", role: "default", description: "fija el patrón común", accent: TOKENS.navy, fill: TOKENS.softBlue },
-        { label: "Destacada", role: "feature", description: "sube jerarquía sin romper la familia", accent: TOKENS.red, fill: TOKENS.paleRed },
+        { label: "Base", role: "default", description: "fija el patron comun", accent: TOKENS.navy, fill: TOKENS.softBlue },
+        { label: "Destacada", role: "feature", description: "sube jerarquia sin romper la familia", accent: TOKENS.red, fill: TOKENS.paleRed },
         { label: "Compacta", role: "compact", description: "reduce aire con criterio", accent: TOKENS.gold, fill: TOKENS.warm, preview: "stack" },
-        { label: "Acción", role: "action", description: "prioriza una respuesta visible", accent: TOKENS.navy, fill: TOKENS.white, preview: "button" },
+        { label: "Accion", role: "action", description: "prioriza una respuesta visible", accent: TOKENS.navy, fill: TOKENS.white, preview: "button" },
       ],
-      footer: "Las variantes cambian por intención, no por accidente visual.",
+      footer: "Las variantes cambian por intencion, no por accidente visual.",
     });
 
     expect(slide.texts.some((entry) => String(entry.text).includes("Destacada"))).toBe(true);
-    expect(slide.texts.some((entry) => String(entry.text).includes("Acción"))).toBe(true);
+    expect(slide.texts.some((entry) => String(entry.text).includes("Accion"))).toBe(true);
     expectGeometryIsValid(slide);
   });
 
@@ -228,7 +231,7 @@ describe("frontend panels", () => {
     });
   });
 
-  it("addComponentConsistencyPanel compara repetición manual contra patrón compartido", () => {
+  it("addComponentConsistencyPanel compara repeticion manual contra patron compartido", () => {
     const slide = new RecordingSlide();
 
     addComponentConsistencyPanel(slide, SH, {
@@ -236,13 +239,13 @@ describe("frontend panels", () => {
       y: 1,
       w: 8.4,
       h: 3.7,
-      leftTitle: "Repetición manual",
-      rightTitle: "Patrón compartido",
+      leftTitle: "Repeticion manual",
+      rightTitle: "Patron compartido",
       footer: "La consistencia nace cuando las piezas comparten decisiones visibles.",
     });
 
-    expect(slide.texts.some((entry) => String(entry.text).includes("Repetición manual"))).toBe(true);
-    expect(slide.texts.some((entry) => String(entry.text).includes("Patrón compartido"))).toBe(true);
+    expect(slide.texts.some((entry) => String(entry.text).includes("Repeticion manual"))).toBe(true);
+    expect(slide.texts.some((entry) => String(entry.text).includes("Patron compartido"))).toBe(true);
     expectGeometryIsValid(slide);
   });
 
@@ -256,16 +259,16 @@ describe("frontend panels", () => {
       h: 3.8,
       centerLabel: "Calidad web",
       dimensions: [
-        { title: "SEO técnico", body: "La página se deja entender.", accent: TOKENS.red, fill: TOKENS.paleRed },
-        { title: "Rendimiento", body: "La carga acompaña la lectura.", accent: TOKENS.gold, fill: TOKENS.warm },
-        { title: "Accesibilidad", body: "La interfaz se usa con más claridad.", accent: TOKENS.navy, fill: TOKENS.softBlue },
-        { title: "Auditoría", body: "Las herramientas vuelven visible el problema.", accent: TOKENS.navy, fill: TOKENS.mist },
+        { title: "SEO tecnico", body: "La pagina se deja entender.", accent: TOKENS.red, fill: TOKENS.paleRed },
+        { title: "Rendimiento", body: "La carga acompana la lectura.", accent: TOKENS.gold, fill: TOKENS.warm },
+        { title: "Accesibilidad", body: "La interfaz se usa con mas claridad.", accent: TOKENS.navy, fill: TOKENS.softBlue },
+        { title: "Auditoria", body: "Las herramientas vuelven visible el problema.", accent: TOKENS.navy, fill: TOKENS.mist },
       ],
-      footer: "La calidad aparece cuando documento, carga, uso y auditoría se leen juntos.",
+      footer: "La calidad aparece cuando documento, carga, uso y auditoria se leen juntos.",
     });
 
     expect(slide.texts.some((entry) => String(entry.text).includes("Calidad web"))).toBe(true);
-    expect(slide.texts.some((entry) => String(entry.text).includes("SEO técnico"))).toBe(true);
+    expect(slide.texts.some((entry) => String(entry.text).includes("SEO tecnico"))).toBe(true);
     expect(slide.texts.some((entry) => String(entry.text).includes("Rendimiento"))).toBe(true);
     expectGeometryIsValid(slide);
   });
@@ -279,23 +282,23 @@ describe("frontend panels", () => {
       w: 8.6,
       h: 3.9,
       items: [
-        { title: "Documento", body: "Título, headings y estructura.", accent: TOKENS.red, fill: TOKENS.paleRed },
+        { title: "Documento", body: "Titulo, headings y estructura.", accent: TOKENS.red, fill: TOKENS.paleRed },
         { title: "Recursos", body: "Peso y orden de carga.", accent: TOKENS.gold, fill: TOKENS.warm },
-        { title: "Métricas", body: "LCP, CLS e INP.", accent: TOKENS.navy, fill: TOKENS.softBlue },
-        { title: "Alertas", body: "La auditoría no decide sola.", accent: TOKENS.navy, fill: TOKENS.mist },
+        { title: "Metricas", body: "LCP, CLS e INP.", accent: TOKENS.navy, fill: TOKENS.softBlue },
+        { title: "Alertas", body: "La auditoria no decide sola.", accent: TOKENS.navy, fill: TOKENS.mist },
       ],
-      insightTitle: "Lectura técnica",
-      insightBody: "Las herramientas ayudan a leer señales, pero el contexto sigue importando.",
+      insightTitle: "Lectura tecnica",
+      insightBody: "Las herramientas ayudan a leer senales, pero el contexto sigue importando.",
       footer: "La evidencia sirve cuando se interpreta antes de actuar.",
     });
 
     expect(slide.texts.some((entry) => String(entry.text).includes("Documento"))).toBe(true);
-    expect(slide.texts.some((entry) => String(entry.text).includes("Métricas"))).toBe(true);
-    expect(slide.texts.some((entry) => String(entry.text).includes("Lectura técnica"))).toBe(true);
+    expect(slide.texts.some((entry) => String(entry.text).includes("Metricas"))).toBe(true);
+    expect(slide.texts.some((entry) => String(entry.text).includes("Lectura tecnica"))).toBe(true);
     expectGeometryIsValid(slide);
   });
 
-  it("addSeoSnippetPreview muestra título, URL y descripción sin geometría inválida", () => {
+  it("addSeoSnippetPreview muestra titulo, URL y descripcion sin geometria invalida", () => {
     const slide = new RecordingSlide();
 
     addSeoSnippetPreview(slide, SH, {
@@ -303,19 +306,19 @@ describe("frontend panels", () => {
       y: 1,
       w: 3.8,
       h: 1.7,
-      title: "Guía inicial de accesibilidad web | Taller PRO301",
+      title: "Guia inicial de accesibilidad web | Taller PRO301",
       url: "https://pro301.cl/guias/accesibilidad-inicial",
-      breadcrumb: "pro301.cl > Guías > Accesibilidad",
+      breadcrumb: "pro301.cl > Guias > Accesibilidad",
       description:
-        "Introducción a estructura semántica, contraste, formularios y revisión básica de accesibilidad.",
+        "Introduccion a estructura semantica, contraste, formularios y revision basica de accesibilidad.",
     });
 
-    expect(slide.texts.some((entry) => String(entry.text).includes("Guía inicial de accesibilidad web"))).toBe(true);
+    expect(slide.texts.some((entry) => String(entry.text).includes("Guia inicial de accesibilidad web"))).toBe(true);
     expect(slide.texts.some((entry) => String(entry.text).includes("https://pro301.cl/guias/accesibilidad-inicial"))).toBe(true);
     expectGeometryIsValid(slide);
   });
 
-  it("addPerformanceMetricsBoard muestra LCP, CLS e INP sin geometría inválida", () => {
+  it("addPerformanceMetricsBoard muestra LCP, CLS e INP sin geometria invalida", () => {
     const slide = new RecordingSlide();
 
     addPerformanceMetricsBoard(slide, SH, {
@@ -326,7 +329,7 @@ describe("frontend panels", () => {
       metrics: [
         { label: "LCP", value: "2.2 s", note: "contenido principal visible", accent: TOKENS.gold, fill: TOKENS.warm },
         { label: "CLS", value: "0.03", note: "sin saltos molestos", accent: TOKENS.navy, fill: TOKENS.softBlue },
-        { label: "INP", value: "160 ms", note: "interacción razonable", accent: TOKENS.red, fill: TOKENS.paleRed },
+        { label: "INP", value: "160 ms", note: "interaccion razonable", accent: TOKENS.red, fill: TOKENS.paleRed },
       ],
     });
 
@@ -336,7 +339,7 @@ describe("frontend panels", () => {
     expectGeometryIsValid(slide);
   });
 
-  it("addNetworkLoadBoard muestra recursos, peso y tiempo sin geometría inválida", () => {
+  it("addNetworkLoadBoard muestra recursos, peso y tiempo sin geometria invalida", () => {
     const slide = new RecordingSlide();
 
     addNetworkLoadBoard(slide, SH, {
@@ -349,11 +352,11 @@ describe("frontend panels", () => {
         { label: "app.css", kind: "css", sizeLabel: "96 KB", durationLabel: "180 ms", weight: 0.45, accent: TOKENS.navy, fill: TOKENS.softBlue },
         { label: "analytics.js", kind: "3rd", sizeLabel: "52 KB", durationLabel: "240 ms", weight: 0.34, accent: TOKENS.gold, fill: TOKENS.warm },
       ],
-      summaryTitle: "Qué conviene mirar",
+      summaryTitle: "Que conviene mirar",
     });
 
     expect(slide.texts.some((entry) => String(entry.text).includes("hero.webp"))).toBe(true);
-    expect(slide.texts.some((entry) => String(entry.text).includes("Qué conviene mirar"))).toBe(true);
+    expect(slide.texts.some((entry) => String(entry.text).includes("Que conviene mirar"))).toBe(true);
     expectGeometryIsValid(slide);
   });
 
@@ -452,14 +455,14 @@ describe("frontend panels", () => {
       w: 7.8,
       h: 4.5,
       rows: [
-        { label: "HTML y semántica", weight: 20, note: "estructura base" },
-        { label: "Responsive", weight: 20, note: "móvil bien resuelto" },
-        { label: "Entrega", weight: 5, note: "orden y método" },
+        { label: "HTML y semantica", weight: 20, note: "estructura base" },
+        { label: "Responsive", weight: 20, note: "movil bien resuelto" },
+        { label: "Entrega", weight: 5, note: "orden y metodo" },
       ],
       totalLabel: "100 pts",
     });
 
-    expect(slide.texts.some((entry) => String(entry.text).includes("HTML y semántica"))).toBe(true);
+    expect(slide.texts.some((entry) => String(entry.text).includes("HTML y semantica"))).toBe(true);
     expect(slide.texts.some((entry) => String(entry.text).includes("100 pts"))).toBe(true);
     expect(
       slide.shapes.filter(
@@ -718,7 +721,7 @@ describe("frontend panels", () => {
     expectGeometryIsValid(slide);
   });
 
-  it("addDomMutationFlow conecta selector, mutación y resultado visible", () => {
+  it("addDomMutationFlow conecta selector, mutacion y resultado visible", () => {
     const slide = new RecordingSlide();
 
     addDomMutationFlow(slide, SH, {
@@ -730,7 +733,7 @@ describe("frontend panels", () => {
     });
 
     expect(slide.texts.some((entry) => String(entry.text).includes("Selector"))).toBe(true);
-    expect(slide.texts.some((entry) => String(entry.text).includes("Mutación"))).toBe(true);
+    expect(slide.texts.some((entry) => String(entry.text).includes("nodo.textContent"))).toBe(true);
     expect(slide.texts.some((entry) => String(entry.text).includes("Resultado"))).toBe(true);
     expect(slide.texts.some((entry) => String(entry.text).includes("document.querySelector"))).toBe(true);
     expectGeometryIsValid(slide);
@@ -771,7 +774,7 @@ describe("frontend panels", () => {
       y: 1,
       w: 8.8,
       h: 3.5,
-      footer: "La evidencia manda antes que cualquier hipótesis.",
+      footer: "La evidencia manda antes que cualquier hipotesis.",
     });
 
     expect(slide.texts.some((entry) => String(entry.text).includes("Elements"))).toBe(true);
@@ -927,7 +930,7 @@ describe("frontend panels", () => {
     expectGeometryIsValid(slide);
   });
 
-  it("addSpecificityScale representa una progresión de peso", () => {
+  it("addSpecificityScale representa una progresion de peso", () => {
     const slide = new RecordingSlide();
 
     addSpecificityScale(slide, SH, {
@@ -952,7 +955,7 @@ describe("frontend panels", () => {
     expectGeometryIsValid(slide);
   });
 
-  it("addSpecificityScale no genera geometría negativa en modo compacto", () => {
+  it("addSpecificityScale no genera geometria negativa en modo compacto", () => {
     const slide = new RecordingSlide();
 
     addSpecificityScale(slide, SH, {
@@ -961,9 +964,9 @@ describe("frontend panels", () => {
       w: 8.96,
       h: 1.14,
       entries: [
-        { label: "Color", value: "misma paleta", weightLabel: "señal estable", scale: 0.44 },
+        { label: "Color", value: "misma paleta", weightLabel: "senal estable", scale: 0.44 },
         { label: "Espacio", value: "mismo ritmo", weightLabel: "bloques respirables", scale: 0.62 },
-        { label: "Layout", value: "reglas claras", weightLabel: "más control", scale: 0.86, active: true },
+        { label: "Layout", value: "reglas claras", weightLabel: "mas control", scale: 0.86, active: true },
       ],
     });
 
@@ -1054,7 +1057,7 @@ describe("frontend panels", () => {
       y: 1.1,
       w: 8.9,
       h: 3.7,
-      footer: "Acelerar no sirve si el sistema queda rígido.",
+      footer: "Acelerar no sirve si el sistema queda rigido.",
     });
 
     expect(slide.texts.some((entry) => String(entry.text).includes("Si acelera"))).toBe(true);
@@ -1079,7 +1082,7 @@ describe("frontend panels", () => {
     expectGeometryIsValid(slide);
   });
 
-  it("addLighthouseAuditCard dibuja cuatro métricas", () => {
+  it("addLighthouseAuditCard dibuja cuatro metricas", () => {
     const slide = new RecordingSlide();
 
     addLighthouseAuditCard(slide, SH, {
@@ -1178,3 +1181,54 @@ describe("frontend panels", () => {
     expectGeometryIsValid(slide);
   });
 });
+describe("palantir foundation panels", () => {
+  it("addIntelTimelinePanel muestra hitos recientes con fechas visibles", () => {
+    const slide = new RecordingSlide();
+
+    addIntelTimelinePanel(slide, SH, {
+      x: 0.8,
+      y: 1,
+      w: 8.6,
+      h: 3.2,
+      footer: "Los contratos muestran que Palantir ya opera como infraestructura estrategica.",
+    });
+
+    expect(slide.texts.some((entry) => String(entry.text).includes("ABR 2025"))).toBe(true);
+    expect(slide.texts.some((entry) => String(entry.text).includes("NATO adquiere Maven"))).toBe(true);
+    expectGeometryIsValid(slide);
+  });
+
+  it("addDecisionPipelinePanel conecta etapas de Maven sin geometria invalida", () => {
+    const slide = new RecordingSlide();
+
+    addDecisionPipelinePanel(slide, SH, {
+      x: 0.8,
+      y: 1,
+      w: 9.4,
+      h: 3,
+      footer: "La IA acelera el analisis, pero no elimina la decision humana.",
+    });
+
+    expect(slide.texts.some((entry) => String(entry.text).includes("Deteccion"))).toBe(true);
+    expect(slide.texts.some((entry) => String(entry.text).includes("Decision"))).toBe(true);
+    expect(slide.shapes.filter((shape) => shape.shapeType === SH.chevron).length).toBeGreaterThanOrEqual(5);
+    expectGeometryIsValid(slide);
+  });
+
+  it("addPowerNetworkMap dibuja a Palantir como nodo central con actores conectados", () => {
+    const slide = new RecordingSlide();
+
+    addPowerNetworkMap(slide, SH, {
+      x: 0.9,
+      y: 1,
+      w: 8.8,
+      h: 4.2,
+    });
+
+    expect(slide.texts.some((entry) => String(entry.text).includes("Palantir"))).toBe(true);
+    expect(slide.texts.some((entry) => String(entry.text).includes("DoD"))).toBe(true);
+    expect(slide.texts.some((entry) => String(entry.text).includes("NATO"))).toBe(true);
+    expectGeometryIsValid(slide);
+  });
+});
+

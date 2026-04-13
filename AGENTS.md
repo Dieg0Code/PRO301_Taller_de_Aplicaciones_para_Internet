@@ -314,8 +314,8 @@ Usar por defecto esta lógica:
 2. Si se modificó `tools/slides-system/`, ejecutar `npm run test:all` dentro de ese directorio y corregir cualquier fallo antes de volver al deck.
 3. Si la clase nueva usa TypeScript o consume `dist/`, ejecutar al menos `npm run build` en `tools/slides-system/` antes de regenerar el PPT.
 4. Regenerar el deck desde su fuente editable.
-5. Ejecutar validaciones de deck: overflow, render visual y apertura correcta en PowerPoint.
-6. Corregir solapes, cortes, conectores mal resueltos, mojibake, errores ortográficos o artefactos visuales extraños antes de dar el deck por terminado.
+5. Ejecutar validaciones de deck: overflow, render visual, apertura correcta en PowerPoint y **validación estructural .NET** (`dotnet run --project tools/pptx-validator -- "archivo.pptx"`).
+6. Corregir solapes, cortes, conectores mal resueltos, mojibake, errores ortográficos o **errores de integridad XML** detectados por el validador antes de dar el deck por terminado.
 
 No cerrar un trabajo de PPT si se cumple alguna de estas condiciones:
 

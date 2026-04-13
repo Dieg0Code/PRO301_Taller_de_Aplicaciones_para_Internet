@@ -1,4 +1,5 @@
-import type { Bounds } from "./slide-like";
+// cspell:ignore Supabase
+﻿import type { Bounds } from "./slide-like";
 
 export interface PositionedBox extends Bounds {
   [key: string]: unknown;
@@ -51,6 +52,21 @@ export interface CenterStatementOptions extends PositionedBox {
   color?: string;
   fontSize?: number;
   rectRadius?: number;
+  fontFace?: string;
+}
+
+export interface ServerCycleOptions extends PositionedBox {
+  [key: string]: unknown;
+}
+
+export interface RestResourceOptions extends PositionedBox {
+  verb: "GET" | "POST" | "PUT" | "DELETE";
+  url: string;
+  json?: string;
+}
+
+export interface LayerStackOptions extends PositionedBox {
+  [key: string]: unknown;
 }
 
 export interface SlideNumberOptions extends Partial<PositionedBox> {
@@ -486,6 +502,64 @@ export interface StageChainOptions extends PositionedBox {
   chevronColor?: string;
   compact?: boolean;
   footer?: string;
+}
+
+export interface IntelTimelineItem {
+  date?: string;
+  title?: string;
+  body?: string;
+  accent?: string;
+  fill?: string;
+}
+
+export interface IntelTimelinePanelOptions extends PositionedBox {
+  title?: string;
+  items?: IntelTimelineItem[];
+  fill?: string;
+  line?: string;
+  headerFill?: string;
+  chevronColor?: string;
+  footer?: string;
+}
+
+export interface DecisionPipelineStage {
+  label?: string;
+  title?: string;
+  body?: string;
+  accent?: string;
+  fill?: string;
+}
+
+export interface DecisionPipelinePanelOptions extends PositionedBox {
+  title?: string;
+  stages?: DecisionPipelineStage[];
+  fill?: string;
+  line?: string;
+  headerFill?: string;
+  chevronColor?: string;
+  footer?: string;
+}
+
+export interface PowerNetworkCenter {
+  title?: string;
+  body?: string;
+  accent?: string;
+}
+
+export interface PowerNetworkNode {
+  title?: string;
+  body?: string;
+  accent?: string;
+  position?: "lt" | "lb" | "rt" | "rb" | "bc";
+}
+
+export interface PowerNetworkMapOptions extends PositionedBox {
+  title?: string;
+  center?: PowerNetworkCenter;
+  nodes?: PowerNetworkNode[];
+  fill?: string;
+  line?: string;
+  headerFill?: string;
 }
 
 export interface ExposureColumn {
@@ -988,3 +1062,78 @@ export interface DomTreePanelOptions extends PositionedBox {
   rowGap?: number;
   indent?: number;
 }
+
+export interface EventLoopDiagramOptions extends PositionedBox {
+  stackFrames?: string[];
+  apiItems?: string[];
+  queueItems?: string[];
+  highlightPhase?: "stack" | "apis" | "queue" | "loop";
+  fill?: string;
+  caption?: string;
+  fontSize?: number;
+}
+
+export interface SyntaxCompareOptions extends PositionedBox {
+  beforeLabel?: string;
+  afterLabel?: string;
+  beforeCode: string;
+  afterCode: string;
+  language?: string;
+  caption?: string;
+  fontSize?: number;
+}
+
+export interface TableSchemaColumn {
+  name: string;
+  type: string;
+  key?: "PK" | "FK" | "";
+}
+
+export interface TableSchemaOptions extends PositionedBox {
+  title?: string;
+  columns?: TableSchemaColumn[];
+}
+
+export interface SupabaseProjectSetupPanelOptions extends PositionedBox {
+  title?: string;
+  leftW?: number;
+  organizationName?: string;
+  projectName?: string;
+  databasePassword?: string;
+  regionName?: string;
+  planLabel?: string;
+  statusItems?: string[];
+  tabs?: string[];
+  footer?: string;
+}
+
+export interface SupabaseTableEditorColumn {
+  name: string;
+  type: string;
+  key?: "PK" | "FK" | "";
+}
+
+export interface SupabaseTableEditorPanelOptions extends PositionedBox {
+  title?: string;
+  leftW?: number;
+  tableName?: string;
+  columns?: SupabaseTableEditorColumn[];
+  relationshipTitle?: string;
+  relationshipBody?: string;
+  sampleRowTitle?: string;
+  sampleValues?: string[];
+  footer?: string;
+}
+
+export interface ErRelationshipOptions extends PositionedBox {
+  startX: number;
+  startY: number;
+  endX: number;
+  endY: number;
+  type?: "1:1" | "1:N" | "N:M";
+  label?: string;
+  color?: string;
+}
+
+
+

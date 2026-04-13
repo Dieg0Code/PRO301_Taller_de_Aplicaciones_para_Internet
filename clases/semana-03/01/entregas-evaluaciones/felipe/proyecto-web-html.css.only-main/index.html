@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Pokémon Trading Cards - Oficial TCG</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+    <input type="radio" name="app-state" id="state-home" checked>
+    <input type="radio" name="app-state" id="state-packs">
+    <input type="radio" name="app-state" id="state-pack-a">
+    <input type="radio" name="app-state" id="state-pack-b">
+    <input type="radio" name="app-state" id="state-pack-c">
+
+    <input type="radio" name="card-state" id="card-none" checked>
+    <input type="radio" name="card-state" id="card-1-selected">
+    <input type="radio" name="card-state" id="card-2-selected">
+    <input type="radio" name="card-state" id="card-3-selected">
+    <input type="radio" name="card-state" id="card-4-selected">
+
+    <input type="radio" name="footer-state" id="footer-none" checked>
+    <input type="radio" name="footer-state" id="footer-terms">
+    <input type="radio" name="footer-state" id="footer-privacy">
+    <input type="radio" name="footer-state" id="footer-contact">
+
+    <input type="radio" name="app-state" id="state-home" checked>
+    <input type="radio" name="app-state" id="state-packs">
+    <input type="radio" name="app-state" id="state-news"> <input type="radio" name="app-state" id="state-pack-a">
+
+    <nav class="official-top-nav" aria-label="Navegación principal">
+        <a href="#" class="nav-logo-link" aria-label="Ir al inicio">
+            <img src="assets/Pokemon_logo.png" alt="Logo Pokémon" class="nav-logo">
+        </a>
+        
+        <ul class="main-menu">
+            <li><a href="#" class="menu-item inicio">Inicio</a></li>
+            <li><a href="#" class="menu-item pokedex">Pokédex</a></li>
+            <li><a href="#" class="menu-item videojuegos">Videojuegos y Aplicaciones</a></li>
+            <li><a href="#" class="menu-item eventos">Eventos de Campeonato TCG</a></li>
+            <li><a href="#" class="menu-item noticias">Noticias</a></li>
+        </ul>
+    </nav>
+
+    <aside class="official-side-nav" aria-label="Herramientas de usuario">
+        <a href="#" class="btn-login" aria-label="Iniciar sesión">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+                <circle cx="12" cy="7" r="4"></circle>
+            </svg>
+            <span>Iniciar sesión</span>
+        </a>
+        <a href="#" class="btn-search" aria-label="Buscar en el sitio">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <circle cx="11" cy="11" r="8"></circle>
+                <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+            </svg>
+        </a>
+    </aside>
+
+    <span class="page-background-container" aria-hidden="true"></span>
+
+    <main>
+        <header class="view-home">
+            <span class="scroll-layer" aria-hidden="true"></span>
+            
+            <div class="hero-content-wrapper">
+                <div class="hero-left-col">
+                    <img src="assets/Logo-caja.png" alt="Logo de la Caja" class="hero-logo-caja">
+                    <img src="assets/Ya_Disponible.png" alt="Ya Disponible" class="hero-badge">
+                </div>
+                <div class="hero-right-col">
+                    <img src="assets/referencia-caja.png" alt="Caja de Referencia" class="hero-box-floating">
+                </div>
+            </div>
+
+            <h1 class="hero-logo-wrapper">
+                <picture>
+                    <img src="assets/Logo.png" alt="Pokémon Trading Cards Logo" class="hero-logo">
+                </picture>
+            </h1>
+
+            <nav class="arrow-down-container" aria-label="Navegación hacia los sobres">
+                <label for="state-packs" class="arrow-action-wrapper" aria-label="Ver sobres" tabindex="0">
+                    <img src="assets/Ver_Sobres_Pokemon.png" alt="Ver Sobres" class="ver-sobres-img">
+                    <span class="arrow-down-btn"></span>
+                </label>
+            </nav>
+
+            <nav class="arrow-left-container" aria-label="Navegación hacia noticias">
+                <label for="state-news" class="arrow-action-wrapper-left" aria-label="Ver noticias" tabindex="0">
+                    <span class="arrow-left-btn"></span>
+                </label>
+            </nav>
+
+        </header>
+
+        <section class="view-packs" aria-label="Selección de Sobres de Pokémon">
+            <ul class="packs-grid">
+                <li class="pack-slot">
+                    <label for="state-pack-a" class="pack" aria-label="Abrir sobre A" tabindex="0">
+                        <figure class="pack-inner">
+                            <img src="assets/Sobre_A.png" alt="Sobre Pokémon A">
+                            <i class="holo-gradient-layer" aria-hidden="true"></i>
+                        </figure>
+                    </label>
+                </li>
+                <li class="pack-slot">
+                    <label for="state-pack-b" class="pack" aria-label="Abrir sobre B" tabindex="0">
+                        <figure class="pack-inner">
+                            <img src="assets/Sobre_B.png" alt="Sobre Pokémon B">
+                            <i class="holo-gradient-layer" aria-hidden="true"></i>
+                        </figure>
+                    </label>
+                </li>
+                <li class="pack-slot">
+                    <label for="state-pack-c" class="pack" aria-label="Abrir sobre C" tabindex="0">
+                        <figure class="pack-inner">
+                            <img src="assets/Sobre_C.png" alt="Sobre Pokémon C">
+                            <i class="holo-gradient-layer" aria-hidden="true"></i>
+                        </figure>
+                    </label>
+                </li>
+            </ul>
+            <nav aria-label="Navegación de retorno">
+                <label for="state-home" class="close-btn" tabindex="0">Volver al Inicio</label>
+            </nav>
+        </section>
+
+        <section class="view-news" aria-label="Noticias Pokémon">
+            <div class="news-content-wrapper">
+                <ul class="news-grid">
+                    <li class="news-item item-left">
+                        <img src="assets/Noticia_Grande_Izquierda.png" alt="Noticia Principal">
+                    </li>
+                    <li class="news-item item-right-top">
+                        <img src="assets/Noticia_Derecha.png" alt="Noticia Secundaria Superior">
+                    </li>
+                    <li class="news-item item-right-bottom">
+                        <img src="assets/Noticia_Derecha_Abajo.png" alt="Noticia Secundaria Inferior">
+                    </li>
+                    </ul>
+                <nav aria-label="Cerrar noticias">
+                    <label for="state-home" class="close-btn btn-close-news" tabindex="0">Volver al Inicio</label>
+                </nav>
+            </div>
+        </section>
+
+        <section class="view-cards" aria-label="Cartas Reveladas">
+            <span class="cards-display-background" aria-hidden="true"></span>
+            <label for="card-none" class="card-close-overlay" aria-hidden="true"></label>
+            
+            <ul class="cards-grid">
+                <li class="card-slot slot-1">
+                    <label for="card-1-selected" class="card-label">
+                        <figure class="card card-1">
+                            <div class="card-inner">
+                                <div class="card-front" aria-label="Carta holográfica rara"></div>
+                                <div class="card-back" aria-hidden="true"></div>
+                                <i class="holo-gradient-layer" aria-hidden="true"></i>
+                            </div>
+                        </figure>
+                    </label>
+                    <article class="card-details">
+                        <div class="info-pack-a">
+                            <h2>Giratina</h2>
+                            <p>Pokémon legendario de tipo Fantasma/Dragón. Se dice que fue desterrado al Mundo Distorsión por su extrema violencia. Desde allí, observa el mundo real en total silencio, aguardando en las sombras de nuestra dimensión.</p>
+                        </div>
+                        <div class="info-pack-b">
+                            <h2>Koraidon</h2>
+                            <p>Pokémon legendario de tipo Lucha/Dragón. Es un misterioso ser originario del foso de Paldea con un poder físico inmenso y una apariencia prehistórica. Puede alterar su morfología para surcar la tierra o los cielos.</p>
+                        </div>
+                        <div class="info-pack-c">
+                            <h2>Mega Charizard X</h2>
+                            <p>Al alcanzar la megaevolución, su cuerpo se torna oscuro y sus llamas arden con un tono azul intenso debido a la altísima temperatura. Despierta el gen de tipo Dragón y desata un poder físico verdaderamente abrumador.</p>
+                        </div>
+                        <label for="card-none" class="close-details-btn">Cerrar Detalle</label>
+                    </article>
+                </li>
+            
+                <li class="card-slot slot-2">
+                    <label for="card-2-selected" class="card-label">
+                        <figure class="card card-2">
+                            <div class="card-inner">
+                                <div class="card-front" aria-label="Carta común 1"></div>
+                                <div class="card-back" aria-hidden="true"></div>
+                                <i class="holo-gradient-layer" aria-hidden="true"></i>
+                            </div>
+                        </figure>
+                    </label>
+                    <article class="card-details">
+                        <div class="info-pack-a">
+                            <h2>Gardevoir</h2>
+                            <p>Pokémon de tipo Psíquico/Hada. Tiene la capacidad innata de leer el futuro. Si siente que su Entrenador está en peligro de muerte, usará su máxima energía psicoquinética para crear un pequeño agujero negro y protegerlo.</p>
+                        </div>
+                        <div class="info-pack-b">
+                            <h2>Miraidon</h2>
+                            <p>Pokémon legendario de tipo Eléctrico/Dragón. Parece ser la forma futurista de un Pokémon conocido, dotado de tecnología inimaginable. Flota en el aire y ataca reduciendo todo a cenizas con potentes rayos de energía pura.</p>
+                        </div>
+                        <div class="info-pack-c">
+                            <h2>Mega Gengar EX</h2>
+                            <p>Al megaevolucionar, la energía que emana este Pokémon se desborda y su cuerpo parece hundirse en otra dimensión. Se dice que en este estado pierde el interés en todo salvo en causar un caos absoluto en su entorno.</p>
+                        </div>
+                        <label for="card-none" class="close-details-btn">Cerrar Detalle</label>
+                    </article>
+                </li>
+            
+                <li class="card-slot slot-3">
+                    <label for="card-3-selected" class="card-label">
+                        <figure class="card card-3">
+                            <div class="card-inner">
+                                <div class="card-front" aria-label="Carta común 2"></div>
+                                <div class="card-back" aria-hidden="true"></div>
+                                <i class="holo-gradient-layer" aria-hidden="true"></i>
+                            </div>
+                        </figure>
+                    </label>
+                    <article class="card-details">
+                        <div class="info-pack-a">
+                            <h2>Gengar</h2>
+                            <p>Pokémon de tipo Fantasma/Veneno. En las oscuras noches de luna llena, a este Pokémon le divierte inmensamente imitar las sombras de las personas y reírse de su terror. Si sientes un escalofrío repentino, Gengar está cerca.</p>
+                        </div>
+                        <div class="info-pack-b">
+                            <h2>Arcanine</h2>
+                            <p>Pokémon de tipo Fuego. Es célebre desde la antigüedad por su velocidad inalcanzable y su majestuosidad en combate. Su potente ladrido es tan imponente que quienes lo escuchan no pueden evitar postrarse ante él.</p>
+                        </div>
+                        <div class="info-pack-c">
+                            <h2>Mismagius</h2>
+                            <p>Pokémon de tipo Fantasma. Sus enigmáticos cánticos suenan como conjuros ancestrales. Dependiendo de las intenciones de Mismagius y de quién los escuche, pueden provocar terribles dolores o, por el contrario, otorgar una gran felicidad.</p>
+                        </div>
+                        <label for="card-none" class="close-details-btn">Cerrar Detalle</label>
+                    </article>
+                </li>
+            
+                <li class="card-slot slot-4">
+                    <label for="card-4-selected" class="card-label">
+                        <figure class="card card-4">
+                            <div class="card-inner">
+                                <div class="card-front" aria-label="Carta común 3"></div>
+                                <div class="card-back" aria-hidden="true"></div>
+                                <i class="holo-gradient-layer" aria-hidden="true"></i>
+                            </div>
+                        </figure>
+                    </label>
+                    <article class="card-details">
+                        <div class="info-pack-a">
+                            <h2>Pikachu</h2>
+                            <p>Pokémon de tipo Eléctrico. Almacena grandes cantidades de electricidad en las bolsas rojas de sus mejillas. Cuando se siente amenazado o sorprendido, libera violentas descargas que pueden igualar la inmensa fuerza de un rayo.</p>
+                        </div>
+                        <div class="info-pack-b">
+                            <h2>Gyarados</h2>
+                            <p>Pokémon de tipo Agua/Volador. Su asombrosa evolución desde el débil Magikarp es un símbolo de superación, pero su temperamento es extremadamente violento. Es capaz de destruir ciudades enteras cuando se enfurece.</p>
+                        </div>
+                        <div class="info-pack-c">
+                            <h2>Mega Diancie</h2>
+                            <p>Conocida afectuosamente como la "Princesa Real". Al megaevolucionar, su cuerpo de diamante puro brilla con un esplendor inigualable que ciega a sus enemigos. Se considera la visión más hermosa de todo el mundo Pokémon.</p>
+                        </div>
+                        <label for="card-none" class="close-details-btn">Cerrar Detalle</label>
+                    </article>
+                </li>
+            </ul>
+
+            <nav aria-label="Navegación de retorno a sobres" class="nav-return-packs">
+                <label for="state-packs" class="close-btn" tabindex="0">Volver</label>
+            </nav>
+        </section>
+
+        <section class="view-footer-modal" aria-label="Información legal y contacto">
+            <span class="cards-display-background" aria-hidden="true"></span>
+            <label for="footer-none" class="card-close-overlay" aria-hidden="true"></label>
+            
+            <div class="footer-modal-box">
+                <article class="footer-info content-terms">
+                    <h2>Términos de uso</h2>
+                    <div class="footer-grid-content">
+                        <div>
+                            <h3>1. Aceptación</h3>
+                            <p>Al acceder a este sitio web, usted acepta estar sujeto a estos Términos de uso, todas las leyes y regulaciones aplicables.</p>
+                        </div>
+                        <div>
+                            <h3>2. Licencia de Uso</h3>
+                            <p>Se concede permiso para descargar temporalmente una copia de los materiales para visualización transitoria personal y no comercial.</p>
+                        </div>
+                        <div>
+                            <h3>3. Propiedad Intelectual</h3>
+                            <p>El diseño del sitio, el texto, los gráficos y las interfaces son propiedad de The Pokémon Company.</p>
+                        </div>
+                        <div>
+                            <h3>4. Limitaciones</h3>
+                            <p>En ningún caso seremos responsables de los daños que surjan del uso o la incapacidad de usar los materiales.</p>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="footer-info content-privacy">
+                    <h2>Política de privacidad</h2>
+                    <div class="footer-grid-content">
+                        <div>
+                            <h3>Recopilación de Datos</h3>
+                            <p>Recopilamos información para brindar mejores servicios a todos nuestros usuarios, desde el idioma que hablas hasta el contenido que consumes.</p>
+                        </div>
+                        <div>
+                            <h3>Uso de la Información</h3>
+                            <p>Utilizamos la información que recopilamos de todos nuestros servicios para proporcionarlos, mantenerlos, protegerlos y mejorarlos.</p>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="footer-info content-contact">
+                    <h2>Contacto</h2>
+                    <div class="footer-grid-content">
+                        <div>
+                            <h3>Soporte al Entrenador</h3>
+                            <p>¿Tienes problemas con tu cuenta de Trainer Club? Visita nuestro portal de soporte para obtener ayuda técnica.</p>
+                        </div>
+                        <div>
+                            <h3>Consultas Comerciales</h3>
+                            <p>Para prensa, patrocinios y eventos oficiales, escríbenos a nuestro correo corporativo.</p>
+                        </div>
+                    </div>
+                </article>
+
+                <label for="footer-none" class="close-details-btn" style="margin-top: 2rem;">Cerrar Panel</label>
+            </div>
+        </section>
+
+    </main>
+    
+    <footer class="main-footer">
+        <div class="footer-content">
+            <small class="copyright">
+                © 2026 Pokémon. © 1995–2026 Nintendo / Creatures Inc. / GAME FREAK inc.
+            </small>
+            <nav class="footer-nav" aria-label="Enlaces legales e institucionales">
+                <label for="footer-terms" class="footer-link" tabindex="0">Términos de uso</label>
+                <label for="footer-privacy" class="footer-link" tabindex="0">Política de privacidad</label>
+                <label for="footer-contact" class="footer-link" tabindex="0">Contacto</label>
+            </nav>
+        </div>
+    </footer>
+
+</body>
+</html>

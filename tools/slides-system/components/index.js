@@ -10,4 +10,6 @@ module.exports = {
   ...require("./security-panels"),
   ...require("./app-panels"),
   ...require("./agentic-panels"),
+  ...require("./async-panels"),
+  ...require("./backend-panels"),
 };

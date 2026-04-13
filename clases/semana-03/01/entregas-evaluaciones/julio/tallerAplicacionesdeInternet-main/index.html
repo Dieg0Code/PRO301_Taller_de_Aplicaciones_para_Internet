@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta
+    name="description"
+    content="Reserva horas en la Veterinaria San Francisco. Atención cercana, profesional y pensada para el bienestar de tu mascota."
+  >
+  <title>Veterinaria San Francisco | Reserva de Horas</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap"
+    rel="stylesheet"
+  >
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header class="site-header">
+    <div class="container">
+      <nav class="navbar" aria-label="Navegacion principal">
+        <a class="brand" href="#inicio">
+          <img
+            class="brand-logo"
+            src="assets/logo-veterinaria.avif"
+            alt="Logo de la Veterinaria San Francisco"
+          >
+          <span class="brand-text">
+            <strong>Veterinaria San Francisco</strong>
+            <small>Reserva de horas online</small>
+          </span>
+        </a>
+        <a class="nav-cta" href="#reserva">Reservar hora</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero" id="inicio">
+      <div class="container hero-grid">
+        <div class="hero-copy">
+          <p class="eyebrow">Cuidado confiable para cada mascota</p>
+          <h1>Reserva una hora veterinaria en minutos</h1>
+          <p class="hero-text">
+            En San Francisco cuidamos perros, gatos y mascotas de compañia con
+            atención profesional, cercana y horarios flexibles para tu familia.
+          </p>
+          <div class="hero-actions">
+            <a class="button button-primary" href="#reserva">Agendar ahora</a>
+            <a class="button button-secondary" href="#servicios">Ver servicios</a>
+          </div>
+          <ul class="hero-highlights" aria-label="Ventajas principales">
+            <li>Atencion general y controles preventivos</li>
+            <li>Recordatorios rapidos y reserva simple</li>
+          </ul>
+        </div>
+
+        <aside class="hero-card" aria-label="Resumen de atencion">
+          <div class="status-pill">Disponibilidad de hoy</div>
+          <h2>Horas disponibles</h2>
+          <ul class="availability-list">
+            <li>
+              <span>Consulta general</span>
+              <strong>09:30 - 13:00</strong>
+            </li>
+            <li>
+              <span>Vacunación</span>
+              <strong>15:00 - 18:30</strong>
+            </li>
+            <li>
+              <span>Control preventivo</span>
+              <strong>11:00 - 17:30</strong>
+            </li>
+          </ul>
+          <p class="card-note">
+            Reserva tu hora y recibe confirmación con los datos del paciente.
+          </p>
+        </aside>
+      </div>
+    </section>
+
+    <section class="services" id="servicios">
+      <div class="container">
+        <div class="section-heading">
+          <p class="eyebrow">Servicios destacados</p>
+          <h2>Atención pensada para cada etapa de tu mascota</h2>
+        </div>
+
+        <div class="service-grid">
+          <article class="service-card">
+            <h3>Consulta general</h3>
+            <p>Evaluación completa para diagnostico temprano y seguimiento medico.</p>
+          </article>
+          <article class="service-card">
+            <h3>Vacunación</h3>
+            <p>Planes preventivos y control de calendario segun edad y especie.</p>
+          </article>
+          <article class="service-card">
+            <h3>Controles</h3>
+            <p>Chequeos periodicos para mantener el bienestar y detectar riesgos.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="booking" id="reserva">
+      <div class="container booking-grid">
+        <article class="booking-info">
+          <p class="eyebrow">Reserva online</p>
+          <h2>Agenda la proxima visita de forma clara y rapida</h2>
+          <p>
+            Completa el formulario con los datos basicos y nuestro equipo podra
+            gestionar tu hora de atención con rapidez.
+          </p>
+
+          <div class="info-panel">
+            <h3>Informacion util</h3>
+            <ul>
+              <li>Lunes a viernes: 09:00 a 19:00</li>
+              <li>Sabados: 10:00 a 14:00</li>
+              <li>Atención por orden de reserva</li>
+            </ul>
+          </div>
+        </article>
+
+        <form class="booking-form">
+          <div class="form-group">
+            <label for="nombre-dueno">Nombre del tutor</label>
+            <input id="nombre-dueno" name="nombre-dueno" type="text" placeholder="Ej: Camila Soto">
+          </div>
+
+          <div class="form-group">
+            <label for="nombre-mascota">Nombre de la mascota</label>
+            <input id="nombre-mascota" name="nombre-mascota" type="text" placeholder="Ej: Luna">
+          </div>
+
+          <div class="form-row">
+            <div class="form-group">
+              <label for="tipo">Tipo de mascota</label>
+              <select id="tipo" name="tipo">
+                <option value="">Selecciona</option>
+                <option>Perro</option>
+                <option>Gato</option>
+                <option>Otra</option>
+              </select>
+            </div>
+
+            <div class="form-group">
+              <label for="servicio">Servicio</label>
+              <select id="servicio" name="servicio">
+                <option value="">Selecciona</option>
+                <option>Consulta general</option>
+                <option>Vacunación</option>
+                <option>Control preventivo</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="form-row">
+            <div class="form-group">
+              <label for="fecha">Fecha</label>
+              <input id="fecha" name="fecha" type="date">
+            </div>
+
+            <div class="form-group">
+              <label for="hora">Hora</label>
+              <input id="hora" name="hora" type="time">
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="telefono">Telefono de contacto</label>
+            <input id="telefono" name="telefono" type="tel" placeholder="+56 9 1234 5678">
+          </div>
+
+          <div class="form-group">
+            <label for="mensaje">Observaciones</label>
+            <textarea
+              id="mensaje"
+              name="mensaje"
+              rows="4"
+              placeholder="Cuentanos si tu mascota necesita una atención especial."
+            ></textarea>
+          </div>
+
+          <button class="button button-primary button-full" type="submit">
+            Confirmar solicitud
+          </button>
+        </form>
+      </div>
+    </section>
+
+    <section class="contact" id="contacto">
+      <div class="container contact-grid">
+        <article class="contact-card">
+          <p class="eyebrow">Ubicación</p>
+          <h2>Estamos listos para recibir a tu mascota</h2>
+          <p>
+            Avenida San Francisco 245, atención comoda y cercana para consultas,
+            vacunas y controles.
+          </p>
+        </article>
+
+        <article class="contact-card">
+          <p class="eyebrow">Contacto</p>
+          <h2>Hablemos</h2>
+          <p>Telefono: +56 2 2456 7890</p>
+          <p>Correo: reservas@vetsanfrancisco.cl</p>
+        </article>
+      </div>
+    </section>
+  </main>
+
+  <a class="floating-support" href="#contacto" aria-label="Contactar a atencion al cliente">
+    <span class="floating-support__icon" aria-hidden="true">
+      <img src="assets/boton-huella.png" alt="" >
+    </span>
+    <span class="floating-support__text">
+      <strong>Atencion al cliente</strong>
+      <small>Estamos para ayudarte</small>
+    </span>
+  </a>
+
+  <footer class="site-footer">
+    <div class="container footer-content">
+      <p>&copy; 2026 Veterinaria San Francisco. Todos los derechos reservados.</p>
+      <nav class="footer-links" aria-label="Enlaces legales">
+        <a href="#inicio">Terminos y condiciones</a>
+        <a href="#inicio">Terminos de privacidad</a>
+      </nav>
+      <p>Pagina creada por Liones Entrerprise</p>
+    </div>
+  </footer>
+</body>
+</html>

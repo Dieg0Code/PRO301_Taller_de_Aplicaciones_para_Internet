@@ -1,0 +1,23 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(grep -E \"\\\\.\\(md|json|yaml|yml\\)$\")",
+      "Skill(telegram:configure)",
+      "Bash(mkdir -p ~/.claude/channels/telegram)",
+      "Bash(~/.claude/channels/telegram/.env)",
+      "Bash(chmod 600 ~/.claude/channels/telegram/.env)",
+      "Read(//c/Users/Diego Obando/.claude/channels/telegram/**)",
+      "Bash(mkdir -p ~/.claude/channels/telegram/approved)",
+      "Bash(~/.claude/channels/telegram/approved/7669245078)",
+      "mcp__plugin_telegram_telegram__reply",
+      "Bash(npm run:*)",
+      "Bash(node block-1-slides.js)",
+      "Bash(node -e \":*)",
+      "Bash(node -e \"const { theme } = require\\(''./dist/index.js''\\); const C = theme.TOKENS; console.log\\(''warm:'', C.warm\\); console.log\\(''ink:'', C.ink\\); console.log\\(''titleFill:'', C.titleFill\\); console.log\\(''paleRed:'', C.paleRed\\);\")",
+      "Bash(powershell -Command \":*)",
+      "Bash(node Clase-10-JavaScript-Moderno.js)",
+      "Bash(npm install:*)",
+      "Bash(node ./block-1-slides.js)"
+    ]
+  }
+}
