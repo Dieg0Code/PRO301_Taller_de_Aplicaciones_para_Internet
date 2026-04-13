@@ -22,3 +22,4 @@ clases-particulares/
 
 # Local browser automation artifacts
 .playwright-cli/
+*.rar

@@ -18,6 +18,8 @@ const {
   addMythRealityGrid,
   addTableSchema,
   addErRelationship,
+  addSupabaseProjectSetupPanel,
+  addSupabaseTableEditorPanel,
 } = components;
 const { validateSlide } = utils;
 
@@ -847,29 +849,15 @@ function create3FNTheorySlide() {
   addCenterStatement(slide, SH, "Una tabla está en 3FN si está en 2FN y no existen dependencias transitivas entre atributos no clave.", {
     x: 0.88, y: 2.0, w: 10.26, h: 1.12, fill: C.navy, color: C.white, fontSize: 20
   });
-  const points = [
-    { 
-      t: "Independencia Lógica", 
-      b: "Los atributos no clave deben ser independientes entre sí. Si cambias el nombre de una ciudad, solo lo haces en una tabla de referencia, no en mil perfiles de usuario.", 
-      accent: C.red 
-    },
-    { 
-      t: "Eficiencia de Almacenamiento", 
-      b: "Elimina la repetición masiva de cadenas de texto (ej: nombres de países o categorías). Esto reduce el peso de la DB y acelera los respaldos.", 
-      accent: C.red 
-    },
-    { 
-      t: "Mantenimiento Predictivo", 
-      b: "Previene anomalías de actualización: evita que un dato cambie en una fila pero se mantenga antiguo en otra, rompiendo la 'verdad' del sistema.", 
-      accent: C.red 
-    },
-  ];
-  points.forEach((p, i) => {
-    addMiniCard(slide, SH, { 
-      x: 0.88 + i * 3.44, y: 3.42, w: 3.2, h: 3.0, 
-      title: p.t, body: p.body, accent: p.accent, 
-      fill: C.white, line: C.border, titleFontSize: 13, bodyFontSize: 10.5 
-    });
+  
+  addChecklistGrid(slide, SH, {
+    x: 0.88, y: 3.4, w: 10.26, h: 3.4, title: "Hacia la Arquitectura Profesional", columns: 2,
+    entries: [
+      { badge: "REGLA", title: "Independencia Lógica", body: "Los atributos no clave deben ser independientes entre sí. Cambiar un dato solo afecta a una tabla.", accent: C.red, fill: C.paleRed, badgeFill: C.red },
+      { badge: "REGLA", title: "La PK manda", body: "Todo dato debe depender de la PK, toda la PK y nada más que de la PK.", accent: C.red, fill: C.paleRed, badgeFill: C.red },
+      { badge: "BENEFIT", title: "Eficiencia Masiva", body: "Elimina la repetición de cadenas de texto largas (ej: nombres de ciudades o países).", accent: C.navy, fill: C.softBlue, badgeFill: C.navy },
+      { badge: "BENEFIT", title: "Escalabilidad", body: "Permite cambiar la lógica de una entidad secundaria sin tocar la tabla principal.", accent: C.navy, fill: C.softBlue, badgeFill: C.navy },
+    ]
   });
   validateSlide(slide, pptx);
 }
@@ -977,6 +965,514 @@ function createSynthesisB3Slide() {
   validateSlide(slide, pptx);
 }
 
+// ─── BLOQUE 4: IMPLEMENTACIÓN EN SUPABASE (POSTGRES) ─────────────────────────
+
+// S34: APERTURA B4
+function createBlock4IntroSlide() {
+  const slide = pptx.addSlide();
+  slide.background = { color: C.navy };
+  addMarkBox(slide, SH, logoMarkPath, { x: 9.62, y: 0.28, w: 0.68, h: 0.68 });
+  addChip(slide, SH, "BLOQUE 4", { x: 0.88, y: 0.68, w: 1.32, h: 0.34, fill: C.red, color: C.white, fontSize: 10.6 });
+  addBarsMotif(slide, 0.88, 1.22, 1.1, C.red);
+  slide.addText("Implementación en la Nube:\nLlevando el DER a la Realidad", {
+    x: 0.88, y: 2.14, w: 9.2, h: 1.26, fontFace: TYPOGRAPHY.display, fontSize: 36, bold: true, color: C.white, valign: "mid",
+  });
+  slide.addText("Integrando PostgreSQL as a Service con FastAPI y Pydantic.", {
+    x: 0.88, y: 3.62, w: 8.2, h: 0.38, fontFace: TYPOGRAPHY.body, fontSize: 15.2, color: "DCE6F2",
+  });
+  validateSlide(slide, pptx);
+}
+
+// S35: QUÉ ES SUPABASE
+function createWhatIsSupabaseSlide() {
+  const slide = pptx.addSlide();
+  addHeader(slide, "¿Qué es Supabase?", "Bloque 4 · 4.1 Backend as a Service", "Bloque 4");
+  addDelegationSplit(slide, SH, {
+    x: 0.88, y: 2.22, w: 10.26, h: 4.54, title: "PostgreSQL con Superpoderes",
+    left: {
+      title: "Base de Datos", subtitle: "Core",
+      items: ["PostgreSQL 100% real.", "Full soporte SQL y relacional.", "No es una base de datos 'de juguete'."],
+      accent: C.navy, fill: C.softBlue
+    },
+    right: {
+      title: "Capa de Servicios", subtitle: "Ecosistema (BaaS)",
+      items: ["API REST automática (PostgREST).", "Autenticación (Auth).", "Almacenamiento de archivos (Storage)."],
+      accent: C.red, fill: C.paleRed
+    },
+    bridgeLabel: "+", bridgeBody: "ecosistema",
+  });
+  validateSlide(slide, pptx);
+}
+
+// S36: ARQUITECTURA
+function createSupabaseArchitectureSlide() {
+  const slide = pptx.addSlide();
+  addHeader(slide, "Arquitectura del Sistema", "Bloque 4 · 4.1 Flujo de datos", "Bloque 4");
+  addCenterStatement(slide, SH, "FastAPI actúa como el 'Cerebro' (Lógica) y Supabase como la 'Memoria' (Persistencia).", {
+    x: 0.88, y: 2.22, w: 10.26, h: 0.82, fill: C.navy, color: C.white, fontSize: 16
+  });
+  
+  const steps = [
+    { t: "1. FastAPI", b: "Recibe Request HTTP\nValida con Pydantic", accent: C.navy },
+    { t: "2. Supabase Client", b: "Traduce la petición a un Query REST", accent: C.red },
+    { t: "3. Supabase Cloud", b: "Ejecuta Query en Postgres\ny devuelve JSON", accent: C.gold },
+  ];
+  steps.forEach((s, i) => {
+    addMiniCard(slide, SH, {
+      x: 0.88 + i * 3.44, y: 3.42, w: 3.2, h: 2.2, title: s.t, body: s.b, accent: s.accent,
+      fill: C.white, line: C.border, titleFontSize: 13, bodyFontSize: 11
+    });
+  });
+  validateSlide(slide, pptx);
+}
+
+// S37: SETUP 1
+function createSupabaseSetup1Slide() {
+  const slide = pptx.addSlide();
+  addHeader(slide, "Configuración del Proyecto", "Bloque 4 · 4.2 Crear instancia", "Bloque 4");
+  addSupabaseProjectSetupPanel(slide, SH, {
+    x: 0.88, y: 2.22, w: 10.26, h: 4.0,
+    projectName: "Mi App de E-commerce",
+    dbPassword: "••••••••••••••••",
+    region: "São Paulo (sa-east-1)"
+  });
+  validateSlide(slide, pptx);
+}
+
+// S38: SETUP 2 (KEYS)
+function createSupabaseSetup2Slide() {
+  const slide = pptx.addSlide();
+  addHeader(slide, "API Keys: Pública vs Privada", "Bloque 4 · 4.2 Seguridad Crítica", "Bloque 4");
+  addMythRealityGrid(slide, SH, {
+    x: 0.88, y: 2.22, w: 10.26, h: 4.54, title: "Nunca expongas el Service Role",
+    entries: [
+      { badge: "ANON", myth: "anon_key", reality: "Llave pública. Sujeta a Row Level Security (RLS). Segura para usar en Frontend.", accent: C.navy, badgeFill: C.softBlue },
+      { badge: "ROLE", myth: "service_role_key", reality: "Llave privada. Ignora TODA seguridad. SOLO debe usarse en Backend (FastAPI).", accent: C.red, badgeFill: C.paleRed },
+    ]
+  });
+  validateSlide(slide, pptx);
+}
+
+// S39: VARIABLES DE ENTORNO
+function createEnvVariablesSlide() {
+  const slide = pptx.addSlide();
+  addHeader(slide, "Seguridad con Variables de Entorno", "Bloque 4 · 4.2 Protegiendo secretos", "Bloque 4");
+  addCodePanel(slide, SH, {
+    x: 0.88, y: 2.22, w: 10.26, h: 4.54, title: ".env (NO SUBIR A GITHUB)",
+    code: `SUPABASE_URL="https://tu-proyecto.supabase.co"
+SUPABASE_KEY="tu-service-role-key"`,
+    lang: "text", fontSize: 18
+  });
+  validateSlide(slide, pptx);
+}
+
+// S40: MAPEO DE TIPOS
+function createTypeMappingSlide() {
+  const slide = pptx.addSlide();
+  addHeader(slide, "Mapeo de Tipos: Postgres ↔ Python", "Bloque 4 · 4.3 Pydantic al rescate", "Bloque 4");
+  addChecklistGrid(slide, SH, {
+    x: 0.88, y: 2.22, w: 10.26, h: 4.54, title: "Traducción de Datos", columns: 2,
+    entries: [
+      { badge: "UUID", title: "uuid / UUID", body: "Identificadores en Python usan el módulo nativo `uuid.UUID`.", accent: C.navy, fill: C.softBlue, badgeFill: C.navy },
+      { badge: "TEXT", title: "text / str", body: "Cadenas de texto sin límite de longitud rígido.", accent: C.navy, fill: C.softBlue, badgeFill: C.navy },
+      { badge: "TIME", title: "timestamp / datetime", body: "Fechas y horas. Siempre usar ISO 8601.", accent: C.navy, fill: C.softBlue, badgeFill: C.navy },
+      { badge: "JSON", title: "jsonb / dict", body: "Estructuras complejas no relacionales soportadas nativamente.", accent: C.navy, fill: C.softBlue, badgeFill: C.navy },
+    ]
+  });
+  validateSlide(slide, pptx);
+}
+
+// S41: PYDANTIC GUARDIÁN
+function createPydanticGuardianSlide() {
+  const slide = pptx.addSlide();
+  addHeader(slide, "Pydantic: El Guardián de los Datos", "Bloque 4 · 4.3 Validación estricta", "Bloque 4");
+  addDelegationSplit(slide, SH, {
+    x: 0.88, y: 2.22, w: 10.26, h: 4.54, title: "¿Por qué no usar diccionarios?",
+    left: {
+      title: "Diccionario Plano", subtitle: "Inseguro",
+      items: ["No hay autocompletado.", "Cualquier tipo de dato es válido.", "Si falta una llave, el sistema falla."],
+      accent: C.red, fill: C.paleRed
+    },
+    right: {
+      title: "Modelo Pydantic", subtitle: "Profesional",
+      items: ["Tipado fuerte y validación previa.", "FastAPI rechaza datos malos al instante.", "Código limpio."],
+      accent: C.navy, fill: C.softBlue
+    },
+    bridgeLabel: "vs", bridgeBody: "seguridad",
+  });
+  validateSlide(slide, pptx);
+}
+
+// S42: MODELOS PYDANTIC
+function createPydanticModelSlide() {
+  const slide = pptx.addSlide();
+  addHeader(slide, "Implementación de Modelos Pydantic", "Bloque 4 · 4.3 Del DER a Python", "Bloque 4");
+  addCodePanel(slide, SH, {
+    x: 0.88, y: 2.22, w: 10.26, h: 4.54, title: "schemas/products.py",
+    code: `from pydantic import BaseModel, Field
+from typing import Optional
+from uuid import UUID
+
+class ProductCreate(BaseModel):
+    name: str = Field(..., min_length=3, max_length=100)
+    price: float = Field(..., gt=0)
+    category_id: UUID  # Foreign Key`,
+    lang: "python", fontSize: 15
+  });
+  validateSlide(slide, pptx);
+}
+
+// S43: MODELOS PARA RELACIONES
+function createPydanticRelationsSlide() {
+  const slide = pptx.addSlide();
+  addHeader(slide, "Modelos para Relaciones (FK)", "Bloque 4 · 4.3 Pydantic anidado", "Bloque 4");
+  addCodePanel(slide, SH, {
+    x: 0.88, y: 2.22, w: 10.26, h: 4.54, title: "schemas/categories.py",
+    code: `from pydantic import BaseModel
+from typing import List
+from schemas.products import ProductResponse
+
+class CategoryWithProducts(BaseModel):
+    id: int
+    name: str
+    
+    # Relación 1:N representada como Lista de Modelos
+    products: List[ProductResponse] = []`,
+    lang: "python", fontSize: 16
+  });
+  validateSlide(slide, pptx);
+}
+
+// S44: INICIALIZACIÓN CLIENTE
+function createSupabaseClientSlide() {
+  const slide = pptx.addSlide();
+  addHeader(slide, "Inicialización del Cliente Supabase", "Bloque 4 · 4.4 Conectando FastAPI", "Bloque 4");
+  addCodePanel(slide, SH, {
+    x: 0.88, y: 2.22, w: 10.26, h: 4.54, title: "core/database.py",
+    code: `import os
+from supabase import create_client, Client
+
+SUPABASE_URL = os.getenv("SUPABASE_URL")
+SUPABASE_KEY = os.getenv("SUPABASE_KEY") # Service Role Key
+
+# Inicialización Singleton
+def get_supabase() -> Client:
+    return create_client(SUPABASE_URL, SUPABASE_KEY)`,
+    lang: "python", fontSize: 16
+  });
+  validateSlide(slide, pptx);
+}
+
+// S45: INYECCIÓN DE DEPENDENCIAS
+function createDependencyInjectionSlide() {
+  const slide = pptx.addSlide();
+  addHeader(slide, "Inyección de Dependencias", "Bloque 4 · 4.4 FastAPI Best Practices", "Bloque 4");
+  addCard(slide, SH, {
+    x: 0.88, y: 2.22, w: 10.26, h: 1.4, title: "Dependency Injection (Depends)",
+    body: "Evita crear una nueva conexión en cada petición. FastAPI inyecta el cliente Supabase automáticamente donde se necesite.",
+    accent: C.gold, fill: C.white, line: C.border
+  });
+  addCodePanel(slide, SH, {
+    x: 0.88, y: 3.82, w: 10.26, h: 2.94, title: "Ejemplo de Inyección",
+    code: `from fastapi import Depends
+from core.database import get_supabase
+from supabase import Client
+
+@app.get("/users")
+def get_users(db: Client = Depends(get_supabase)):
+    pass`,
+    lang: "python", fontSize: 15
+  });
+  validateSlide(slide, pptx);
+}
+
+// S46: FLUJO DE UNA PETICIÓN
+function createRequestFlowSlide() {
+  const slide = pptx.addSlide();
+  addHeader(slide, "El Flujo de una Petición", "Bloque 4 · 4.4 End to End", "Bloque 4");
+  
+  const y = 3.2;
+  // FastAPI
+  addCard(slide, SH, { x: 0.88, y, w: 2.5, h: 1.8, title: "1. FastAPI", body: "Recibe JSON y valida con Pydantic.", accent: C.navy, fill: C.softBlue });
+  slide.addText("→", { x: 3.38, y: y+0.6, w: 0.5, h: 0.5, fontSize: 24, bold: true, color: C.red, align: "center" });
+  
+  // Supabase Python
+  addCard(slide, SH, { x: 3.88, y, w: 2.5, h: 1.8, title: "2. Cliente", body: "Traduce a REST Query (.insert, .eq)", accent: C.gold, fill: C.white });
+  slide.addText("→", { x: 6.38, y: y+0.6, w: 0.5, h: 0.5, fontSize: 24, bold: true, color: C.red, align: "center" });
+  
+  // Postgres
+  addCard(slide, SH, { x: 6.88, y, w: 4.26, h: 1.8, title: "3. Supabase Postgres", body: "Ejecuta SQL y devuelve la tupla física real.", accent: C.red, fill: C.paleRed });
+
+  validateSlide(slide, pptx);
+}
+
+// S47: CREATE (INSERTAR)
+function createCrudCreateSlide() {
+  const slide = pptx.addSlide();
+  addHeader(slide, "CREATE: Insertando Datos", "Bloque 4 · 4.5 Operaciones CRUD", "Bloque 4");
+  addCodePanel(slide, SH, {
+    x: 0.88, y: 2.22, w: 10.26, h: 4.54, title: "Supabase Python Client: .insert()",
+    code: `data_to_insert = {"name": "Laptop", "price": 999.99}
+
+# Realizar la inserción
+response = db.table("products").insert(data_to_insert).execute()
+
+# Validar resultado
+if response.data:
+    print("Producto creado:", response.data[0])`,
+    lang: "python", fontSize: 16
+  });
+  validateSlide(slide, pptx);
+}
+
+// S48: CREATE ENDPOINT
+function createCrudCreateEndpointSlide() {
+  const slide = pptx.addSlide();
+  addHeader(slide, "Endpoint CREATE (POST)", "Bloque 4 · 4.5 Integración FastAPI", "Bloque 4");
+  addCodePanel(slide, SH, {
+    x: 0.88, y: 2.22, w: 10.26, h: 4.54, title: "routers/products.py",
+    code: `@app.post("/products", status_code=201)
+def create_product(
+    product: ProductCreate, 
+    db: Client = Depends(get_supabase)
+):
+    # Pydantic a Diccionario
+    data = product.model_dump()
+    
+    # Inserción en Supabase
+    res = db.table("products").insert(data).execute()
+    return res.data[0]`,
+    lang: "python", fontSize: 15
+  });
+  validateSlide(slide, pptx);
+}
+
+// S49: READ (CONSULTAR)
+function createCrudReadSlide() {
+  const slide = pptx.addSlide();
+  addHeader(slide, "READ: Consultando Datos", "Bloque 4 · 4.5 Operaciones CRUD", "Bloque 4");
+  addChecklistGrid(slide, SH, {
+    x: 0.88, y: 2.22, w: 10.26, h: 4.54, title: "El método .select()", columns: 2,
+    entries: [
+      { badge: "ALL", title: "select('*')", body: "Trae todas las columnas. Útil para desarrollo rápido.", accent: C.navy, fill: C.softBlue, badgeFill: C.navy },
+      { badge: "OPT", title: "select('id, name')", body: "Trae solo lo necesario. Ahorra ancho de banda (Recomendado).", accent: C.navy, fill: C.softBlue, badgeFill: C.navy },
+      { badge: "COUNT", title: "count='exact'", body: "Útil para paginación. Devuelve el número total de filas.", accent: C.navy, fill: C.softBlue, badgeFill: C.navy },
+      { badge: "ERROR", title: "Falta .execute()", body: "Si no llamas a .execute(), la query no se envía a la nube.", accent: C.red, fill: C.paleRed, badgeFill: C.red },
+    ]
+  });
+  validateSlide(slide, pptx);
+}
+
+// S50: READ FILTROS
+function createCrudReadFiltersSlide() {
+  const slide = pptx.addSlide();
+  addHeader(slide, "READ: Aplicando Filtros (WHERE)", "Bloque 4 · 4.5 Modificadores", "Bloque 4");
+  addCodePanel(slide, SH, {
+    x: 0.88, y: 2.22, w: 10.26, h: 4.54, title: "Supabase Query Modifiers",
+    code: `# Filtrar por ID Exacto (Equivalente a WHERE id = 1)
+db.table("users").select("*").eq("id", 1).execute()
+
+# Búsqueda de Texto (ILIKE)
+db.table("products").select("*").ilike("name", "%laptop%").execute()
+
+# Mayor que (Greater Than)
+db.table("products").select("*").gt("price", 500).execute()`,
+    lang: "python", fontSize: 16
+  });
+  validateSlide(slide, pptx);
+}
+
+// S51: READ JOINS
+function createCrudReadJoinsSlide() {
+  const slide = pptx.addSlide();
+  addHeader(slide, "READ: Relaciones y Joins Automáticos", "Bloque 4 · 4.5 Foreign Keys en acción", "Bloque 4");
+  addCenterStatement(slide, SH, "Supabase resuelve los JOINs automáticamente si configuraste las FKs correctamente.", {
+    x: 0.88, y: 2.22, w: 10.26, h: 0.82, fill: C.navy, color: C.white, fontSize: 16
+  });
+  addCodePanel(slide, SH, {
+    x: 0.88, y: 3.42, w: 10.26, h: 3.34, title: "Consultando datos anidados",
+    code: `# Trae el producto y la información de su categoría
+res = db.table("products").select(
+    "id, name, price, categories(id, name)"
+).execute()`,
+    lang: "python", fontSize: 16
+  });
+  validateSlide(slide, pptx);
+}
+
+// S52: UPDATE (ACTUALIZAR)
+function createCrudUpdateSlide() {
+  const slide = pptx.addSlide();
+  addHeader(slide, "UPDATE: Actualizando Registros", "Bloque 4 · 4.5 Operaciones CRUD", "Bloque 4");
+  addCard(slide, SH, {
+    x: 0.88, y: 2.22, w: 10.26, h: 1.4, title: "Regla Crítica del Update",
+    body: "¡NUNCA uses .update() sin un filtro .eq()! Si omites el filtro, actualizarás TODA LA TABLA.",
+    accent: C.red, fill: C.paleRed, line: C.red
+  });
+  addCodePanel(slide, SH, {
+    x: 0.88, y: 3.82, w: 10.26, h: 2.94, title: "Actualización segura",
+    code: `user_id = "123e4567-e89b-12d3-a456-426614174000"
+new_data = {"status": "active"}
+
+res = db.table("users").update(new_data).eq("id", user_id).execute()`,
+    lang: "python", fontSize: 16
+  });
+  validateSlide(slide, pptx);
+}
+
+// S53: UPDATE ENDPOINT
+function createCrudUpdateEndpointSlide() {
+  const slide = pptx.addSlide();
+  addHeader(slide, "Endpoint UPDATE (PATCH)", "Bloque 4 · 4.5 Integración FastAPI", "Bloque 4");
+  addCodePanel(slide, SH, {
+    x: 0.88, y: 2.22, w: 10.26, h: 4.54, title: "routers/users.py",
+    code: `@app.patch("/users/{user_id}")
+def update_user(
+    user_id: UUID, 
+    user_update: UserPartialUpdate, # Modelo con campos Optional
+    db: Client = Depends(get_supabase)
+):
+    # Ignorar campos None (exclude_unset)
+    data = user_update.model_dump(exclude_unset=True)
+    
+    res = db.table("users").update(data).eq("id", str(user_id)).execute()
+    return res.data[0]`,
+    lang: "python", fontSize: 14
+  });
+  validateSlide(slide, pptx);
+}
+
+// S54: DELETE
+function createCrudDeleteSlide() {
+  const slide = pptx.addSlide();
+  addHeader(slide, "DELETE: Físico vs Lógico", "Bloque 4 · 4.5 Operaciones CRUD", "Bloque 4");
+  addDelegationSplit(slide, SH, {
+    x: 0.88, y: 2.22, w: 10.26, h: 4.54, title: "¿Cómo borramos datos?",
+    left: {
+      title: "Borrado Físico (DELETE)", subtitle: ".delete().eq()",
+      items: ["El dato se elimina de la base de datos.", "Falla si hay Foreign Keys apuntándole (Restrict).", "Peligroso en sistemas financieros."],
+      accent: C.red, fill: C.paleRed
+    },
+    right: {
+      title: "Borrado Lógico (Soft Delete)", subtitle: ".update()",
+      items: ["Se añade una columna 'is_active' = false.", "El dato sigue ahí para auditorías.", "Recomendado para producción."],
+      accent: C.navy, fill: C.softBlue
+    },
+    bridgeLabel: "vs", bridgeBody: "estrategia",
+  });
+  validateSlide(slide, pptx);
+}
+
+// S55: IA EN SUPABASE
+function createIASupabaseSlide() {
+  const slide = pptx.addSlide();
+  addHeader(slide, "IA en Supabase: SQL Assistant", "Bloque 4 · 4.6 Generación de código", "IA");
+  addCenterStatement(slide, SH, "Supabase incluye un Agente SQL nativo (basado en ChatGPT) en su Table Editor.", {
+    x: 0.88, y: 2.22, w: 10.26, h: 0.82, fill: C.navy, color: C.white, fontSize: 16
+  });
+  addChecklistGrid(slide, SH, {
+    x: 0.88, y: 3.2, w: 10.26, h: 3.56, title: "Casos de Uso del Agente Interno", columns: 2,
+    entries: [
+      { badge: "USE", title: "Crear Tablas con RLS", body: "'Create a secure users table with RLS enabled for their own rows'.", accent: C.navy, fill: C.softBlue, badgeFill: C.navy },
+      { badge: "USE", title: "Migraciones Complejas", body: "'Add a new UUID column and backfill it with random UUIDs'.", accent: C.navy, fill: C.softBlue, badgeFill: C.navy },
+      { badge: "VALIDATE", title: "Revisar el SQL", body: "El Agente genera el SQL, pero TÚ debes revisarlo antes de presionar Run.", accent: C.red, fill: C.paleRed, badgeFill: C.red },
+      { badge: "VALIDATE", title: "Tipos de Datos", body: "Asegúrate de que asigne UUID en vez de Serial si esa es tu arquitectura.", accent: C.red, fill: C.paleRed, badgeFill: C.red },
+    ]
+  });
+  validateSlide(slide, pptx);
+}
+
+// S56: IA EN FASTAPI
+function createIAFastApiSlide() {
+  const slide = pptx.addSlide();
+  addHeader(slide, "IA en FastAPI: Generación de Modelos", "Bloque 4 · 4.6 Aceleración", "IA");
+  addCard(slide, SH, {
+    x: 0.88, y: 2.22, w: 10.26, h: 1.8, title: "De SQL a Pydantic",
+    body: "En lugar de escribir los modelos de FastAPI a mano, puedes pasarle tu código SQL de Supabase al Agente y pedirle que genere las clases Pydantic equivalentes.",
+    accent: C.gold, fill: C.white, line: C.border
+  });
+  addCodePanel(slide, SH, {
+    x: 0.88, y: 4.2, w: 10.26, h: 2.56, title: "Ejemplo de Prompt",
+    code: `"Tengo esta tabla PostgreSQL creada en Supabase:
+[Pegar SQL de tabla]
+Genera los esquemas Pydantic correspondientes (Create, Update, Response) 
+usando pydantic v2 y UUID."`,
+    lang: "text", fontSize: 14
+  });
+  validateSlide(slide, pptx);
+}
+
+// S57: PREGUNTAS GUÍA B4
+function createGuideQuestionsB4Slide() {
+  const slide = pptx.addSlide();
+  slide.background = { color: C.warm };
+  addMarkBox(slide, SH, logoMarkPath, { x: 9.62, y: 0.28, w: 0.68, h: 0.68 });
+  addChip(slide, SH, "PREGUNTAS GUÍA — BLOQUE 4", { x: 0.88, y: 0.44, w: 3.4, h: 0.3, fill: C.navy, color: C.white, fontSize: 10.0 });
+  const questions = [
+    { n: "01", text: "¿Qué diferencia crítica de seguridad hay entre la llave anon y la llave service_role?" },
+    { n: "02", text: "¿Por qué debemos usar Pydantic en FastAPI antes de insertar datos en Supabase?" },
+    { n: "03", text: "¿Qué método debemos llamar SIEMPRE al final de una consulta en Supabase Python?" },
+  ];
+  questions.forEach((q, i) => {
+    const y = 1.12 + i * 1.96;
+    slide.addText(q.n, { x: 0.88, y: y + 0.04, w: 0.58, h: 0.68, fontFace: TYPOGRAPHY.display, fontSize: 38, bold: true, color: C.border, margin: 0, valign: "mid" });
+    slide.addText(q.text, { x: 1.6, y, w: 8.72, h: 1.56, fontFace: TYPOGRAPHY.body, fontSize: 15.6, color: C.navy, margin: 0, valign: "mid" });
+    if (i < 2) slide.addShape(SH.line, { x: 0.88, y: y + 1.72, w: 10.28, h: 0, line: { color: C.border, pt: 1 } });
+  });
+  validateSlide(slide, pptx);
+}
+
+// S58: SÍNTESIS B4
+function createSynthesisB4Slide() {
+  const slide = pptx.addSlide();
+  addHeader(slide, "Síntesis del Bloque 4", "La conexión final", "Bloque 4");
+  addCenterStatement(slide, SH, "FastAPI valida y orquesta; Supabase almacena y protege.", {
+    x: 0.88, y: 2.22, w: 10.26, h: 1.14, fill: C.navy, color: C.white, fontSize: 18, rectRadius: 0.07
+  });
+  const points = [
+    { title: "Supabase BaaS", body: "Base de datos Postgres en la nube lista para producción.", accent: C.navy },
+    { title: "Pydantic", body: "Garantiza que la API hable el mismo idioma que la Base de Datos.", accent: C.red },
+    { title: "Python Client", body: "Interfaz intuitiva para operar SQL sin escribir SQL puro.", accent: C.gold },
+  ];
+  points.forEach((p, i) => {
+    addMiniCard(slide, SH, {
+      x: 0.88 + i * 3.44, y: 3.62, w: 3.2, h: 2.06, title: p.title, body: p.body, accent: p.accent,
+      fill: C.white, line: C.border, titleFontSize: 13, bodyFontSize: 10.5
+    });
+  });
+  validateSlide(slide, pptx);
+}
+
+// S59: CIERRE DE CLASE
+function createClassConclusionSlide() {
+  const slide = pptx.addSlide();
+  slide.background = { color: C.navy };
+  addMarkBox(slide, SH, logoMarkPath, { x: 9.62, y: 0.28, w: 0.68, h: 0.68 });
+  addChip(slide, SH, "CIERRE DE CLASE", { x: 0.88, y: 0.68, w: 1.6, h: 0.34, fill: C.red, color: C.white, fontSize: 10.6 });
+  
+  slide.addText("Resumen de la Sesión", {
+    x: 0.88, y: 1.6, w: 9.2, h: 1.0, fontFace: TYPOGRAPHY.display, fontSize: 38, bold: true, color: C.white, valign: "top",
+  });
+  
+  addChecklistGrid(slide, SH, {
+    x: 0.88, y: 2.8, w: 10.26, h: 3.0, title: "Lo que logramos hoy", columns: 2,
+    entries: [
+      { badge: "OK", title: "Modelado (B1)", body: "Entendimos Entidades, Atributos y Primary Keys.", accent: C.navy, fill: C.softBlue, badgeFill: C.navy },
+      { badge: "OK", title: "Relaciones (B2)", body: "Conectamos tablas con FK y cardinalidad.", accent: C.navy, fill: C.softBlue, badgeFill: C.navy },
+      { badge: "OK", title: "Normalización (B3)", body: "Limpiamos la arquitectura (1FN, 2FN, 3FN).", accent: C.navy, fill: C.softBlue, badgeFill: C.navy },
+      { badge: "OK", title: "Supabase (B4)", body: "Implementamos el CRUD en la nube con FastAPI.", accent: C.navy, fill: C.softBlue, badgeFill: C.navy },
+    ]
+  });
+
+  addMiniCard(slide, SH, {
+    x: 0.88, y: 6.0, w: 10.26, h: 0.6, title: "Próximo Paso",
+    body: "Mañana: IA en Desarrollo Backend. Revisen sus apuntes de CRUD.",
+    accent: C.gold, fill: C.white, titleFontSize: 11, bodyFontSize: 10
+  });
+
+  validateSlide(slide, pptx);
+}
+
 // ─── EJECUCIÓN ───────────────────────────────────────────────────────────────
 
 createCoverSlide();
@@ -1018,6 +1514,33 @@ createStrongWeakEntitiesSlide();
 createIAAuditorSlide();
 createGuideQuestionsB3Slide();
 createSynthesisB3Slide();
+
+createBlock4IntroSlide();
+createWhatIsSupabaseSlide();
+createSupabaseArchitectureSlide();
+createSupabaseSetup1Slide();
+createSupabaseSetup2Slide();
+createEnvVariablesSlide();
+createTypeMappingSlide();
+createPydanticGuardianSlide();
+createPydanticModelSlide();
+createPydanticRelationsSlide();
+createSupabaseClientSlide();
+createDependencyInjectionSlide();
+createRequestFlowSlide();
+createCrudCreateSlide();
+createCrudCreateEndpointSlide();
+createCrudReadSlide();
+createCrudReadFiltersSlide();
+createCrudReadJoinsSlide();
+createCrudUpdateSlide();
+createCrudUpdateEndpointSlide();
+createCrudDeleteSlide();
+createIASupabaseSlide();
+createIAFastApiSlide();
+createGuideQuestionsB4Slide();
+createSynthesisB4Slide();
+createClassConclusionSlide();
 
 pptx.writeFile({ fileName: outputPptx })
   .then(name => console.log(`Archivo generado: ${name}`))
