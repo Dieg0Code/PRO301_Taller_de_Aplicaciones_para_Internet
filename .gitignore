@@ -23,3 +23,7 @@ clases-particulares/
 # Local browser automation artifacts
 .playwright-cli/
 *.rar
+
+# .NET build artifacts
+**/bin/
+**/obj/
