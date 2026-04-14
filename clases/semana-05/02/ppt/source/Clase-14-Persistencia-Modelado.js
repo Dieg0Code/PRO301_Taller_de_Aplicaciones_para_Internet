@@ -1443,33 +1443,85 @@ function createSynthesisB4Slide() {
   validateSlide(slide, pptx);
 }
 
-// S59: CIERRE DE CLASE
-function createClassConclusionSlide() {
+// ─── CIERRE DE LA CLASE ──────────────────────────────────────────────────────
+
+// S59: SÍNTESIS FINAL: EL MODELO DE PERSISTENCIA
+function createFinalClassSynthesisSlide() {
+  const slide = pptx.addSlide();
+  addHeader(slide, "Síntesis: Los Cimientos del Backend", "Cierre de Clase · El ciclo de vida del dato", "Cierre");
+  const pillars = [
+    { title: "Entidades", body: "Objetos del negocio con identidad única (Primary Key).", accent: C.navy },
+    { title: "Relaciones", body: "Vínculos técnicos (FK) que definen la lógica del sistema.", accent: C.red },
+    { title: "Normalización", body: "Diseño profesional para evitar redundancia y errores.", accent: C.gold },
+    { title: "Persistencia", body: "Implementación en la nube con Supabase y PostgreSQL.", accent: C.navy },
+  ];
+  pillars.forEach((p, i) => {
+    addCard(slide, SH, {
+      x: 0.88 + (i % 2) * 5.24, y: 2.22 + Math.floor(i / 2) * 2.04, w: 5.02, h: 1.86,
+      title: p.title, body: p.body, accent: p.accent, accentW: 0.07,
+      fill: C.white, line: C.border, titleFontSize: 14.2, bodyFontSize: 10.8, rectRadius: 0.06
+    });
+  });
+  validateSlide(slide, pptx);
+}
+
+// S60: DESAFÍO DE INTEGRACIÓN
+function createIntegrationChallengeSlide() {
+  const slide = pptx.addSlide();
+  addHeader(slide, "Desafío Mental de Integración", "Aplicando lo aprendido", "Cierre");
+  addCenterStatement(slide, SH, "¿Cómo modelarías una aplicación de Delivery tipo UberEats?", {
+    x: 0.88, y: 2.22, w: 10.26, h: 0.82, fill: C.softNeutral, fontSize: 18, color: C.navy
+  });
+  const steps = [
+    { t: "1. Entidades", b: "Restaurante, Plato, Pedido, Cliente, Rider." },
+    { t: "2. Relaciones", b: "Un Restaurante tiene muchos Platos (1:N)." },
+    { t: "3. Tabla Pivot", b: "¿Cómo relacionas Pedidos con muchos Platos?" },
+    { t: "4. Tipos Datos", b: "¿UUID para IDs? ¿Numeric para el total?" },
+  ];
+  steps.forEach((s, i) => {
+    addMiniCard(slide, SH, {
+      x: 0.88 + i * 2.6, y: 3.42, w: 2.4, h: 2.8,
+      title: s.t, body: s.b, accent: C.red, fill: C.white, line: C.border, titleFontSize: 11, bodyFontSize: 9.5
+    });
+  });
+  validateSlide(slide, pptx);
+}
+
+// S61: PREGUNTAS DE SALIDA
+function createExitQuestionsSlide() {
+  const slide = pptx.addSlide();
+  slide.background = { color: C.warm };
+  addMarkBox(slide, SH, logoMarkPath, { x: 9.62, y: 0.28, w: 0.68, h: 0.68 });
+  addChip(slide, SH, "PREGUNTAS DE SALIDA", { x: 0.88, y: 0.44, w: 2.8, h: 0.3, fill: C.red, color: C.white, fontSize: 10.0 });
+  const questions = [
+    { n: "A", text: "¿Qué pasaría en una base de datos de millones de usuarios si no usáramos Primary Keys?" },
+    { n: "B", text: "¿Por qué el modelo relacional prohíbe las relaciones N:M directas?" },
+    { n: "C", text: "¿Cuál es la ventaja de validar datos con Pydantic antes de intentar guardarlos en Supabase?" },
+  ];
+  questions.forEach((q, i) => {
+    const y = 1.12 + i * 1.96;
+    slide.addText(q.n, { x: 0.88, y: y + 0.04, w: 0.58, h: 0.68, fontFace: TYPOGRAPHY.display, fontSize: 38, bold: true, color: C.border, margin: 0, valign: "mid" });
+    slide.addText(q.text, { x: 1.6, y, w: 8.72, h: 1.56, fontFace: TYPOGRAPHY.body, fontSize: 15.6, color: C.navy, margin: 0, valign: "mid" });
+    if (i < 2) slide.addShape(SH.line, { x: 0.88, y: y + 1.72, w: 10.28, h: 0, line: { color: C.border, pt: 1 } });
+  });
+  validateSlide(slide, pptx);
+}
+
+// S62: PRÓXIMOS PASOS
+function createNextStepsSlide() {
   const slide = pptx.addSlide();
   slide.background = { color: C.navy };
   addMarkBox(slide, SH, logoMarkPath, { x: 9.62, y: 0.28, w: 0.68, h: 0.68 });
-  addChip(slide, SH, "CIERRE DE CLASE", { x: 0.88, y: 0.68, w: 1.6, h: 0.34, fill: C.red, color: C.white, fontSize: 10.6 });
-  
-  slide.addText("Resumen de la Sesión", {
-    x: 0.88, y: 1.6, w: 9.2, h: 1.0, fontFace: TYPOGRAPHY.display, fontSize: 38, bold: true, color: C.white, valign: "top",
+  addBarsMotif(slide, 0.88, 1.22, 1.1, C.gold);
+  slide.addText("Mañana: IA en Desarrollo\nIntensivo de Backend", {
+    x: 0.88, y: 2.14, w: 9.2, h: 1.26, fontFace: TYPOGRAPHY.display, fontSize: 36, bold: true, color: C.white, valign: "mid",
   });
-  
-  addChecklistGrid(slide, SH, {
-    x: 0.88, y: 2.8, w: 10.26, h: 3.0, title: "Lo que logramos hoy", columns: 2,
-    entries: [
-      { badge: "OK", title: "Modelado (B1)", body: "Entendimos Entidades, Atributos y Primary Keys.", accent: C.navy, fill: C.softBlue, badgeFill: C.navy },
-      { badge: "OK", title: "Relaciones (B2)", body: "Conectamos tablas con FK y cardinalidad.", accent: C.navy, fill: C.softBlue, badgeFill: C.navy },
-      { badge: "OK", title: "Normalización (B3)", body: "Limpiamos la arquitectura (1FN, 2FN, 3FN).", accent: C.navy, fill: C.softBlue, badgeFill: C.navy },
-      { badge: "OK", title: "Supabase (B4)", body: "Implementamos el CRUD en la nube con FastAPI.", accent: C.navy, fill: C.softBlue, badgeFill: C.navy },
-    ]
+  slide.addText("Aprenderemos a usar agentes para acelerar la creación de modelos, validación de reglas y generación de código crítico.", {
+    x: 0.88, y: 3.62, w: 8.2, h: 0.8, fontFace: TYPOGRAPHY.body, fontSize: 15.2, color: "DCE6F2",
   });
-
-  addMiniCard(slide, SH, {
-    x: 0.88, y: 6.0, w: 10.26, h: 0.6, title: "Próximo Paso",
-    body: "Mañana: IA en Desarrollo Backend. Revisen sus apuntes de CRUD.",
-    accent: C.gold, fill: C.white, titleFontSize: 11, bodyFontSize: 10
+  addCenterStatement(slide, SH, "Nos vemos en la Clase 03", {
+    x: 0.88, y: 5.82, w: 10.26, h: 0.82, fill: C.gold, line: C.gold, fontSize: 24, color: C.navy, bold: true
   });
-
   validateSlide(slide, pptx);
 }
 
@@ -1540,7 +1592,10 @@ createIASupabaseSlide();
 createIAFastApiSlide();
 createGuideQuestionsB4Slide();
 createSynthesisB4Slide();
-createClassConclusionSlide();
+createFinalClassSynthesisSlide();
+createIntegrationChallengeSlide();
+createExitQuestionsSlide();
+createNextStepsSlide();
 
 pptx.writeFile({ fileName: outputPptx })
   .then(name => console.log(`Archivo generado: ${name}`))

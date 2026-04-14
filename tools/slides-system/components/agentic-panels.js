@@ -581,8 +581,282 @@ function addDelegationSplit(slide, SH, opts = {}) {
   }
 }
 
+function addAgentOrchestrationDiagram(slide, SH, opts = {}) {
+  const x = opts.x || 0.88;
+  const y = opts.y || 2.22;
+  const w = opts.w || 10.26;
+  const h = opts.h || 4.54;
+
+  addSurface(slide, SH, x, y, w, h, { fill: TOKENS.navy, line: TOKENS.navy });
+  addSurfaceHeader(slide, SH, x + 0.14, y + 0.14, w - 0.28, opts.title || "Orquestacion del Ecosistema Agentico", {
+    fill: "173A5A", color: TOKENS.white
+  });
+
+  const centerX = x + w / 2;
+  const centerY = y + h / 2 + 0.45; // Centro bajado para alejar del header
+
+  // Nodo Central: Agente (Mas pequeño)
+  slide.addShape(SH.ellipse, {
+    x: centerX - 0.6, y: centerY - 0.6, w: 1.2, h: 1.2,
+    fill: { color: TOKENS.red }, line: { color: TOKENS.white, pt: 2 }
+  });
+  slide.addText("AGENTE", {
+    x: centerX - 0.6, y: centerY - 0.2, w: 1.2, h: 0.4,
+    fontFace: TYPOGRAPHY.display, fontSize: 11, bold: true, color: TOKENS.white, align: "center"
+  });
+
+  const nodes = [
+    { t: "MEMORIA", b: ".md / Contexto", icon: "🧠", ang: 210, color: TOKENS.gold },
+    { t: "MCPs", b: "Filesystem / DB", icon: "🛠️", ang: 330, color: TOKENS.softBlue },
+    { t: "SUB-AGENTES", b: "Especialistas", icon: "🤖", ang: 90, color: TOKENS.red },
+  ];
+
+  const dist = 1.7; // Distancia muy reducida para máxima seguridad
+  nodes.forEach(n => {
+    const rad = (n.ang * Math.PI) / 180;
+    const nx = centerX + dist * Math.cos(rad) - 0.8;
+    const ny = centerY - dist * Math.sin(rad) - 0.45;
+
+    // Linea de conexion (Calculo de dimensiones y orientacion correcta)
+    const lineW = dist * Math.cos(rad);
+    const lineH = -dist * Math.sin(rad);
+    
+    slide.addShape(SH.line, {
+      x: lineW < 0 ? centerX + lineW : centerX,
+      y: lineH < 0 ? centerY + lineH : centerY,
+      w: Math.abs(lineW),
+      h: Math.abs(lineH),
+      flipH: lineW * lineH < 0, // Voltear horizontalmente si los signos son opuestos
+      line: { color: TOKENS.white, pt: 1.0, dashType: "dash" }
+    });
+
+    // Nodo Satelite (Mas pequeño y compacto)
+    addSurface(slide, SH, nx, ny, 1.6, 0.9, { fill: "173A5A", line: n.color });
+    slide.addText(n.icon, { x: nx, y: ny + 0.05, w: 1.6, h: 0.3, fontSize: 16, align: "center" });
+    slide.addText(n.t, {
+      x: nx, y: ny + 0.35, w: 1.6, h: 0.2,
+      fontFace: TYPOGRAPHY.display, fontSize: 9, bold: true, color: TOKENS.white, align: "center"
+    });
+    slide.addText(n.b, {
+      x: nx, y: ny + 0.55, w: 1.6, h: 0.2,
+      fontFace: TYPOGRAPHY.body, fontSize: 7.5, color: "A8C4E0", align: "center"
+    });
+  });
+}
+
+function addMcpBridgePanel(slide, SH, opts = {}) {
+  const x = opts.x || 0.88;
+  const y = opts.y || 2.22;
+  const w = opts.w || 10.26;
+  const h = opts.h || 4.54;
+
+  addSurface(slide, SH, x, y, w, h, { fill: TOKENS.white, line: TOKENS.border });
+  
+  const midX = x + w / 2;
+  const panelY = y + 1.0; 
+  const panelH = h - 1.6;
+  const panelW = w / 2 - 1.4; // Reducido para evitar solapamiento con el puente (1.4 de gap total)
+  
+  // Lado Izquierdo: Mundo del Lenguaje
+  slide.addText("Mundo del Lenguaje", {
+    x: x + 0.2, y: y + 0.3, w: w / 2 - 0.4, h: 0.4,
+    fontFace: TYPOGRAPHY.display, fontSize: 14, bold: true, color: TOKENS.navy, align: "center"
+  });
+  slide.addShape(SH.rect, {
+    x: x + 0.4, y: panelY, w: panelW, h: panelH,
+    fill: { color: TOKENS.softBlue }, line: { color: TOKENS.navy, pt: 1 }
+  });
+  slide.addText("RAZONAMIENTO\nTokens, Patrones", {
+    x: x + 0.4, y: panelY + 0.2, w: panelW, h: panelH - 0.4,
+    fontFace: TYPOGRAPHY.body, fontSize: 11, color: TOKENS.navy, align: "center", valign: "mid"
+  });
+
+  // Lado Derecho: Mundo Fisico
+  slide.addText("Mundo Fisico", {
+    x: midX + 0.2, y: y + 0.3, w: w / 2 - 0.4, h: 0.4,
+    fontFace: TYPOGRAPHY.display, fontSize: 14, bold: true, color: TOKENS.red, align: "center"
+  });
+  slide.addShape(SH.rect, {
+    x: midX + 1.0, y: panelY, w: panelW, h: panelH,
+    fill: { color: TOKENS.paleRed }, line: { color: TOKENS.red, pt: 1 }
+  });
+  slide.addText("ACCION REAL\nTerminal, SQL", {
+    x: midX + 1.0, y: panelY + 0.2, w: panelW, h: panelH - 0.4,
+    fontFace: TYPOGRAPHY.body, fontSize: 11, color: TOKENS.red, align: "center", valign: "mid"
+  });
+
+  // El Puente MCP (Mas pequeño)
+  slide.addShape(SH.roundRect, {
+    x: midX - 0.7, y: y + h / 2 - 0.2, w: 1.4, h: 0.6,
+    rectRadius: 0.2, fill: { color: TOKENS.gold }, line: { color: TOKENS.navy, pt: 1.5 }
+  });
+  slide.addText("MCP", {
+    x: midX - 0.7, y: y + h / 2 - 0.1, w: 1.4, h: 0.4,
+    fontFace: TYPOGRAPHY.display, fontSize: 12, bold: true, color: TOKENS.navy, align: "center"
+  });
+}
+
+function addToolExecutionConsole(slide, SH, opts = {}) {
+  const x = opts.x || 0.88;
+  const y = opts.y || 2.22;
+  const w = opts.w || 10.26;
+  const h = opts.h || 4.54;
+
+  // Carcasa de la consola
+  addSurface(slide, SH, x, y, w, h, { fill: "1E1E1E", line: "333333" });
+  
+  // Botones de control (estilo Mac)
+  const btnColors = ["FF5F56", "FFBD2E", "27C93F"];
+  btnColors.forEach((color, i) => {
+    slide.addShape(SH.ellipse, {
+      x: x + 0.2 + i * 0.25, y: y + 0.15, w: 0.15, h: 0.15,
+      fill: { color }, line: { color }
+    });
+  });
+
+  slide.addText(opts.command || "> /execute_tool", {
+    x: x + 0.2, y: y + 0.5, w: w - 0.4, h: 0.4,
+    fontFace: "Consolas", fontSize: 14, color: "27C93F", bold: true
+  });
+
+  const params = opts.params || { target: "src/api.py", action: "refactor" };
+  let paramStr = JSON.stringify(params, null, 2);
+  
+  slide.addText("Arguments:", {
+    x: x + 0.4, y: y + 1.0, w: w - 0.8, h: 0.3,
+    fontFace: "Consolas", fontSize: 11, color: "A8C4E0"
+  });
+  
+  slide.addText(paramStr, {
+    x: x + 0.4, y: y + 1.3, w: w - 0.8, h: 1.2,
+    fontFace: "Consolas", fontSize: 10, color: TOKENS.white
+  });
+
+  slide.addShape(SH.line, {
+    x: x + 0.4, y: y + 2.6, w: w - 0.8, h: 0,
+    line: { color: "333333", pt: 1 }
+  });
+
+  slide.addText("Result:", {
+    x: x + 0.4, y: y + 2.8, w: w - 0.8, h: 0.3,
+    fontFace: "Consolas", fontSize: 11, color: "27C93F"
+  });
+
+  slide.addText(opts.result || "Success: File modified surgically.", {
+    x: x + 0.4, y: y + 3.1, w: w - 0.8, h: 1.0,
+    fontFace: "Consolas", fontSize: 10, color: "DCE6F2"
+  });
+}
+
+function addValidationLayerRadar(slide, SH, opts = {}) {
+  const x = opts.x || 0.88;
+  const y = opts.y || 2.22;
+  const w = opts.w || 10.26;
+  const h = opts.h || 4.54;
+
+  addSurface(slide, SH, x, y, w, h, { fill: TOKENS.softNeutral, line: TOKENS.border });
+  addSurfaceHeader(slide, SH, x + 0.14, y + 0.14, w - 0.28, opts.title || "Monitor de Validacion de 4 Capas");
+
+  const layers = opts.layers || [
+    { name: "TIPOS", status: "OK", desc: "Pydantic & Python 3.12", color: "27C93F" },
+    { name: "LOGICA", status: "OK", desc: "Reglas de Negocio", color: "27C93F" },
+    { name: "SEGURIDAD", status: "WARN", desc: "Secret Detectado", color: "FFBD2E" },
+    { name: "ESTANDAR", status: "FAIL", desc: "Snake Case Violado", color: "FF5F56" },
+  ];
+
+  layers.forEach((l, i) => {
+    const lx = x + 0.2;
+    const ly = y + 0.8 + i * 0.9;
+    const lw = w - 0.4;
+    const lh = 0.7;
+
+    addSurface(slide, SH, lx, ly, lw, lh, { fill: TOKENS.white, line: TOKENS.border });
+    
+    // Status Indicator
+    slide.addShape(SH.ellipse, {
+      x: lx + 0.2, y: ly + 0.2, w: 0.3, h: 0.3,
+      fill: { color: l.color }, line: { color: l.color }
+    });
+
+    slide.addText(l.name, {
+      x: lx + 0.7, y: ly + 0.15, w: 2.0, h: 0.4,
+      fontFace: TYPOGRAPHY.display, fontSize: 14, bold: true, color: TOKENS.navy
+    });
+
+    slide.addText(l.status, {
+      x: lx + lw - 1.2, y: ly + 0.15, w: 1.0, h: 0.4,
+      fontFace: TYPOGRAPHY.display, fontSize: 14, bold: true, color: l.color, align: "right"
+    });
+
+    slide.addText(l.desc, {
+      x: lx + 0.7, y: ly + 0.45, w: lw - 1.0, h: 0.2,
+      fontFace: TYPOGRAPHY.body, fontSize: 9, color: TOKENS.slate
+    });
+  });
+}
+
+function addAgentReasoningLoop(slide, SH, opts = {}) {
+  const x = opts.x || 0.88;
+  const y = opts.y || 2.22;
+  const w = opts.w || 10.26;
+  const h = opts.h || 4.54;
+
+  addSurface(slide, SH, x, y, w, h, { fill: TOKENS.white, line: TOKENS.border });
+  addSurfaceHeader(slide, SH, x + 0.14, y + 0.14, w - 0.28, opts.title || "Ciclo de Razonamiento Autonomo (ReAct)");
+
+  const centerX = x + w / 2;
+  const centerY = y + h / 2 + 0.2;
+  const radius = 1.4;
+
+  const steps = [
+    { t: "PENSAR", b: "Analiza el objetivo y el contexto.", ang: 90, color: TOKENS.navy, icon: "💭" },
+    { t: "ACTUAR", b: "Ejecuta una Tool (Read, Write, Terminal).", ang: 330, color: TOKENS.red, icon: "🛠️" },
+    { t: "OBSERVAR", b: "Lee el resultado del sistema.", ang: 210, color: TOKENS.gold, icon: "👁️" },
+  ];
+
+  steps.forEach((s, i) => {
+    const rad = (s.ang * Math.PI) / 180;
+    const sx = centerX + radius * Math.cos(rad) - 1.0;
+    const sy = centerY - radius * Math.sin(rad) - 0.6;
+
+    // Nodo de paso
+    addSurface(slide, SH, sx, sy, 2.0, 1.2, { fill: TOKENS.white, line: s.color });
+    slide.addText(s.icon, { x: sx, y: sy + 0.1, w: 2.0, h: 0.4, fontSize: 20, align: "center" });
+    slide.addText(s.t, {
+      x: sx, y: sy + 0.5, w: 2.0, h: 0.3,
+      fontFace: TYPOGRAPHY.display, fontSize: 12, bold: true, color: s.color, align: "center"
+    });
+    slide.addText(s.b, {
+      x: sx, y: sy + 0.8, w: 2.0, h: 0.25,
+      fontFace: TYPOGRAPHY.body, fontSize: 8.5, color: TOKENS.slate, align: "center"
+    });
+
+    // Flechas curvas de ciclo (aproximadas con conectores)
+    const nextStep = steps[(i + 1) % steps.length];
+    const nRad = (nextStep.ang * Math.PI) / 180;
+    const fx = centerX + (radius + 0.2) * Math.cos((s.ang + nextStep.ang) / 2 * Math.PI / 180);
+    const fy = centerY - (radius + 0.2) * Math.sin((s.ang + nextStep.ang) / 2 * Math.PI / 180);
+    
+    slide.addShape(SH.rightArrow, {
+      x: fx - 0.2, y: fy - 0.2, w: 0.4, h: 0.4,
+      rotate: 360 - (s.ang + nextStep.ang) / 2 + 90,
+      fill: { color: TOKENS.softNeutral }, line: { color: TOKENS.border }
+    });
+  });
+
+  slide.addText("REPETIR HASTA CUMPLIR EL OBJETIVO", {
+    x: centerX - 1.5, y: centerY - 0.1, w: 3.0, h: 0.3,
+    fontFace: TYPOGRAPHY.body, fontSize: 9, bold: true, color: TOKENS.red, align: "center"
+  });
+}
+
 module.exports = {
   addAgenticFlow,
   addSpecWorkflow,
   addDelegationSplit,
+  addAgentOrchestrationDiagram,
+  addMcpBridgePanel,
+  addToolExecutionConsole,
+  addValidationLayerRadar,
+  addAgentReasoningLoop,
 };

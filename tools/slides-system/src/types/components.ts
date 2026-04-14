@@ -1135,5 +1135,35 @@ export interface ErRelationshipOptions extends PositionedBox {
   color?: string;
 }
 
+export interface AgentOrchestrationDiagramOptions extends PositionedBox {
+  title?: string;
+}
+
+export interface McpBridgePanelOptions extends PositionedBox {
+  title?: string;
+}
+
+export interface ToolExecutionConsoleOptions extends PositionedBox {
+  command?: string;
+  params?: Record<string, unknown>;
+  result?: string;
+}
+
+export interface ValidationLayer {
+  name: string;
+  status: "OK" | "WARN" | "FAIL";
+  desc: string;
+  color?: string;
+}
+
+export interface ValidationLayerRadarOptions extends PositionedBox {
+  title?: string;
+  layers?: ValidationLayer[];
+}
+
+export interface AgentReasoningLoopOptions extends PositionedBox {
+  title?: string;
+}
+
 
 

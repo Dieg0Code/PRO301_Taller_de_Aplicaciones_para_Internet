@@ -87,6 +87,11 @@ import type {
   ErRelationshipOptions,
   SupabaseProjectSetupPanelOptions,
   SupabaseTableEditorPanelOptions,
+  AgentOrchestrationDiagramOptions,
+  McpBridgePanelOptions,
+  ToolExecutionConsoleOptions,
+  ValidationLayerRadarOptions,
+  AgentReasoningLoopOptions,
   IntelTimelinePanelOptions,
   DecisionPipelinePanelOptions,
   PowerNetworkMapOptions,
@@ -375,6 +380,31 @@ type AgenticPanelExports = {
     SH: ShapeCatalog,
     opts: DelegationSplitOptions
   ) => void;
+  addAgentOrchestrationDiagram: (
+    slide: SlideLike,
+    SH: ShapeCatalog,
+    opts: AgentOrchestrationDiagramOptions
+  ) => void;
+  addMcpBridgePanel: (
+    slide: SlideLike,
+    SH: ShapeCatalog,
+    opts: McpBridgePanelOptions
+  ) => void;
+  addToolExecutionConsole: (
+    slide: SlideLike,
+    SH: ShapeCatalog,
+    opts: ToolExecutionConsoleOptions
+  ) => void;
+  addValidationLayerRadar: (
+    slide: SlideLike,
+    SH: ShapeCatalog,
+    opts: ValidationLayerRadarOptions
+  ) => void;
+  addAgentReasoningLoop: (
+    slide: SlideLike,
+    SH: ShapeCatalog,
+    opts: AgentReasoningLoopOptions
+  ) => void;
 };
 
 type AsyncPanelExports = {
@@ -491,6 +521,11 @@ export const addComponentTree = appPanels.addComponentTree;
 export const addAgenticFlow = agenticPanels.addAgenticFlow;
 export const addSpecWorkflow = agenticPanels.addSpecWorkflow;
 export const addDelegationSplit = agenticPanels.addDelegationSplit;
+export const addAgentOrchestrationDiagram = agenticPanels.addAgentOrchestrationDiagram;
+export const addMcpBridgePanel = agenticPanels.addMcpBridgePanel;
+export const addToolExecutionConsole = agenticPanels.addToolExecutionConsole;
+export const addValidationLayerRadar = agenticPanels.addValidationLayerRadar;
+export const addAgentReasoningLoop = agenticPanels.addAgentReasoningLoop;
 export const addEventLoopDiagram = asyncPanels.addEventLoopDiagram;
 export const addSyntaxCompare = asyncPanels.addSyntaxCompare;
 

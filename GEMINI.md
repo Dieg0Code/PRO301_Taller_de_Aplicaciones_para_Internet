@@ -28,6 +28,11 @@ Each class has its own generation scripts located in `clases/semana-XX/YY/ppt/so
 
 ## Development Conventions
 
+### Axiom of Technical Integrity
+- **Wholesale Rewrites Prohibited:** It is strictly forbidden to use the strategy "I will delete everything and rewrite it" when encountering a bug or a complex task. 
+- **Surgical Updates:** All modifications must be surgical, targeted, and incremental. You must work over the existing foundation, preserving established logic, structure, and context.
+- **Additive Evolution:** Fixes and features must be implemented by refining or adding to the current codebase, never by nuking existing files to start over.
+
 ### Hierarchy of Truth
 1. `cronograma/README.md`: The module's master plan.
 2. `clases/semana-XX/YY/README.md`: The definitive source for a specific session.
