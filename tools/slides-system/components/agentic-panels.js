@@ -831,21 +831,23 @@ function addAgentReasoningLoop(slide, SH, opts = {}) {
       fontFace: TYPOGRAPHY.body, fontSize: 8.5, color: TOKENS.slate, align: "center"
     });
 
-    // Flechas curvas de ciclo (aproximadas con conectores)
+    // Flechas de ciclo corregidas (3 flechas para 3 estados)
     const nextStep = steps[(i + 1) % steps.length];
-    const nRad = (nextStep.ang * Math.PI) / 180;
-    const fx = centerX + (radius + 0.2) * Math.cos((s.ang + nextStep.ang) / 2 * Math.PI / 180);
-    const fy = centerY - (radius + 0.2) * Math.sin((s.ang + nextStep.ang) / 2 * Math.PI / 180);
+    const midAngle = (s.ang + (s.ang > nextStep.ang ? nextStep.ang : nextStep.ang - 360)) / 2;
+    const radArrow = (midAngle * Math.PI) / 180;
+    
+    const fx = centerX + (radius * 1.1) * Math.cos(radArrow);
+    const fy = centerY - (radius * 1.1) * Math.sin(radArrow);
     
     slide.addShape(SH.rightArrow, {
-      x: fx - 0.2, y: fy - 0.2, w: 0.4, h: 0.4,
-      rotate: 360 - (s.ang + nextStep.ang) / 2 + 90,
-      fill: { color: TOKENS.softNeutral }, line: { color: TOKENS.border }
+      x: fx - 0.15, y: fy - 0.15, w: 0.3, h: 0.3,
+      rotate: 360 - midAngle + 90,
+      fill: { color: TOKENS.softNeutral }, line: { color: TOKENS.border, pt: 1 }
     });
   });
 
   slide.addText("REPETIR HASTA CUMPLIR EL OBJETIVO", {
-    x: centerX - 1.5, y: centerY - 0.1, w: 3.0, h: 0.3,
+    x: centerX - 1.5, y: centerY - 0.35, w: 3.0, h: 0.3,
     fontFace: TYPOGRAPHY.body, fontSize: 9, bold: true, color: TOKENS.red, align: "center"
   });
 }
