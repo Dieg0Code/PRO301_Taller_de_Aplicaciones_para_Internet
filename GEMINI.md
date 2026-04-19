@@ -49,6 +49,7 @@ Each class has its own generation scripts located in `clases/semana-XX/YY/ppt/so
     5. **Informational Saturation (Horror Vacui):** White space must be intentional, never accidental. Every pixel must serve a didactic purpose. If a box exists, it must contain multi-layered, dense technical information.
 - **Technical Density Balance:** Material must maintain a high informational density suitable for university-level engineering students. Utilize robust components (e.g., `addChecklistGrid`, `addPromptQualityCompare`, `addMythRealityGrid`) to provide depth while maintaining visual elegance.
 - **Integration of AI/Agents:** AI is taught as a transversal methodology. Materials should explicitly mention: (1) Concept understanding, (2) Agent support, (3) Human validation, (4) Technical judgment.
+- **Cybersecurity Axis (Offensive/Defensive Mindset):** Security is treated as a transversal discipline. Materials must include: (1) Identifying vulnerabilities in legacy/modern code, (2) Understanding exploitation (the "how"), (3) Designing surgical defenses (patching without breaking continuity), (4) Audit assisted by agents and technical judgment.
 ### Double-Axis Progression
 Technical and pedagogical depth must increase on two simultaneous axes:
 1.  **Intra-week (Day by Day):**
