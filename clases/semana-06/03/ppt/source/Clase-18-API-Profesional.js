@@ -935,6 +935,233 @@ function createBlock3SynthesisSlide() {
 
 // ─── BLOQUE 4: INTEROPERABILIDAD REAL Y CIERRE ──────────────────────────────
 
+function createBlock4IntroSlide() {
+  const slide = pptx.addSlide();
+  slide.background = { color: C.navy };
+  addMarkBox(slide, SH, logoMarkPath, { x: 9.62, y: 0.28, w: 0.68, h: 0.68 });
+  addChip(slide, SH, "BLOQUE 4", { x: 0.88, y: 0.68, w: 1.32, h: 0.34, fill: C.gold, color: C.navy, fontSize: 10.6, bold: true });
+  addBarsMotif(slide, 0.88, 1.22, 1.1, C.gold);
+  slide.addText("El Puente Real", {
+    x: 0.88, y: 2.14, w: 9.2, h: 0.66, fontFace: TYPOGRAPHY.display, fontSize: 36, bold: true, color: C.white, valign: "mid",
+  });
+  slide.addText("Patrón Facade, CORS y el Camino a la Evaluación.", {
+    x: 0.88, y: 2.9, w: 8.2, h: 0.38, fontFace: TYPOGRAPHY.body, fontSize: 15.2, color: "DCE6F2",
+  });
+  validateSlide(slide, pptx);
+}
+
+function createFacadePatternSlide() {
+  const slide = pptx.addSlide();
+  addHeader(slide, "Patrón Facade: La Cara Pro", "Bloque 4 · Rescatando el sistema 2014", "Arquitectura");
+  addCard(slide, SH, {
+    x: 0.88, y: 2.22, w: 10.26, h: 2.5, title: "Abstracción de Deuda Técnica",
+    body: "La fachada (FastAPI) nos permite ocultar la complejidad y el desorden del sistema legacy. El cliente solo ve una API REST moderna, mientras nosotros gestionamos el 'monstruo' por detrás.",
+    accent: C.navy, fill: C.white, line: C.navy
+  });
+  addCenterStatement(slide, SH, "El cliente no necesita saber que tus datos vienen de una DB sin normalizar.", {
+    x: 0.88, y: 5.2, w: 10.26, h: 1.0, fill: C.gold, color: C.navy, fontSize: 18, bold: true
+  });
+  validateSlide(slide, pptx);
+}
+
+function createLegacyShieldFlowSlide() {
+  const slide = pptx.addSlide();
+  addHeader(slide, "FastAPI como Escudo", "Bloque 4 · Flujo de Interoperabilidad", "Interoperabilidad");
+  addAgenticFlow(slide, SH, {
+    x: 0.88, y: 2.22, w: 10.26, h: 4.54,
+    steps: [
+      { title: "LEGACY", body: "Datos sucios, nulos inesperados y nombres de columnas crípticos.", accent: C.red },
+      { title: "API LAYER", body: "Limpieza, validación de tipos y renombramiento semántico.", accent: C.navy },
+      { title: "CLIENTE", body: "Recibe JSON puro, seguro y listo para renderizar en React.", accent: C.gold },
+    ]
+  });
+  validateSlide(slide, pptx);
+}
+
+function createDataInteroperabilitySlide() {
+  const slide = pptx.addSlide();
+  addHeader(slide, "Interoperabilidad de Datos", "Bloque 4 · Mapeo Semántico", "Código");
+  addCodePanel(slide, SH, {
+    x: 0.88, y: 2.22, w: 10.26, h: 4.54, title: "Cambiando el pasado en el Esquema",
+    code: `class UserRead(BaseModel):
+    # La DB legacy usa: 'usr_nom_real'
+    # La API expone: 'full_name'
+    full_name: str = Field(..., alias="usr_nom_real")
+    email: EmailStr
+    
+    class Config:
+        # Permite leer desde el objeto de DB directamente
+        from_attributes = True`,
+    lang: "python", fontSize: 16
+  });
+  validateSlide(slide, pptx);
+}
+
+function createCorsConceptSlide() {
+  const slide = pptx.addSlide();
+  addHeader(slide, "CORS: El Dragón de la Web", "Bloque 4 · ¿Por qué el navegador me bloquea?", "Interoperabilidad");
+  addMythRealityGrid(slide, SH, {
+    x: 0.88, y: 2.22, w: 10.26, h: 4.54, title: "Entendiendo el bloqueo",
+    entries: [
+      { badge: "NAV", myth: "El navegador bloquea la petición por un error de código.", reality: "Es una medida de seguridad para evitar ataques CSRF.", accent: C.red, badgeFill: C.paleRed },
+      { badge: "PORT", myth: "Si ambos están en localhost, no hay problema.", reality: "Diferente puerto (3000 vs 8000) = Diferente Origen.", accent: C.navy, badgeFill: C.softBlue },
+      { badge: "SEC", myth: "La API debe estar abierta a todo el mundo (*).", reality: "Solo debemos autorizar orígenes de confianza (Whitelisting).", accent: C.navy, badgeFill: C.softBlue },
+    ]
+  });
+  validateSlide(slide, pptx);
+}
+
+function createCorsMiddlewareCodeSlide() {
+  const slide = pptx.addSlide();
+  addHeader(slide, "Configuración de CORSMiddleware", "Bloque 4 · Seguridad Transversal", "Código");
+  addCodePanel(slide, SH, {
+    x: 0.88, y: 2.22, w: 10.26, h: 4.54, title: "Habilitando el acceso al Frontend",
+    code: `from fastapi.middleware.cors import CORSMiddleware
+
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=["http://localhost:3000"], # Origen permitido
+    allow_credentials=True,
+    allow_methods=["GET", "POST", "PUT", "DELETE"],
+    allow_headers=["*"],
+)`,
+    lang: "python", fontSize: 18
+  });
+  validateSlide(slide, pptx);
+}
+
+function createCorsSecurityWarningSlide() {
+  const slide = pptx.addSlide();
+  addHeader(slide, "CORS: Riesgos de Seguridad", "Bloque 4 · Vigilancia Cyber", "Cyber");
+  addCard(slide, SH, {
+    x: 0.88, y: 2.22, w: 10.26, h: 2.5, title: "Peligro: allow_origins=['*']",
+    body: "Usar el comodín '*' en producción permite que CUALQUIER sitio malicioso haga peticiones a tu API a nombre del usuario. Esto facilita ataques de robo de sesión y exfiltración de datos.",
+    accent: C.red, fill: C.white, line: C.red
+  });
+  addCenterStatement(slide, SH, "Configura tus orígenes de forma explícita en cada entorno (Dev/Prod).", {
+    x: 0.88, y: 5.2, w: 10.26, h: 1.0, fill: C.navy, color: C.white, fontSize: 18, bold: true
+  });
+  validateSlide(slide, pptx);
+}
+
+function createSwaggerStatementSlide() {
+  const slide = pptx.addSlide();
+  addHeader(slide, "La Documentación como Código", "Bloque 4 · OpenAPI / Swagger", "Interoperabilidad");
+  addCenterStatement(slide, SH, "En 2026, si tu API no tiene un Swagger actualizado y funcional, técnicamente no existe para el resto del equipo.", {
+    x: 0.88, y: 2.22, w: 10.26, h: 2.5, fill: C.navy, color: C.white, fontSize: 24, bold: true, rectRadius: 0.08
+  });
+  validateSlide(slide, pptx);
+}
+
+function createSwaggerNavigationSlide() {
+  const slide = pptx.addSlide();
+  addHeader(slide, "Explorando el /docs", "Bloque 4 · El Contrato Vivo", "Interoperabilidad");
+  addChecklistGrid(slide, SH, {
+    x: 0.88, y: 2.22, w: 10.26, h: 4.54, title: "Capacidades de la Interfaz", columns: 2,
+    entries: [
+      { badge: "TRY", title: "Ejecución Real", body: "Botón 'Try it out' para enviar peticiones desde el browser.", accent: C.navy, fill: C.softBlue, badgeFill: C.navy },
+      { badge: "JSON", title: "openapi.json", body: "Descarga la especificación técnica para herramientas de QA.", accent: C.navy, fill: C.softBlue, badgeFill: C.navy },
+      { badge: "CODE", title: "Status Codes", body: "Visualización clara de qué respuestas esperar (200, 422, etc).", accent: C.navy, fill: C.softBlue, badgeFill: C.navy },
+      { badge: "SYNC", title: "Auto-Update", body: "Cualquier cambio en Pydantic se refleja al recargar la página.", accent: C.navy, fill: C.softBlue, badgeFill: C.navy },
+    ]
+  });
+  validateSlide(slide, pptx);
+}
+
+function createOpenApiStandardSlide() {
+  const slide = pptx.addSlide();
+  addHeader(slide, "Estandarización Universal", "Bloque 4 · El valor de OpenAPI", "Ingeniería");
+  addCard(slide, SH, {
+    x: 0.88, y: 2.22, w: 10.26, h: 3.5, title: "Lenguaje Común de Ingeniería",
+    body: "OpenAPI es el estándar que permite que un equipo de Java consuma tu Python, o que una herramienta de IA genere un cliente de C# automáticamente. Tu código es ahora el manual de instrucciones del sistema.",
+    accent: C.gold, fill: C.white, line: C.gold
+  });
+  validateSlide(slide, pptx);
+}
+
+function createIaQaEngineerSlide() {
+  const slide = pptx.addSlide();
+  addHeader(slide, "Huella IA: Ingeniero de QA", "Bloque 4 · Metodología Agentic", "IA");
+  addPromptQualityCompare(slide, SH, {
+    x: 0.88, y: 2.22, w: 10.26, h: 4.46,
+    title: "Estrategia de Pruebas",
+    badTitle: "Prompt Débil",
+    badSubtitle: "Genérico",
+    badPrompt: "'¿Cómo pruebo mi API de usuarios?'.",
+    badNotes: ["IA da pasos obvios.", "No conoce tu lógica.", "Sin profundidad técnica."],
+    goodTitle: "Prompt de QA",
+    goodSubtitle: "Estructurado",
+    goodPrompt: "'Actúa como un QA Engineer. Basado en este esquema de FastAPI, genera una colección de Postman que cubra: 1. Éxito (201), 2. Error de tipo (422) y 3. Ataque de inyección lógica'.",
+    goodNotes: ["Genera casos de borde.", "Automatiza el testeo.", "Garantiza la calidad."],
+    footer: "La IA propone el plan; tú ejecutas y validas el resultado real."
+  });
+  validateSlide(slide, pptx);
+}
+
+function createIntegrationTestFlowSlide() {
+  const slide = pptx.addSlide();
+  addHeader(slide, "Pruebas de Integración", "Bloque 4 · Validando el Puente", "Práctica");
+  addAgenticFlow(slide, SH, {
+    x: 0.88, y: 2.22, w: 10.26, h: 4.54,
+    steps: [
+      { title: "ESPECIFICAR", body: "Definir el caso (ej: Login con clave errónea) en Postman.", accent: C.navy },
+      { title: "EJECUTAR", body: "Lanzar la petición real contra el servidor FastAPI.", accent: C.red },
+      { title: "VALIDAR", body: "Verificar que el Status Code sea 401 y el JSON sea correcto.", accent: C.gold },
+    ]
+  });
+  validateSlide(slide, pptx);
+}
+
+function createRoadmapChecklistSlide() {
+  const slide = pptx.addSlide();
+  addHeader(slide, "Checklist de Competencias", "Bloque 4 · Rumbo al Examen", "Estrategia");
+  addChecklistGrid(slide, SH, {
+    x: 0.88, y: 2.22, w: 10.26, h: 4.54, title: "¿Qué debo dominar para el lunes?", columns: 2,
+    entries: [
+      { badge: "1", title: "Arqueología", body: "Leer código PHP legacy y mapear su base de datos.", accent: C.navy, fill: C.softBlue, badgeFill: C.navy },
+      { badge: "2", title: "Arquitectura", body: "Crear la capa MVC y el Repositorio de acceso a datos.", accent: C.navy, fill: C.softBlue, badgeFill: C.navy },
+      { badge: "3", title: "Seguridad", body: "Blindar esquemas con Pydantic y restringir Payloads.", accent: C.red, fill: C.paleRed, badgeFill: C.red },
+      { badge: "4", title: "API Layer", body: "Implementar FastAPI con Status Codes y CORS configurado.", accent: C.navy, fill: C.softBlue, badgeFill: C.navy },
+    ]
+  });
+  validateSlide(slide, pptx);
+}
+
+function createMondayFinalAlertSlide() {
+  const slide = pptx.addSlide();
+  addHeader(slide, "El Lunes: Evaluación Parcial 2", "Simulacro Final", "Importante");
+  addCard(slide, SH, {
+    x: 0.88, y: 2.22, w: 10.26, h: 3.5, title: "RECOMENDACIÓN DE ORO",
+    body: "No se enfoquen solo en que 'compile'. El lunes evaluaremos el flujo del dato: cómo un registro sucio del 2014 viaja de forma segura hasta una interfaz moderna gracias a su arquitectura.",
+    accent: C.gold, fill: C.white, line: C.gold
+  });
+  addCenterStatement(slide, SH, "La arquitectura es la solución al caos del tiempo.", {
+    x: 0.88, y: 6.0, w: 10.26, h: 0.6, fill: C.navy, color: C.white, fontSize: 16, bold: true
+  });
+  validateSlide(slide, pptx);
+}
+
+function createFinalSynthesisClosingSlide() {
+  const slide = pptx.addSlide();
+  slide.background = { color: C.navy };
+  addMarkBox(slide, SH, logoMarkPath, { x: 9.62, y: 0.28, w: 0.68, h: 0.68 });
+  addBarsMotif(slide, 0.88, 1.22, 1.1, C.gold);
+  
+  slide.addText("Próximo Paso:\nEvaluación Parcial 2", {
+    x: 0.88, y: 2.14, w: 9.2, h: 1.26, fontFace: TYPOGRAPHY.display, fontSize: 36, bold: true, color: C.white, valign: "mid",
+  });
+  
+  slide.addText("El lunes 27 pondremos a prueba nuestra capacidad de integrar sistemas legados mediante arquitecturas modernas. Repasen el flujo completo: Arqueología -> MVC -> API Layer.", {
+    x: 0.88, y: 3.62, w: 8.2, h: 0.8, fontFace: TYPOGRAPHY.body, fontSize: 15.2, color: "DCE6F2",
+  });
+  
+  addCenterStatement(slide, SH, "Nos vemos el lunes 27 de abril para la Evaluación", {
+    x: 0.88, y: 5.82, w: 10.26, h: 0.82, fill: C.gold, fontSize: 24, color: C.navy, bold: true
+  });
+  
+  validateSlide(slide, pptx);
+}
+
 function main() {
   createCoverSlide();
   createWeeklyPathSlide();
@@ -992,6 +1219,22 @@ function main() {
   createRedTeamSimulationSlide();
   createBlueTeamResultSlide();
   createBlock3SynthesisSlide();
+
+  createBlock4IntroSlide();
+  createFacadePatternSlide();
+  createLegacyShieldFlowSlide();
+  createDataInteroperabilitySlide();
+  createCorsConceptSlide();
+  createCorsMiddlewareCodeSlide();
+  createCorsSecurityWarningSlide();
+  createSwaggerStatementSlide();
+  createSwaggerNavigationSlide();
+  createOpenApiStandardSlide();
+  createIaQaEngineerSlide();
+  createIntegrationTestFlowSlide();
+  createRoadmapChecklistSlide();
+  createMondayFinalAlertSlide();
+  createFinalSynthesisClosingSlide();
 
   pptx
     .writeFile({ fileName: outputPptx })
