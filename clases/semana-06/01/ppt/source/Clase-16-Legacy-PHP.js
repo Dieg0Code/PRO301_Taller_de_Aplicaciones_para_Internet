@@ -703,16 +703,21 @@ function createSessionCookieSimbiosisSlide() {
 
 function createCookieAnatomySlide() {
   const slide = pptx.addSlide();
-  addHeader(slide, "Anatomía de una Cookie", "Bloque 3 · 3.2 Descomposición estructural", "Anatomía");
-  addTableSchema(slide, SH, {
-    x: 0.88, y: 2.22, w: 10.26, title: "Atributos del 'Set-Cookie' Header",
-    columns: [
-      { name: "Atributo", type: "Función Técnica" },
-      { name: "Name / Value", type: "El par clave-valor (ej: PHPSESSID=abc123)" },
-      { name: "Expires / Max-Age", type: "Cuánto tiempo vive la cookie antes de morir." },
-      { name: "Domain / Path", type: "En qué URLs es válida la cookie." },
-      { name: "HttpOnly", type: "Protección: impide que JavaScript (XSS) lea la cookie." },
-      { name: "Secure", type: "Obliga a que solo viaje sobre HTTPS." }
+  addHeader(slide, "Anatomía de una Cookie", "Bloque 3 · 3.2 El Protocolo Crudo", "Anatomía");
+  
+  addCodePanel(slide, SH, {
+    x: 0.88, y: 2.18, w: 10.26, h: 1.4, title: "Header HTTP: Set-Cookie",
+    code: `Set-Cookie: PHPSESSID=abc123xyz789; Expires=Wed, 21 Oct 2026 07:28:00 GMT;\nPath=/; HttpOnly; Secure; SameSite=Lax`,
+    lang: "text", fontSize: 11
+  });
+
+  addChecklistGrid(slide, SH, {
+    x: 0.88, y: 3.82, w: 10.26, h: 2.8, title: "Desglose Técnico de Atributos", columns: 2,
+    entries: [
+      { badge: "ID", title: "Name/Value", body: "El par clave-valor que identifica la sesión (PHPSESSID).", accent: C.navy, fill: C.white, badgeFill: C.navy },
+      { badge: "TIME", title: "Expires", body: "Fecha exacta en que el navegador borrará la cookie automáticamente.", accent: C.navy, fill: C.white, badgeFill: C.navy },
+      { badge: "SAFE", title: "HttpOnly", body: "Regla de Oro: impide que JavaScript lea la cookie, mitigando ataques XSS.", accent: C.red, fill: C.white, badgeFill: C.red },
+      { badge: "SAFE", title: "Secure", body: "Obliga a que la cookie solo viaje si la conexión es HTTPS (cifrada).", accent: C.red, fill: C.white, badgeFill: C.red },
     ]
   });
   validateSlide(slide, pptx);
@@ -907,6 +912,247 @@ function createBlock3SynthesisSlide() {
   validateSlide(slide, pptx);
 }
 
+// ─── BLOQUE 4: MANTENIMIENTO QUIRÚRGICO DE UN CRUD ───────────────────────────
+
+function createBlock4IntroSlide() {
+  const slide = pptx.addSlide();
+  slide.background = { color: C.navy };
+  addMarkBox(slide, SH, logoMarkPath, { x: 9.62, y: 0.28, w: 0.68, h: 0.68 });
+  addChip(slide, SH, "BLOQUE 4", { x: 0.88, y: 0.68, w: 1.32, h: 0.34, fill: C.red, color: C.white, fontSize: 10.6 });
+  addBarsMotif(slide, 0.88, 1.22, 1.1, C.red);
+  slide.addText("El Arte del Mantenimiento\nQuirúrgico", {
+    x: 0.88, y: 2.14, w: 9.2, h: 1.26, fontFace: TYPOGRAPHY.display, fontSize: 36, bold: true, color: C.white, valign: "mid",
+  });
+  slide.addText("Aplicando el Axioma de Integridad en escenarios reales de producción.", {
+    x: 0.88, y: 3.62, w: 8.2, h: 0.38, fontFace: TYPOGRAPHY.body, fontSize: 15.2, color: "DCE6F2",
+  });
+  validateSlide(slide, pptx);
+}
+
+function createAllInOneAnatomySlide() {
+  const slide = pptx.addSlide();
+  addHeader(slide, "Anatomía del 'Todo-en-Uno'", "Bloque 4 · 4.1 Descomposición del archivo", "Anatomía");
+  addTableSchema(slide, SH, {
+    x: 0.88, y: 2.22, w: 10.26, title: "Estructura típica de un archivo legacy (editar_user.php)",
+    columns: [
+      { name: "Zona", type: "Responsabilidad Técnica" },
+      { name: "Cabecera (L1-15)", type: "session_start() y Conexión a Base de Datos (mysqli)." },
+      { name: "Lógica POST (L16-45)", type: "if($_POST) -> Captura datos y ejecuta el UPDATE SQL." },
+      { name: "Consulta (L46-55)", type: "SELECT inicial para cargar los datos actuales en el form." },
+      { name: "Vista (L56+)", type: "Mezcla de HTML con PHP para mostrar los valores (echo)." }
+    ]
+  });
+  validateSlide(slide, pptx);
+}
+
+function createStabilitySlide() {
+  const slide = pptx.addSlide();
+  addHeader(slide, "Estabilidad > Elegancia", "Bloque 4 · 4.2 La prioridad del Ingeniero", "Axioma");
+  addDelegationSplit(slide, SH, {
+    x: 0.88, y: 2.22, w: 10.26, h: 4.54, title: "¿Por qué no reescribir?",
+    left: { title: "El Riesgo", subtitle: "Reescritura Total", items: ["Introduce bugs en lógica vieja.", "Incompatible con el resto del sitio.", "Cuesta tiempo que el cliente no paga."], accent: C.red, fill: C.paleRed },
+    right: { title: "El Valor", subtitle: "Cirugía Quirúrgica", items: ["El sistema sigue operando.", "Cambio preciso y testeable.", "Mantiene la coherencia del autor."], accent: C.navy, fill: C.softBlue },
+    bridgeLabel: "Axioma", bridgeBody: "no\ndestruir",
+  });
+  validateSlide(slide, pptx);
+}
+
+function createSurgicalScenarioSlide() {
+  const slide = pptx.addSlide();
+  addHeader(slide, "Escenario de Mantenimiento", "Bloque 4 · Caso de Uso Real", "Misión");
+  addCard(slide, SH, {
+    x: 0.88, y: 2.22, w: 10.26, h: 2.0, title: "El Requerimiento del Cliente",
+    body: "Nuestra aplicación de gestión de empleados tiene 8 años. El cliente necesita agregar el campo 'Teléfono de Emergencia' al formulario de edición de perfil hoy mismo. No hay presupuesto ni tiempo para migrar a FastAPI.",
+    accent: C.red, fill: C.white, line: C.border
+  });
+  addChecklistGrid(slide, SH, {
+    x: 0.88, y: 4.42, w: 10.26, h: 2.34, title: "Plan de Operación", columns: 3,
+    entries: [
+      { badge: "1", title: "Mapear", body: "Localizar variables.", accent: C.navy, fill: C.white, badgeFill: C.navy },
+      { badge: "2", title: "Inyectar", body: "SQL y HTML nuevo.", accent: C.navy, fill: C.white, badgeFill: C.navy },
+      { badge: "3", title: "Validar", body: "Smoke test.", accent: C.navy, fill: C.white, badgeFill: C.navy },
+    ]
+  });
+  validateSlide(slide, pptx);
+}
+
+function createPhase1InputSlide() {
+  const slide = pptx.addSlide();
+  addHeader(slide, "Fase 1: Mapeo de la Entrada", "Bloque 4 · 4.3 Capturando el nuevo dato", "Cirugía");
+  addCodePanel(slide, SH, {
+    x: 0.88, y: 2.22, w: 10.26, h: 4.54, title: "Localización del bloque $_POST",
+    code: `// Buscamos dónde el autor original captura los datos
+if (isset($_POST['guardar'])) {
+    $nombre = $_POST['nombre'];
+    $email  = $_POST['email'];
+    
+    // NUESTRA CIRUGÍA:
+    $telefono = $_POST['telefono_emergencia'] ?? '';
+    
+    // ... sigue la lógica SQL`,
+    lang: "php", fontSize: 16
+  });
+  validateSlide(slide, pptx);
+}
+
+function createPhase2PersistenceSlide() {
+  const slide = pptx.addSlide();
+  addHeader(slide, "Fase 2: Mapeo de la Persistencia", "Bloque 4 · 4.3 Inyectando en el SQL", "Cirugía");
+  addCodePanel(slide, SH, {
+    x: 0.88, y: 2.22, w: 10.26, h: 4.54, title: "Modificación de la Query UPDATE",
+    code: `// ORIGINAL:
+// $sql = "UPDATE users SET nombre='$nombre', email='$email' WHERE id=$id";
+
+// QUIRÚRGICO (Respetando el estilo de comillas del autor):
+$sql = "UPDATE users SET 
+        nombre='$nombre', 
+        email='$email', 
+        emergency_phone='$telefono' 
+        WHERE id=$id";
+
+mysqli_query($conn, $sql);`,
+    lang: "php", fontSize: 15
+  });
+  validateSlide(slide, pptx);
+}
+
+function createPhase3ViewSlide() {
+  const slide = pptx.addSlide();
+  addHeader(slide, "Fase 3: Mapeo de la Vista", "Bloque 4 · 4.3 Inyectando en el HTML", "Cirugía");
+  addCodePanel(slide, SH, {
+    x: 0.88, y: 2.22, w: 10.26, h: 4.54, title: "Formulario HTML Mezclado",
+    code: `<!-- Añadimos el nuevo input inyectando el valor inicial -->
+<label>Teléfono de Emergencia:</label>
+<input type="text" 
+       name="telefono_emergencia" 
+       value="<?php echo $user_data['emergency_phone']; ?>">
+
+<!-- El atributo 'name' debe coincidir con nuestra Fase 1 -->`,
+    lang: "php", fontSize: 16
+  });
+  validateSlide(slide, pptx);
+}
+
+function createQuotesDangerSlide() {
+  const slide = pptx.addSlide();
+  addHeader(slide, "Peligro: El Infierno de las Comillas", "Bloque 4 · 4.3 Errores de sintaxis fatales", "Peligro");
+  addMythRealityGrid(slide, SH, {
+    x: 0.88, y: 2.22, w: 10.26, h: 4.54, title: "Concatenación y SQL",
+    entries: [
+      { badge: "ERROR", myth: "SET f='$var' (comilla simple)", reality: "Si $var tiene una comilla (o'connor), el SQL se rompe.", accent: C.red, badgeFill: C.paleRed },
+      { badge: "SAFE", myth: "Uso de mysqli_real_escape_string", reality: "Limpia los datos antes de inyectarlos al SQL. Vital en legado.", accent: C.navy, badgeFill: C.softBlue },
+      { badge: "ERROR", myth: "Confundir puntos y comas.", reality: "En PHP el punto une strings. Un punto mal puesto detiene el servidor.", accent: C.red, badgeFill: C.paleRed },
+      { badge: "SAFE", myth: "Validación por IA.", reality: "Usa el agente para que 'lea' si tus comillas están balanceadas.", accent: C.navy, badgeFill: C.softBlue },
+    ]
+  });
+  validateSlide(slide, pptx);
+}
+
+function createIaSurgicalConsultantSlide() {
+  const slide = pptx.addSlide();
+  addHeader(slide, "IA como Consultora Quirúrgica", "Bloque 4 · Huella Metodológica", "IA");
+  addPromptQualityCompare(slide, SH, {
+    x: 0.88, y: 2.22, w: 10.26, h: 4.46,
+    title: "Prompts de Mantenimiento",
+    badTitle: "El Error de Novato",
+    badSubtitle: "Pedir reescritura",
+    badPrompt: "'Limpia este archivo editar.php para que sea mejor y más moderno'.",
+    badNotes: ["Borra dependencias del sitio.", "Cambia la conexión a la DB.", "Inutiliza el sistema."],
+    goodTitle: "El Enfoque Quirúrgico",
+    goodSubtitle: "Intervención Focalizada",
+    goodPrompt: "'Tengo este archivo editar.php. Solo quiero añadir el campo telefono. Genera el snippet para el POST, el SQL y el HTML respetando las variables actuales'.",
+    goodNotes: ["Mantiene la integridad.", "Cambio mínimo y seguro.", "Fácil de auditar."],
+    footer: "No busques elegancia en el legado; busca precisión y continuidad."
+  });
+  validateSlide(slide, pptx);
+}
+
+function createSmokeTestSlide() {
+  const slide = pptx.addSlide();
+  addHeader(slide, "Protocolo Smoke Test", "Bloque 4 · 4.4 La prueba de fuego", "Validación");
+  addChecklistGrid(slide, SH, {
+    x: 0.88, y: 2.22, w: 10.26, h: 4.54, title: "Lista de verificación post-operación", columns: 2,
+    entries: [
+      { badge: "LOAD", title: "Carga de Página", body: "¿La página abre sin errores 500 o 'White Screen of Death'?", accent: C.navy, fill: C.softBlue, badgeFill: C.navy },
+      { badge: "SAVE", title: "Persistencia Real", body: "¿Si guardas el teléfono nuevo, aparece al refrescar la página?", accent: C.navy, fill: C.softBlue, badgeFill: C.navy },
+      { badge: "SESS", title: "Estado de Sesión", body: "¿Sigues logueado tras guardar o la sesión se cerró por error?", accent: C.red, fill: C.paleRed, badgeFill: C.red },
+      { badge: "XSS", title: "Seguridad Básica", body: "¿Qué pasa si guardas un <script> en el nuevo campo?", accent: C.red, fill: C.paleRed, badgeFill: C.red },
+    ]
+  });
+  validateSlide(slide, pptx);
+}
+
+function createBlock4QuestionsSlide() {
+  const slide = pptx.addSlide();
+  slide.background = { color: C.warm };
+  addMarkBox(slide, SH, logoMarkPath, { x: 9.62, y: 0.28, w: 0.68, h: 0.68 });
+  addChip(slide, SH, "PREGUNTAS GUÍA — BLOQUE 4", { x: 0.88, y: 0.44, w: 3.4, h: 0.3, fill: C.navy, color: C.white, fontSize: 10.0 });
+  const questions = [
+    { n: "01", text: "¿Por qué es vital respetar el estilo del autor original en una cirugía de software?" },
+    { n: "02", text: "¿En qué etapa del mantenimiento quirúrgico es más útil la ayuda de un agente de IA?" },
+    { n: "03", text: "¿Qué buscamos confirmar al realizar un 'Smoke Test' tras una intervención?" },
+  ];
+  questions.forEach((q, i) => {
+    const y = 1.12 + i * 1.96;
+    slide.addText(q.n, { x: 0.88, y: y + 0.04, w: 0.58, h: 0.68, fontFace: TYPOGRAPHY.display, fontSize: 38, bold: true, color: C.border, margin: 0, valign: "mid" });
+    slide.addText(q.text, { x: 1.6, y, w: 8.72, h: 1.56, fontFace: TYPOGRAPHY.body, fontSize: 15.6, color: C.navy, margin: 0, valign: "mid" });
+    if (i < 2) slide.addShape(SH.line, { x: 0.88, y: y + 1.72, w: 10.28, h: 0, line: { color: C.border, pt: 1 } });
+  });
+  validateSlide(slide, pptx);
+}
+
+function createWeeklySynthesisSlide() {
+  const slide = pptx.addSlide();
+  addHeader(slide, "De la Abstracción al Barro", "Síntesis Semanal · El Ingeniero Versátil", "Síntesis");
+  addCenterStatement(slide, SH, "Un verdadero senior navega entre la elegancia de FastAPI y la cruda realidad del PHP Legacy.", {
+    x: 0.88, y: 2.22, w: 10.26, h: 1.14, fill: C.navy, color: C.white, fontSize: 18, rectRadius: 0.07
+  });
+  const journey = [
+    { title: "Pasado (Hoy)", body: "PHP puro, sesiones nativas y archivos mezclados.", accent: C.red },
+    { title: "Presente (Ayer)", body: "APIs REST, Pydantic y tipado estricto en Python.", accent: C.navy },
+    { title: "Futuro (Mañana)", body: "Arquitectura MVC para poner orden al caos.", accent: C.gold },
+  ];
+  journey.forEach((j, i) => {
+    addMiniCard(slide, SH, {
+      x: 0.88 + i * 3.44, y: 3.62, w: 3.2, h: 2.06, title: j.title, body: j.body, accent: j.accent,
+      fill: C.white, line: C.border, titleFontSize: 13, bodyFontSize: 10.5
+    });
+  });
+  validateSlide(slide, pptx);
+}
+
+function createFinalClassSynthesisSlide() {
+  const slide = pptx.addSlide();
+  addHeader(slide, "Resumen Final de la Sesión", "Los 4 Pilares del Mantenimiento", "Cierre");
+  addChecklistGrid(slide, SH, {
+    x: 0.88, y: 2.22, w: 10.26, h: 4.54, title: "Lo que aprendimos hoy", columns: 2,
+    entries: [
+      { badge: "VALOR", title: "Legado como Activo", body: "El código antiguo paga sueldos; se respeta y se diagnostica.", accent: C.navy, fill: C.softBlue, badgeFill: C.navy },
+      { badge: "READ", title: "Lectura Técnica", body: "Sintaxis PHP y Superglobales ($ _GET, $ _POST) como base HTTP.", accent: C.navy, fill: C.softBlue, badgeFill: C.navy },
+      { badge: "SESS", title: "Estado Persistente", body: "Gestión de sesiones y cookies para recordar la identidad.", accent: C.navy, fill: C.softBlue, badgeFill: C.navy },
+      { badge: "ACT", title: "Cirugía de Software", body: "Intervenciones mínimas, precisas y seguras (Axioma de Integridad).", accent: C.navy, fill: C.softBlue, badgeFill: C.navy },
+    ]
+  });
+  validateSlide(slide, pptx);
+}
+
+function createFinalClosingSlide() {
+  const slide = pptx.addSlide();
+  slide.background = { color: C.navy };
+  addMarkBox(slide, SH, logoMarkPath, { x: 9.62, y: 0.28, w: 0.68, h: 0.68 });
+  addBarsMotif(slide, 0.88, 1.22, 1.1, C.gold);
+  slide.addText("Próxima Clase:\nArquitectura MVC", {
+    x: 0.88, y: 2.14, w: 9.2, h: 1.26, fontFace: TYPOGRAPHY.display, fontSize: 36, bold: true, color: C.white, valign: "mid",
+  });
+  slide.addText("Aprenderemos a poner orden al caos legacy separando definitivamente la lógica de la vista.", {
+    x: 0.88, y: 3.62, w: 8.2, h: 0.8, fontFace: TYPOGRAPHY.body, fontSize: 15.2, color: "DCE6F2",
+  });
+  addCenterStatement(slide, SH, "Nos vemos el miércoles 22 de abril", {
+    x: 0.88, y: 5.82, w: 10.26, h: 0.82, fill: C.gold, fontSize: 24, color: C.navy, bold: true
+  });
+  validateSlide(slide, pptx);
+}
+
 // ─── EJECUCIÓN ───────────────────────────────────────────────────────────────
 
 function main() {
@@ -960,6 +1206,21 @@ function main() {
   createIaSessionAuditorSlide();
   createBlock3QuestionsSlide();
   createBlock3SynthesisSlide();
+
+  createBlock4IntroSlide();
+  createAllInOneAnatomySlide();
+  createStabilitySlide();
+  createSurgicalScenarioSlide();
+  createPhase1InputSlide();
+  createPhase2PersistenceSlide();
+  createPhase3ViewSlide();
+  createQuotesDangerSlide();
+  createIaSurgicalConsultantSlide();
+  createSmokeTestSlide();
+  createBlock4QuestionsSlide();
+  createWeeklySynthesisSlide();
+  createFinalClassSynthesisSlide();
+  createFinalClosingSlide();
 
   pptx
     .writeFile({ fileName: outputPptx })
