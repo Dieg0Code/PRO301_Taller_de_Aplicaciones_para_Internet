@@ -41,6 +41,13 @@ Each class has its own generation scripts located in `clases/semana-XX/YY/ppt/so
 ### Pedagogical Standards
 - **Language:** All student-facing material **must be in correct Spanish** (using `ñ`, accents, and proper grammar). No internal "meta" comments in student materials.
 - **Tone:** Professional, technical, clear, and didactic. Avoid "hype" or over-simplification.
+- **Principles of Pedagogical Engineering (High-Performance Instruction):**
+    1. **Semantic Anchoring:** Every abstract concept must be immediately anchored by a concrete implementation (code) or a structural visualization (diagram). Theoretical drifting is prohibited.
+    2. **Structural Bridging:** Prioritize visualizations that represent the "Bridge" (transformation or mapping) between disparate layers or systems (e.g., Protocol A -> Protocol B, Schema -> Implementation).
+    3. **Comparative Rigor:** Use technical contrast as a primary pedagogical tool. Position "Legacy" or "New" concepts against modern or established equivalents to build mental continuity.
+    4. **Anatomical Decomposition:** Complex structures (arrays, memory objects, JSONs, schemas) must be presented through "anatomical" components that reveal internal keys, types, and logic flow. Use `addTableSchema` as a generic structural visualizer.
+    5. **Informational Saturation (Horror Vacui):** White space must be intentional, never accidental. Every pixel must serve a didactic purpose. If a box exists, it must contain multi-layered, dense technical information.
+- **Technical Density Balance:** Material must maintain a high informational density suitable for university-level engineering students. Utilize robust components (e.g., `addChecklistGrid`, `addPromptQualityCompare`, `addMythRealityGrid`) to provide depth while maintaining visual elegance.
 - **Integration of AI/Agents:** AI is taught as a transversal methodology. Materials should explicitly mention: (1) Concept understanding, (2) Agent support, (3) Human validation, (4) Technical judgment.
 ### Double-Axis Progression
 Technical and pedagogical depth must increase on two simultaneous axes:
