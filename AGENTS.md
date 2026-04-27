@@ -46,6 +46,56 @@ Se debe priorizar:
 
 Si aparecen tecnologías antiguas o legadas, deben tratarse con contexto y criterio, no como centro formativo por defecto.
 
+## Axioma de integridad técnica
+
+Cuando se trabaje sobre materiales, código, decks, scripts o componentes existentes, no usar como estrategia por defecto borrar todo y reescribir desde cero.
+
+Usar por defecto esta lógica:
+
+- hacer cambios quirúrgicos, incrementales y trazables;
+- preservar la estructura, intención y decisiones previas cuando sigan siendo válidas;
+- corregir sobre la base existente antes de reemplazarla;
+- evitar romper continuidad pedagógica o técnica por resolver un problema local;
+- y solo proponer una reescritura amplia cuando exista una razón técnica clara, explicada y aceptada.
+
+El objetivo es evolucionar el repositorio sin perder contexto. En materiales docentes, esto también aplica al relato pedagógico: una clase nueva debe mejorar la anterior, no borrar su continuidad sin criterio.
+
+## Eje transversal de ciberseguridad
+
+La seguridad debe tratarse como una disciplina transversal del módulo, no como un tema aislado de una sola clase.
+
+Cuando el contenido lo permita, integrar explícitamente un eje de ciberseguridad con mirada ofensiva y defensiva:
+
+- identificar vulnerabilidades en código legado, moderno, frontend, backend, APIs, SQL, autenticación, validación o manejo de errores;
+- explicar de forma responsable cómo podría explotarse una falla, sin convertir la clase en un recetario dañino;
+- diseñar defensas quirúrgicas que corrijan el problema sin destruir la continuidad del sistema;
+- conectar la seguridad con integridad de datos, exposición mínima, privilegios, auditoría, logs y validación;
+- y mostrar cómo agentes o IA pueden ayudar a auditar, comparar o proponer hipótesis, pero siempre bajo revisión técnica humana.
+
+Este eje debe aparecer con especial fuerza en temas como formularios, APIs, SQL, sesiones, autenticación, datos sensibles, errores de servidor, permisos, dependencias y despliegue.
+
+La lógica mínima esperada es:
+
+1. reconocer la superficie de ataque;
+2. entender el riesgo técnico;
+3. proponer una defensa concreta;
+4. validar el resultado con herramientas, pruebas o inspección;
+5. documentar el criterio usado.
+
+## Principios de ingeniería pedagógica
+
+El material debe mantener densidad técnica suficiente para educación superior técnico-profesional, pero esa densidad debe estar al servicio de la comprensión y de la clase real.
+
+Usar estos principios al redactar README, diseñar PPT o construir ejemplos:
+
+- **Anclaje semántico:** cada concepto abstracto importante debe conectarse pronto con una implementación concreta, un fragmento de código, un comando, una estructura real o un diagrama.
+- **Puente estructural:** priorizar visualizaciones que muestren transformaciones entre capas o sistemas, por ejemplo formulario -> request -> backend -> SQL, esquema -> implementación, API -> interfaz o legado -> capa moderna.
+- **Rigor comparativo:** usar contrastes técnicos para enseñar criterio: mala práctica vs buena práctica, legacy vs moderno, código frágil vs código mantenible, consulta amplia vs consulta precisa.
+- **Descomposición anatómica:** las estructuras complejas deben abrirse por partes: claves, tipos, atributos, responsabilidades, flujo de datos, reglas y puntos de falla.
+- **Densidad legible:** evitar slides vacías sin intención, pero no confundir densidad con saturación. En PPT, el contenido debe poder leerse en proyector; si una comparación o diagrama queda pequeño, se divide o se simplifica.
+- **Uso pedagógico del espacio:** no dejar grandes zonas vacías por inercia de plantilla. Si existe espacio disponible, usarlo para reforzar criterio técnico con ejemplos, advertencias, mini anatomías, errores comunes, checks de validación o conexiones entre capas, siempre sin sacrificar legibilidad.
+- **Criterio técnico visible:** cada ejemplo importante debe dejar claro no solo qué se hace, sino por qué se decide así y qué riesgo evita.
+
 ## IA y agentes como metodología transversal
 
 El módulo debe instalar desde temprano una idea clara: hoy desarrollar también implica saber trabajar con IA y agentes, pero sin delegar el juicio técnico.
@@ -176,6 +226,21 @@ Usar esta preferencia:
 
 No asumir que una tarea Python no se puede resolver solo porque falte un paquete global. Antes de descartar una vía, considerar si `uv` permite ejecutarla o instalar la herramienta adecuada de forma controlada.
 
+## Comandos operativos frecuentes
+
+Para `tools/slides-system/`:
+
+- `npm run build`: compila la capa TypeScript hacia `dist/`.
+- `npm run test:all`: ejecuta typecheck, build, pruebas y chequeos de texto.
+- `npm run build:watch`: modo de desarrollo cuando se está iterando sobre la librería compartida.
+
+Para decks de clase:
+
+- los scripts fuente viven en `clases/semana-XX/YY/ppt/source/`;
+- se generan con `node nombre-del-script.js`;
+- el resultado debe quedar en la carpeta `ppt/` de la clase;
+- y el deck final debe poder regenerarse desde su fuente editable.
+
 ## Automatización visual con `playwright-cli`
 
 Este entorno también cuenta con `playwright-cli` disponible como herramienta auxiliar de navegador.
@@ -281,10 +346,14 @@ No empezar el PPT si el README todavía se siente fragmentado, incompleto o con 
 - La composición visual no debe repetirse mecánicamente entre slides.
 - El layout debe apoyar lo que se está enseñando.
 - Evitar slides pesadas resueltas solo con 2 o 3 cajas grandes llenas de texto.
+- En comparaciones, matrices o diagramas usados en clase, priorizar legibilidad en proyector: si el texto no se leería desde sala, dividir, ampliar o simplificar la slide.
 - Revisar que no haya overflow, cortes, conectores absurdos ni composiciones confusas.
 - El texto del deck también es material para estudiantes, no notas para el docente.
+- Las actividades, productos o evidencias del bloque pertenecen principalmente al README. No trasladarlas automáticamente al deck salvo que el docente lo pida o que funcionen como una instrucción breve de trabajo en sala.
+- Al final de cada bloque del PPT, agregar por defecto `3 preguntas de seguimiento`. Deben ser específicas, conectadas al contenido recién visto y con una pista breve de enfoque cuando ayude; evitar preguntas demasiado ambiguas, genéricas o resueltas con la respuesta dentro de la misma slide.
 - Si un patrón visual o artefacto técnico se repite entre clases, moverlo al sistema compartido antes de seguir clonándolo dentro de distintos `source/`.
 - Si el README ya integró IA/agentes de forma relevante, el PPT no debe omitirlo: esa metodología debe quedar visible al menos en una slide, callout o comparación del bloque correspondiente.
+- Si el README integra el eje de ciberseguridad, el PPT tampoco debe omitirlo: debe aparecer como criterio, advertencia, caso, comparación o checklist técnico según corresponda.
 
 ## Materiales complementarios con NotebookLM
 

@@ -1,10 +1,11 @@
 import { describe, expect, it } from "vitest";
 // cspell:ignore supabase postgres sao peliculas pelicula funciones batman aiep relacion
 import {
+  addJoinSetDiagram,
   addSupabaseProjectSetupPanel,
   addSupabaseTableEditorPanel,
 } from "../../src/components";
-import { RecordingSlide } from "../../src/adapters/recording-slide";
+import { RecordingSlide, getEntryBounds, isBoxWithin } from "../../src/adapters/recording-slide";
 
 const SH = {
   roundRect: "roundRect",
@@ -32,6 +33,32 @@ function expectGeometryIsValid(slide: RecordingSlide) {
 }
 
 describe("backend panels", () => {
+  it("addJoinSetDiagram mantiene todas sus piezas dentro del contenedor", () => {
+    const types = ["inner", "left", "right", "full", "leftOnly", "rightOnly"] as const;
+
+    types.forEach((type) => {
+      const slide = new RecordingSlide();
+      const bounds = { x: 0.8, y: 1.1, w: 5.4, h: 4.2 };
+
+      addJoinSetDiagram(slide, SH, {
+        ...bounds,
+        type,
+        title: "JOIN visual",
+        leftLabel: "usuarios",
+        rightLabel: "compras",
+      });
+
+      expect(slide.images).toHaveLength(1);
+      expect(slide.texts.some((entry) => String(entry.text).includes("JOIN"))).toBe(true);
+      expectGeometryIsValid(slide);
+
+      const outside = slide
+        .getEntries()
+        .filter((entry) => !isBoxWithin(getEntryBounds(entry), bounds, 0.001));
+      expect(outside).toHaveLength(0);
+    });
+  });
+
   it("addSupabaseProjectSetupPanel muestra el formulario y el dashboard inicial", () => {
     const slide = new RecordingSlide();
 

@@ -1,5 +1,113 @@
 const { TOKENS } = require("../theme/tokens");
 const { TYPOGRAPHY } = require("../theme/typography");
+const { svgToDataUri } = require("../vendor/pptxgenjs_helpers/svg");
+
+function escapeXml(text = "") {
+  return String(text)
+    .replace(/&/g, "&amp;")
+    .replace(/</g, "&lt;")
+    .replace(/>/g, "&gt;")
+    .replace(/"/g, "&quot;")
+    .replace(/'/g, "&apos;");
+}
+
+function asSvgColor(color) {
+  const value = String(color || TOKENS.navy).trim();
+  return value.startsWith("#") ? value : `#${value}`;
+}
+
+function joinTypeCopy(type, leftLabel, rightLabel) {
+  const copy = {
+    inner: {
+      badge: "INNER JOIN",
+      result: "Solo filas con coincidencia en ambas tablas.",
+      formula: `${leftLabel} ∩ ${rightLabel}`,
+    },
+    left: {
+      badge: "LEFT JOIN",
+      result: `Todo ${leftLabel} y las coincidencias de ${rightLabel}.`,
+      formula: `${leftLabel} completo`,
+    },
+    right: {
+      badge: "RIGHT JOIN",
+      result: `Todo ${rightLabel} y las coincidencias de ${leftLabel}.`,
+      formula: `${rightLabel} completo`,
+    },
+    full: {
+      badge: "FULL JOIN",
+      result: "Todas las filas de ambos lados, coincidan o no.",
+      formula: `${leftLabel} ∪ ${rightLabel}`,
+    },
+    leftOnly: {
+      badge: "LEFT ANTI",
+      result: `${leftLabel} sin coincidencia en ${rightLabel}.`,
+      formula: `${leftLabel} - ${rightLabel}`,
+    },
+    rightOnly: {
+      badge: "RIGHT ANTI",
+      result: `${rightLabel} sin coincidencia en ${leftLabel}.`,
+      formula: `${rightLabel} - ${leftLabel}`,
+    },
+  };
+
+  return copy[type] || copy.inner;
+}
+
+function joinDiagramSvg(opts = {}) {
+  const type = opts.type || "inner";
+  const leftColor = asSvgColor(opts.leftColor || TOKENS.navy);
+  const rightColor = asSvgColor(opts.rightColor || TOKENS.red);
+  const highlightColor = asSvgColor(opts.highlightColor || TOKENS.red);
+  const mutedFill = asSvgColor(opts.mutedFill || "FFFFFF");
+  const inkColor = asSvgColor(TOKENS.ink);
+  const leftLabel = escapeXml(opts.leftLabel || "Tabla A");
+  const rightLabel = escapeXml(opts.rightLabel || "Tabla B");
+  const copy = joinTypeCopy(type, opts.leftLabel || "Tabla A", opts.rightLabel || "Tabla B");
+  const result = escapeXml(opts.result || copy.formula);
+
+  const highlight = {
+    inner: `
+      <g clip-path="url(#clip-left)">
+        <circle cx="290" cy="160" r="102" fill="${highlightColor}" opacity="0.82"/>
+      </g>
+    `,
+    left: `<circle cx="190" cy="160" r="102" fill="${highlightColor}" opacity="0.76"/>`,
+    right: `<circle cx="290" cy="160" r="102" fill="${highlightColor}" opacity="0.76"/>`,
+    full: `
+      <circle cx="190" cy="160" r="102" fill="${highlightColor}" opacity="0.64"/>
+      <circle cx="290" cy="160" r="102" fill="${highlightColor}" opacity="0.64"/>
+    `,
+    leftOnly: `
+      <circle cx="190" cy="160" r="102" fill="${highlightColor}" opacity="0.78"/>
+      <circle cx="290" cy="160" r="102" fill="${mutedFill}" opacity="0.96"/>
+    `,
+    rightOnly: `
+      <circle cx="290" cy="160" r="102" fill="${highlightColor}" opacity="0.78"/>
+      <circle cx="190" cy="160" r="102" fill="${mutedFill}" opacity="0.96"/>
+    `,
+  }[type] || "";
+
+  return svgToDataUri(`
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 480 340">
+      <defs>
+        <clipPath id="clip-left">
+          <circle cx="190" cy="160" r="102"/>
+        </clipPath>
+      </defs>
+      <rect x="0" y="0" width="480" height="340" fill="none"/>
+      <g>
+        <circle cx="190" cy="160" r="102" fill="${mutedFill}" opacity="0.55"/>
+        <circle cx="290" cy="160" r="102" fill="${mutedFill}" opacity="0.55"/>
+        ${highlight}
+        <circle cx="190" cy="160" r="102" fill="none" stroke="${leftColor}" stroke-width="7"/>
+        <circle cx="290" cy="160" r="102" fill="none" stroke="${rightColor}" stroke-width="7"/>
+      </g>
+      <text x="144" y="36" font-family="Aptos, Arial, sans-serif" font-size="20" font-weight="700" text-anchor="middle" fill="${leftColor}">${leftLabel}</text>
+      <text x="336" y="36" font-family="Aptos, Arial, sans-serif" font-size="20" font-weight="700" text-anchor="middle" fill="${rightColor}">${rightLabel}</text>
+      <text x="240" y="292" font-family="Aptos, Arial, sans-serif" font-size="22" font-weight="800" text-anchor="middle" fill="${inkColor}">${result}</text>
+    </svg>
+  `);
+}
 
 /**
  * addServerCycle - Visualiza los 4 pasos internos de un servidor al recibir una petición.
@@ -386,6 +494,124 @@ function addErRelationship(slide, SH, opts = {}) {
       x: round(midX - 0.5), y: round(startY - 0.25), w: 1.0, h: 0.2,
       fontFace: TYPOGRAPHY.body, fontSize: 8, bold: true, color: color, align: "center", valign: "mid",
       fill: { color: TOKENS.white }
+    });
+  }
+}
+
+/**
+ * addJoinSetDiagram - Diagrama compacto de conjuntos para explicar joins.
+ */
+function addJoinSetDiagram(slide, SH, opts = {}) {
+  const x = opts.x || 0.88;
+  const y = opts.y || 1.8;
+  const w = opts.w || 5.2;
+  const h = opts.h || 4.2;
+  const type = opts.type || "inner";
+  const leftLabel = opts.leftLabel || "Tabla A";
+  const rightLabel = opts.rightLabel || "Tabla B";
+  const title = opts.title || "Lectura visual del JOIN";
+  const copy = joinTypeCopy(type, leftLabel, rightLabel);
+  const headerH = opts.title === false ? 0 : 0.52;
+  const footerH = opts.caption === false ? 0 : 0.58;
+  const pad = opts.pad || 0.16;
+  const badgeW = Math.min(1.42, Math.max(1.08, w * 0.22));
+  const badgeX = x + w - pad - badgeW;
+
+  slide.addShape(SH.roundRect, {
+    x,
+    y,
+    w,
+    h,
+    rectRadius: 0.04,
+    fill: { color: opts.fill || TOKENS.white },
+    line: { color: opts.line || TOKENS.border, pt: 1 },
+  });
+
+  if (headerH > 0) {
+    slide.addShape(SH.roundRect, {
+      x: x + pad,
+      y: y + pad,
+      w: w - pad * 2,
+      h: 0.36,
+      rectRadius: 0.03,
+      fill: { color: opts.headerFill || TOKENS.softNeutral },
+      line: { color: opts.headerFill || TOKENS.softNeutral },
+    });
+    slide.addText(title, {
+      x: x + pad + 0.12,
+      y: y + pad + 0.09,
+      w: w - pad * 2 - badgeW - 0.24,
+      h: 0.12,
+      fontFace: TYPOGRAPHY.display,
+      fontSize: opts.titleFontSize || 10.6,
+      bold: true,
+      color: TOKENS.navy,
+      margin: 0,
+      fit: "shrink",
+    });
+    slide.addShape(SH.roundRect, {
+      x: badgeX,
+      y: y + pad + 0.06,
+      w: badgeW,
+      h: 0.24,
+      rectRadius: 0.03,
+      fill: { color: opts.badgeFill || TOKENS.navy },
+      line: { color: opts.badgeFill || TOKENS.navy },
+    });
+    slide.addText(opts.badge || copy.badge, {
+      x: badgeX + 0.06,
+      y: y + pad + 0.13,
+      w: badgeW - 0.12,
+      h: 0.08,
+      fontFace: TYPOGRAPHY.body,
+      fontSize: opts.badgeFontSize || 7.4,
+      bold: true,
+      color: TOKENS.white,
+      align: "center",
+      margin: 0,
+      fit: "shrink",
+    });
+  }
+
+  const diagramX = x + pad;
+  const diagramY = y + pad + headerH;
+  const diagramW = w - pad * 2;
+  const diagramH = Math.max(1.1, h - pad * 2 - headerH - footerH);
+  const imageH = Math.min(diagramH, diagramW * 0.72);
+  const imageW = Math.min(diagramW, imageH * (480 / 340));
+  const imageX = diagramX + (diagramW - imageW) / 2;
+  const imageY = diagramY + (diagramH - imageH) / 2;
+
+  slide.addImage({
+    data: joinDiagramSvg({
+      type,
+      leftLabel,
+      rightLabel,
+      result: opts.result,
+      leftColor: opts.leftColor,
+      rightColor: opts.rightColor,
+      highlightColor: opts.highlightColor,
+      paperColor: opts.diagramFill || TOKENS.paper,
+    }),
+    x: imageX,
+    y: imageY,
+    w: imageW,
+    h: imageH,
+  });
+
+  if (footerH > 0) {
+    slide.addText(opts.caption || copy.result, {
+      x: x + pad + 0.08,
+      y: y + h - pad - 0.36,
+      w: w - pad * 2 - 0.16,
+      h: 0.28,
+      fontFace: TYPOGRAPHY.body,
+      fontSize: opts.captionFontSize || 8.8,
+      color: TOKENS.slate,
+      align: "center",
+      valign: "mid",
+      margin: 0,
+      fit: "shrink",
     });
   }
 }
@@ -999,4 +1225,5 @@ module.exports = {
   addErRelationship,
   addSupabaseProjectSetupPanel,
   addSupabaseTableEditorPanel,
+  addJoinSetDiagram,
 };

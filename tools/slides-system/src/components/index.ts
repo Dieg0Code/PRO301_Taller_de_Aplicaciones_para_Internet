@@ -84,6 +84,7 @@ import type {
   RestResourceOptions,
   LayerStackOptions,
   TableSchemaOptions,
+  JoinSetDiagramOptions,
   ErRelationshipOptions,
   SupabaseProjectSetupPanelOptions,
   SupabaseTableEditorPanelOptions,
@@ -425,6 +426,7 @@ type BackendPanelExports = {
   addRestResource: (slide: SlideLike, SH: ShapeCatalog, opts: RestResourceOptions) => void;
   addLayerStack: (slide: SlideLike, SH: ShapeCatalog, opts: LayerStackOptions) => void;
   addTableSchema: (slide: SlideLike, SH: ShapeCatalog, opts: TableSchemaOptions) => void;
+  addJoinSetDiagram: (slide: SlideLike, SH: ShapeCatalog, opts: JoinSetDiagramOptions) => void;
   addErRelationship: (slide: SlideLike, SH: ShapeCatalog, opts: ErRelationshipOptions) => void;
   addSupabaseProjectSetupPanel: (
     slide: SlideLike,
@@ -533,6 +535,7 @@ export const addServerCycle = backendPanels.addServerCycle;
 export const addRestResource = backendPanels.addRestResource;
 export const addLayerStack = backendPanels.addLayerStack;
 export const addTableSchema = backendPanels.addTableSchema;
+export const addJoinSetDiagram = backendPanels.addJoinSetDiagram;
 export const addErRelationship = backendPanels.addErRelationship;
 export const addSupabaseProjectSetupPanel = backendPanels.addSupabaseProjectSetupPanel;
 export const addSupabaseTableEditorPanel = backendPanels.addSupabaseTableEditorPanel;

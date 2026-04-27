@@ -1094,6 +1094,30 @@ export interface TableSchemaOptions extends PositionedBox {
   columns?: TableSchemaColumn[];
 }
 
+export type JoinSetDiagramType = "inner" | "left" | "right" | "full" | "leftOnly" | "rightOnly";
+
+export interface JoinSetDiagramOptions extends PositionedBox {
+  type?: JoinSetDiagramType;
+  title?: string | false;
+  leftLabel?: string;
+  rightLabel?: string;
+  badge?: string;
+  result?: string;
+  caption?: string | false;
+  fill?: string;
+  line?: string;
+  headerFill?: string;
+  badgeFill?: string;
+  leftColor?: string;
+  rightColor?: string;
+  highlightColor?: string;
+  diagramFill?: string;
+  pad?: number;
+  titleFontSize?: number;
+  badgeFontSize?: number;
+  captionFontSize?: number;
+}
+
 export interface SupabaseProjectSetupPanelOptions extends PositionedBox {
   title?: string;
   leftW?: number;
