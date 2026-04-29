@@ -29,7 +29,7 @@ applyAiepTheme(pptx, {
 
 const SH = pptx.ShapeType;
 const rootDir = path.resolve(__dirname, "..");
-const outputPptx = path.join(rootDir, "Clase-22-SQL-Intermedio-parcial.pptx");
+const outputPptx = path.join(rootDir, "Clase-22-SQL-Intermedio.pptx");
 
 const logoPath = path.resolve(__dirname, "../../../../../.agent/skills/slides-aiep/assets/logo-aiep.png");
 const logoMarkPath = path.resolve(__dirname, "../../../../../.agent/skills/slides-aiep/assets/logo-aiep-mark.png");
@@ -2432,6 +2432,154 @@ function createBlock4QuestionsSlide() {
   validateSlide(slide, pptx);
 }
 
+function createClosingOpeningSlide() {
+  const slide = pptx.addSlide();
+  slide.background = { color: C.navy };
+  addBarsMotif(slide, 0.88, 1.64, 1.1, C.red);
+  slide.addText("Cierre:\nconsultar datos conectados con criterio", {
+    x: 0.88, y: 2.44, w: 10.9, h: 1.46,
+    fontFace: TYPOGRAPHY.display, fontSize: 33.5, bold: true, color: C.white,
+    margin: 0,
+    fit: "shrink",
+  });
+  slide.addText("SQL intermedio no consiste en escribir consultas más largas, sino en formular mejores preguntas.", {
+    x: 0.88, y: 4.38, w: 10.6, h: 0.34,
+    fontFace: TYPOGRAPHY.body, fontSize: 16.4, bold: true, color: C.gold,
+    margin: 0,
+    fit: "shrink",
+  });
+  slide.addShape(SH.roundRect, {
+    x: 0.88, y: 5.36, w: 10.2, h: 0.72,
+    rectRadius: 0.05,
+    fill: { color: C.red },
+    line: { color: C.red },
+  });
+  slide.addText("Relaciones, JOINs, agregaciones, normalización, backend, seguridad y agentes forman un mismo flujo.", {
+    x: 1.12, y: 5.58, w: 9.72, h: 0.24,
+    fontFace: TYPOGRAPHY.display, fontSize: 15.5, bold: true, color: C.white,
+    margin: 0,
+    fit: "shrink",
+  });
+  validateSlide(slide, pptx);
+}
+
+function createFinalSynthesisSlide() {
+  const slide = pptx.addSlide();
+  addHeader(slide, "Síntesis Final", "De una tabla aislada a datos conectados para aplicaciones", "Cierre");
+  const items = [
+    { title: "Relaciones", body: "PK, FK y cardinalidad dan estructura al dato.", accent: C.navy },
+    { title: "JOINs", body: "Reconstruyen información conectada sin duplicar todo.", accent: C.red },
+    { title: "Agregaciones", body: "Convierten filas en indicadores útiles.", accent: C.gold },
+    { title: "Normalización", body: "Reduce contradicciones y modelos difíciles de mantener.", accent: C.navy },
+    { title: "Seguridad", body: "Combinar tablas exige alcance, parámetros y exposición mínima.", accent: C.red },
+    { title: "Agentes", body: "Ayudan a proponer y revisar; el criterio humano valida.", accent: C.gold },
+  ];
+  items.forEach((item, i) => {
+    addMiniCard(slide, SH, {
+      x: 0.88 + (i % 3) * 3.55, y: 2.06 + Math.floor(i / 3) * 1.9,
+      w: 3.16, h: 1.4,
+      title: item.title,
+      body: item.body,
+      accent: item.accent,
+      titleFontSize: 11.8,
+      bodyFontSize: 9.0,
+    });
+  });
+  validateSlide(slide, pptx);
+}
+
+function createSqlIntermediateChecklistSlide() {
+  const slide = pptx.addSlide();
+  addHeader(slide, "Checklist De Consulta SQL Intermedia", "Antes de dar una consulta por buena", "Cierre");
+  const checks = [
+    "¿Qué pregunta de aplicación responde?",
+    "¿Qué tablas realmente necesita?",
+    "¿Los JOIN usan claves correctas?",
+    "¿Las columnas son explícitas y necesarias?",
+    "¿Existe filtro por usuario, rol o alcance?",
+    "¿Los valores variables están parametrizados?",
+    "¿Las agregaciones no duplican resultados?",
+    "¿El resultado sirve a la pantalla o endpoint?",
+  ];
+  checks.forEach((text, i) => {
+    const col = i % 2;
+    const row = Math.floor(i / 2);
+    addMiniCard(slide, SH, {
+      x: 0.88 + col * 5.38, y: 2.0 + row * 1.12,
+      w: 4.92, h: 0.84,
+      title: `${String(i + 1).padStart(2, "0")}`,
+      body: text,
+      accent: [C.navy, C.red, C.gold, C.navy][i % 4],
+      titleFontSize: 10.2,
+      bodyFontSize: 8.8,
+    });
+  });
+  validateSlide(slide, pptx);
+}
+
+function createExitQuestionsSlide() {
+  const slide = pptx.addSlide();
+  addHeader(slide, "Preguntas De Salida", "Para comprobar criterio antes de cerrar", "Cierre");
+  const questions = [
+    "¿Por qué una relación 1:N puede repetir datos en un JOIN sin que sea error?",
+    "¿Cuándo usarías LEFT JOIN en vez de INNER JOIN?",
+    "¿Qué diferencia práctica existe entre WHERE y HAVING?",
+    "¿Por qué una consulta agregada también puede exponer información sensible?",
+    "¿Qué debes verificar si un agente propone una consulta SQL con varias tablas?",
+  ];
+  questions.forEach((question, i) => {
+    slide.addShape(SH.rect, {
+      x: 0.92,
+      y: 2.0 + i * 0.88,
+      w: 0.12,
+      h: 0.58,
+      fill: { color: [C.navy, C.red, C.gold, C.navy, C.red][i] },
+      line: { color: [C.navy, C.red, C.gold, C.navy, C.red][i] },
+    });
+    slide.addText(String(i + 1).padStart(2, "0"), {
+      x: 1.22, y: 2.08 + i * 0.88, w: 0.42, h: 0.18,
+      fontFace: TYPOGRAPHY.display, fontSize: 11.4, bold: true,
+      color: [C.navy, C.red, C.gold, C.navy, C.red][i],
+      margin: 0,
+    });
+    slide.addText(question, {
+      x: 1.78, y: 2.02 + i * 0.88, w: 9.8, h: 0.34,
+      fontFace: TYPOGRAPHY.display, fontSize: 13.0, bold: true,
+      color: C.navy,
+      margin: 0,
+      fit: "shrink",
+    });
+  });
+  validateSlide(slide, pptx);
+}
+
+function createNextClassBridgeSlide() {
+  const slide = pptx.addSlide();
+  addHeader(slide, "Próximo Paso", "De datos relacionales a fundamentos de deep learning", "Cierre");
+  addCard(slide, SH, {
+    x: 0.88, y: 2.04, w: 3.32, h: 3.1,
+    title: "Hoy",
+    body: "Ordenamos, relacionamos, agregamos y protegimos datos estructurados.",
+    accent: C.navy,
+  });
+  addCard(slide, SH, {
+    x: 4.7, y: 2.04, w: 3.32, h: 3.1,
+    title: "Puente",
+    body: "Todo sistema inteligente depende de datos, representación, patrones y validación.",
+    accent: C.red,
+  });
+  addCard(slide, SH, {
+    x: 8.52, y: 2.04, w: 3.32, h: 3.1,
+    title: "Siguiente clase",
+    body: "Entraremos a fundamentos de deep learning sin abandonar el criterio técnico.",
+    accent: C.gold,
+  });
+  addStatementBand(slide, "Antes de hablar de modelos, hay que saber mirar los datos que alimentan esos modelos.", {
+    y: 6.02, fill: C.navy, fontSize: 14.4,
+  });
+  validateSlide(slide, pptx);
+}
+
 function buildDeck() {
   createCoverSlide();
   createWeekBridgeSlide();
@@ -2504,6 +2652,11 @@ function buildDeck() {
   createAgentBackendReviewSlide();
   createBlock4SynthesisSlide();
   createBlock4QuestionsSlide();
+  createClosingOpeningSlide();
+  createFinalSynthesisSlide();
+  createSqlIntermediateChecklistSlide();
+  createExitQuestionsSlide();
+  createNextClassBridgeSlide();
 }
 
 buildDeck();
@@ -2511,7 +2664,7 @@ buildDeck();
 pptx
   .writeFile({ fileName: outputPptx })
   .then(() => {
-    console.log(`Deck parcial generado: ${outputPptx}`);
+    console.log(`Deck generado: ${outputPptx}`);
   })
   .catch((error) => {
     console.error(error);
