@@ -12,4 +12,5 @@ module.exports = {
   ...require("./agentic-panels"),
   ...require("./async-panels"),
   ...require("./backend-panels"),
+  ...require("./ai-panels"),
 };
