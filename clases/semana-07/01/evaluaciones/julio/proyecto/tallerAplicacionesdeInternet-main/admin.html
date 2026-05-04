@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta
+    name="description"
+    content="Panel de administracion para gestionar reservas de la Veterinaria San Francisco."
+  >
+  <title>Administrador | Veterinaria San Francisco</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap"
+    rel="stylesheet"
+  >
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body class="admin-body">
+  <header class="site-header">
+    <div class="container">
+      <nav class="navbar" aria-label="Navegacion principal">
+        <a class="brand" href="/">
+          <img
+            class="brand-logo"
+            src="assets/logo-veterinaria.avif"
+            alt="Logo de la Veterinaria San Francisco"
+          >
+          <span class="brand-text">
+            <strong>Veterinaria San Francisco</strong>
+            <small>Panel de administracion</small>
+          </span>
+        </a>
+        <a class="nav-cta" href="/">Volver al sitio</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="admin-page">
+    <section class="admin-shell container">
+      <article class="admin-auth-card" data-admin-auth>
+        <p class="eyebrow">Acceso protegido</p>
+        <h1>Ingreso de administrador</h1>
+        <p class="hero-text">
+          Inicia sesion para revisar las reservas agendadas y el estado actual de la agenda.
+        </p>
+
+        <form class="admin-login-form">
+          <div class="form-group">
+            <label for="admin-username">Usuario</label>
+            <input id="admin-username" name="username" type="text" placeholder="Administrador" required>
+          </div>
+
+          <div class="form-group">
+            <label for="admin-password">Contrasena</label>
+            <input id="admin-password" name="password" type="password" placeholder="Ingresa tu contrasena" required>
+          </div>
+
+          <button class="button button-primary button-full" type="submit">Ingresar</button>
+          <p class="form-status" data-admin-auth-status aria-live="polite"></p>
+        </form>
+      </article>
+
+      <section class="admin-dashboard" data-admin-dashboard hidden>
+        <div class="admin-dashboard__header">
+          <div>
+            <p class="eyebrow">Reservas agendadas</p>
+            <h1>Agenda del centro veterinario</h1>
+            <p class="hero-text" data-admin-welcome></p>
+          </div>
+          <div class="admin-dashboard__actions">
+            <button class="button button-secondary" type="button" data-admin-refresh>Actualizar</button>
+            <button class="button button-primary" type="button" data-admin-logout>Cerrar sesion</button>
+          </div>
+        </div>
+
+        <div class="admin-summary-card">
+          <strong data-admin-count>0 reservas</strong>
+          <span>Listado de reservas pendientes y confirmadas.</span>
+        </div>
+
+        <p class="form-status" data-admin-table-status aria-live="polite"></p>
+
+        <div class="admin-table-wrapper">
+          <table class="admin-table">
+            <thead>
+              <tr>
+                <th>Fecha</th>
+                <th>Hora</th>
+                <th>Servicio</th>
+                <th>Tutor</th>
+                <th>Mascota</th>
+                <th>Telefono</th>
+                <th>Estado</th>
+                <th>Accion</th>
+              </tr>
+            </thead>
+            <tbody data-admin-bookings-body>
+              <tr>
+                <td colspan="8">Inicia sesion para cargar las reservas.</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+    </section>
+  </main>
+
+  <script src="admin.js"></script>
+</body>
+</html>

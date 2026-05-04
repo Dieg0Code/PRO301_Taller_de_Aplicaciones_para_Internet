@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>IndieCorner | Panel</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header class="hero">
+    <div class="hero__content">
+      <p class="eyebrow">IndieCorner</p>
+      <h1>Panel de catalogo y pedidos</h1>
+      <p class="hero__text">
+        Administra productos, registra pedidos manuales y cambia su estado desde una sola vista.
+      </p>
+    </div>
+  </header>
+
+  <main class="app-shell">
+    <nav class="section-tabs" aria-label="Secciones del panel">
+      <button type="button" class="tab-button is-active" data-tab-target="catalogo">Catalogo</button>
+      <button type="button" class="tab-button" data-tab-target="pedidos">Pedidos</button>
+    </nav>
+
+    <section id="tab-catalogo" class="tab-panel is-active">
+      <div class="layout layout--single">
+        <section class="panel">
+          <div class="section-heading">
+            <p class="section-label">Catalogo</p>
+            <h2>Agregar o editar producto</h2>
+          </div>
+
+          <form id="producto-form" class="stack">
+            <input type="hidden" name="id">
+
+            <label>
+              Nombre
+              <input type="text" name="nombre" placeholder="Ejemplo: Figura Celeste" required>
+            </label>
+
+            <label>
+              Descripcion
+              <textarea name="descripcion" rows="3" placeholder="Detalle breve del producto"></textarea>
+            </label>
+
+            <div class="form-grid">
+              <label>
+                Precio
+                <input type="number" name="precio" min="0" step="0.01" value="0" required>
+              </label>
+
+              <label>
+                Stock
+                <input type="number" name="stock" min="0" step="1" value="0" required>
+              </label>
+            </div>
+
+            <div class="form-actions">
+              <button type="submit" class="button-primary">Guardar producto</button>
+              <button id="cancel-product-edit" type="button" class="button-secondary" hidden>Cancelar edicion</button>
+            </div>
+
+            <p id="producto-message" class="feedback" aria-live="polite"></p>
+          </form>
+        </section>
+
+        <section class="panel">
+          <div class="section-heading section-heading--row">
+            <div>
+              <p class="section-label">Catalogo</p>
+              <h2>Productos cargados</h2>
+            </div>
+            <button id="reload-products" type="button" class="button-secondary">Actualizar</button>
+          </div>
+
+          <div id="products-state" class="feedback feedback--soft">Cargando productos...</div>
+          <ul id="products-list" class="card-list"></ul>
+        </section>
+      </div>
+    </section>
+
+    <section id="tab-pedidos" class="tab-panel">
+      <div class="layout">
+        <section class="panel">
+          <div class="section-heading">
+            <p class="section-label">Pedidos</p>
+            <h2>Ingresar pedido manual</h2>
+          </div>
+
+          <form id="pedido-form" class="stack">
+            <label>
+              Cliente
+              <input type="text" name="cliente" placeholder="Ejemplo: Ana Torres" required>
+            </label>
+
+            <label>
+              Correo
+              <input type="email" name="email" placeholder="ana@email.com" required>
+            </label>
+
+            <label>
+              Producto
+              <select name="producto_id" required>
+                <option value="">Selecciona un producto del catalogo</option>
+              </select>
+            </label>
+
+            <div class="form-grid">
+              <label>
+                Cantidad
+                <input type="number" name="cantidad" min="1" step="1" value="1" required>
+              </label>
+
+              <label>
+                Fecha de retiro
+                <input type="date" name="fecha_retiro" required>
+              </label>
+            </div>
+
+            <label>
+              Estado
+              <select name="estado" required>
+                <option value="pendiente">Pendiente</option>
+                <option value="confirmado">Confirmado</option>
+                <option value="listo para retiro">Listo para retiro</option>
+                <option value="entregado">Entregado</option>
+                <option value="cancelado">Cancelado</option>
+              </select>
+            </label>
+
+            <button type="submit" class="button-primary">Guardar pedido</button>
+            <p id="pedido-message" class="feedback" aria-live="polite"></p>
+          </form>
+        </section>
+
+        <section class="panel">
+          <div class="section-heading section-heading--row">
+            <div>
+              <p class="section-label">Pedidos</p>
+              <h2>Pedidos guardados</h2>
+            </div>
+            <button id="reload-orders" type="button" class="button-secondary">Actualizar</button>
+          </div>
+
+          <div id="orders-state" class="feedback feedback--soft">Cargando pedidos...</div>
+          <ul id="orders-list" class="card-list"></ul>
+        </section>
+      </div>
+    </section>
+  </main>
+
+  <script src="app.js"></script>
+</body>
+</html>

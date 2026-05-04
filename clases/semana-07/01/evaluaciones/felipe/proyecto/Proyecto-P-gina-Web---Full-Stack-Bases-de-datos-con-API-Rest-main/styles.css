@@ -1,0 +1,7330 @@
+/*
+================================================================================
+VARIABLES CSS PARA ASSETS Y COLORES PUROS NEÓN
+================================================================================
+*/
+:root {
+  --background-fixed-url: url("assets/asset-background.png");
+  --color-primary: #ffcb05;
+  --color-dark: #1b1734;
+  --color-white: #ffffff;
+  --color-gray-light: #e0e0e0;
+  --color-gray-dark: #2a2538;
+
+  --font-primary: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Helvetica Neue', sans-serif;
+  --font-size-sm: 0.875rem;
+  --font-size-base: 1rem;
+  --font-size-lg: 1.125rem;
+
+  --sobre-a-url: url("assets/booster_pks/Sobre_A.png");
+  --sobre-b-url: url("assets/booster_pks/Sobre_B.png");
+  --sobre-c-url: url("assets/booster_pks/Sobre_C.png");
+
+  --carta-a1-url: url("assets/cards/Carta_A1.png");
+  --carta-a2-url: url("assets/cards/Carta_A2.png");
+  --carta-a3-url: url("assets/cards/Carta_A3.png");
+  --carta-a4-url: url("assets/cards/Carta_A4.png");
+
+  --carta-b1-url: url("assets/cards/Carta_B1.png");
+  --carta-b2-url: url("assets/cards/Carta_B2.png");
+  --carta-b3-url: url("assets/cards/Carta_B3.png");
+  --carta-b4-url: url("assets/cards/Carta_B4.png");
+
+  --carta-c1-url: url("assets/cards/Carta_C1.png");
+  --carta-c2-url: url("assets/cards/Carta_C2.png");
+  --carta-c3-url: url("assets/cards/Carta_C3.png");
+  --carta-c4-url: url("assets/cards/Carta_C4.png");
+
+  --neon-green-rgb: 57, 255, 20;
+  --neon-purple-rgb: 188, 19, 254;
+
+  --holo-gradient-cards: linear-gradient(110deg,
+      rgba(var(--neon-green-rgb), 0.45) 0%,
+      rgba(var(--neon-purple-rgb), 0.45) 25%,
+      rgba(var(--neon-green-rgb), 0.45) 50%,
+      rgba(var(--neon-purple-rgb), 0.45) 75%,
+      rgba(var(--neon-green-rgb), 0.45) 100%);
+}
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700&display=swap');
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: var(--font-primary);
+  font-size: var(--font-size-base);
+  line-height: 1.5;
+  font-weight: 400;
+  overflow-x: hidden;
+  background-color: var(--color-dark);
+  color: var(--color-white);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+input[type="radio"] {
+  display: none;
+}
+
+body:has(input[name="app-state"]:not(#state-home):checked),
+body:has(input[name="footer-state"]:not(#footer-none):checked) {
+  overflow: hidden;
+}
+
+/* ================================================================================
+COMPONENTES OFICIALES (TOP NAV & SIDEBAR)
+================================================================================ */
+
+.official-top-nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background-color: var(--color-white);
+  z-index: 1000;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.4);
+  /* Añadimos transform a la transición para que suba y baje suavemente */
+  transition: opacity 0.4s ease, transform 0.4s ease;
+  animation: fadeOutNavOnScroll linear forwards;
+  animation-timeline: scroll(root);
+}
+
+@keyframes fadeOutNavOnScroll {
+
+  0%,
+  2% {
+    opacity: 1;
+    transform: translateY(0);
+    pointer-events: auto;
+  }
+
+  15%,
+  100% {
+    opacity: 0;
+    transform: translateY(-100%);
+    pointer-events: none;
+    visibility: hidden;
+  }
+}
+
+.nav-logo-link {
+  position: absolute;
+  left: 2vw;
+  display: flex;
+  align-items: center;
+  z-index: 10;
+}
+
+.nav-logo {
+  height: 45px;
+  width: auto;
+  transition: transform 0.3s ease;
+}
+
+.nav-logo:hover {
+  transform: scale(1.05);
+}
+
+.menu-toggle-checkbox,
+.menu-toggle-label {
+  display: none;
+}
+
+.main-menu {
+  display: flex;
+  list-style: none;
+  height: 75px;
+}
+
+.menu-item {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  width: 150px;
+  height: 100%;
+  padding: 0 15px;
+  text-decoration: none;
+  color: #4a4a4a;
+  font-weight: 700;
+  font-size: 0.8rem;
+  border-bottom: 6px solid transparent;
+  border-right: 1px solid #e0e0e0;
+  transition: all 0.2s ease;
+  background-color: var(--color-white);
+}
+
+.main-menu li:first-child .menu-item {
+  border-left: 1px solid #e0e0e0;
+}
+
+.menu-item:hover {
+  background-color: #f2f2f2;
+  color: var(--color-dark);
+}
+
+.menu-item.inicio {
+  border-bottom-color: #919191;
+}
+
+.menu-item.pokedex {
+  border-bottom-color: #e3350d;
+}
+
+.menu-item.videojuegos {
+  border-bottom-color: #e67e22;
+}
+
+.menu-item.eventos {
+  border-bottom-color: #3498db;
+}
+
+.menu-item.noticias {
+  border-bottom-color: #1b53ba;
+}
+
+.official-side-nav {
+  position: fixed;
+  top: 15vh;
+  left: 0;
+  z-index: 1000;
+  display: flex;
+  flex-direction: column;
+  transition: opacity 0.3s ease;
+}
+
+body:has(#menu-toggle:checked) .official-side-nav {
+  opacity: 0;
+  pointer-events: none;
+}
+
+.btn-login {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 80px;
+  height: 110px;
+  background-color: #4dad5b;
+  color: var(--color-white);
+  text-decoration: none;
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-align: center;
+  padding: 10px 5px;
+  gap: 8px;
+  transition: background-color 0.2s;
+  box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.3);
+  cursor: pointer;
+}
+
+.btn-login:hover {
+  background-color: #3e8e49;
+}
+
+.btn-login.logged-in {
+  background-color: #3498db;
+  border-left: 4px solid #1b53ba;
+}
+
+.btn-login.logged-in:hover {
+  background-color: #2980b9;
+  filter: brightness(1.1);
+}
+
+.btn-search {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 80px;
+  height: 80px;
+  background-color: #30a7d7;
+  color: var(--color-white);
+  text-decoration: none;
+  transition: background-color 0.2s;
+  box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.3);
+}
+
+.btn-search:hover {
+  background-color: #268bb5;
+}
+
+/* ================================================================================
+SISTEMA DE ESTADOS PURE CSS Y CONSERVACIÓN DE SCROLL
+================================================================================ */
+.view-home {
+  display: block;
+  height: 150vh;
+  transition: opacity 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Separamos la lógica para que la barra superior se deslice hacia arriba */
+body:has(input[name="app-state"]:not(#state-home):checked) .view-home,
+body:has(input[name="app-state"]:not(#state-home):checked) .official-side-nav {
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.4s ease;
+}
+
+body:has(input[name="app-state"]:not(#state-home):checked) .official-top-nav {
+  opacity: 0 !important;
+  pointer-events: none !important;
+  transform: translateY(-100%) !important;
+  /* Esto hace que la barra suba y desaparezca */
+}
+
+.view-packs,
+.view-cards,
+.view-login,
+.view-register,
+.view-profile,
+.view-pokedex,
+.view-tcg-event {
+  display: none;
+  width: 100%;
+}
+
+#state-packs:checked~main .view-packs,
+#state-login:checked~main .view-login,
+#state-register:checked~main .view-register,
+#state-profile:checked~main .view-profile {
+  display: flex;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.9);
+  justify-content: center;
+  align-items: center;
+  z-index: 10;
+  animation: fadeIn 0.5s ease-out forwards;
+}
+
+#state-pack-a:checked~main .view-cards,
+#state-pack-b:checked~main .view-cards,
+#state-pack-c:checked~main .view-cards {
+  display: flex;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  justify-content: center;
+  align-items: center;
+  z-index: 20;
+  animation: fadeIn 0.5s ease-out forwards;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+/* ================================================================================
+VISTA 1: INICIO
+================================================================================ */
+.page-background-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  background-image: var(--background-fixed-url);
+  background-size: cover;
+  background-position: center;
+  z-index: 1;
+}
+
+.scroll-layer {
+  position: absolute;
+  height: 150vh;
+  width: 100%;
+  z-index: 2;
+}
+
+/* ================================================================================
+   NUEVOS ESTILOS DEL HERO (Layout 2 Columnas)
+================================================================================ */
+.hero-content-wrapper {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 15vw;
+  z-index: 3;
+  animation: fadeOutHeroOnScroll linear forwards;
+  animation-timeline: scroll(root);
+  padding: 0 5%;
+  transition: opacity 1s cubic-bezier(0.4, 0, 0.2, 1), transform 1s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* ================================================================================
+   ESTILOS Y ANIMACIÓN DEL LOGO PRINCIPAL (Aparece al bajar)
+================================================================================ */
+.hero-logo-wrapper {
+  position: fixed;
+  top: 15vh;
+  left: 0;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  z-index: 3;
+  opacity: 0;
+  animation: fadeLogoInOnScroll linear forwards;
+  animation-timeline: scroll(root);
+  transition: opacity 1.2s cubic-bezier(0.4, 0, 0.2, 1), transform 1.2s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.hero-logo {
+  width: 100%;
+  max-width: 350px;
+  height: auto;
+  display: block;
+}
+
+@keyframes fadeLogoInOnScroll {
+
+  0%,
+  40% {
+    opacity: 0;
+    transform: translateY(-20px);
+    pointer-events: none;
+  }
+
+  60%,
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+    pointer-events: auto;
+  }
+}
+
+@keyframes fadeOutHeroOnScroll {
+
+  0%,
+  15% {
+    opacity: 1;
+    transform: translateY(0);
+    pointer-events: auto;
+  }
+
+  70%,
+  100% {
+    opacity: 0;
+    transform: translateY(-40px);
+    pointer-events: none;
+  }
+}
+
+.hero-left-col {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+}
+
+.hero-logo-caja {
+  width: 100%;
+  max-width: 400px;
+  height: auto;
+  display: block;
+  opacity: 0;
+}
+
+#state-home:checked~main .hero-logo-caja {
+  animation: fadeInImage 1s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+  animation-delay: 0.2s;
+}
+
+.hero-badge {
+  width: 100%;
+  max-width: 250px;
+  height: auto;
+  display: block;
+  opacity: 0;
+}
+
+#state-home:checked~main .hero-badge {
+  animation: fadeInImage 1s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+  animation-delay: 0.4s;
+}
+
+.hero-right-col {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.hero-box-floating {
+  width: 100%;
+  max-width: 380px;
+  height: auto;
+  display: block;
+  transition: transform 0.3s ease, filter 0.3s ease;
+  opacity: 0;
+}
+
+#state-home:checked~main .hero-box-floating {
+  animation: fadeInImage 1.2s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+  animation-delay: 0.3s;
+}
+
+@keyframes fadeInImage {
+  from {
+    opacity: 0;
+    transform: translateY(15px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.hero-box-floating:hover {
+  transform: scale(1.05) translateY(-5px);
+  filter: drop-shadow(0 10px 15px rgba(255, 203, 5, 0.4));
+}
+
+@keyframes floatSlowBox {
+
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+
+  50% {
+    transform: translateY(20px);
+  }
+}
+
+.arrow-down-container {
+  position: fixed;
+  bottom: 8vh;
+  left: 0;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  z-index: 4;
+  opacity: 0;
+  animation: fadeArrowOnScroll linear forwards;
+  animation-timeline: scroll(root);
+}
+
+@keyframes fadeOnScroll {
+  0% {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+
+  30% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeArrowOnScroll {
+
+  0%,
+  80% {
+    opacity: 0;
+    visibility: hidden;
+  }
+
+  95%,
+  100% {
+    opacity: 1;
+    visibility: visible;
+  }
+}
+
+.arrow-action-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  cursor: pointer;
+  animation: bounceArrow 2s infinite ease-in-out;
+  gap: 5px;
+}
+
+.ver-sobres-img {
+  width: 100%;
+  max-width: 250px;
+  height: auto;
+}
+
+@keyframes bounceArrow {
+
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+
+  50% {
+    transform: translateY(10px);
+  }
+}
+
+.arrow-down-btn {
+  display: block;
+  width: 60px;
+  height: 60px;
+  position: relative;
+}
+
+.arrow-down-btn::before,
+.arrow-down-btn::after {
+  content: "";
+  position: absolute;
+  top: 30%;
+  left: 50%;
+  width: 20px;
+  height: 20px;
+  border-right: 4px solid #00bfff;
+  border-bottom: 4px solid #00bfff;
+  transform: translateX(-50%) rotate(45deg);
+  transition: all 0.3s;
+}
+
+.arrow-down-btn::after {
+  top: 45%;
+}
+
+.arrow-action-wrapper:hover .arrow-down-btn::before,
+.arrow-action-wrapper:hover .arrow-down-btn::after {
+  border-color: var(--color-white);
+}
+
+/* ================================================================================
+COMPONENTES COMUNES (Botones y Grids)
+================================================================================ */
+.nav-return-packs {
+  transition: opacity 0.4s ease;
+}
+
+.close-btn {
+  position: absolute;
+  top: 90px;
+  right: 22px;
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(12px);
+  color: var(--color-white);
+  padding: 12px 28px;
+  border-radius: 50px;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  cursor: pointer;
+  z-index: 30;
+  font-weight: 700;
+  font-size: 0.8rem;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  text-decoration: none;
+  font-family: var(--font-primary);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.close-btn::before {
+  content: '←';
+  font-size: 1.2rem;
+  line-height: 1;
+  transition: transform 0.3s ease;
+}
+
+.close-btn:hover {
+  background: var(--color-primary);
+  color: var(--color-dark);
+  border-color: var(--color-primary);
+  transform: translateY(-2px);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+  /* Bloom removido, sombra más discreta */
+}
+
+.close-btn:hover::before {
+  transform: translateX(-5px);
+}
+
+.packs-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 15px;
+  max-width: 900px;
+  width: 90%;
+  perspective: 1000px;
+  list-style: none;
+}
+
+.cards-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 15px;
+  max-width: 550px;
+  width: 90%;
+  perspective: 1000px;
+  z-index: 2;
+  list-style: none;
+}
+
+.cards-display-background {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.85);
+  z-index: 1;
+}
+
+/* ================================================================================
+FOOTER PRINCIPAL
+================================================================================ */
+.main-footer {
+  position: relative;
+  z-index: 5;
+  background-color: rgba(27, 23, 52, 0.95);
+  backdrop-filter: blur(10px);
+  border-top: 1px solid rgba(255, 203, 5, 0.2);
+  padding: 0.5rem 1.5rem;
+  margin-top: auto;
+}
+
+.footer-content {
+  max-width: 1400px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.copyright {
+  font-size: 0.7rem;
+  color: var(--color-gray-light);
+  opacity: 0.8;
+  letter-spacing: 0.3px;
+}
+
+.footer-nav {
+  display: flex;
+  gap: 1.25rem;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+}
+
+.footer-link {
+  color: var(--color-gray-light);
+  text-decoration: none;
+  font-size: 0.7rem;
+  transition: all 0.2s ease;
+  font-weight: 500;
+  letter-spacing: 0.3px;
+  cursor: pointer;
+}
+
+.footer-link:hover {
+  color: var(--color-primary);
+  text-decoration: underline;
+}
+
+body:has(#state-packs:checked) .main-footer,
+body:has(#state-pack-a:checked) .main-footer,
+body:has(#state-pack-b:checked) .main-footer,
+body:has(#state-pack-c:checked) .main-footer,
+body:has(#state-tcg-event:checked) .main-footer,
+body:has(#state-videojuegos:checked) .main-footer {
+  opacity: 0;
+  pointer-events: none;
+}
+
+/* ================================================================================
+SOBRES Y CARTAS
+================================================================================ */
+.pack,
+.card {
+  display: block;
+  position: relative;
+  transform-style: preserve-3d;
+}
+
+.pack {
+  cursor: pointer;
+  aspect-ratio: 780 / 1429;
+  max-width: 220px;
+  width: 100%;
+}
+
+.card {
+  aspect-ratio: 780 / 1100;
+  max-width: 200px;
+  width: 100%;
+  transition: all 0.6s cubic-bezier(0.25, 1, 0.5, 1);
+  z-index: 1;
+}
+
+.pack-inner,
+.card-inner {
+  width: 100%;
+  height: 100%;
+  border-radius: 10px;
+  transform-style: preserve-3d;
+  transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.7);
+}
+
+.pack img,
+.card-front,
+.card-back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  border-radius: 10px;
+  backface-visibility: hidden;
+  background-size: 100% 100%;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.pack img {
+  object-fit: fill;
+}
+
+.card-back {
+  background-image: url("assets/cards/Carta_Reverso.png");
+  transform: rotateY(180deg);
+}
+
+.card-front {
+  background-size: cover;
+  background-position: center;
+}
+
+.pack:hover .pack-inner,
+.card-label:hover .card .card-inner {
+  transform: scale(1.03) rotateY(5deg) rotateX(2deg);
+}
+
+.pack:active .pack-inner,
+.card-label:active .card .card-inner {
+  transform: scale(0.97) rotateY(-5deg) rotateX(-2deg);
+}
+
+/* Estado de interacción 3D via JS */
+.pack.is-pressed,
+.card.is-pressed {
+  cursor: grabbing !important;
+  z-index: 100 !important;
+}
+
+.pack.is-pressed .pack-inner,
+.card.is-pressed .card .card-inner,
+.card.is-pressed .card-inner {
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.8) !important;
+  transition: transform 0.1s ease-out !important;
+  /* El transform se maneja desde JS para permitir la rotación dinámica */
+}
+
+.pack.is-pressed .holo-gradient-layer {
+  opacity: 0 !important;
+}
+
+.card.is-pressed .holo-gradient-layer {
+  opacity: 1 !important;
+  transition: opacity 0.3s ease !important;
+}
+
+.holo-gradient-layer {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border-radius: 10px;
+  pointer-events: none;
+  mix-blend-mode: color-dodge;
+  filter: blur(15px);
+  background-size: 400% 400%;
+  background-position: 0% 50%;
+  opacity: 0;
+  transition: opacity 0.5s ease-in-out;
+}
+
+@keyframes holoNeonSweep {
+  0% {
+    background-position: 0% 50%;
+  }
+
+  50% {
+    background-position: 100% 50%;
+  }
+
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+.pack .holo-gradient-layer,
+.card .holo-gradient-layer {
+  background-image: none;
+  opacity: 0;
+  animation: none;
+}
+
+.view-cards .card-1 .holo-gradient-layer {
+  background-image: var(--holo-gradient-cards);
+  opacity: 1;
+  animation: holoNeonSweep 10s ease-in-out infinite;
+}
+
+#state-pack-a:checked~main .view-cards .card-1 .card-front {
+  background-image: var(--carta-a1-url);
+}
+
+#state-pack-a:checked~main .view-cards .card-2 .card-front {
+  background-image: var(--carta-a2-url);
+}
+
+#state-pack-a:checked~main .view-cards .card-3 .card-front {
+  background-image: var(--carta-a3-url);
+}
+
+#state-pack-a:checked~main .view-cards .card-4 .card-front {
+  background-image: var(--carta-a4-url);
+}
+
+#state-pack-b:checked~main .view-cards .card-1 .card-front {
+  background-image: var(--carta-b1-url);
+}
+
+#state-pack-b:checked~main .view-cards .card-2 .card-front {
+  background-image: var(--carta-b2-url);
+}
+
+#state-pack-b:checked~main .view-cards .card-3 .card-front {
+  background-image: var(--carta-b3-url);
+}
+
+#state-pack-b:checked~main .view-cards .card-4 .card-front {
+  background-image: var(--carta-b4-url);
+}
+
+#state-pack-c:checked~main .view-cards .card-1 .card-front {
+  background-image: var(--carta-c1-url);
+}
+
+#state-pack-c:checked~main .view-cards .card-2 .card-front {
+  background-image: var(--carta-c2-url);
+}
+
+#state-pack-c:checked~main .view-cards .card-3 .card-front {
+  background-image: var(--carta-c3-url);
+}
+
+#state-pack-c:checked~main .view-cards .card-4 .card-front {
+  background-image: var(--carta-c4-url);
+}
+
+/* SELECCIÓN DE CARTAS */
+body:has(input[name="card-state"]:not(#card-none):checked) .nav-return-packs {
+  opacity: 0;
+  pointer-events: none;
+}
+
+.card-label {
+  display: block;
+  width: 100%;
+  height: 100%;
+  cursor: pointer;
+  -webkit-tap-highlight-color: transparent;
+}
+
+/* Evitar que el label interfiera con el arrastre 3D cuando la carta ya está seleccionada */
+body:has(input[name="card-state"]:not(#card-none):checked) .card-label {
+  pointer-events: none;
+}
+
+body:has(input[name="card-state"]:not(#card-none):checked) .card {
+  pointer-events: auto !important;
+}
+
+.card-close-overlay {
+  display: none !important;
+  /* Desactivado por petición del usuario: solo se cierra con el botón */
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  z-index: 45;
+}
+
+body:has(input[name="card-state"]:not(#card-none):checked) .card-close-overlay {
+  display: block;
+}
+
+body:has(input[name="card-state"]:not(#card-none):checked) .cards-grid {
+  perspective: none;
+}
+
+body:has(input[name="card-state"]:not(#card-none):checked) .card-slot {
+  opacity: 0;
+  visibility: hidden;
+  filter: blur(8px);
+  pointer-events: none;
+  transition: all 0.5s ease;
+}
+
+body:has(#card-1-selected:checked) .slot-1,
+body:has(#card-2-selected:checked) .slot-2,
+body:has(#card-3-selected:checked) .slot-3,
+body:has(#card-4-selected:checked) .slot-4 {
+  opacity: 1 !important;
+  visibility: visible !important;
+  filter: none !important;
+  pointer-events: auto !important;
+  z-index: 60;
+}
+
+body:has(#card-1-selected:checked) .slot-1 .card,
+body:has(#card-2-selected:checked) .slot-2 .card,
+body:has(#card-3-selected:checked) .slot-3 .card,
+body:has(#card-4-selected:checked) .slot-4 .card {
+  position: fixed;
+  top: 55vh;
+  left: 35vw;
+  transform: translate(-50%, -50%) scale(1.6);
+  z-index: 60;
+}
+
+body:has(#card-1-selected:checked) .slot-1 .card .card-inner,
+body:has(#card-2-selected:checked) .slot-2 .card .card-inner,
+body:has(#card-3-selected:checked) .slot-3 .card .card-inner,
+body:has(#card-4-selected:checked) .slot-4 .card .card-inner {
+  /* Eliminado transform: none !important para permitir interacción JS */
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.9);
+  cursor: grab;
+  pointer-events: auto !important;
+  z-index: 100;
+  /* Asegura que esté sobre todo lo demás para la interacción */
+}
+
+.card-details {
+  position: fixed;
+  top: 55vh;
+  left: 52vw;
+  transform: translateY(-50%) translateX(60px);
+  width: 80%;
+  max-width: 450px;
+  background: rgba(27, 23, 52, 0.85);
+  backdrop-filter: blur(15px);
+  border: 1px solid rgba(255, 203, 5, 0.4);
+  padding: 2.5rem;
+  border-radius: 12px;
+  color: var(--color-white);
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.6s cubic-bezier(0.25, 1, 0.5, 1);
+  z-index: 50;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.8);
+}
+
+.card-details h2 {
+  color: var(--color-primary);
+  margin-bottom: 1rem;
+  font-size: var(--font-size-lg);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  border-bottom: 1px solid rgba(255, 203, 5, 0.3);
+  padding-bottom: 0.5rem;
+}
+
+.card-details p {
+  font-size: var(--font-size-sm);
+  color: var(--color-gray-light);
+  line-height: 1.7;
+  margin-bottom: 2rem;
+}
+
+.close-details-btn {
+  display: inline-block;
+  padding: 0.6rem 1.5rem;
+  background-color: transparent;
+  color: var(--color-white);
+  border: 1px solid var(--color-primary);
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: 600;
+  font-size: var(--font-size-sm);
+  transition: all 0.3s ease;
+  text-transform: uppercase;
+}
+
+.close-details-btn:hover {
+  background-color: var(--color-primary);
+  color: var(--color-dark);
+  box-shadow: 0 0 15px rgba(255, 203, 5, 0.5);
+}
+
+body:has(#card-1-selected:checked) .slot-1 .card-details,
+body:has(#card-2-selected:checked) .slot-2 .card-details,
+body:has(#card-3-selected:checked) .slot-3 .card-details,
+body:has(#card-4-selected:checked) .slot-4 .card-details {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(-50%) translateX(0);
+}
+
+/* ================================================================================
+GRID DEL FOOTER MODAL (Políticas, Términos, Contacto)
+================================================================================ */
+.view-footer-modal {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  justify-content: center;
+  align-items: center;
+  z-index: 2000;
+}
+
+body:has(input[name="footer-state"]:not(#footer-none):checked) .view-footer-modal {
+  display: flex;
+  animation: fadeIn 0.4s ease-out forwards;
+}
+
+.footer-modal-box {
+  background: rgba(27, 23, 52, 0.95);
+  backdrop-filter: blur(15px);
+  border: 1px solid rgba(255, 203, 5, 0.4);
+  padding: 3rem;
+  border-radius: 12px;
+  width: 90%;
+  max-width: 800px;
+  color: var(--color-white);
+  box-shadow: 0 10px 50px rgba(0, 0, 0, 0.9);
+  position: relative;
+  z-index: 50;
+}
+
+.footer-modal-box h2 {
+  color: var(--color-primary);
+  border-bottom: 2px solid rgba(255, 203, 5, 0.3);
+  padding-bottom: 1rem;
+  margin-bottom: 2rem;
+  text-transform: uppercase;
+  font-size: var(--font-size-lg);
+}
+
+.footer-grid-content {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2rem;
+}
+
+.footer-grid-content h3 {
+  font-size: 1rem;
+  color: var(--color-white);
+  margin-bottom: 0.5rem;
+}
+
+.footer-grid-content p {
+  font-size: 0.85rem;
+  color: var(--color-gray-light);
+  line-height: 1.6;
+}
+
+/* Lógica de pestañas del modal */
+.footer-info {
+  display: none;
+}
+
+#footer-terms:checked~main .view-footer-modal .content-terms,
+#footer-privacy:checked~main .view-footer-modal .content-privacy,
+#footer-contact:checked~main .view-footer-modal .content-contact {
+  display: block;
+}
+
+/* ================================================================================
+BOTÓN PARA ABRIR NOTICIAS (FLECHA IZQUIERDA)
+================================================================================ */
+.arrow-left-container {
+  position: fixed;
+  top: 50%;
+  right: 20px;
+  transform: translateY(-50%);
+  z-index: 1001;
+  /* Justo por encima de la barra de navegación */
+}
+
+/* ================================================================================
+BOTÓN PARA ABRIR NOTICIAS (FLECHA MIRANDO AL BORDE)
+================================================================================ */
+.arrow-action-wrapper-left {
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  animation: bounceArrowRight 2s infinite ease-in-out;
+  /* Cambiamos el nombre de la animación */
+  padding: 20px;
+}
+
+/* Clase para ocultar texto visualmente pero mantenerlo accesible */
+.sr-only {
+  position: absolute !important;
+  width: 1px !important;
+  height: 1px !important;
+  padding: 0 !important;
+  margin: -1px !important;
+  overflow: hidden !important;
+  clip: rect(0, 0, 0, 0) !important;
+  white-space: nowrap !important;
+  border: 0 !important;
+  color: #000 !important;
+  /* Requerimiento: Texto de color negro para el fondo elegido */
+}
+
+/* Estilos globales de foco */
+:focus-visible {
+  outline: 3px solid var(--color-primary);
+  outline-offset: 4px;
+  border-radius: 4px;
+}
+
+/* Ajustes específicos si el outline rompe la estética de las cartas */
+.card-label:focus-visible .card,
+.pack:focus-visible {
+  outline: 3px solid var(--color-primary);
+  outline-offset: 10px;
+}
+
+/* Ahora rebota hacia la derecha (hacia el borde) en lugar de la izquierda */
+@keyframes bounceArrowRight {
+
+  0%,
+  100% {
+    transform: translateX(0);
+  }
+
+  50% {
+    transform: translateX(10px);
+  }
+}
+
+.arrow-left-btn {
+  display: block;
+  width: 50px;
+  height: 50px;
+  position: relative;
+}
+
+/* Invertimos los bordes para que las flechas apunten hacia la derecha (>) */
+.arrow-left-btn::before,
+.arrow-left-btn::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  right: 20%;
+  width: 18px;
+  height: 18px;
+  border-top: 4px solid #00bfff;
+  /* Cambiado a top */
+  border-right: 4px solid #00bfff;
+  /* Cambiado a right */
+  border-left: none;
+  border-bottom: none;
+  transform: translateY(-50%) rotate(45deg);
+  transition: all 0.3s;
+}
+
+.arrow-left-btn::after {
+  right: 45%;
+}
+
+.arrow-action-wrapper-left:hover .arrow-left-btn::before,
+.arrow-action-wrapper-left:hover .arrow-left-btn::after {
+  border-color: var(--color-white);
+}
+
+/* ================================================================================
+VISTA DE NOTICIAS (SLIDE DESDE LA DERECHA)
+================================================================================ */
+.view-news {
+  display: flex;
+  position: fixed;
+  top: 0;
+  right: 0;
+  width: 100%;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.92);
+  backdrop-filter: blur(10px);
+  justify-content: center;
+  align-items: center;
+  z-index: 100;
+
+  /* Animación de entrada gradual */
+  transform: translateX(100%);
+  /* Fuera de la pantalla por la derecha */
+  visibility: hidden;
+  transition: transform 0.6s cubic-bezier(0.25, 1, 0.5, 1), visibility 0.6s;
+}
+
+#state-news:checked~main .view-news {
+  transform: translateX(0);
+  /* Se desliza hacia la izquierda ocupando la pantalla */
+  visibility: visible;
+}
+
+.news-content-wrapper {
+  position: relative;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* Grid dinámico que respeta las proporciones de las imágenes */
+.news-grid {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  /* Aproximadamente 574px vs 278px */
+  gap: 15px;
+  max-width: 900px;
+  width: 90%;
+  list-style: none;
+}
+
+.news-item {
+  overflow: hidden;
+  border-radius: 12px;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.6);
+  /* Sombra negra neutra */
+  transition: transform 0.3s ease;
+  /* Eliminamos la transición de sombra */
+  cursor: pointer;
+}
+
+.news-item img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.5s ease;
+}
+
+.news-item:hover {
+  transform: translateY(-5px);
+  /* Brillo dorado eliminado */
+}
+
+.news-item:hover img {
+  transform: scale(1.05);
+  /* Zoom interno suave */
+}
+
+/* Asignación de posiciones exactas y tamaños */
+.item-left {
+  grid-column: 1 / 2;
+  grid-row: 1 / 3;
+  aspect-ratio: 574 / 483;
+}
+
+.item-right-top {
+  grid-column: 2 / 3;
+  grid-row: 1 / 2;
+  aspect-ratio: 275 / 145;
+}
+
+.item-right-bottom {
+  grid-column: 2 / 3;
+  grid-row: 2 / 3;
+  aspect-ratio: 278 / 279;
+}
+
+.btn-close-news {
+  position: static;
+  margin-top: 40px;
+  display: inline-block;
+}
+
+/* ================================================================================
+   SECCIÓN COMUNIDAD DE ENTRENADORES
+================================================================================ */
+.community-preview {
+  position: fixed;
+  bottom: 5vh;
+  right: 2vw;
+  z-index: 5;
+  pointer-events: none;
+  transition: opacity 0.3s ease;
+  background: transparent !important;
+  border: none !important;
+  box-shadow: none !important;
+  padding: 0 !important;
+  margin: 0 !important;
+  backdrop-filter: none !important;
+}
+
+body:has(input[name="app-state"]:not(#state-home):checked) .community-preview {
+  display: none !important;
+}
+
+.community-container {
+  background: rgba(27, 23, 52, 0.88);
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 203, 5, 0.25);
+  border-radius: 14px;
+  padding: 1rem 1.2rem;
+  max-width: 280px;
+  pointer-events: auto;
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.4);
+}
+
+.community-container h3 {
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: #ffcb05;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin-bottom: 0.6rem;
+  border-bottom: 1px solid rgba(255, 203, 5, 0.2);
+  padding-bottom: 0.4rem;
+}
+
+.loading-text {
+  color: rgba(255, 255, 255, 0.5);
+  font-size: 0.8rem;
+  text-align: center;
+  padding: 0.5rem 0;
+}
+
+.community-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.78rem;
+}
+
+.community-table thead th {
+  color: rgba(255, 255, 255, 0.5);
+  font-weight: 600;
+  padding: 4px 6px;
+  text-align: left;
+  font-size: 0.72rem;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.community-table tbody tr {
+  border-top: 1px solid rgba(255, 255, 255, 0.06);
+  transition: background 0.2s ease;
+}
+
+.community-table tbody tr:hover {
+  background: rgba(255, 203, 5, 0.07);
+}
+
+.community-table tbody td {
+  padding: 5px 6px;
+  color: rgba(255, 255, 255, 0.82);
+}
+
+.community-table tbody td strong {
+  color: #fff;
+  font-weight: 600;
+}
+
+/* Botón hamburguesa para la comunidad - oculto en desktop */
+.community-toggle-checkbox,
+.btn-community-toggle {
+  display: none;
+}
+
+/* ================================================================================
+   VISTA POKÉDEX (Carrusel y Diseño Moderno)
+================================================================================ */
+#state-pokedex:checked~main .view-pokedex {
+  display: flex;
+  flex-direction: column;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  background-image: url("assets/poke_dx/Fondo_Poke_dx.png");
+  background-size: cover;
+  background-position: center;
+  background-color: rgba(0, 0, 0, 0.5);
+  /* Mucho más transparente para ver el fondo */
+  background-blend-mode: normal;
+  /* Cambiado de multiply para visibilidad total */
+  justify-content: flex-start;
+  align-items: center;
+  z-index: 40;
+  padding: 20px;
+  padding-top: 6vh;
+  /* Elevado para mayor visibilidad */
+  animation: fadeInPokedex 0.6s cubic-bezier(0.23, 1, 0.32, 1) forwards;
+}
+
+@keyframes fadeInPokedex {
+  from {
+    opacity: 0;
+    transform: scale(1.05);
+  }
+
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+.pokedex-header {
+  margin-top: 2rem;
+  margin-bottom: 3rem;
+  text-align: center;
+  z-index: 5;
+}
+
+.pokedex-header h2 {
+  font-size: 2.5rem;
+  font-weight: 800;
+  letter-spacing: 2px;
+  background: linear-gradient(to right, #ffcb05, #ffea70);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  text-transform: uppercase;
+  margin-bottom: 1rem;
+}
+
+.pokedex-controls {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 15px;
+  color: white;
+}
+
+.pokedex-controls label {
+  font-weight: 600;
+  color: #ffcb05;
+}
+
+select.modern-select {
+  background-color: #000 !important;
+  background: #000 !important;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  color: #fff !important;
+  padding: 8px 15px;
+  border-radius: 20px;
+  outline: none;
+  cursor: pointer;
+  font-family: var(--font-primary);
+  transition: all 0.3s ease;
+  appearance: none;
+  -webkit-appearance: none;
+}
+
+.modern-select option {
+  background-color: #000 !important;
+  background: #000 !important;
+  color: #fff !important;
+}
+
+.modern-select:hover {
+  background: rgba(255, 255, 255, 0.1);
+  border-color: #ffcb05;
+}
+
+.pokedex-carousel-wrapper {
+  position: relative;
+  width: 100%;
+  max-width: 1400px;
+  display: flex;
+  align-items: center;
+  z-index: 5;
+}
+
+.pokedex-carousel {
+  display: flex;
+  overflow-x: auto;
+  gap: 30px;
+  padding: 40px 20px;
+  scroll-behavior: smooth;
+  scrollbar-width: none;
+  /* Firefox */
+  -ms-overflow-style: none;
+  /* IE/Edge */
+}
+
+.pokedex-carousel::-webkit-scrollbar {
+  display: none;
+  /* Chrome/Safari */
+}
+
+.pokedex-card {
+  flex: 0 0 280px;
+  /* Reducido de 320px */
+  background: #000;
+  /* Fondo negro sólido como se pidió */
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 24px;
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  position: relative;
+  overflow: hidden;
+}
+
+.pokedex-card::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: radial-gradient(circle at center, rgba(255, 203, 5, 0.1) 0%, transparent 70%);
+  opacity: 0;
+  transition: opacity 0.4s ease;
+}
+
+.pokedex-card:hover {
+  transform: translateY(-15px) scale(1.02);
+  border-color: #ffcb05;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4), 0 0 20px rgba(255, 203, 5, 0.2);
+}
+
+.pokedex-card:hover::before {
+  opacity: 1;
+}
+
+.pk-img-container {
+  width: 150px;
+  height: 150px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 10px;
+  filter: drop-shadow(0 10px 15px rgba(0, 0, 0, 0.3));
+  transition: transform 0.4s ease;
+}
+
+.pokedex-card:hover .pk-img-container {
+  transform: scale(1.1);
+}
+
+.pk-img-container img {
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;
+}
+
+.pk-info {
+  text-align: center;
+  width: 100%;
+}
+
+.pk-number {
+  display: block;
+  font-size: 1rem;
+  color: #ffcb05;
+  font-weight: 700;
+  margin-bottom: 4px;
+  font-family: 'Courier New', Courier, monospace;
+}
+
+.pk-name {
+  font-size: 1.4rem;
+  font-weight: 800;
+  margin-bottom: 8px;
+  color: white;
+}
+
+.pk-type {
+  display: inline-block;
+  padding: 4px 16px;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 12px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: #e0e0e0;
+  margin-bottom: 12px;
+}
+
+.pk-lore {
+  font-size: 0.8rem;
+  color: rgba(255, 255, 255, 0.7);
+  line-height: 1.4;
+  margin-top: 5px;
+  opacity: 0;
+  transform: translateY(10px);
+  transition: all 0.4s ease;
+}
+
+.pokedex-card:hover .pk-lore {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ================================================================================
+   Responsive para Pokédex en móviles (Modo Horizontal / Landscape)
+   Soluciona el problema de descripción fuera de pantalla en S8+ y iPhone SE
+================================================================================ */
+@media screen and (max-height: 500px) and (orientation: landscape) {
+  .view-pokedex {
+    padding-top: 2vh !important;
+  }
+  
+  .pokedex-header {
+    margin-top: 0.5rem;
+    margin-bottom: 0.5rem;
+  }
+  
+  .pokedex-header h2 {
+    font-size: 1.5rem;
+    margin-bottom: 0.2rem;
+  }
+  
+  .pokedex-carousel {
+    padding: 10px 20px;
+    gap: 15px;
+  }
+  
+  .pokedex-card {
+    flex: 0 0 220px;
+    padding: 10px;
+  }
+  
+  .pk-img-container {
+    width: 90px;
+    height: 90px;
+    margin-bottom: 5px;
+  }
+  
+  .pk-name {
+    font-size: 1.1rem;
+    margin-bottom: 4px;
+  }
+  
+  .pk-type {
+    padding: 2px 10px;
+    margin-bottom: 4px;
+  }
+  
+  .pk-lore {
+    font-size: 0.75rem;
+    line-height: 1.2;
+    margin-top: 2px;
+  }
+  
+  /* Ajustes generales para landscape en móviles */
+  .hero-logo-caja {
+    max-width: 180px !important;
+  }
+  
+  .hero-badge {
+    max-width: 120px !important;
+  }
+  
+  .hero-left-col {
+    gap: 10px;
+  }
+  
+  .community-preview {
+    bottom: 65px !important;
+    left: 80px !important;
+    border-radius: 20px !important;
+  }
+  
+  .official-side-nav {
+    transform: scale(0.6) !important;
+  }
+}
+
+.carousel-nav {
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  color: white;
+  transition: all 0.3s ease;
+  flex-shrink: 0;
+}
+
+.carousel-nav svg {
+  width: 30px;
+  height: 30px;
+  fill: currentColor;
+}
+
+.carousel-nav:hover {
+  background: #ffcb05;
+  color: #1b1734;
+  transform: scale(1.1);
+}
+
+.pokedex-decor {
+  position: absolute;
+  width: 300px;
+  height: 300px;
+  background: url('data:image/svg+xml;utf8,<svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"><circle cx="50" cy="50" r="45" fill="none" stroke="white" stroke-width="0.5" stroke-dasharray="2 2" opacity="0.2"/></svg>');
+  background-size: contain;
+  opacity: 0.3;
+  pointer-events: none;
+}
+
+.decor-top {
+  top: -50px;
+  right: -50px;
+  animation: rotateDecor 20s linear infinite;
+}
+
+.decor-bottom {
+  bottom: -50px;
+  left: -50px;
+  animation: rotateDecor 20s linear infinite reverse;
+}
+
+@keyframes rotateDecor {
+  from {
+    transform: rotate(0deg);
+  }
+
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* ================================================================================
+   LOGIN VISTA Y FORMULARIO
+================================================================================ */
+.login-content-wrapper::-webkit-scrollbar {
+  display: none;
+}
+
+.login-content-wrapper {
+  background-color: var(--color-dark);
+  padding: 2.5rem;
+  border-radius: 10px;
+  width: 30%;
+  min-width: 300px;
+  max-height: 90vh;
+  overflow-y: auto;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+  border: 1px solid rgba(77, 173, 91, 0.4);
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.login-form {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.login-form h2 {
+  text-align: center;
+  color: var(--color-white);
+  margin-bottom: 1rem;
+  font-size: 1.8rem;
+  text-shadow: 0 0 12px rgba(255, 255, 255, 0.6);
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.form-group label {
+  font-size: var(--font-size-sm);
+  color: var(--color-gray-light);
+  font-weight: 500;
+}
+
+.form-group input {
+  padding: 0.8rem;
+  border-radius: 5px;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  background-color: var(--color-gray-dark);
+  color: var(--color-white);
+  font-family: var(--font-primary);
+  font-size: var(--font-size-base);
+  outline: none;
+  transition: all 0.3s ease;
+}
+
+.form-group input:focus {
+  border-color: #4dad5b;
+  box-shadow: 0 0 10px rgba(77, 173, 91, 0.2);
+}
+
+.input-date-dark::-webkit-calendar-picker-indicator {
+  filter: invert(1);
+  cursor: pointer;
+}
+
+.form-actions {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  margin-top: 0.5rem;
+}
+
+.btn-submit {
+  padding: 1rem;
+  background-color: #4dad5b;
+  border: 1px solid #3e8e49;
+  border-radius: 5px;
+  color: var(--color-dark);
+  font-weight: 700;
+  font-size: var(--font-size-base);
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.btn-submit:hover {
+  transform: translateY(-2px);
+  background-color: #3e8e49;
+}
+
+.btn-register {
+  padding: 1rem;
+  background-color: transparent;
+  border: 1px solid rgba(77, 173, 91, 0.5);
+  border-radius: 5px;
+  color: var(--color-white);
+  font-weight: 600;
+  font-size: var(--font-size-base);
+  cursor: pointer;
+  transition: all 0.3s ease;
+  text-align: center;
+}
+
+.btn-register:hover {
+  border-color: #4dad5b;
+  background-color: rgba(77, 173, 91, 0.1);
+  color: #4dad5b;
+}
+
+.btn-close-login {
+  position: static;
+  margin-top: 1.5rem;
+  display: inline-block;
+}
+
+/* Específicos para Perfil */
+.view-profile .login-content-wrapper {
+  border-color: rgba(52, 152, 219, 0.4);
+}
+
+.view-profile .login-form h2 {
+  color: var(--color-white);
+  text-shadow: 0 0 12px rgba(255, 255, 255, 0.6);
+}
+
+.view-profile .btn-submit {
+  background-color: rgba(52, 152, 219, 0.9);
+  border-color: #3498db;
+  color: white;
+}
+
+.view-profile .btn-submit:hover {
+  background-color: #3498db;
+}
+
+/* ================================================================================
+MEDIA QUERIES - RESPONSIVE DESIGN
+================================================================================ */
+
+@media (max-width: 900px) {
+  .official-side-nav {
+    transform: scale(0.7);
+    transform-origin: left top;
+    top: 120px;
+    /* Bajado para evitar solape */
+  }
+
+  .hero-left-col {
+    margin-top: 10vh;
+  }
+
+  .packs-grid {
+    max-width: 720px;
+    gap: 12px;
+  }
+
+  .pack {
+    max-width: 176px;
+  }
+
+  .cards-grid {
+    max-width: 440px;
+    gap: 12px;
+  }
+
+  .card {
+    max-width: 160px;
+  }
+
+  body:has(#card-1-selected:checked) .slot-1 .card,
+  body:has(#card-2-selected:checked) .slot-2 .card,
+  body:has(#card-3-selected:checked) .slot-3 .card,
+  body:has(#card-4-selected:checked) .slot-4 .card {
+    left: 50vw;
+    top: 42vh;
+    /* Aumentamos la escala de 0.75 a 1.1 para que la carta se vea mucho más grande */
+    transform: translate(-50%, -50%) scale(1.1);
+  }
+
+  .card-details {
+    left: 50vw;
+    top: auto;
+    bottom: 8vh;
+    transform: translateX(-50%);
+    max-width: 85%;
+    padding: 1.2rem;
+  }
+
+  body:has(#card-1-selected:checked) .slot-1 .card-details,
+  body:has(#card-2-selected:checked) .slot-2 .card-details,
+  body:has(#card-3-selected:checked) .slot-3 .card-details,
+  body:has(#card-4-selected:checked) .slot-4 .card-details {
+    transform: translateX(-50%);
+  }
+
+  .card-details h2 {
+    font-size: 1.2rem;
+  }
+
+  .card-details p {
+    font-size: 0.95rem;
+  }
+
+  .hero-right-col {
+    display: none !important;
+  }
+
+  .view-news {
+    align-items: flex-start;
+    overflow-y: auto;
+    padding-top: 40px;
+  }
+
+  .news-content-wrapper {
+    margin: auto;
+    padding-bottom: 80px;
+  }
+
+  .news-grid {
+    display: flex;
+    flex-direction: column;
+    max-width: 540px;
+    width: 90%;
+    gap: 25px;
+  }
+
+  .news-item {
+    width: 100%;
+    height: auto;
+  }
+
+  .item-left,
+  .item-right-top,
+  .item-right-bottom {
+    grid-column: auto;
+    grid-row: auto;
+    aspect-ratio: auto;
+  }
+
+  .btn-close-news {
+    margin-top: 25px;
+  }
+
+  .login-content-wrapper {
+    width: 85%;
+    min-width: unset;
+    padding: 2rem;
+    max-height: 95vh;
+  }
+
+  /* Estilos del Menú Hamburguesa para móviles */
+  .official-top-nav {
+    justify-content: flex-end;
+    height: 60px;
+    overflow: visible;
+  }
+
+  .menu-toggle-label {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 30px;
+    height: 20px;
+    cursor: pointer;
+    margin-right: 20px;
+    z-index: 1001;
+  }
+
+  .menu-toggle-label span {
+    display: block;
+    width: 100%;
+    height: 3px;
+    background-color: var(--color-dark);
+    border-radius: 3px;
+    transition: all 0.3s ease;
+    transform-origin: left center;
+  }
+
+  /* Animación del Hamburguesa a Cruz */
+  .menu-toggle-checkbox:checked~.menu-toggle-label span:nth-child(1) {
+    transform: rotate(45deg) translate(-2px, -3px);
+  }
+
+  .menu-toggle-checkbox:checked~.menu-toggle-label span:nth-child(2) {
+    opacity: 0;
+  }
+
+  .menu-toggle-checkbox:checked~.menu-toggle-label span:nth-child(3) {
+    transform: rotate(-45deg) translate(-2px, 3px);
+  }
+
+  body:has(.menu-toggle-checkbox:checked) .arrow-left-container {
+    display: none !important;
+  }
+
+  .main-menu {
+    position: absolute;
+    top: 60px;
+    left: 0;
+    width: 100%;
+    height: auto;
+    flex-direction: column;
+    background-color: var(--color-white);
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.4s ease-in-out;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.4);
+    padding: 0;
+  }
+
+  .menu-toggle-checkbox:checked~.main-menu {
+    max-height: 400px;
+  }
+
+  .main-menu li {
+    width: 100%;
+  }
+
+  .main-menu li:first-child {
+    border-left: none;
+  }
+
+  .menu-item {
+    width: 100%;
+    height: auto;
+    padding: 15px 20px;
+    border-right: none;
+    border-bottom: 1px solid var(--color-gray-light);
+    justify-content: flex-start;
+    font-size: 1rem;
+    white-space: normal;
+  }
+
+  /* === COMUNIDAD RESPONSIVA === */
+  .community-preview {
+    position: fixed;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    z-index: 1001;
+    /* Por encima de la navegación lateral */
+    width: 100%;
+    pointer-events: none;
+    height: auto;
+  }
+
+  .community-container {
+    max-width: 100%;
+    border-radius: 20px 20px 0 0;
+    padding: 0;
+    max-height: 0;
+    overflow: hidden;
+    transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+    pointer-events: auto;
+    border: none !important;
+    background: transparent !important;
+    visibility: hidden !important;
+    box-shadow: none !important;
+    backdrop-filter: none !important;
+    opacity: 0 !important;
+    display: block !important;
+    transform: translateY(100%);
+  }
+
+  body:has(#community-toggle:checked) .community-container {
+    max-height: 70vh;
+    overflow-y: auto;
+    padding: 1.5rem 1.2rem;
+    background: rgba(13, 10, 31, 0.98) !important;
+    border-top: 2px solid rgba(112, 209, 244, 0.5) !important;
+    /* Usando el nuevo color celeste */
+    visibility: visible !important;
+    box-shadow: 0 -20px 60px rgba(0, 0, 0, 0.9) !important;
+    backdrop-filter: blur(25px) !important;
+    opacity: 1 !important;
+    transform: translateY(0);
+  }
+
+  /* Botón hamburguesa de comunidad visible en móvil */
+  .community-toggle-checkbox {
+    display: none;
+  }
+
+  .btn-community-toggle {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 80px;
+    height: 80px;
+    background-color: #a5e6ff;
+    /* Celeste muy claro */
+    color: #1b1734;
+    cursor: pointer;
+    box-shadow: 2px 2px 12px rgba(0, 0, 0, 0.4);
+    transition: all 0.3s ease;
+    opacity: 0;
+    animation: fadeArrowOnScroll linear forwards;
+    animation-timeline: scroll(root);
+  }
+
+  .btn-community-toggle:hover {
+    background-color: #70d1f4;
+    color: white;
+  }
+
+  .btn-community-toggle svg {
+    transition: transform 0.3s ease;
+  }
+
+  /* Animación icono → Escala */
+  body:has(#community-toggle:checked) .btn-community-toggle svg {
+    transform: scale(0.8);
+  }
+
+  /* === POKEDEX RESPONSIVA === */
+  .pokedex-header h2 {
+    font-size: 1rem !important;
+    margin-bottom: 0.3rem;
+    letter-spacing: 1px;
+  }
+
+  .pokedex-card {
+    flex: 0 0 180px;
+    padding: 12px;
+    border-radius: 16px;
+  }
+
+  .pk-img-container {
+    width: 100px;
+    height: 100px;
+    margin-bottom: 10px;
+  }
+
+  .pk-number {
+    font-size: 0.7rem;
+  }
+
+  .pk-name {
+    font-size: 1rem;
+    margin-bottom: 4px;
+  }
+
+  .pk-type {
+    font-size: 0.7rem;
+    padding: 2px 10px;
+    margin-bottom: 8px;
+  }
+
+  .pk-lore {
+    font-size: 0.65rem;
+    line-height: 1.2;
+  }
+
+  .carousel-nav {
+    width: 35px;
+    height: 35px;
+  }
+}
+
+@media (max-width: 768px) {
+  .hero-logo {
+    max-width: 275px;
+  }
+
+  .ver-sobres-img {
+    max-width: 200px;
+  }
+
+  .view-packs,
+  .view-cards {
+    align-items: center !important;
+    overflow: hidden !important;
+    padding-top: 0;
+  }
+
+  .cards-display-background {
+    position: fixed !important;
+  }
+
+  .packs-grid {
+    grid-template-columns: 1fr;
+    height: 100vh;
+    width: 100vw;
+    max-width: 100vw;
+    overflow-y: auto;
+    scroll-snap-type: y mandatory;
+    gap: 15vh;
+    padding-top: 25vh;
+    padding-bottom: 25vh;
+  }
+
+  .cards-grid {
+    grid-template-columns: 1fr;
+    height: 100vh;
+    width: 100vw;
+    max-width: 100vw;
+    overflow-y: auto;
+    scroll-snap-type: y mandatory;
+    gap: 15vh;
+    padding-top: 25vh;
+    padding-bottom: 25vh;
+  }
+
+  .pack-slot,
+  .card-slot {
+    scroll-snap-align: center;
+    scroll-snap-stop: always;
+  }
+
+  .pack,
+  .card {
+    max-width: 250px;
+    margin: 0 auto;
+  }
+
+  .nav-logo-link {
+    left: 10px;
+  }
+
+  .nav-logo {
+    height: 30px;
+  }
+
+
+
+  .official-side-nav {
+    display: flex;
+    transform: scale(0.8);
+    transform-origin: left top;
+    top: 120px;
+    /* Bajado para iPhone SE y similares */
+  }
+
+  .footer-modal-box {
+    padding: 1.5rem;
+    max-width: 85%;
+  }
+
+  .footer-modal-box h2 {
+    font-size: 0.95rem;
+    margin-bottom: 1rem;
+    padding-bottom: 0.5rem;
+  }
+
+  .footer-grid-content {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+
+  .footer-grid-content h3 {
+    font-size: 0.8rem;
+  }
+
+  .footer-grid-content p {
+    font-size: 0.75rem;
+    line-height: 1.4;
+  }
+
+  .close-details-btn {
+    padding: 0.4rem 1rem;
+    font-size: 0.7rem;
+  }
+
+  .main-footer {
+    padding: 0.4rem 1rem;
+  }
+
+  .copyright,
+  .footer-link {
+    font-size: 0.6rem;
+  }
+
+  .close-btn {
+    top: 100px;
+    right: 15px;
+    z-index: 1100;
+    padding: 8px 16px;
+    font-size: 0.8rem;
+    background: rgba(27, 23, 52, 0.9);
+    border-color: rgba(255, 255, 255, 0.3);
+  }
+
+  .view-news {
+    position: fixed;
+    top: 0;
+    right: 0;
+    width: 100vw;
+    /* Usar vw para ignorar anchos de contenedores padres */
+    height: 100vh;
+    z-index: 2000;
+    /* Por encima de la navegación horizontal */
+    transform: translateX(100%);
+    visibility: hidden;
+    transition: transform 0.6s cubic-bezier(0.25, 1, 0.5, 1);
+  }
+
+
+
+  .nav-logo-link {
+    left: 10px;
+  }
+
+  .nav-logo {
+    height: 35px;
+  }
+
+  /* Ajuste del logo */
+
+
+
+}
+
+@media (max-width: 600px) {
+  .footer-content {
+    flex-direction: column;
+    text-align: center;
+    gap: 0.25rem;
+  }
+
+  .copyright {
+    order: 2;
+  }
+
+  .footer-nav {
+    order: 1;
+    justify-content: center;
+    gap: 0.8rem;
+  }
+
+
+}
+
+@media (max-width: 480px) {
+  .hero-logo {
+    max-width: 225px;
+  }
+
+  .ver-sobres-img {
+    max-width: 160px;
+  }
+
+  .close-btn {
+    top: 10px;
+    right: 10px;
+    padding: 10px 20px;
+    font-size: 0.9rem;
+  }
+
+  .official-side-nav {
+    transform: scale(0.8);
+  }
+
+  .nav-logo-link {
+    left: 4px;
+  }
+
+  .nav-logo {
+    height: 22px;
+  }
+
+
+
+  body:has(#card-1-selected:checked) .slot-1 .card,
+  body:has(#card-2-selected:checked) .slot-2 .card,
+  body:has(#card-3-selected:checked) .slot-3 .card,
+  body:has(#card-4-selected:checked) .slot-4 .card {
+    top: 35vh;
+    transform: translate(-50%, -50%) scale(0.9);
+  }
+
+  .card-details {
+    padding: 1rem;
+    max-width: 95%;
+    z-index: 100;
+  }
+
+  body:has(#card-1-selected:checked) .slot-1 .card-details,
+  body:has(#card-2-selected:checked) .slot-2 .card-details,
+  body:has(#card-3-selected:checked) .slot-3 .card-details,
+  body:has(#card-4-selected:checked) .slot-4 .card-details {
+    top: auto;
+    bottom: 12vh;
+    transform: translateX(-50%);
+  }
+
+  .card-details h2 {
+    font-size: 1.2rem;
+    margin-bottom: 0.5rem;
+  }
+
+  .card-details p {
+    font-size: 0.95rem;
+    margin-bottom: 1rem;
+    line-height: 1.5;
+  }
+
+  .hero-content-wrapper {
+    flex-direction: column;
+    justify-content: flex-start;
+    padding-top: 16vh;
+  }
+
+  .hero-left-col {
+    gap: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .hero-logo-caja {
+    max-width: 180px;
+  }
+
+  .hero-badge {
+    max-width: 110px;
+    margin-top: -10px;
+  }
+
+  .nav-logo-link {
+    left: 8px;
+  }
+
+  .nav-logo {
+    height: 28px;
+  }
+
+
+}
+
+@media (max-width: 350px) {
+  .news-grid {
+    max-width: 270px;
+    /* Mantenemos el 30% de 900px */
+    gap: 5px;
+  }
+}
+
+/* ================================================================================
+BOTÓN DE FAVORITOS (CORAZÓN)
+================================================================================ */
+
+.card-details h2 {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 15px;
+  width: 100%;
+}
+
+.btn-fav {
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 5px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  -webkit-tap-highlight-color: transparent;
+}
+
+.btn-fav:hover {
+  transform: scale(1.2);
+}
+
+.btn-fav:active {
+  transform: scale(0.9);
+}
+
+.fav-icon {
+  width: 28px;
+  height: 28px;
+  fill: none;
+  stroke: var(--color-white);
+  stroke-width: 2;
+  transition: all 0.4s ease;
+  filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.3));
+}
+
+/* Estado Activo: Corazón Rojo */
+.btn-fav.is-favorite .fav-icon {
+  fill: #ff4d4d;
+  stroke: #ff4d4d;
+  filter: drop-shadow(0 0 8px rgba(255, 77, 77, 0.6));
+  animation: heartBeat 0.6s ease-out;
+}
+
+@keyframes heartBeat {
+  0% {
+    transform: scale(1);
+  }
+
+  25% {
+    transform: scale(1.3);
+  }
+
+  50% {
+    transform: scale(1);
+  }
+
+  75% {
+    transform: scale(1.2);
+  }
+
+  100% {
+    transform: scale(1);
+  }
+}
+
+/* ================================================================================
+CONTROL DE DESCRIPCIONES DE CARTAS SEGÚN EL SOBRE
+================================================================================ */
+
+.info-pack-a,
+.info-pack-b,
+.info-pack-c {
+  display: none;
+}
+
+#state-pack-a:checked~main .info-pack-a {
+  display: block;
+  animation: fadeIn 0.4s ease-out forwards;
+}
+
+#state-pack-b:checked~main .info-pack-b {
+  display: block;
+  animation: fadeIn 0.4s ease-out forwards;
+}
+
+#state-pack-c:checked~main .info-pack-c {
+  display: block;
+  animation: fadeIn 0.4s ease-out forwards;
+}
+
+/* ================================================================================
+AJUSTES DE CARTAS PARA MÓVILES
+================================================================================ 
+*/
+
+/* ================================================================================
+AJUSTES ESPECÍFICOS PARA IPHONE SE Y PANTALLAS MUY PEQUEÑAS
+================================================================================ 
+*/
+@media (max-width: 380px) {
+  .card-details {
+    padding: 0.6rem;
+  }
+
+  .card-details h2 {
+    font-size: 0.72rem;
+    margin-bottom: 0.3rem;
+  }
+
+  .card-details p {
+    font-size: 0.57rem;
+    margin-bottom: 0.6rem;
+    line-height: 1.3;
+  }
+}
+
+
+/* ================================================================================
+WIDGET COMUNIDAD (VERSIÓN COMPACTA INFERIOR IZQUIERDA)
+================================================================================ */
+@keyframes fadeInCommunityOnScroll {
+
+  0%,
+  80% {
+    opacity: 0;
+    transform: translateY(20px);
+    pointer-events: none;
+    visibility: hidden;
+  }
+
+  95%,
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+    pointer-events: auto;
+    visibility: visible;
+  }
+}
+
+.community-preview {
+  position: fixed;
+  bottom: 100px;
+  /* Más arriba para evitar el footer */
+  left: 25px;
+  width: 280px;
+  background: rgba(27, 23, 52, 0.85);
+  backdrop-filter: blur(15px);
+  border: 1px solid rgba(255, 203, 5, 0.4);
+  padding: 1rem;
+  border-radius: 12px;
+  z-index: 100;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.7);
+
+  /* Animación sincronizada con el botón de sobres */
+  animation: fadeInCommunityOnScroll linear forwards;
+  animation-timeline: scroll(root);
+
+  transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+/* Ocultar widget si NO estamos en el inicio (Home) */
+body:has(input[name="app-state"]:not(#state-home):checked) .community-preview {
+  opacity: 0 !important;
+  pointer-events: none !important;
+  transform: translateY(30px) !important;
+  animation: none;
+  /* Desactivar scroll-timeline en otras vistas */
+}
+
+.community-container h3 {
+  color: var(--color-primary);
+  text-align: left;
+  margin-bottom: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  font-size: 0.85rem;
+  border-bottom: 1px solid rgba(255, 203, 5, 0.3);
+  padding-bottom: 5px;
+}
+
+.community-table {
+  width: 100%;
+  border-collapse: collapse;
+  color: var(--color-white);
+  font-size: 0.75rem;
+}
+
+.community-table th,
+.community-table td {
+  padding: 6px 4px;
+  text-align: left;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.community-table th {
+  color: var(--color-primary);
+  font-weight: 700;
+  font-size: 0.65rem;
+}
+
+/* Ocultar email en la versión compacta para ahorrar espacio */
+.community-table th:nth-child(3),
+.community-table td:nth-child(3) {
+  display: none;
+}
+
+.community-table tr:hover {
+  background: rgba(255, 203, 5, 0.1);
+}
+
+.loading-text {
+  font-size: 0.7rem;
+  color: var(--color-gray-light);
+}
+
+/* Ajuste para móviles: más pequeño o centrado si es necesario */
+@media (max-width: 480px) {
+  .community-preview {
+    width: 220px;
+    bottom: 15px;
+    left: 15px;
+    padding: 0.75rem;
+  }
+}
+
+/* ================================================================================
+AJUSTES HOLOGRAFICOS DE CARTAS
+================================================================================ 
+*/
+
+@media (prefers-reduced-motion: reduce) {
+
+  /* Desactivar todas las animaciones repetitivas */
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+
+  /* Excepciones: Mantener desvanecimientos pero quitar movimiento en elementos clave */
+  .view-packs,
+  .view-cards,
+  .view-news,
+  .footer-modal-box {
+    transition: opacity 0.3s ease !important;
+    transform: none !important;
+  }
+
+  /* Detener los rebotes y barridos de neón */
+  .arrow-action-wrapper,
+  .arrow-action-wrapper-left,
+  .view-cards .card-1 .holo-gradient-layer {
+    animation: none !important;
+  }
+
+  /* Evitar que las cartas hagan el efecto 3D al hacer hover */
+  .pack:hover .pack-inner,
+  .card-label:hover .card .card-inner {
+    transform: none !important;
+  }
+}
+
+/* ================================================================================
+   AJUSTES PARA ORIENTACIÓN HORIZONTAL (LANDSCAPE)
+================================================================================ */
+@media (max-width: 950px) and (orientation: landscape) {
+  .hero-logo {
+    max-width: 180px;
+  }
+
+  .hero-logo-wrapper {
+    top: 10vh;
+  }
+
+  .official-side-nav {
+    transform: scale(0.6);
+    top: 75px;
+  }
+
+  .ver-sobres-img {
+    max-width: 140px;
+  }
+
+  .arrow-down-container {
+    bottom: 5vh;
+  }
+
+  .pokedex-card {
+    flex: 0 0 160px;
+    padding: 10px;
+  }
+
+  .pk-img-container {
+    width: 80px;
+    height: 80px;
+  }
+
+  .pk-name {
+    font-size: 0.9rem;
+  }
+
+  .pk-lore {
+    display: none;
+  }
+
+  /* Botón Volver siempre visible en landscape */
+  .close-btn {
+    position: fixed !important;
+    top: 10px !important;
+    right: 12px !important;
+    padding: 6px 14px !important;
+    font-size: 0.72rem !important;
+    z-index: 1200 !important;
+  }
+
+  /* ===================================================
+     VISTA DE SOBRES EN LANDSCAPE
+     Los sobres son muy altos (780×1429): se limitan por
+     altura en vez de ancho para que quepan en pantalla corta.
+  ==================================================== */
+  .view-packs,
+  .view-cards {
+    overflow: hidden !important;
+    align-items: center !important;
+    padding-top: 0 !important;
+  }
+
+  .packs-grid {
+    display: flex !important;
+    flex-direction: row !important;
+    flex-wrap: nowrap !important;
+    justify-content: center !important;
+    align-items: center !important;
+    width: 100vw !important;
+    max-width: 100vw !important;
+    height: 100vh !important;
+    padding: 10px 70px !important;
+    /* margen lateral para el botón Volver */
+    gap: 20px !important;
+    overflow-x: auto !important;
+    overflow-y: hidden !important;
+    scroll-snap-type: x mandatory !important;
+    list-style: none !important;
+  }
+
+  /* Sobre: tamaño controlado por altura; ancho sale del aspect-ratio */
+  .pack {
+    max-width: none !important;
+    height: 72vh !important;
+    width: auto !important;
+    aspect-ratio: 780 / 1429 !important;
+    flex-shrink: 0 !important;
+    scroll-snap-align: center !important;
+  }
+
+  /* ===================================================
+     VISTA DE CARTAS EN LANDSCAPE
+  ==================================================== */
+  .cards-grid {
+    display: flex !important;
+    flex-direction: row !important;
+    flex-wrap: nowrap !important;
+    justify-content: center !important;
+    align-items: center !important;
+    width: 100vw !important;
+    max-width: 100vw !important;
+    height: 100vh !important;
+    padding: 10px 70px !important;
+    gap: 15px !important;
+    overflow-x: auto !important;
+    overflow-y: hidden !important;
+    scroll-snap-type: x mandatory !important;
+    list-style: none !important;
+  }
+
+  /* Carta: tamaño controlado por altura */
+  .card {
+    max-width: none !important;
+    height: 72vh !important;
+    width: auto !important;
+    aspect-ratio: 780 / 1100 !important;
+    flex-shrink: 0 !important;
+    scroll-snap-align: center !important;
+  }
+
+  /* ===================================================
+     CARTA SELECCIONADA EN LANDSCAPE
+     Layout lado a lado: carta izquierda, detalles derecha
+  ==================================================== */
+  body:has(#card-1-selected:checked) .slot-1 .card,
+  body:has(#card-2-selected:checked) .slot-2 .card,
+  body:has(#card-3-selected:checked) .slot-3 .card,
+  body:has(#card-4-selected:checked) .slot-4 .card {
+    position: fixed !important;
+    top: 50% !important;
+    left: 28% !important;
+    transform: translate(-50%, -50%) !important;
+    height: 82vh !important;
+    width: auto !important;
+    max-width: none !important;
+  }
+
+  /* Panel de detalles a la derecha */
+  .card-details {
+    position: fixed !important;
+    top: 50% !important;
+    left: auto !important;
+    bottom: auto !important;
+    right: 2vw !important;
+    transform: translateY(-50%) translateX(60px) !important;
+    width: 42vw !important;
+    max-width: 340px !important;
+    max-height: 88vh !important;
+    padding: 1rem 1.2rem !important;
+    overflow-y: auto !important;
+  }
+
+  body:has(#card-1-selected:checked) .slot-1 .card-details,
+  body:has(#card-2-selected:checked) .slot-2 .card-details,
+  body:has(#card-3-selected:checked) .slot-3 .card-details,
+  body:has(#card-4-selected:checked) .slot-4 .card-details {
+    transform: translateY(-50%) !important;
+  }
+
+  .card-details h2 {
+    font-size: 0.85rem !important;
+    margin-bottom: 0.4rem !important;
+  }
+
+  .card-details p {
+    font-size: 0.72rem !important;
+    margin-bottom: 0.5rem !important;
+    line-height: 1.4 !important;
+  }
+
+  .close-details-btn {
+    padding: 0.4rem 0.8rem !important;
+    font-size: 0.7rem !important;
+  }
+}
+
+/* ================================================================================
+   SECCIÓN: MINI-JUEGO POKÉMON
+================================================================================ */
+.view-videojuegos {
+  display: none;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  width: 100vw;
+  height: 100vh;
+  /* Mismo fondo que la Pokédex */
+  background-image: url("assets/poke_dx/Fondo_Poke_dx.png");
+  background-size: cover;
+  background-position: center;
+  background-color: rgba(0, 0, 0, 0.5);
+  background-blend-mode: normal;
+  overflow-y: auto;
+  z-index: 40;
+  position: fixed;
+  top: 0;
+  left: 0;
+  padding: 20px;
+  padding-top: 6vh;
+  animation: fadeInPokedex 0.6s cubic-bezier(0.23, 1, 0.32, 1) forwards;
+}
+
+body:has(#state-videojuegos:checked) .view-videojuegos {
+  display: flex;
+}
+
+/* Header con título dorado idéntico al de la Pokédex */
+.videojuegos-header {
+  margin-top: 2rem;
+  margin-bottom: 2rem;
+  text-align: center;
+  z-index: 5;
+}
+
+.videojuegos-header h2 {
+  font-family: 'Press Start 2P', monospace, sans-serif;
+  font-size: 2rem;
+  font-weight: 800;
+  letter-spacing: 2px;
+  background: linear-gradient(90deg,
+      #f9da40 0%,
+      #ffea70 25%,
+      #ebde8c 50%,
+      #ffea70 75%,
+      #f8d030 100%);
+  background-size: 200% auto;
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  filter: drop-shadow(0 4px 6px rgba(0, 0, 0, 0.6));
+  text-transform: uppercase;
+  margin-bottom: 1.2rem;
+  animation: goldShimmer 3s linear infinite;
+}
+
+@keyframes goldShimmer {
+  from {
+    background-position: 0% center;
+  }
+
+  to {
+    background-position: 200% center;
+  }
+}
+
+.videojuegos-description {
+  color: #fff;
+  font-size: 0.95rem;
+  max-width: 650px;
+  margin: 0 auto;
+  line-height: 1.6;
+  opacity: 0.9;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+/* Contenedor principal */
+.videojuegos-container {
+  width: 100%;
+  max-width: 900px;
+  padding: 0 20px 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* Marco 4:3 del juego con borde dorado */
+.game-wrapper {
+  width: 100%;
+  max-width: 800px;
+  aspect-ratio: 4 / 3;
+  background: #000;
+  border: 3px solid var(--color-primary);
+  border-radius: 8px;
+  box-shadow:
+    0 0 40px rgba(0, 0, 0, 0.9),
+    0 0 20px rgba(255, 203, 5, 0.35);
+  overflow: hidden;
+  position: relative;
+  display: block;
+}
+
+/* Aviso de orientación en móviles */
+.orientation-warning {
+  display: none;
+  font-family: 'Press Start 2P', monospace, sans-serif;
+  color: #ffcb05;
+  text-align: center;
+  padding: 40px 20px;
+  background: rgba(0, 0, 0, 0.85);
+  border: 2px solid #ffcb05;
+  border-radius: 12px;
+  margin: 20px 0;
+  line-height: 2;
+  font-size: 0.9rem;
+  box-shadow: 0 0 30px rgba(0, 0, 0, 0.8);
+  width: 100%;
+  max-width: 500px;
+}
+
+.orientation-warning p {
+  margin-bottom: 1rem;
+}
+
+.orientation-warning .rotate-icon {
+  font-size: 3.5rem;
+  display: inline-block;
+  margin-top: 15px;
+  color: #fff;
+  animation: rotateDevice 2s infinite ease-in-out;
+}
+
+@keyframes rotateDevice {
+  0% { transform: rotate(0deg); }
+  50% { transform: rotate(90deg); }
+  100% { transform: rotate(0deg); }
+}
+
+@media screen and (max-width: 900px) and (orientation: portrait) {
+  .game-wrapper {
+    display: none !important;
+  }
+  .orientation-warning {
+    display: block;
+  }
+}
+
+/* El div de montaje del juego React ocupa todo el game-wrapper */
+#pokemon-game-root {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Botón "Volver al Inicio" debajo del juego */
+.view-videojuegos .close-btn {
+  margin-top: 28px;
+}
+
+/* ================================================================================
+   NUEVOS ELEMENTOS: LÍNEA DE FLUJO Y PROMO EN VIDEOJUEGOS
+================================================================================ */
+.videojuegos-flowchart-container {
+  margin-top: 3rem;
+  width: 100%;
+  max-width: 1000px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background: rgba(27, 23, 52, 0.85);
+  border: 1px solid rgba(255, 203, 5, 0.4);
+  border-radius: 16px;
+  padding: 2rem;
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.6);
+  backdrop-filter: blur(10px);
+}
+
+.flowchart-title {
+  font-family: 'Press Start 2P', monospace, sans-serif;
+  font-size: 1.5rem;
+  color: var(--color-primary);
+  margin-bottom: 2rem;
+  text-align: center;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
+  line-height: 1.5;
+}
+
+.flowchart-img {
+  width: 100%;
+  height: auto;
+  border-radius: 12px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+  transition: transform 0.3s ease;
+}
+
+.flowchart-img:hover {
+  transform: scale(1.02);
+}
+
+.videojuegos-promo-container {
+  margin-top: 4rem;
+  margin-bottom: 2rem;
+  width: 100%;
+  max-width: 900px;
+}
+
+.promo-card {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  background: rgba(27, 23, 52, 0.85);
+  border: 1px solid rgba(255, 203, 5, 0.4);
+  border-radius: 16px;
+  padding: 2rem;
+  gap: 2rem;
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.6);
+  backdrop-filter: blur(10px);
+  transition: transform 0.4s ease, border-color 0.4s ease;
+}
+
+.promo-card:hover {
+  transform: translateY(-5px);
+  border-color: rgba(255, 203, 5, 0.8);
+}
+
+.promo-img {
+  width: 100%;
+  max-width: 300px;
+  height: auto;
+  border-radius: 8px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
+}
+
+.promo-info {
+  flex: 1;
+  color: var(--color-white);
+}
+
+.promo-info h3 {
+  font-family: 'Press Start 2P', monospace, sans-serif;
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
+  color: #ffcb05;
+  text-shadow: 2px 2px 0px #1b53ba;
+}
+
+.promo-info p {
+  font-size: 1.1rem;
+  line-height: 1.6;
+  opacity: 0.9;
+}
+
+@media (max-width: 768px) {
+  .promo-card {
+    flex-direction: column;
+    text-align: center;
+  }
+  
+  .flowchart-title {
+    font-size: 1.1rem;
+  }
+  
+  .promo-info h3 {
+    font-size: 1.2rem;
+  }
+  
+  .promo-info p {
+    font-size: 0.95rem;
+  }
+}
+
+/* ================================================================================
+   SECCIÓN: TCG EVENT SHOWDOWN 2025
+================================================================================ */
+.view-tcg-event {
+  display: none;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  width: 100vw;
+  height: 100vh;
+  background-image: var(--background-fixed-url);
+  background-size: cover;
+  background-position: center;
+  background-color: rgba(0, 0, 0, 0.7);
+  background-blend-mode: overlay;
+  overflow-y: auto;
+  z-index: 40;
+  position: fixed;
+  top: 0;
+  left: 0;
+  padding: 20px;
+  animation: fadeInPokedex 0.6s cubic-bezier(0.23, 1, 0.32, 1) forwards;
+}
+
+body:has(#state-tcg-event:checked) .view-tcg-event {
+  display: flex;
+}
+
+.tcg-event-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  max-width: 1200px;
+  padding-bottom: 100px;
+  position: relative;
+}
+
+.tcg-event-banner {
+  width: 100%;
+  margin-top: 60px;
+  margin-bottom: 30px;
+  display: flex;
+  justify-content: center;
+}
+
+.tcg-event-banner img {
+  width: 100%;
+  max-width: 1000px;
+  height: auto;
+  border-radius: 12px;
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.7);
+}
+
+.tcg-event-description {
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(15px);
+  border-left: 4px solid var(--color-primary);
+  border-right: 4px solid var(--color-primary);
+  padding: 3rem;
+  border-radius: 12px;
+  margin-bottom: 40px;
+  text-align: center;
+  max-width: 900px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+}
+
+.tcg-event-description h2 {
+  font-family: 'Press Start 2P', monospace, sans-serif;
+  font-size: 1.8rem;
+  color: var(--color-primary);
+  margin-bottom: 1.5rem;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
+  letter-spacing: 1px;
+}
+
+.tcg-event-description p {
+  font-size: 1.25rem;
+  line-height: 1.8;
+  color: var(--color-white);
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+}
+
+.tcg-event-schedule {
+  width: 100%;
+  max-width: 900px;
+  display: flex;
+  justify-content: center;
+  margin-bottom: 50px;
+}
+
+.tcg-event-schedule img {
+  width: 100%;
+  height: auto;
+  border-radius: 12px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.6);
+  transition: transform 0.3s ease;
+}
+
+.tcg-event-schedule img:hover {
+  transform: scale(1.02);
+}
+
+.view-tcg-event .close-btn {
+  top: 20px;
+  right: 30px;
+  position: fixed;
+}
+
+/* ================================================================================
+   BOTÓN "INICIAR MODO ADMINISTRADOR" EN EL PERFIL
+================================================================================ */
+.btn-admin-mode {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  width: 100%;
+  margin-top: 10px;
+  padding: 12px 20px;
+  background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+  color: #a78bfa;
+  border: 1px solid rgba(167, 139, 250, 0.4);
+  border-radius: 8px;
+  font-family: var(--font-primary);
+  font-size: 0.9rem;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.btn-admin-mode:hover {
+  background: linear-gradient(135deg, #2d1f63 0%, #1e1b4b 100%);
+  border-color: #a78bfa;
+  color: #c4b5fd;
+  box-shadow: 0 0 20px rgba(167, 139, 250, 0.3);
+  transform: translateY(-1px);
+}
+
+/* ================================================================================
+   MODAL DE CÓDIGO DE ADMINISTRADOR (Overlay transparente)
+================================================================================ */
+.admin-code-modal {
+  display: none;
+  position: fixed;
+  inset: 0;
+  z-index: 9000;
+  background: rgba(10, 10, 20, 0.75);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  justify-content: center;
+  align-items: center;
+  animation: fadeIn 0.25s ease-out;
+}
+
+.admin-code-modal.is-open {
+  display: flex;
+}
+
+.admin-code-modal-box {
+  position: relative;
+  background: rgba(20, 16, 40, 0.85);
+  border: 1px solid rgba(167, 139, 250, 0.35);
+  border-radius: 20px;
+  padding: 48px 40px 40px;
+  max-width: 400px;
+  width: 90%;
+  text-align: center;
+  box-shadow: 0 25px 80px rgba(0, 0, 0, 0.7), 0 0 60px rgba(167, 139, 250, 0.1);
+  animation: slideUp 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+@keyframes slideUp {
+  from { opacity: 0; transform: translateY(30px) scale(0.95); }
+  to   { opacity: 1; transform: translateY(0)  scale(1);    }
+}
+
+.modal-close-x {
+  position: absolute;
+  top: 16px;
+  right: 20px;
+  background: none;
+  border: none;
+  color: rgba(255,255,255,0.4);
+  font-size: 1.5rem;
+  cursor: pointer;
+  line-height: 1;
+  transition: color 0.2s;
+}
+.modal-close-x:hover { color: #fff; }
+
+.modal-icon {
+  font-size: 3rem;
+  margin-bottom: 16px;
+  filter: drop-shadow(0 0 12px rgba(167, 139, 250, 0.6));
+}
+
+.admin-code-modal-box h3 {
+  font-size: 1.35rem;
+  font-weight: 700;
+  color: #e2d9f3;
+  margin-bottom: 8px;
+}
+
+.admin-code-modal-box p {
+  font-size: 0.9rem;
+  color: rgba(255,255,255,0.55);
+  margin-bottom: 24px;
+  line-height: 1.5;
+}
+
+.admin-code-input {
+  width: 100%;
+  padding: 14px 18px;
+  background: rgba(255,255,255,0.07);
+  border: 1px solid rgba(167, 139, 250, 0.35);
+  border-radius: 10px;
+  color: #fff;
+  font-size: 1rem;
+  font-family: var(--font-primary);
+  letter-spacing: 3px;
+  text-align: center;
+  outline: none;
+  transition: border-color 0.2s, box-shadow 0.2s;
+  margin-bottom: 6px;
+}
+.admin-code-input:focus {
+  border-color: #a78bfa;
+  box-shadow: 0 0 0 3px rgba(167,139,250,0.2);
+}
+
+.admin-code-error {
+  min-height: 20px;
+  font-size: 0.8rem;
+  color: #f87171;
+  margin-bottom: 16px;
+  transition: opacity 0.3s;
+}
+
+.btn-confirm-admin {
+  width: 100%;
+  padding: 13px;
+  background: linear-gradient(135deg, #7c3aed, #4f46e5);
+  color: #fff;
+  border: none;
+  border-radius: 10px;
+  font-size: 1rem;
+  font-weight: 700;
+  font-family: var(--font-primary);
+  cursor: pointer;
+  transition: all 0.3s ease;
+  letter-spacing: 0.5px;
+}
+.btn-confirm-admin:hover {
+  background: linear-gradient(135deg, #9333ea, #6366f1);
+  box-shadow: 0 0 25px rgba(139,92,246,0.5);
+  transform: translateY(-1px);
+}
+.btn-confirm-admin:active { transform: translateY(0); }
+
+/* ================================================================================
+   PANEL DE ADMINISTRADOR (Overlay full-screen)
+================================================================================ */
+.admin-overlay {
+  display: none;
+  position: fixed;
+  inset: 0;
+  z-index: 8000;
+  background: rgba(8, 6, 20, 0.97);
+  backdrop-filter: blur(4px);
+  overflow-y: auto;
+  animation: fadeIn 0.3s ease-out;
+}
+
+.admin-overlay.is-open {
+  display: block;
+}
+
+.admin-panel {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 28px 28px 48px;
+  min-height: 100vh;
+}
+
+/* --- Header --- */
+.admin-panel-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-bottom: 20px;
+  border-bottom: 1px solid rgba(167, 139, 250, 0.2);
+  margin-bottom: 16px;
+}
+
+.admin-header-left {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.admin-badge {
+  display: inline-flex;
+  align-items: center;
+  padding: 4px 12px;
+  background: linear-gradient(135deg, #7c3aed, #4f46e5);
+  color: #fff;
+  border-radius: 50px;
+  font-size: 0.7rem;
+  font-weight: 800;
+  letter-spacing: 1.5px;
+  box-shadow: 0 0 16px rgba(124,58,237,0.5);
+}
+
+.admin-panel-header h2 {
+  font-size: 1.4rem;
+  font-weight: 700;
+  color: #e2d9f3;
+  margin: 0;
+}
+
+.admin-close-btn {
+  background: rgba(255,255,255,0.07);
+  border: 1px solid rgba(255,255,255,0.12);
+  color: rgba(255,255,255,0.5);
+  font-size: 1.6rem;
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s ease;
+  line-height: 1;
+}
+.admin-close-btn:hover {
+  background: rgba(239,68,68,0.2);
+  border-color: rgba(239,68,68,0.4);
+  color: #f87171;
+}
+
+/* --- API Status Bar --- */
+.admin-api-status {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 16px;
+  background: rgba(255,255,255,0.04);
+  border: 1px solid rgba(255,255,255,0.08);
+  border-radius: 10px;
+  margin-bottom: 28px;
+  font-size: 0.82rem;
+  color: rgba(255,255,255,0.55);
+  flex-wrap: wrap;
+}
+
+.status-dot {
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+  background: #6b7280;
+  flex-shrink: 0;
+  transition: background 0.4s ease, box-shadow 0.4s ease;
+}
+.status-dot.online  { background: #34d399; box-shadow: 0 0 8px rgba(52,211,153,0.6); }
+.status-dot.offline { background: #f87171; box-shadow: 0 0 8px rgba(248,113,113,0.6); }
+
+#status-label { color: rgba(255,255,255,0.75); font-weight: 600; }
+.status-endpoint {
+  margin-left: auto;
+  font-family: 'Courier New', monospace;
+  font-size: 0.75rem;
+  color: rgba(167,139,250,0.7);
+}
+
+/* --- Sections --- */
+.admin-body { display: flex; flex-direction: column; gap: 28px; }
+
+.admin-section {
+  background: rgba(255,255,255,0.03);
+  border: 1px solid rgba(255,255,255,0.08);
+  border-radius: 16px;
+  padding: 24px;
+  transition: border-color 0.3s;
+}
+.admin-section:hover { border-color: rgba(167,139,250,0.2); }
+
+.admin-section-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 20px;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+.admin-section-header h3 {
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: #e2d9f3;
+  margin: 0;
+}
+
+.admin-count-badge {
+  background: rgba(167,139,250,0.15);
+  color: #a78bfa;
+  border: 1px solid rgba(167,139,250,0.3);
+  border-radius: 20px;
+  padding: 3px 14px;
+  font-size: 0.8rem;
+  font-weight: 600;
+}
+
+/* --- Table --- */
+.admin-table-wrapper {
+  overflow-x: auto;
+  border-radius: 10px;
+}
+
+.admin-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.9rem;
+}
+
+.admin-table thead tr {
+  background: rgba(124,58,237,0.15);
+}
+.admin-table th {
+  padding: 12px 16px;
+  text-align: left;
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.8px;
+  text-transform: uppercase;
+  color: #a78bfa;
+  border-bottom: 1px solid rgba(167,139,250,0.2);
+  white-space: nowrap;
+}
+
+.admin-table td {
+  padding: 14px 16px;
+  color: rgba(255,255,255,0.8);
+  border-bottom: 1px solid rgba(255,255,255,0.05);
+  vertical-align: middle;
+}
+.admin-table tbody tr:hover td {
+  background: rgba(167,139,250,0.05);
+}
+.admin-table tbody tr:last-child td {
+  border-bottom: none;
+}
+
+.admin-loading {
+  text-align: center;
+  padding: 32px;
+  color: rgba(255,255,255,0.3);
+  font-style: italic;
+}
+
+.admin-empty {
+  color: rgba(255,255,255,0.3);
+  font-style: italic;
+  font-size: 0.85rem;
+  padding: 8px 0;
+}
+
+/* Role badge */
+.role-badge {
+  display: inline-flex;
+  align-items: center;
+  padding: 3px 10px;
+  border-radius: 50px;
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+}
+.role-badge.admin {
+  background: rgba(124,58,237,0.25);
+  color: #c4b5fd;
+  border: 1px solid rgba(124,58,237,0.5);
+}
+.role-badge.user {
+  background: rgba(255,255,255,0.07);
+  color: rgba(255,255,255,0.5);
+  border: 1px solid rgba(255,255,255,0.12);
+}
+
+/* "Ver actividad" button in table */
+.btn-view-activity {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 7px 14px;
+  background: rgba(167,139,250,0.1);
+  color: #a78bfa;
+  border: 1px solid rgba(167,139,250,0.3);
+  border-radius: 8px;
+  font-size: 0.8rem;
+  font-weight: 600;
+  font-family: var(--font-primary);
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+.btn-view-activity:hover {
+  background: rgba(167,139,250,0.2);
+  border-color: #a78bfa;
+  box-shadow: 0 0 14px rgba(167,139,250,0.2);
+}
+
+/* --- Activity Panel --- */
+.admin-activity-panel { border-color: rgba(167,139,250,0.2); }
+
+.admin-close-activity-btn {
+  background: rgba(255,255,255,0.07);
+  border: 1px solid rgba(255,255,255,0.12);
+  color: rgba(255,255,255,0.6);
+  padding: 7px 16px;
+  border-radius: 8px;
+  font-family: var(--font-primary);
+  font-size: 0.85rem;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+.admin-close-activity-btn:hover {
+  background: rgba(255,255,255,0.12);
+  color: #fff;
+}
+
+.admin-activity-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+}
+@media (max-width: 600px) {
+  .admin-activity-grid { grid-template-columns: 1fr; }
+}
+
+.activity-card {
+  background: rgba(255,255,255,0.04);
+  border: 1px solid rgba(255,255,255,0.08);
+  border-radius: 14px;
+  padding: 24px;
+  text-align: center;
+  transition: border-color 0.3s;
+}
+.activity-card:hover { border-color: rgba(167,139,250,0.25); }
+
+.activity-card-icon {
+  font-size: 2.5rem;
+  margin-bottom: 10px;
+  filter: drop-shadow(0 0 8px rgba(167,139,250,0.4));
+}
+
+.activity-card h4 {
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: #c4b5fd;
+  margin-bottom: 16px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+/* Favorites list (inside activity card) */
+.activity-favorites-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  justify-content: center;
+}
+
+.pokemon-tag {
+  display: inline-block;
+  padding: 5px 12px;
+  background: linear-gradient(135deg, rgba(239,68,68,0.15), rgba(239,68,68,0.05));
+  border: 1px solid rgba(239,68,68,0.3);
+  color: #fca5a5;
+  border-radius: 20px;
+  font-size: 0.82rem;
+  font-weight: 600;
+  transition: all 0.2s ease;
+}
+.pokemon-tag:hover {
+  background: rgba(239,68,68,0.25);
+  border-color: rgba(239,68,68,0.5);
+}
+
+/* Victories display */
+.activity-victories-display {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+}
+.victories-number {
+  font-size: 4rem;
+  font-weight: 800;
+  background: linear-gradient(135deg, #fbbf24, #f59e0b);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  line-height: 1;
+  filter: drop-shadow(0 0 12px rgba(251,191,36,0.4));
+}
+.victories-label {
+  font-size: 0.85rem;
+  color: rgba(255,255,255,0.4);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  font-weight: 600;
+}
+=======
+/*
+================================================================================
+VARIABLES CSS PARA ASSETS Y COLORES PUROS NEÓN
+================================================================================
+*/
+:root {
+  --background-fixed-url: url("assets/asset-background.png");
+  --color-primary: #ffcb05;
+  --color-dark: #1b1734;
+  --color-white: #ffffff;
+  --color-gray-light: #e0e0e0;
+  --color-gray-dark: #2a2538;
+
+  --font-primary: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Helvetica Neue', sans-serif;
+  --font-size-sm: 0.875rem;
+  --font-size-base: 1rem;
+  --font-size-lg: 1.125rem;
+
+  --sobre-a-url: url("assets/booster_pks/Sobre_A.png");
+  --sobre-b-url: url("assets/booster_pks/Sobre_B.png");
+  --sobre-c-url: url("assets/booster_pks/Sobre_C.png");
+
+  --carta-a1-url: url("assets/cards/Carta_A1.png");
+  --carta-a2-url: url("assets/cards/Carta_A2.png");
+  --carta-a3-url: url("assets/cards/Carta_A3.png");
+  --carta-a4-url: url("assets/cards/Carta_A4.png");
+
+  --carta-b1-url: url("assets/cards/Carta_B1.png");
+  --carta-b2-url: url("assets/cards/Carta_B2.png");
+  --carta-b3-url: url("assets/cards/Carta_B3.png");
+  --carta-b4-url: url("assets/cards/Carta_B4.png");
+
+  --carta-c1-url: url("assets/cards/Carta_C1.png");
+  --carta-c2-url: url("assets/cards/Carta_C2.png");
+  --carta-c3-url: url("assets/cards/Carta_C3.png");
+  --carta-c4-url: url("assets/cards/Carta_C4.png");
+
+  --neon-green-rgb: 57, 255, 20;
+  --neon-purple-rgb: 188, 19, 254;
+
+  --holo-gradient-cards: linear-gradient(110deg,
+      rgba(var(--neon-green-rgb), 0.45) 0%,
+      rgba(var(--neon-purple-rgb), 0.45) 25%,
+      rgba(var(--neon-green-rgb), 0.45) 50%,
+      rgba(var(--neon-purple-rgb), 0.45) 75%,
+      rgba(var(--neon-green-rgb), 0.45) 100%);
+}
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700&display=swap');
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: var(--font-primary);
+  font-size: var(--font-size-base);
+  line-height: 1.5;
+  font-weight: 400;
+  overflow-x: hidden;
+  background-color: var(--color-dark);
+  color: var(--color-white);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+input[type="radio"] {
+  display: none;
+}
+
+body:has(input[name="app-state"]:not(#state-home):checked),
+body:has(input[name="footer-state"]:not(#footer-none):checked) {
+  overflow: hidden;
+}
+
+/* ================================================================================
+COMPONENTES OFICIALES (TOP NAV & SIDEBAR)
+================================================================================ */
+
+.official-top-nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background-color: var(--color-white);
+  z-index: 1000;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.4);
+  /* Añadimos transform a la transición para que suba y baje suavemente */
+  transition: opacity 0.4s ease, transform 0.4s ease;
+  animation: fadeOutNavOnScroll linear forwards;
+  animation-timeline: scroll(root);
+}
+
+@keyframes fadeOutNavOnScroll {
+
+  0%,
+  2% {
+    opacity: 1;
+    transform: translateY(0);
+    pointer-events: auto;
+  }
+
+  15%,
+  100% {
+    opacity: 0;
+    transform: translateY(-100%);
+    pointer-events: none;
+    visibility: hidden;
+  }
+}
+
+.nav-logo-link {
+  position: absolute;
+  left: 2vw;
+  display: flex;
+  align-items: center;
+  z-index: 10;
+}
+
+.nav-logo {
+  height: 45px;
+  width: auto;
+  transition: transform 0.3s ease;
+}
+
+.nav-logo:hover {
+  transform: scale(1.05);
+}
+
+.menu-toggle-checkbox,
+.menu-toggle-label {
+  display: none;
+}
+
+.main-menu {
+  display: flex;
+  list-style: none;
+  height: 75px;
+}
+
+.menu-item {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  width: 150px;
+  height: 100%;
+  padding: 0 15px;
+  text-decoration: none;
+  color: #4a4a4a;
+  font-weight: 700;
+  font-size: 0.8rem;
+  border-bottom: 6px solid transparent;
+  border-right: 1px solid #e0e0e0;
+  transition: all 0.2s ease;
+  background-color: var(--color-white);
+}
+
+.main-menu li:first-child .menu-item {
+  border-left: 1px solid #e0e0e0;
+}
+
+.menu-item:hover {
+  background-color: #f2f2f2;
+  color: var(--color-dark);
+}
+
+.menu-item.inicio {
+  border-bottom-color: #919191;
+}
+
+.menu-item.pokedex {
+  border-bottom-color: #e3350d;
+}
+
+.menu-item.videojuegos {
+  border-bottom-color: #e67e22;
+}
+
+.menu-item.eventos {
+  border-bottom-color: #3498db;
+}
+
+.menu-item.noticias {
+  border-bottom-color: #1b53ba;
+}
+
+.official-side-nav {
+  position: fixed;
+  top: 15vh;
+  left: 0;
+  z-index: 1000;
+  display: flex;
+  flex-direction: column;
+  transition: opacity 0.3s ease;
+}
+
+body:has(#menu-toggle:checked) .official-side-nav {
+  opacity: 0;
+  pointer-events: none;
+}
+
+.btn-login {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 80px;
+  height: 110px;
+  background-color: #4dad5b;
+  color: var(--color-white);
+  text-decoration: none;
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-align: center;
+  padding: 10px 5px;
+  gap: 8px;
+  transition: background-color 0.2s;
+  box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.3);
+  cursor: pointer;
+}
+
+.btn-login:hover {
+  background-color: #3e8e49;
+}
+
+.btn-login.logged-in {
+  background-color: #3498db;
+  border-left: 4px solid #1b53ba;
+}
+
+.btn-login.logged-in:hover {
+  background-color: #2980b9;
+  filter: brightness(1.1);
+}
+
+.btn-search {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 80px;
+  height: 80px;
+  background-color: #30a7d7;
+  color: var(--color-white);
+  text-decoration: none;
+  transition: background-color 0.2s;
+  box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.3);
+}
+
+.btn-search:hover {
+  background-color: #268bb5;
+}
+
+/* ================================================================================
+SISTEMA DE ESTADOS PURE CSS Y CONSERVACIÓN DE SCROLL
+================================================================================ */
+.view-home {
+  display: block;
+  height: 150vh;
+  transition: opacity 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Separamos la lógica para que la barra superior se deslice hacia arriba */
+body:has(input[name="app-state"]:not(#state-home):checked) .view-home,
+body:has(input[name="app-state"]:not(#state-home):checked) .official-side-nav {
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.4s ease;
+}
+
+body:has(input[name="app-state"]:not(#state-home):checked) .official-top-nav {
+  opacity: 0 !important;
+  pointer-events: none !important;
+  transform: translateY(-100%) !important;
+  /* Esto hace que la barra suba y desaparezca */
+}
+
+.view-packs,
+.view-cards,
+.view-login,
+.view-register,
+.view-profile,
+.view-pokedex,
+.view-tcg-event {
+  display: none;
+  width: 100%;
+}
+
+#state-packs:checked~main .view-packs,
+#state-login:checked~main .view-login,
+#state-register:checked~main .view-register,
+#state-profile:checked~main .view-profile {
+  display: flex;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.9);
+  justify-content: center;
+  align-items: center;
+  z-index: 10;
+  animation: fadeIn 0.5s ease-out forwards;
+}
+
+#state-pack-a:checked~main .view-cards,
+#state-pack-b:checked~main .view-cards,
+#state-pack-c:checked~main .view-cards {
+  display: flex;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  justify-content: center;
+  align-items: center;
+  z-index: 20;
+  animation: fadeIn 0.5s ease-out forwards;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+/* ================================================================================
+VISTA 1: INICIO
+================================================================================ */
+.page-background-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  background-image: var(--background-fixed-url);
+  background-size: cover;
+  background-position: center;
+  z-index: 1;
+}
+
+.scroll-layer {
+  position: absolute;
+  height: 150vh;
+  width: 100%;
+  z-index: 2;
+}
+
+/* ================================================================================
+   NUEVOS ESTILOS DEL HERO (Layout 2 Columnas)
+================================================================================ */
+.hero-content-wrapper {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 15vw;
+  z-index: 3;
+  animation: fadeOutHeroOnScroll linear forwards;
+  animation-timeline: scroll(root);
+  padding: 0 5%;
+  transition: opacity 1s cubic-bezier(0.4, 0, 0.2, 1), transform 1s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* ================================================================================
+   ESTILOS Y ANIMACIÓN DEL LOGO PRINCIPAL (Aparece al bajar)
+================================================================================ */
+.hero-logo-wrapper {
+  position: fixed;
+  top: 15vh;
+  left: 0;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  z-index: 3;
+  opacity: 0;
+  animation: fadeLogoInOnScroll linear forwards;
+  animation-timeline: scroll(root);
+  transition: opacity 1.2s cubic-bezier(0.4, 0, 0.2, 1), transform 1.2s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.hero-logo {
+  width: 100%;
+  max-width: 350px;
+  height: auto;
+  display: block;
+}
+
+@keyframes fadeLogoInOnScroll {
+
+  0%,
+  40% {
+    opacity: 0;
+    transform: translateY(-20px);
+    pointer-events: none;
+  }
+
+  60%,
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+    pointer-events: auto;
+  }
+}
+
+@keyframes fadeOutHeroOnScroll {
+
+  0%,
+  15% {
+    opacity: 1;
+    transform: translateY(0);
+    pointer-events: auto;
+  }
+
+  70%,
+  100% {
+    opacity: 0;
+    transform: translateY(-40px);
+    pointer-events: none;
+  }
+}
+
+.hero-left-col {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+}
+
+.hero-logo-caja {
+  width: 100%;
+  max-width: 400px;
+  height: auto;
+  display: block;
+  opacity: 0;
+}
+
+#state-home:checked~main .hero-logo-caja {
+  animation: fadeInImage 1s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+  animation-delay: 0.2s;
+}
+
+.hero-badge {
+  width: 100%;
+  max-width: 250px;
+  height: auto;
+  display: block;
+  opacity: 0;
+}
+
+#state-home:checked~main .hero-badge {
+  animation: fadeInImage 1s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+  animation-delay: 0.4s;
+}
+
+.hero-right-col {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.hero-box-floating {
+  width: 100%;
+  max-width: 380px;
+  height: auto;
+  display: block;
+  transition: transform 0.3s ease, filter 0.3s ease;
+  opacity: 0;
+}
+
+#state-home:checked~main .hero-box-floating {
+  animation: fadeInImage 1.2s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+  animation-delay: 0.3s;
+}
+
+@keyframes fadeInImage {
+  from {
+    opacity: 0;
+    transform: translateY(15px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.hero-box-floating:hover {
+  transform: scale(1.05) translateY(-5px);
+  filter: drop-shadow(0 10px 15px rgba(255, 203, 5, 0.4));
+}
+
+@keyframes floatSlowBox {
+
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+
+  50% {
+    transform: translateY(20px);
+  }
+}
+
+.arrow-down-container {
+  position: fixed;
+  bottom: 8vh;
+  left: 0;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  z-index: 4;
+  opacity: 0;
+  animation: fadeArrowOnScroll linear forwards;
+  animation-timeline: scroll(root);
+}
+
+@keyframes fadeOnScroll {
+  0% {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+
+  30% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeArrowOnScroll {
+
+  0%,
+  80% {
+    opacity: 0;
+    visibility: hidden;
+  }
+
+  95%,
+  100% {
+    opacity: 1;
+    visibility: visible;
+  }
+}
+
+.arrow-action-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  cursor: pointer;
+  animation: bounceArrow 2s infinite ease-in-out;
+  gap: 5px;
+}
+
+.ver-sobres-img {
+  width: 100%;
+  max-width: 250px;
+  height: auto;
+}
+
+@keyframes bounceArrow {
+
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+
+  50% {
+    transform: translateY(10px);
+  }
+}
+
+.arrow-down-btn {
+  display: block;
+  width: 60px;
+  height: 60px;
+  position: relative;
+}
+
+.arrow-down-btn::before,
+.arrow-down-btn::after {
+  content: "";
+  position: absolute;
+  top: 30%;
+  left: 50%;
+  width: 20px;
+  height: 20px;
+  border-right: 4px solid #00bfff;
+  border-bottom: 4px solid #00bfff;
+  transform: translateX(-50%) rotate(45deg);
+  transition: all 0.3s;
+}
+
+.arrow-down-btn::after {
+  top: 45%;
+}
+
+.arrow-action-wrapper:hover .arrow-down-btn::before,
+.arrow-action-wrapper:hover .arrow-down-btn::after {
+  border-color: var(--color-white);
+}
+
+/* ================================================================================
+COMPONENTES COMUNES (Botones y Grids)
+================================================================================ */
+.nav-return-packs {
+  transition: opacity 0.4s ease;
+}
+
+.close-btn {
+  position: absolute;
+  top: 90px;
+  right: 22px;
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(12px);
+  color: var(--color-white);
+  padding: 12px 28px;
+  border-radius: 50px;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  cursor: pointer;
+  z-index: 30;
+  font-weight: 700;
+  font-size: 0.8rem;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  text-decoration: none;
+  font-family: var(--font-primary);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.close-btn::before {
+  content: '←';
+  font-size: 1.2rem;
+  line-height: 1;
+  transition: transform 0.3s ease;
+}
+
+.close-btn:hover {
+  background: var(--color-primary);
+  color: var(--color-dark);
+  border-color: var(--color-primary);
+  transform: translateY(-2px);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+  /* Bloom removido, sombra más discreta */
+}
+
+.close-btn:hover::before {
+  transform: translateX(-5px);
+}
+
+.packs-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 15px;
+  max-width: 900px;
+  width: 90%;
+  perspective: 1000px;
+  list-style: none;
+}
+
+.cards-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 15px;
+  max-width: 550px;
+  width: 90%;
+  perspective: 1000px;
+  z-index: 2;
+  list-style: none;
+}
+
+.cards-display-background {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.85);
+  z-index: 1;
+}
+
+/* ================================================================================
+FOOTER PRINCIPAL
+================================================================================ */
+.main-footer {
+  position: relative;
+  z-index: 5;
+  background-color: rgba(27, 23, 52, 0.95);
+  backdrop-filter: blur(10px);
+  border-top: 1px solid rgba(255, 203, 5, 0.2);
+  padding: 0.5rem 1.5rem;
+  margin-top: auto;
+}
+
+.footer-content {
+  max-width: 1400px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.copyright {
+  font-size: 0.7rem;
+  color: var(--color-gray-light);
+  opacity: 0.8;
+  letter-spacing: 0.3px;
+}
+
+.footer-nav {
+  display: flex;
+  gap: 1.25rem;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+}
+
+.footer-link {
+  color: var(--color-gray-light);
+  text-decoration: none;
+  font-size: 0.7rem;
+  transition: all 0.2s ease;
+  font-weight: 500;
+  letter-spacing: 0.3px;
+  cursor: pointer;
+}
+
+.footer-link:hover {
+  color: var(--color-primary);
+  text-decoration: underline;
+}
+
+body:has(#state-packs:checked) .main-footer,
+body:has(#state-pack-a:checked) .main-footer,
+body:has(#state-pack-b:checked) .main-footer,
+body:has(#state-pack-c:checked) .main-footer,
+body:has(#state-tcg-event:checked) .main-footer,
+body:has(#state-videojuegos:checked) .main-footer {
+  opacity: 0;
+  pointer-events: none;
+}
+
+/* ================================================================================
+SOBRES Y CARTAS
+================================================================================ */
+.pack,
+.card {
+  display: block;
+  position: relative;
+  transform-style: preserve-3d;
+}
+
+.pack {
+  cursor: pointer;
+  aspect-ratio: 780 / 1429;
+  max-width: 220px;
+  width: 100%;
+}
+
+.card {
+  aspect-ratio: 780 / 1100;
+  max-width: 200px;
+  width: 100%;
+  transition: all 0.6s cubic-bezier(0.25, 1, 0.5, 1);
+  z-index: 1;
+}
+
+.pack-inner,
+.card-inner {
+  width: 100%;
+  height: 100%;
+  border-radius: 10px;
+  transform-style: preserve-3d;
+  transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.7);
+}
+
+.pack img,
+.card-front,
+.card-back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  border-radius: 10px;
+  backface-visibility: hidden;
+  background-size: 100% 100%;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.pack img {
+  object-fit: fill;
+}
+
+.card-back {
+  background-image: url("assets/cards/Carta_Reverso.png");
+  transform: rotateY(180deg);
+}
+
+.card-front {
+  background-size: cover;
+  background-position: center;
+}
+
+.pack:hover .pack-inner,
+.card-label:hover .card .card-inner {
+  transform: scale(1.03) rotateY(5deg) rotateX(2deg);
+}
+
+.pack:active .pack-inner,
+.card-label:active .card .card-inner {
+  transform: scale(0.97) rotateY(-5deg) rotateX(-2deg);
+}
+
+/* Estado de interacción 3D via JS */
+.pack.is-pressed,
+.card.is-pressed {
+  cursor: grabbing !important;
+  z-index: 100 !important;
+}
+
+.pack.is-pressed .pack-inner,
+.card.is-pressed .card .card-inner,
+.card.is-pressed .card-inner {
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.8) !important;
+  transition: transform 0.1s ease-out !important;
+  /* El transform se maneja desde JS para permitir la rotación dinámica */
+}
+
+.pack.is-pressed .holo-gradient-layer {
+  opacity: 0 !important;
+}
+
+.card.is-pressed .holo-gradient-layer {
+  opacity: 1 !important;
+  transition: opacity 0.3s ease !important;
+}
+
+.holo-gradient-layer {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border-radius: 10px;
+  pointer-events: none;
+  mix-blend-mode: color-dodge;
+  filter: blur(15px);
+  background-size: 400% 400%;
+  background-position: 0% 50%;
+  opacity: 0;
+  transition: opacity 0.5s ease-in-out;
+}
+
+@keyframes holoNeonSweep {
+  0% {
+    background-position: 0% 50%;
+  }
+
+  50% {
+    background-position: 100% 50%;
+  }
+
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+.pack .holo-gradient-layer,
+.card .holo-gradient-layer {
+  background-image: none;
+  opacity: 0;
+  animation: none;
+}
+
+.view-cards .card-1 .holo-gradient-layer {
+  background-image: var(--holo-gradient-cards);
+  opacity: 1;
+  animation: holoNeonSweep 10s ease-in-out infinite;
+}
+
+#state-pack-a:checked~main .view-cards .card-1 .card-front {
+  background-image: var(--carta-a1-url);
+}
+
+#state-pack-a:checked~main .view-cards .card-2 .card-front {
+  background-image: var(--carta-a2-url);
+}
+
+#state-pack-a:checked~main .view-cards .card-3 .card-front {
+  background-image: var(--carta-a3-url);
+}
+
+#state-pack-a:checked~main .view-cards .card-4 .card-front {
+  background-image: var(--carta-a4-url);
+}
+
+#state-pack-b:checked~main .view-cards .card-1 .card-front {
+  background-image: var(--carta-b1-url);
+}
+
+#state-pack-b:checked~main .view-cards .card-2 .card-front {
+  background-image: var(--carta-b2-url);
+}
+
+#state-pack-b:checked~main .view-cards .card-3 .card-front {
+  background-image: var(--carta-b3-url);
+}
+
+#state-pack-b:checked~main .view-cards .card-4 .card-front {
+  background-image: var(--carta-b4-url);
+}
+
+#state-pack-c:checked~main .view-cards .card-1 .card-front {
+  background-image: var(--carta-c1-url);
+}
+
+#state-pack-c:checked~main .view-cards .card-2 .card-front {
+  background-image: var(--carta-c2-url);
+}
+
+#state-pack-c:checked~main .view-cards .card-3 .card-front {
+  background-image: var(--carta-c3-url);
+}
+
+#state-pack-c:checked~main .view-cards .card-4 .card-front {
+  background-image: var(--carta-c4-url);
+}
+
+/* SELECCIÓN DE CARTAS */
+body:has(input[name="card-state"]:not(#card-none):checked) .nav-return-packs {
+  opacity: 0;
+  pointer-events: none;
+}
+
+.card-label {
+  display: block;
+  width: 100%;
+  height: 100%;
+  cursor: pointer;
+  -webkit-tap-highlight-color: transparent;
+}
+
+/* Evitar que el label interfiera con el arrastre 3D cuando la carta ya está seleccionada */
+body:has(input[name="card-state"]:not(#card-none):checked) .card-label {
+  pointer-events: none;
+}
+
+body:has(input[name="card-state"]:not(#card-none):checked) .card {
+  pointer-events: auto !important;
+}
+
+.card-close-overlay {
+  display: none !important;
+  /* Desactivado por petición del usuario: solo se cierra con el botón */
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  z-index: 45;
+}
+
+body:has(input[name="card-state"]:not(#card-none):checked) .card-close-overlay {
+  display: block;
+}
+
+body:has(input[name="card-state"]:not(#card-none):checked) .cards-grid {
+  perspective: none;
+}
+
+body:has(input[name="card-state"]:not(#card-none):checked) .card-slot {
+  opacity: 0;
+  visibility: hidden;
+  filter: blur(8px);
+  pointer-events: none;
+  transition: all 0.5s ease;
+}
+
+body:has(#card-1-selected:checked) .slot-1,
+body:has(#card-2-selected:checked) .slot-2,
+body:has(#card-3-selected:checked) .slot-3,
+body:has(#card-4-selected:checked) .slot-4 {
+  opacity: 1 !important;
+  visibility: visible !important;
+  filter: none !important;
+  pointer-events: auto !important;
+  z-index: 60;
+}
+
+body:has(#card-1-selected:checked) .slot-1 .card,
+body:has(#card-2-selected:checked) .slot-2 .card,
+body:has(#card-3-selected:checked) .slot-3 .card,
+body:has(#card-4-selected:checked) .slot-4 .card {
+  position: fixed;
+  top: 55vh;
+  left: 35vw;
+  transform: translate(-50%, -50%) scale(1.6);
+  z-index: 60;
+}
+
+body:has(#card-1-selected:checked) .slot-1 .card .card-inner,
+body:has(#card-2-selected:checked) .slot-2 .card .card-inner,
+body:has(#card-3-selected:checked) .slot-3 .card .card-inner,
+body:has(#card-4-selected:checked) .slot-4 .card .card-inner {
+  /* Eliminado transform: none !important para permitir interacción JS */
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.9);
+  cursor: grab;
+  pointer-events: auto !important;
+  z-index: 100;
+  /* Asegura que esté sobre todo lo demás para la interacción */
+}
+
+.card-details {
+  position: fixed;
+  top: 55vh;
+  left: 52vw;
+  transform: translateY(-50%) translateX(60px);
+  width: 80%;
+  max-width: 450px;
+  background: rgba(27, 23, 52, 0.85);
+  backdrop-filter: blur(15px);
+  border: 1px solid rgba(255, 203, 5, 0.4);
+  padding: 2.5rem;
+  border-radius: 12px;
+  color: var(--color-white);
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.6s cubic-bezier(0.25, 1, 0.5, 1);
+  z-index: 50;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.8);
+}
+
+.card-details h2 {
+  color: var(--color-primary);
+  margin-bottom: 1rem;
+  font-size: var(--font-size-lg);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  border-bottom: 1px solid rgba(255, 203, 5, 0.3);
+  padding-bottom: 0.5rem;
+}
+
+.card-details p {
+  font-size: var(--font-size-sm);
+  color: var(--color-gray-light);
+  line-height: 1.7;
+  margin-bottom: 2rem;
+}
+
+.close-details-btn {
+  display: inline-block;
+  padding: 0.6rem 1.5rem;
+  background-color: transparent;
+  color: var(--color-white);
+  border: 1px solid var(--color-primary);
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: 600;
+  font-size: var(--font-size-sm);
+  transition: all 0.3s ease;
+  text-transform: uppercase;
+}
+
+.close-details-btn:hover {
+  background-color: var(--color-primary);
+  color: var(--color-dark);
+  box-shadow: 0 0 15px rgba(255, 203, 5, 0.5);
+}
+
+body:has(#card-1-selected:checked) .slot-1 .card-details,
+body:has(#card-2-selected:checked) .slot-2 .card-details,
+body:has(#card-3-selected:checked) .slot-3 .card-details,
+body:has(#card-4-selected:checked) .slot-4 .card-details {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(-50%) translateX(0);
+}
+
+/* ================================================================================
+GRID DEL FOOTER MODAL (Políticas, Términos, Contacto)
+================================================================================ */
+.view-footer-modal {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  justify-content: center;
+  align-items: center;
+  z-index: 2000;
+}
+
+body:has(input[name="footer-state"]:not(#footer-none):checked) .view-footer-modal {
+  display: flex;
+  animation: fadeIn 0.4s ease-out forwards;
+}
+
+.footer-modal-box {
+  background: rgba(27, 23, 52, 0.95);
+  backdrop-filter: blur(15px);
+  border: 1px solid rgba(255, 203, 5, 0.4);
+  padding: 3rem;
+  border-radius: 12px;
+  width: 90%;
+  max-width: 800px;
+  color: var(--color-white);
+  box-shadow: 0 10px 50px rgba(0, 0, 0, 0.9);
+  position: relative;
+  z-index: 50;
+}
+
+.footer-modal-box h2 {
+  color: var(--color-primary);
+  border-bottom: 2px solid rgba(255, 203, 5, 0.3);
+  padding-bottom: 1rem;
+  margin-bottom: 2rem;
+  text-transform: uppercase;
+  font-size: var(--font-size-lg);
+}
+
+.footer-grid-content {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2rem;
+}
+
+.footer-grid-content h3 {
+  font-size: 1rem;
+  color: var(--color-white);
+  margin-bottom: 0.5rem;
+}
+
+.footer-grid-content p {
+  font-size: 0.85rem;
+  color: var(--color-gray-light);
+  line-height: 1.6;
+}
+
+/* Lógica de pestañas del modal */
+.footer-info {
+  display: none;
+}
+
+#footer-terms:checked~main .view-footer-modal .content-terms,
+#footer-privacy:checked~main .view-footer-modal .content-privacy,
+#footer-contact:checked~main .view-footer-modal .content-contact {
+  display: block;
+}
+
+/* ================================================================================
+BOTÓN PARA ABRIR NOTICIAS (FLECHA IZQUIERDA)
+================================================================================ */
+.arrow-left-container {
+  position: fixed;
+  top: 50%;
+  right: 20px;
+  transform: translateY(-50%);
+  z-index: 1001;
+  /* Justo por encima de la barra de navegación */
+}
+
+/* ================================================================================
+BOTÓN PARA ABRIR NOTICIAS (FLECHA MIRANDO AL BORDE)
+================================================================================ */
+.arrow-action-wrapper-left {
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  animation: bounceArrowRight 2s infinite ease-in-out;
+  /* Cambiamos el nombre de la animación */
+  padding: 20px;
+}
+
+/* Clase para ocultar texto visualmente pero mantenerlo accesible */
+.sr-only {
+  position: absolute !important;
+  width: 1px !important;
+  height: 1px !important;
+  padding: 0 !important;
+  margin: -1px !important;
+  overflow: hidden !important;
+  clip: rect(0, 0, 0, 0) !important;
+  white-space: nowrap !important;
+  border: 0 !important;
+  color: #000 !important;
+  /* Requerimiento: Texto de color negro para el fondo elegido */
+}
+
+/* Estilos globales de foco */
+:focus-visible {
+  outline: 3px solid var(--color-primary);
+  outline-offset: 4px;
+  border-radius: 4px;
+}
+
+/* Ajustes específicos si el outline rompe la estética de las cartas */
+.card-label:focus-visible .card,
+.pack:focus-visible {
+  outline: 3px solid var(--color-primary);
+  outline-offset: 10px;
+}
+
+/* Ahora rebota hacia la derecha (hacia el borde) en lugar de la izquierda */
+@keyframes bounceArrowRight {
+
+  0%,
+  100% {
+    transform: translateX(0);
+  }
+
+  50% {
+    transform: translateX(10px);
+  }
+}
+
+.arrow-left-btn {
+  display: block;
+  width: 50px;
+  height: 50px;
+  position: relative;
+}
+
+/* Invertimos los bordes para que las flechas apunten hacia la derecha (>) */
+.arrow-left-btn::before,
+.arrow-left-btn::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  right: 20%;
+  width: 18px;
+  height: 18px;
+  border-top: 4px solid #00bfff;
+  /* Cambiado a top */
+  border-right: 4px solid #00bfff;
+  /* Cambiado a right */
+  border-left: none;
+  border-bottom: none;
+  transform: translateY(-50%) rotate(45deg);
+  transition: all 0.3s;
+}
+
+.arrow-left-btn::after {
+  right: 45%;
+}
+
+.arrow-action-wrapper-left:hover .arrow-left-btn::before,
+.arrow-action-wrapper-left:hover .arrow-left-btn::after {
+  border-color: var(--color-white);
+}
+
+/* ================================================================================
+VISTA DE NOTICIAS (SLIDE DESDE LA DERECHA)
+================================================================================ */
+.view-news {
+  display: flex;
+  position: fixed;
+  top: 0;
+  right: 0;
+  width: 100%;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.92);
+  backdrop-filter: blur(10px);
+  justify-content: center;
+  align-items: center;
+  z-index: 100;
+
+  /* Animación de entrada gradual */
+  transform: translateX(100%);
+  /* Fuera de la pantalla por la derecha */
+  visibility: hidden;
+  transition: transform 0.6s cubic-bezier(0.25, 1, 0.5, 1), visibility 0.6s;
+}
+
+#state-news:checked~main .view-news {
+  transform: translateX(0);
+  /* Se desliza hacia la izquierda ocupando la pantalla */
+  visibility: visible;
+}
+
+.news-content-wrapper {
+  position: relative;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* Grid dinámico que respeta las proporciones de las imágenes */
+.news-grid {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  /* Aproximadamente 574px vs 278px */
+  gap: 15px;
+  max-width: 900px;
+  width: 90%;
+  list-style: none;
+}
+
+.news-item {
+  overflow: hidden;
+  border-radius: 12px;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.6);
+  /* Sombra negra neutra */
+  transition: transform 0.3s ease;
+  /* Eliminamos la transición de sombra */
+  cursor: pointer;
+}
+
+.news-item img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.5s ease;
+}
+
+.news-item:hover {
+  transform: translateY(-5px);
+  /* Brillo dorado eliminado */
+}
+
+.news-item:hover img {
+  transform: scale(1.05);
+  /* Zoom interno suave */
+}
+
+/* Asignación de posiciones exactas y tamaños */
+.item-left {
+  grid-column: 1 / 2;
+  grid-row: 1 / 3;
+  aspect-ratio: 574 / 483;
+}
+
+.item-right-top {
+  grid-column: 2 / 3;
+  grid-row: 1 / 2;
+  aspect-ratio: 275 / 145;
+}
+
+.item-right-bottom {
+  grid-column: 2 / 3;
+  grid-row: 2 / 3;
+  aspect-ratio: 278 / 279;
+}
+
+.btn-close-news {
+  position: static;
+  margin-top: 40px;
+  display: inline-block;
+}
+
+/* ================================================================================
+   SECCIÓN COMUNIDAD DE ENTRENADORES
+================================================================================ */
+.community-preview {
+  position: fixed;
+  bottom: 5vh;
+  right: 2vw;
+  z-index: 5;
+  pointer-events: none;
+  transition: opacity 0.3s ease;
+  background: transparent !important;
+  border: none !important;
+  box-shadow: none !important;
+  padding: 0 !important;
+  margin: 0 !important;
+  backdrop-filter: none !important;
+}
+
+body:has(input[name="app-state"]:not(#state-home):checked) .community-preview {
+  display: none !important;
+}
+
+.community-container {
+  background: rgba(27, 23, 52, 0.88);
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 203, 5, 0.25);
+  border-radius: 14px;
+  padding: 1rem 1.2rem;
+  max-width: 280px;
+  pointer-events: auto;
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.4);
+}
+
+.community-container h3 {
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: #ffcb05;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin-bottom: 0.6rem;
+  border-bottom: 1px solid rgba(255, 203, 5, 0.2);
+  padding-bottom: 0.4rem;
+}
+
+.loading-text {
+  color: rgba(255, 255, 255, 0.5);
+  font-size: 0.8rem;
+  text-align: center;
+  padding: 0.5rem 0;
+}
+
+.community-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.78rem;
+}
+
+.community-table thead th {
+  color: rgba(255, 255, 255, 0.5);
+  font-weight: 600;
+  padding: 4px 6px;
+  text-align: left;
+  font-size: 0.72rem;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.community-table tbody tr {
+  border-top: 1px solid rgba(255, 255, 255, 0.06);
+  transition: background 0.2s ease;
+}
+
+.community-table tbody tr:hover {
+  background: rgba(255, 203, 5, 0.07);
+}
+
+.community-table tbody td {
+  padding: 5px 6px;
+  color: rgba(255, 255, 255, 0.82);
+}
+
+.community-table tbody td strong {
+  color: #fff;
+  font-weight: 600;
+}
+
+/* Botón hamburguesa para la comunidad - oculto en desktop */
+.community-toggle-checkbox,
+.btn-community-toggle {
+  display: none;
+}
+
+/* ================================================================================
+   VISTA POKÉDEX (Carrusel y Diseño Moderno)
+================================================================================ */
+#state-pokedex:checked~main .view-pokedex {
+  display: flex;
+  flex-direction: column;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  background-image: url("assets/poke_dx/Fondo_Poke_dx.png");
+  background-size: cover;
+  background-position: center;
+  background-color: rgba(0, 0, 0, 0.5);
+  /* Mucho más transparente para ver el fondo */
+  background-blend-mode: normal;
+  /* Cambiado de multiply para visibilidad total */
+  justify-content: flex-start;
+  align-items: center;
+  z-index: 40;
+  padding: 20px;
+  padding-top: 6vh;
+  /* Elevado para mayor visibilidad */
+  animation: fadeInPokedex 0.6s cubic-bezier(0.23, 1, 0.32, 1) forwards;
+}
+
+@keyframes fadeInPokedex {
+  from {
+    opacity: 0;
+    transform: scale(1.05);
+  }
+
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+.pokedex-header {
+  margin-top: 2rem;
+  margin-bottom: 3rem;
+  text-align: center;
+  z-index: 5;
+}
+
+.pokedex-header h2 {
+  font-size: 2.5rem;
+  font-weight: 800;
+  letter-spacing: 2px;
+  background: linear-gradient(to right, #ffcb05, #ffea70);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  text-transform: uppercase;
+  margin-bottom: 1rem;
+}
+
+.pokedex-controls {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 15px;
+  color: white;
+}
+
+.pokedex-controls label {
+  font-weight: 600;
+  color: #ffcb05;
+}
+
+select.modern-select {
+  background-color: #000 !important;
+  background: #000 !important;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  color: #fff !important;
+  padding: 8px 15px;
+  border-radius: 20px;
+  outline: none;
+  cursor: pointer;
+  font-family: var(--font-primary);
+  transition: all 0.3s ease;
+  appearance: none;
+  -webkit-appearance: none;
+}
+
+.modern-select option {
+  background-color: #000 !important;
+  background: #000 !important;
+  color: #fff !important;
+}
+
+.modern-select:hover {
+  background: rgba(255, 255, 255, 0.1);
+  border-color: #ffcb05;
+}
+
+.pokedex-carousel-wrapper {
+  position: relative;
+  width: 100%;
+  max-width: 1400px;
+  display: flex;
+  align-items: center;
+  z-index: 5;
+}
+
+.pokedex-carousel {
+  display: flex;
+  overflow-x: auto;
+  gap: 30px;
+  padding: 40px 20px;
+  scroll-behavior: smooth;
+  scrollbar-width: none;
+  /* Firefox */
+  -ms-overflow-style: none;
+  /* IE/Edge */
+}
+
+.pokedex-carousel::-webkit-scrollbar {
+  display: none;
+  /* Chrome/Safari */
+}
+
+.pokedex-card {
+  flex: 0 0 280px;
+  /* Reducido de 320px */
+  background: #000;
+  /* Fondo negro sólido como se pidió */
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 24px;
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  position: relative;
+  overflow: hidden;
+}
+
+.pokedex-card::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: radial-gradient(circle at center, rgba(255, 203, 5, 0.1) 0%, transparent 70%);
+  opacity: 0;
+  transition: opacity 0.4s ease;
+}
+
+.pokedex-card:hover {
+  transform: translateY(-15px) scale(1.02);
+  border-color: #ffcb05;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4), 0 0 20px rgba(255, 203, 5, 0.2);
+}
+
+.pokedex-card:hover::before {
+  opacity: 1;
+}
+
+.pk-img-container {
+  width: 150px;
+  height: 150px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 10px;
+  filter: drop-shadow(0 10px 15px rgba(0, 0, 0, 0.3));
+  transition: transform 0.4s ease;
+}
+
+.pokedex-card:hover .pk-img-container {
+  transform: scale(1.1);
+}
+
+.pk-img-container img {
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;
+}
+
+.pk-info {
+  text-align: center;
+  width: 100%;
+}
+
+.pk-number {
+  display: block;
+  font-size: 1rem;
+  color: #ffcb05;
+  font-weight: 700;
+  margin-bottom: 4px;
+  font-family: 'Courier New', Courier, monospace;
+}
+
+.pk-name {
+  font-size: 1.4rem;
+  font-weight: 800;
+  margin-bottom: 8px;
+  color: white;
+}
+
+.pk-type {
+  display: inline-block;
+  padding: 4px 16px;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 12px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: #e0e0e0;
+  margin-bottom: 12px;
+}
+
+.pk-lore {
+  font-size: 0.8rem;
+  color: rgba(255, 255, 255, 0.7);
+  line-height: 1.4;
+  margin-top: 5px;
+  opacity: 0;
+  transform: translateY(10px);
+  transition: all 0.4s ease;
+}
+
+.pokedex-card:hover .pk-lore {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ================================================================================
+   Responsive para Pokédex en móviles (Modo Horizontal / Landscape)
+   Soluciona el problema de descripción fuera de pantalla en S8+ y iPhone SE
+================================================================================ */
+@media screen and (max-height: 500px) and (orientation: landscape) {
+  .view-pokedex {
+    padding-top: 2vh !important;
+  }
+  
+  .pokedex-header {
+    margin-top: 0.5rem;
+    margin-bottom: 0.5rem;
+  }
+  
+  .pokedex-header h2 {
+    font-size: 1.5rem;
+    margin-bottom: 0.2rem;
+  }
+  
+  .pokedex-carousel {
+    padding: 10px 20px;
+    gap: 15px;
+  }
+  
+  .pokedex-card {
+    flex: 0 0 220px;
+    padding: 10px;
+  }
+  
+  .pk-img-container {
+    width: 90px;
+    height: 90px;
+    margin-bottom: 5px;
+  }
+  
+  .pk-name {
+    font-size: 1.1rem;
+    margin-bottom: 4px;
+  }
+  
+  .pk-type {
+    padding: 2px 10px;
+    margin-bottom: 4px;
+  }
+  
+  .pk-lore {
+    font-size: 0.75rem;
+    line-height: 1.2;
+    margin-top: 2px;
+  }
+  
+  /* Ajustes generales para landscape en móviles */
+  .hero-logo-caja {
+    max-width: 180px !important;
+  }
+  
+  .hero-badge {
+    max-width: 120px !important;
+  }
+  
+  .hero-left-col {
+    gap: 10px;
+  }
+  
+  .community-preview {
+    bottom: 65px !important;
+    left: 80px !important;
+    border-radius: 20px !important;
+  }
+  
+  .official-side-nav {
+    transform: scale(0.6) !important;
+  }
+}
+
+.carousel-nav {
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  color: white;
+  transition: all 0.3s ease;
+  flex-shrink: 0;
+}
+
+.carousel-nav svg {
+  width: 30px;
+  height: 30px;
+  fill: currentColor;
+}
+
+.carousel-nav:hover {
+  background: #ffcb05;
+  color: #1b1734;
+  transform: scale(1.1);
+}
+
+.pokedex-decor {
+  position: absolute;
+  width: 300px;
+  height: 300px;
+  background: url('data:image/svg+xml;utf8,<svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"><circle cx="50" cy="50" r="45" fill="none" stroke="white" stroke-width="0.5" stroke-dasharray="2 2" opacity="0.2"/></svg>');
+  background-size: contain;
+  opacity: 0.3;
+  pointer-events: none;
+}
+
+.decor-top {
+  top: -50px;
+  right: -50px;
+  animation: rotateDecor 20s linear infinite;
+}
+
+.decor-bottom {
+  bottom: -50px;
+  left: -50px;
+  animation: rotateDecor 20s linear infinite reverse;
+}
+
+@keyframes rotateDecor {
+  from {
+    transform: rotate(0deg);
+  }
+
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* ================================================================================
+   LOGIN VISTA Y FORMULARIO
+================================================================================ */
+.login-content-wrapper::-webkit-scrollbar {
+  display: none;
+}
+
+.login-content-wrapper {
+  background-color: var(--color-dark);
+  padding: 2.5rem;
+  border-radius: 10px;
+  width: 30%;
+  min-width: 300px;
+  max-height: 90vh;
+  overflow-y: auto;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+  border: 1px solid rgba(77, 173, 91, 0.4);
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.login-form {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.login-form h2 {
+  text-align: center;
+  color: var(--color-white);
+  margin-bottom: 1rem;
+  font-size: 1.8rem;
+  text-shadow: 0 0 12px rgba(255, 255, 255, 0.6);
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.form-group label {
+  font-size: var(--font-size-sm);
+  color: var(--color-gray-light);
+  font-weight: 500;
+}
+
+.form-group input {
+  padding: 0.8rem;
+  border-radius: 5px;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  background-color: var(--color-gray-dark);
+  color: var(--color-white);
+  font-family: var(--font-primary);
+  font-size: var(--font-size-base);
+  outline: none;
+  transition: all 0.3s ease;
+}
+
+.form-group input:focus {
+  border-color: #4dad5b;
+  box-shadow: 0 0 10px rgba(77, 173, 91, 0.2);
+}
+
+.input-date-dark::-webkit-calendar-picker-indicator {
+  filter: invert(1);
+  cursor: pointer;
+}
+
+.form-actions {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  margin-top: 0.5rem;
+}
+
+.btn-submit {
+  padding: 1rem;
+  background-color: #4dad5b;
+  border: 1px solid #3e8e49;
+  border-radius: 5px;
+  color: var(--color-dark);
+  font-weight: 700;
+  font-size: var(--font-size-base);
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.btn-submit:hover {
+  transform: translateY(-2px);
+  background-color: #3e8e49;
+}
+
+.btn-register {
+  padding: 1rem;
+  background-color: transparent;
+  border: 1px solid rgba(77, 173, 91, 0.5);
+  border-radius: 5px;
+  color: var(--color-white);
+  font-weight: 600;
+  font-size: var(--font-size-base);
+  cursor: pointer;
+  transition: all 0.3s ease;
+  text-align: center;
+}
+
+.btn-register:hover {
+  border-color: #4dad5b;
+  background-color: rgba(77, 173, 91, 0.1);
+  color: #4dad5b;
+}
+
+.btn-close-login {
+  position: static;
+  margin-top: 1.5rem;
+  display: inline-block;
+}
+
+/* Específicos para Perfil */
+.view-profile .login-content-wrapper {
+  border-color: rgba(52, 152, 219, 0.4);
+}
+
+.view-profile .login-form h2 {
+  color: var(--color-white);
+  text-shadow: 0 0 12px rgba(255, 255, 255, 0.6);
+}
+
+.view-profile .btn-submit {
+  background-color: rgba(52, 152, 219, 0.9);
+  border-color: #3498db;
+  color: white;
+}
+
+.view-profile .btn-submit:hover {
+  background-color: #3498db;
+}
+
+/* ================================================================================
+MEDIA QUERIES - RESPONSIVE DESIGN
+================================================================================ */
+
+@media (max-width: 900px) {
+  .official-side-nav {
+    transform: scale(0.7);
+    transform-origin: left top;
+    top: 120px;
+    /* Bajado para evitar solape */
+  }
+
+  .hero-left-col {
+    margin-top: 10vh;
+  }
+
+  .packs-grid {
+    max-width: 720px;
+    gap: 12px;
+  }
+
+  .pack {
+    max-width: 176px;
+  }
+
+  .cards-grid {
+    max-width: 440px;
+    gap: 12px;
+  }
+
+  .card {
+    max-width: 160px;
+  }
+
+  body:has(#card-1-selected:checked) .slot-1 .card,
+  body:has(#card-2-selected:checked) .slot-2 .card,
+  body:has(#card-3-selected:checked) .slot-3 .card,
+  body:has(#card-4-selected:checked) .slot-4 .card {
+    left: 50vw;
+    top: 42vh;
+    /* Aumentamos la escala de 0.75 a 1.1 para que la carta se vea mucho más grande */
+    transform: translate(-50%, -50%) scale(1.1);
+  }
+
+  .card-details {
+    left: 50vw;
+    top: auto;
+    bottom: 8vh;
+    transform: translateX(-50%);
+    max-width: 85%;
+    padding: 1.2rem;
+  }
+
+  body:has(#card-1-selected:checked) .slot-1 .card-details,
+  body:has(#card-2-selected:checked) .slot-2 .card-details,
+  body:has(#card-3-selected:checked) .slot-3 .card-details,
+  body:has(#card-4-selected:checked) .slot-4 .card-details {
+    transform: translateX(-50%);
+  }
+
+  .card-details h2 {
+    font-size: 1.2rem;
+  }
+
+  .card-details p {
+    font-size: 0.95rem;
+  }
+
+  .hero-right-col {
+    display: none !important;
+  }
+
+  .view-news {
+    align-items: flex-start;
+    overflow-y: auto;
+    padding-top: 40px;
+  }
+
+  .news-content-wrapper {
+    margin: auto;
+    padding-bottom: 80px;
+  }
+
+  .news-grid {
+    display: flex;
+    flex-direction: column;
+    max-width: 540px;
+    width: 90%;
+    gap: 25px;
+  }
+
+  .news-item {
+    width: 100%;
+    height: auto;
+  }
+
+  .item-left,
+  .item-right-top,
+  .item-right-bottom {
+    grid-column: auto;
+    grid-row: auto;
+    aspect-ratio: auto;
+  }
+
+  .btn-close-news {
+    margin-top: 25px;
+  }
+
+  .login-content-wrapper {
+    width: 85%;
+    min-width: unset;
+    padding: 2rem;
+    max-height: 95vh;
+  }
+
+  /* Estilos del Menú Hamburguesa para móviles */
+  .official-top-nav {
+    justify-content: flex-end;
+    height: 60px;
+    overflow: visible;
+  }
+
+  .menu-toggle-label {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 30px;
+    height: 20px;
+    cursor: pointer;
+    margin-right: 20px;
+    z-index: 1001;
+  }
+
+  .menu-toggle-label span {
+    display: block;
+    width: 100%;
+    height: 3px;
+    background-color: var(--color-dark);
+    border-radius: 3px;
+    transition: all 0.3s ease;
+    transform-origin: left center;
+  }
+
+  /* Animación del Hamburguesa a Cruz */
+  .menu-toggle-checkbox:checked~.menu-toggle-label span:nth-child(1) {
+    transform: rotate(45deg) translate(-2px, -3px);
+  }
+
+  .menu-toggle-checkbox:checked~.menu-toggle-label span:nth-child(2) {
+    opacity: 0;
+  }
+
+  .menu-toggle-checkbox:checked~.menu-toggle-label span:nth-child(3) {
+    transform: rotate(-45deg) translate(-2px, 3px);
+  }
+
+  body:has(.menu-toggle-checkbox:checked) .arrow-left-container {
+    display: none !important;
+  }
+
+  .main-menu {
+    position: absolute;
+    top: 60px;
+    left: 0;
+    width: 100%;
+    height: auto;
+    flex-direction: column;
+    background-color: var(--color-white);
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.4s ease-in-out;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.4);
+    padding: 0;
+  }
+
+  .menu-toggle-checkbox:checked~.main-menu {
+    max-height: 400px;
+  }
+
+  .main-menu li {
+    width: 100%;
+  }
+
+  .main-menu li:first-child {
+    border-left: none;
+  }
+
+  .menu-item {
+    width: 100%;
+    height: auto;
+    padding: 15px 20px;
+    border-right: none;
+    border-bottom: 1px solid var(--color-gray-light);
+    justify-content: flex-start;
+    font-size: 1rem;
+    white-space: normal;
+  }
+
+  /* === COMUNIDAD RESPONSIVA === */
+  .community-preview {
+    position: fixed;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    z-index: 1001;
+    /* Por encima de la navegación lateral */
+    width: 100%;
+    pointer-events: none;
+    height: auto;
+  }
+
+  .community-container {
+    max-width: 100%;
+    border-radius: 20px 20px 0 0;
+    padding: 0;
+    max-height: 0;
+    overflow: hidden;
+    transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+    pointer-events: auto;
+    border: none !important;
+    background: transparent !important;
+    visibility: hidden !important;
+    box-shadow: none !important;
+    backdrop-filter: none !important;
+    opacity: 0 !important;
+    display: block !important;
+    transform: translateY(100%);
+  }
+
+  body:has(#community-toggle:checked) .community-container {
+    max-height: 70vh;
+    overflow-y: auto;
+    padding: 1.5rem 1.2rem;
+    background: rgba(13, 10, 31, 0.98) !important;
+    border-top: 2px solid rgba(112, 209, 244, 0.5) !important;
+    /* Usando el nuevo color celeste */
+    visibility: visible !important;
+    box-shadow: 0 -20px 60px rgba(0, 0, 0, 0.9) !important;
+    backdrop-filter: blur(25px) !important;
+    opacity: 1 !important;
+    transform: translateY(0);
+  }
+
+  /* Botón hamburguesa de comunidad visible en móvil */
+  .community-toggle-checkbox {
+    display: none;
+  }
+
+  .btn-community-toggle {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 80px;
+    height: 80px;
+    background-color: #a5e6ff;
+    /* Celeste muy claro */
+    color: #1b1734;
+    cursor: pointer;
+    box-shadow: 2px 2px 12px rgba(0, 0, 0, 0.4);
+    transition: all 0.3s ease;
+    opacity: 0;
+    animation: fadeArrowOnScroll linear forwards;
+    animation-timeline: scroll(root);
+  }
+
+  .btn-community-toggle:hover {
+    background-color: #70d1f4;
+    color: white;
+  }
+
+  .btn-community-toggle svg {
+    transition: transform 0.3s ease;
+  }
+
+  /* Animación icono → Escala */
+  body:has(#community-toggle:checked) .btn-community-toggle svg {
+    transform: scale(0.8);
+  }
+
+  /* === POKEDEX RESPONSIVA === */
+  .pokedex-header h2 {
+    font-size: 1rem !important;
+    margin-bottom: 0.3rem;
+    letter-spacing: 1px;
+  }
+
+  .pokedex-card {
+    flex: 0 0 180px;
+    padding: 12px;
+    border-radius: 16px;
+  }
+
+  .pk-img-container {
+    width: 100px;
+    height: 100px;
+    margin-bottom: 10px;
+  }
+
+  .pk-number {
+    font-size: 0.7rem;
+  }
+
+  .pk-name {
+    font-size: 1rem;
+    margin-bottom: 4px;
+  }
+
+  .pk-type {
+    font-size: 0.7rem;
+    padding: 2px 10px;
+    margin-bottom: 8px;
+  }
+
+  .pk-lore {
+    font-size: 0.65rem;
+    line-height: 1.2;
+  }
+
+  .carousel-nav {
+    width: 35px;
+    height: 35px;
+  }
+}
+
+@media (max-width: 768px) {
+  .hero-logo {
+    max-width: 275px;
+  }
+
+  .ver-sobres-img {
+    max-width: 200px;
+  }
+
+  .view-packs,
+  .view-cards {
+    align-items: center !important;
+    overflow: hidden !important;
+    padding-top: 0;
+  }
+
+  .cards-display-background {
+    position: fixed !important;
+  }
+
+  .packs-grid {
+    grid-template-columns: 1fr;
+    height: 100vh;
+    width: 100vw;
+    max-width: 100vw;
+    overflow-y: auto;
+    scroll-snap-type: y mandatory;
+    gap: 15vh;
+    padding-top: 25vh;
+    padding-bottom: 25vh;
+  }
+
+  .cards-grid {
+    grid-template-columns: 1fr;
+    height: 100vh;
+    width: 100vw;
+    max-width: 100vw;
+    overflow-y: auto;
+    scroll-snap-type: y mandatory;
+    gap: 15vh;
+    padding-top: 25vh;
+    padding-bottom: 25vh;
+  }
+
+  .pack-slot,
+  .card-slot {
+    scroll-snap-align: center;
+    scroll-snap-stop: always;
+  }
+
+  .pack,
+  .card {
+    max-width: 250px;
+    margin: 0 auto;
+  }
+
+  .nav-logo-link {
+    left: 10px;
+  }
+
+  .nav-logo {
+    height: 30px;
+  }
+
+
+
+  .official-side-nav {
+    display: flex;
+    transform: scale(0.8);
+    transform-origin: left top;
+    top: 120px;
+    /* Bajado para iPhone SE y similares */
+  }
+
+  .footer-modal-box {
+    padding: 1.5rem;
+    max-width: 85%;
+  }
+
+  .footer-modal-box h2 {
+    font-size: 0.95rem;
+    margin-bottom: 1rem;
+    padding-bottom: 0.5rem;
+  }
+
+  .footer-grid-content {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+
+  .footer-grid-content h3 {
+    font-size: 0.8rem;
+  }
+
+  .footer-grid-content p {
+    font-size: 0.75rem;
+    line-height: 1.4;
+  }
+
+  .close-details-btn {
+    padding: 0.4rem 1rem;
+    font-size: 0.7rem;
+  }
+
+  .main-footer {
+    padding: 0.4rem 1rem;
+  }
+
+  .copyright,
+  .footer-link {
+    font-size: 0.6rem;
+  }
+
+  .close-btn {
+    top: 100px;
+    right: 15px;
+    z-index: 1100;
+    padding: 8px 16px;
+    font-size: 0.8rem;
+    background: rgba(27, 23, 52, 0.9);
+    border-color: rgba(255, 255, 255, 0.3);
+  }
+
+  .view-news {
+    position: fixed;
+    top: 0;
+    right: 0;
+    width: 100vw;
+    /* Usar vw para ignorar anchos de contenedores padres */
+    height: 100vh;
+    z-index: 2000;
+    /* Por encima de la navegación horizontal */
+    transform: translateX(100%);
+    visibility: hidden;
+    transition: transform 0.6s cubic-bezier(0.25, 1, 0.5, 1);
+  }
+
+
+
+  .nav-logo-link {
+    left: 10px;
+  }
+
+  .nav-logo {
+    height: 35px;
+  }
+
+  /* Ajuste del logo */
+
+
+
+}
+
+@media (max-width: 600px) {
+  .footer-content {
+    flex-direction: column;
+    text-align: center;
+    gap: 0.25rem;
+  }
+
+  .copyright {
+    order: 2;
+  }
+
+  .footer-nav {
+    order: 1;
+    justify-content: center;
+    gap: 0.8rem;
+  }
+
+
+}
+
+@media (max-width: 480px) {
+  .hero-logo {
+    max-width: 225px;
+  }
+
+  .ver-sobres-img {
+    max-width: 160px;
+  }
+
+  .close-btn {
+    top: 10px;
+    right: 10px;
+    padding: 10px 20px;
+    font-size: 0.9rem;
+  }
+
+  .official-side-nav {
+    transform: scale(0.8);
+  }
+
+  .nav-logo-link {
+    left: 4px;
+  }
+
+  .nav-logo {
+    height: 22px;
+  }
+
+
+
+  body:has(#card-1-selected:checked) .slot-1 .card,
+  body:has(#card-2-selected:checked) .slot-2 .card,
+  body:has(#card-3-selected:checked) .slot-3 .card,
+  body:has(#card-4-selected:checked) .slot-4 .card {
+    top: 35vh;
+    transform: translate(-50%, -50%) scale(0.9);
+  }
+
+  .card-details {
+    padding: 1rem;
+    max-width: 95%;
+    z-index: 100;
+  }
+
+  body:has(#card-1-selected:checked) .slot-1 .card-details,
+  body:has(#card-2-selected:checked) .slot-2 .card-details,
+  body:has(#card-3-selected:checked) .slot-3 .card-details,
+  body:has(#card-4-selected:checked) .slot-4 .card-details {
+    top: auto;
+    bottom: 12vh;
+    transform: translateX(-50%);
+  }
+
+  .card-details h2 {
+    font-size: 1.2rem;
+    margin-bottom: 0.5rem;
+  }
+
+  .card-details p {
+    font-size: 0.95rem;
+    margin-bottom: 1rem;
+    line-height: 1.5;
+  }
+
+  .hero-content-wrapper {
+    flex-direction: column;
+    justify-content: flex-start;
+    padding-top: 16vh;
+  }
+
+  .hero-left-col {
+    gap: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .hero-logo-caja {
+    max-width: 180px;
+  }
+
+  .hero-badge {
+    max-width: 110px;
+    margin-top: -10px;
+  }
+
+  .nav-logo-link {
+    left: 8px;
+  }
+
+  .nav-logo {
+    height: 28px;
+  }
+
+
+}
+
+@media (max-width: 350px) {
+  .news-grid {
+    max-width: 270px;
+    /* Mantenemos el 30% de 900px */
+    gap: 5px;
+  }
+}
+
+/* ================================================================================
+BOTÓN DE FAVORITOS (CORAZÓN)
+================================================================================ */
+
+.card-details h2 {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 15px;
+  width: 100%;
+}
+
+.btn-fav {
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 5px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  -webkit-tap-highlight-color: transparent;
+}
+
+.btn-fav:hover {
+  transform: scale(1.2);
+}
+
+.btn-fav:active {
+  transform: scale(0.9);
+}
+
+.fav-icon {
+  width: 28px;
+  height: 28px;
+  fill: none;
+  stroke: var(--color-white);
+  stroke-width: 2;
+  transition: all 0.4s ease;
+  filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.3));
+}
+
+/* Estado Activo: Corazón Rojo */
+.btn-fav.is-favorite .fav-icon {
+  fill: #ff4d4d;
+  stroke: #ff4d4d;
+  filter: drop-shadow(0 0 8px rgba(255, 77, 77, 0.6));
+  animation: heartBeat 0.6s ease-out;
+}
+
+@keyframes heartBeat {
+  0% {
+    transform: scale(1);
+  }
+
+  25% {
+    transform: scale(1.3);
+  }
+
+  50% {
+    transform: scale(1);
+  }
+
+  75% {
+    transform: scale(1.2);
+  }
+
+  100% {
+    transform: scale(1);
+  }
+}
+
+/* ================================================================================
+CONTROL DE DESCRIPCIONES DE CARTAS SEGÚN EL SOBRE
+================================================================================ */
+
+.info-pack-a,
+.info-pack-b,
+.info-pack-c {
+  display: none;
+}
+
+#state-pack-a:checked~main .info-pack-a {
+  display: block;
+  animation: fadeIn 0.4s ease-out forwards;
+}
+
+#state-pack-b:checked~main .info-pack-b {
+  display: block;
+  animation: fadeIn 0.4s ease-out forwards;
+}
+
+#state-pack-c:checked~main .info-pack-c {
+  display: block;
+  animation: fadeIn 0.4s ease-out forwards;
+}
+
+/* ================================================================================
+AJUSTES DE CARTAS PARA MÓVILES
+================================================================================ 
+*/
+
+/* ================================================================================
+AJUSTES ESPECÍFICOS PARA IPHONE SE Y PANTALLAS MUY PEQUEÑAS
+================================================================================ 
+*/
+@media (max-width: 380px) {
+  .card-details {
+    padding: 0.6rem;
+  }
+
+  .card-details h2 {
+    font-size: 0.72rem;
+    margin-bottom: 0.3rem;
+  }
+
+  .card-details p {
+    font-size: 0.57rem;
+    margin-bottom: 0.6rem;
+    line-height: 1.3;
+  }
+}
+
+
+/* ================================================================================
+WIDGET COMUNIDAD (VERSIÓN COMPACTA INFERIOR IZQUIERDA)
+================================================================================ */
+@keyframes fadeInCommunityOnScroll {
+
+  0%,
+  80% {
+    opacity: 0;
+    transform: translateY(20px);
+    pointer-events: none;
+    visibility: hidden;
+  }
+
+  95%,
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+    pointer-events: auto;
+    visibility: visible;
+  }
+}
+
+.community-preview {
+  position: fixed;
+  bottom: 100px;
+  /* Más arriba para evitar el footer */
+  left: 25px;
+  width: 280px;
+  background: rgba(27, 23, 52, 0.85);
+  backdrop-filter: blur(15px);
+  border: 1px solid rgba(255, 203, 5, 0.4);
+  padding: 1rem;
+  border-radius: 12px;
+  z-index: 100;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.7);
+
+  /* Animación sincronizada con el botón de sobres */
+  animation: fadeInCommunityOnScroll linear forwards;
+  animation-timeline: scroll(root);
+
+  transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+/* Ocultar widget si NO estamos en el inicio (Home) */
+body:has(input[name="app-state"]:not(#state-home):checked) .community-preview {
+  opacity: 0 !important;
+  pointer-events: none !important;
+  transform: translateY(30px) !important;
+  animation: none;
+  /* Desactivar scroll-timeline en otras vistas */
+}
+
+.community-container h3 {
+  color: var(--color-primary);
+  text-align: left;
+  margin-bottom: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  font-size: 0.85rem;
+  border-bottom: 1px solid rgba(255, 203, 5, 0.3);
+  padding-bottom: 5px;
+}
+
+.community-table {
+  width: 100%;
+  border-collapse: collapse;
+  color: var(--color-white);
+  font-size: 0.75rem;
+}
+
+.community-table th,
+.community-table td {
+  padding: 6px 4px;
+  text-align: left;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.community-table th {
+  color: var(--color-primary);
+  font-weight: 700;
+  font-size: 0.65rem;
+}
+
+/* Ocultar email en la versión compacta para ahorrar espacio */
+.community-table th:nth-child(3),
+.community-table td:nth-child(3) {
+  display: none;
+}
+
+.community-table tr:hover {
+  background: rgba(255, 203, 5, 0.1);
+}
+
+.loading-text {
+  font-size: 0.7rem;
+  color: var(--color-gray-light);
+}
+
+/* Ajuste para móviles: más pequeño o centrado si es necesario */
+@media (max-width: 480px) {
+  .community-preview {
+    width: 220px;
+    bottom: 15px;
+    left: 15px;
+    padding: 0.75rem;
+  }
+}
+
+/* ================================================================================
+AJUSTES HOLOGRAFICOS DE CARTAS
+================================================================================ 
+*/
+
+@media (prefers-reduced-motion: reduce) {
+
+  /* Desactivar todas las animaciones repetitivas */
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+
+  /* Excepciones: Mantener desvanecimientos pero quitar movimiento en elementos clave */
+  .view-packs,
+  .view-cards,
+  .view-news,
+  .footer-modal-box {
+    transition: opacity 0.3s ease !important;
+    transform: none !important;
+  }
+
+  /* Detener los rebotes y barridos de neón */
+  .arrow-action-wrapper,
+  .arrow-action-wrapper-left,
+  .view-cards .card-1 .holo-gradient-layer {
+    animation: none !important;
+  }
+
+  /* Evitar que las cartas hagan el efecto 3D al hacer hover */
+  .pack:hover .pack-inner,
+  .card-label:hover .card .card-inner {
+    transform: none !important;
+  }
+}
+
+/* ================================================================================
+   AJUSTES PARA ORIENTACIÓN HORIZONTAL (LANDSCAPE)
+================================================================================ */
+@media (max-width: 950px) and (orientation: landscape) {
+  .hero-logo {
+    max-width: 180px;
+  }
+
+  .hero-logo-wrapper {
+    top: 10vh;
+  }
+
+  .official-side-nav {
+    transform: scale(0.6);
+    top: 75px;
+  }
+
+  .ver-sobres-img {
+    max-width: 140px;
+  }
+
+  .arrow-down-container {
+    bottom: 5vh;
+  }
+
+  .pokedex-card {
+    flex: 0 0 160px;
+    padding: 10px;
+  }
+
+  .pk-img-container {
+    width: 80px;
+    height: 80px;
+  }
+
+  .pk-name {
+    font-size: 0.9rem;
+  }
+
+  .pk-lore {
+    display: none;
+  }
+
+  /* Botón Volver siempre visible en landscape */
+  .close-btn {
+    position: fixed !important;
+    top: 10px !important;
+    right: 12px !important;
+    padding: 6px 14px !important;
+    font-size: 0.72rem !important;
+    z-index: 1200 !important;
+  }
+
+  /* ===================================================
+     VISTA DE SOBRES EN LANDSCAPE
+     Los sobres son muy altos (780×1429): se limitan por
+     altura en vez de ancho para que quepan en pantalla corta.
+  ==================================================== */
+  .view-packs,
+  .view-cards {
+    overflow: hidden !important;
+    align-items: center !important;
+    padding-top: 0 !important;
+  }
+
+  .packs-grid {
+    display: flex !important;
+    flex-direction: row !important;
+    flex-wrap: nowrap !important;
+    justify-content: center !important;
+    align-items: center !important;
+    width: 100vw !important;
+    max-width: 100vw !important;
+    height: 100vh !important;
+    padding: 10px 70px !important;
+    /* margen lateral para el botón Volver */
+    gap: 20px !important;
+    overflow-x: auto !important;
+    overflow-y: hidden !important;
+    scroll-snap-type: x mandatory !important;
+    list-style: none !important;
+  }
+
+  /* Sobre: tamaño controlado por altura; ancho sale del aspect-ratio */
+  .pack {
+    max-width: none !important;
+    height: 72vh !important;
+    width: auto !important;
+    aspect-ratio: 780 / 1429 !important;
+    flex-shrink: 0 !important;
+    scroll-snap-align: center !important;
+  }
+
+  /* ===================================================
+     VISTA DE CARTAS EN LANDSCAPE
+  ==================================================== */
+  .cards-grid {
+    display: flex !important;
+    flex-direction: row !important;
+    flex-wrap: nowrap !important;
+    justify-content: center !important;
+    align-items: center !important;
+    width: 100vw !important;
+    max-width: 100vw !important;
+    height: 100vh !important;
+    padding: 10px 70px !important;
+    gap: 15px !important;
+    overflow-x: auto !important;
+    overflow-y: hidden !important;
+    scroll-snap-type: x mandatory !important;
+    list-style: none !important;
+  }
+
+  /* Carta: tamaño controlado por altura */
+  .card {
+    max-width: none !important;
+    height: 72vh !important;
+    width: auto !important;
+    aspect-ratio: 780 / 1100 !important;
+    flex-shrink: 0 !important;
+    scroll-snap-align: center !important;
+  }
+
+  /* ===================================================
+     CARTA SELECCIONADA EN LANDSCAPE
+     Layout lado a lado: carta izquierda, detalles derecha
+  ==================================================== */
+  body:has(#card-1-selected:checked) .slot-1 .card,
+  body:has(#card-2-selected:checked) .slot-2 .card,
+  body:has(#card-3-selected:checked) .slot-3 .card,
+  body:has(#card-4-selected:checked) .slot-4 .card {
+    position: fixed !important;
+    top: 50% !important;
+    left: 28% !important;
+    transform: translate(-50%, -50%) !important;
+    height: 82vh !important;
+    width: auto !important;
+    max-width: none !important;
+  }
+
+  /* Panel de detalles a la derecha */
+  .card-details {
+    position: fixed !important;
+    top: 50% !important;
+    left: auto !important;
+    bottom: auto !important;
+    right: 2vw !important;
+    transform: translateY(-50%) translateX(60px) !important;
+    width: 42vw !important;
+    max-width: 340px !important;
+    max-height: 88vh !important;
+    padding: 1rem 1.2rem !important;
+    overflow-y: auto !important;
+  }
+
+  body:has(#card-1-selected:checked) .slot-1 .card-details,
+  body:has(#card-2-selected:checked) .slot-2 .card-details,
+  body:has(#card-3-selected:checked) .slot-3 .card-details,
+  body:has(#card-4-selected:checked) .slot-4 .card-details {
+    transform: translateY(-50%) !important;
+  }
+
+  .card-details h2 {
+    font-size: 0.85rem !important;
+    margin-bottom: 0.4rem !important;
+  }
+
+  .card-details p {
+    font-size: 0.72rem !important;
+    margin-bottom: 0.5rem !important;
+    line-height: 1.4 !important;
+  }
+
+  .close-details-btn {
+    padding: 0.4rem 0.8rem !important;
+    font-size: 0.7rem !important;
+  }
+}
+
+/* ================================================================================
+   SECCIÓN: MINI-JUEGO POKÉMON
+================================================================================ */
+.view-videojuegos {
+  display: none;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  width: 100vw;
+  height: 100vh;
+  /* Mismo fondo que la Pokédex */
+  background-image: url("assets/poke_dx/Fondo_Poke_dx.png");
+  background-size: cover;
+  background-position: center;
+  background-color: rgba(0, 0, 0, 0.5);
+  background-blend-mode: normal;
+  overflow-y: auto;
+  z-index: 40;
+  position: fixed;
+  top: 0;
+  left: 0;
+  padding: 20px;
+  padding-top: 6vh;
+  animation: fadeInPokedex 0.6s cubic-bezier(0.23, 1, 0.32, 1) forwards;
+}
+
+body:has(#state-videojuegos:checked) .view-videojuegos {
+  display: flex;
+}
+
+/* Header con título dorado idéntico al de la Pokédex */
+.videojuegos-header {
+  margin-top: 2rem;
+  margin-bottom: 2rem;
+  text-align: center;
+  z-index: 5;
+}
+
+.videojuegos-header h2 {
+  font-family: 'Press Start 2P', monospace, sans-serif;
+  font-size: 2rem;
+  font-weight: 800;
+  letter-spacing: 2px;
+  background: linear-gradient(90deg,
+      #f9da40 0%,
+      #ffea70 25%,
+      #ebde8c 50%,
+      #ffea70 75%,
+      #f8d030 100%);
+  background-size: 200% auto;
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  filter: drop-shadow(0 4px 6px rgba(0, 0, 0, 0.6));
+  text-transform: uppercase;
+  margin-bottom: 1.2rem;
+  animation: goldShimmer 3s linear infinite;
+}
+
+@keyframes goldShimmer {
+  from {
+    background-position: 0% center;
+  }
+
+  to {
+    background-position: 200% center;
+  }
+}
+
+.videojuegos-description {
+  color: #fff;
+  font-size: 0.95rem;
+  max-width: 650px;
+  margin: 0 auto;
+  line-height: 1.6;
+  opacity: 0.9;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+/* Contenedor principal */
+.videojuegos-container {
+  width: 100%;
+  max-width: 900px;
+  padding: 0 20px 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* Marco 4:3 del juego con borde dorado */
+.game-wrapper {
+  width: 100%;
+  max-width: 800px;
+  aspect-ratio: 4 / 3;
+  background: #000;
+  border: 3px solid var(--color-primary);
+  border-radius: 8px;
+  box-shadow:
+    0 0 40px rgba(0, 0, 0, 0.9),
+    0 0 20px rgba(255, 203, 5, 0.35);
+  overflow: hidden;
+  position: relative;
+  display: block;
+}
+
+/* Aviso de orientación en móviles */
+.orientation-warning {
+  display: none;
+  font-family: 'Press Start 2P', monospace, sans-serif;
+  color: #ffcb05;
+  text-align: center;
+  padding: 40px 20px;
+  background: rgba(0, 0, 0, 0.85);
+  border: 2px solid #ffcb05;
+  border-radius: 12px;
+  margin: 20px 0;
+  line-height: 2;
+  font-size: 0.9rem;
+  box-shadow: 0 0 30px rgba(0, 0, 0, 0.8);
+  width: 100%;
+  max-width: 500px;
+}
+
+.orientation-warning p {
+  margin-bottom: 1rem;
+}
+
+.orientation-warning .rotate-icon {
+  font-size: 3.5rem;
+  display: inline-block;
+  margin-top: 15px;
+  color: #fff;
+  animation: rotateDevice 2s infinite ease-in-out;
+}
+
+@keyframes rotateDevice {
+  0% { transform: rotate(0deg); }
+  50% { transform: rotate(90deg); }
+  100% { transform: rotate(0deg); }
+}
+
+@media screen and (max-width: 900px) and (orientation: portrait) {
+  .game-wrapper {
+    display: none !important;
+  }
+  .orientation-warning {
+    display: block;
+  }
+}
+
+/* El div de montaje del juego React ocupa todo el game-wrapper */
+#pokemon-game-root {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Botón "Volver al Inicio" debajo del juego */
+.view-videojuegos .close-btn {
+  margin-top: 28px;
+}
+
+/* ================================================================================
+   NUEVOS ELEMENTOS: LÍNEA DE FLUJO Y PROMO EN VIDEOJUEGOS
+================================================================================ */
+.videojuegos-flowchart-container {
+  margin-top: 3rem;
+  width: 100%;
+  max-width: 1000px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background: rgba(27, 23, 52, 0.85);
+  border: 1px solid rgba(255, 203, 5, 0.4);
+  border-radius: 16px;
+  padding: 2rem;
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.6);
+  backdrop-filter: blur(10px);
+}
+
+.flowchart-title {
+  font-family: 'Press Start 2P', monospace, sans-serif;
+  font-size: 1.5rem;
+  color: var(--color-primary);
+  margin-bottom: 2rem;
+  text-align: center;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
+  line-height: 1.5;
+}
+
+.flowchart-img {
+  width: 100%;
+  height: auto;
+  border-radius: 12px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+  transition: transform 0.3s ease;
+}
+
+.flowchart-img:hover {
+  transform: scale(1.02);
+}
+
+.videojuegos-promo-container {
+  margin-top: 4rem;
+  margin-bottom: 2rem;
+  width: 100%;
+  max-width: 900px;
+}
+
+.promo-card {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  background: rgba(27, 23, 52, 0.85);
+  border: 1px solid rgba(255, 203, 5, 0.4);
+  border-radius: 16px;
+  padding: 2rem;
+  gap: 2rem;
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.6);
+  backdrop-filter: blur(10px);
+  transition: transform 0.4s ease, border-color 0.4s ease;
+}
+
+.promo-card:hover {
+  transform: translateY(-5px);
+  border-color: rgba(255, 203, 5, 0.8);
+}
+
+.promo-img {
+  width: 100%;
+  max-width: 300px;
+  height: auto;
+  border-radius: 8px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
+}
+
+.promo-info {
+  flex: 1;
+  color: var(--color-white);
+}
+
+.promo-info h3 {
+  font-family: 'Press Start 2P', monospace, sans-serif;
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
+  color: #ffcb05;
+  text-shadow: 2px 2px 0px #1b53ba;
+}
+
+.promo-info p {
+  font-size: 1.1rem;
+  line-height: 1.6;
+  opacity: 0.9;
+}
+
+@media (max-width: 768px) {
+  .promo-card {
+    flex-direction: column;
+    text-align: center;
+  }
+  
+  .flowchart-title {
+    font-size: 1.1rem;
+  }
+  
+  .promo-info h3 {
+    font-size: 1.2rem;
+  }
+  
+  .promo-info p {
+    font-size: 0.95rem;
+  }
+}
+
+/* ================================================================================
+   SECCIÓN: TCG EVENT SHOWDOWN 2025
+================================================================================ */
+.view-tcg-event {
+  display: none;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  width: 100vw;
+  height: 100vh;
+  background-image: var(--background-fixed-url);
+  background-size: cover;
+  background-position: center;
+  background-color: rgba(0, 0, 0, 0.7);
+  background-blend-mode: overlay;
+  overflow-y: auto;
+  z-index: 40;
+  position: fixed;
+  top: 0;
+  left: 0;
+  padding: 20px;
+  animation: fadeInPokedex 0.6s cubic-bezier(0.23, 1, 0.32, 1) forwards;
+}
+
+body:has(#state-tcg-event:checked) .view-tcg-event {
+  display: flex;
+}
+
+.tcg-event-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  max-width: 1200px;
+  padding-bottom: 100px;
+  position: relative;
+}
+
+.tcg-event-banner {
+  width: 100%;
+  margin-top: 60px;
+  margin-bottom: 30px;
+  display: flex;
+  justify-content: center;
+}
+
+.tcg-event-banner img {
+  width: 100%;
+  max-width: 1000px;
+  height: auto;
+  border-radius: 12px;
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.7);
+}
+
+.tcg-event-description {
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(15px);
+  border-left: 4px solid var(--color-primary);
+  border-right: 4px solid var(--color-primary);
+  padding: 3rem;
+  border-radius: 12px;
+  margin-bottom: 40px;
+  text-align: center;
+  max-width: 900px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+}
+
+.tcg-event-description h2 {
+  font-family: 'Press Start 2P', monospace, sans-serif;
+  font-size: 1.8rem;
+  color: var(--color-primary);
+  margin-bottom: 1.5rem;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
+  letter-spacing: 1px;
+}
+
+.tcg-event-description p {
+  font-size: 1.25rem;
+  line-height: 1.8;
+  color: var(--color-white);
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+}
+
+.tcg-event-schedule {
+  width: 100%;
+  max-width: 900px;
+  display: flex;
+  justify-content: center;
+  margin-bottom: 50px;
+}
+
+.tcg-event-schedule img {
+  width: 100%;
+  height: auto;
+  border-radius: 12px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.6);
+  transition: transform 0.3s ease;
+}
+
+.tcg-event-schedule img:hover {
+  transform: scale(1.02);
+}
+
+.view-tcg-event .close-btn {
+  top: 20px;
+  right: 30px;
+  position: fixed;
+}

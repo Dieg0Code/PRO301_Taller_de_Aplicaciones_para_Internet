@@ -1,0 +1,565 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pokémon Trading Cards - Oficial TCG</title>
+    <link rel="stylesheet" href="styles.css">
+    <!-- CSS del juego React (aislado con prefijos de clase propios) -->
+    <link rel="stylesheet" href="web_mini_game/pokemon-battle/dist/assets/game.css">
+    <script src="app.js" defer></script>
+</head>
+
+<body>
+
+    <input type="radio" name="app-state" id="state-login">
+    <input type="radio" name="app-state" id="state-register">
+    <input type="radio" name="app-state" id="state-news">
+    <input type="radio" name="app-state" id="state-home" checked>
+    <input type="radio" name="app-state" id="state-packs">
+    <input type="radio" name="app-state" id="state-pack-a">
+    <input type="radio" name="app-state" id="state-pack-b">
+    <input type="radio" name="app-state" id="state-pack-c">
+    <input type="radio" name="app-state" id="state-pokedex">
+    <input type="radio" name="app-state" id="state-profile">
+    <input type="radio" name="app-state" id="state-videojuegos">
+    <input type="radio" name="app-state" id="state-tcg-event">
+    <input type="radio" name="app-state" id="state-admin">
+    <input type="radio" name="card-state" id="card-none" checked>
+    <input type="radio" name="card-state" id="card-1-selected">
+    <input type="radio" name="card-state" id="card-2-selected">
+    <input type="radio" name="card-state" id="card-3-selected">
+    <input type="radio" name="card-state" id="card-4-selected">
+
+    <input type="radio" name="footer-state" id="footer-none" checked>
+    <input type="radio" name="footer-state" id="footer-terms">
+    <input type="radio" name="footer-state" id="footer-privacy">
+    <input type="radio" name="footer-state" id="footer-contact">
+
+    <nav class="official-top-nav" aria-label="Navegación principal">
+        <label for="state-home" class="nav-logo-link" style="cursor:pointer">
+            <img src="assets/Pokemon_logo.png" alt="Logo TCG Universe" class="nav-logo">
+        </label>
+
+        <input type="checkbox" id="menu-toggle" class="menu-toggle-checkbox">
+        <label for="menu-toggle" class="menu-toggle-label" aria-label="Alternar menú">
+            <span></span>
+            <span></span>
+            <span></span>
+        </label>
+
+        <ul class="main-menu">
+            <li><label for="state-pokedex" class="menu-item pokedex" tabindex="0">Pokédex</label></li>
+            <li><label for="state-videojuegos" class="menu-item videojuegos" tabindex="0">Videojuegos y
+                    Aplicaciones</label></li>
+            <li><label for="state-tcg-event" class="menu-item eventos" tabindex="0">Eventos de Campeonato TCG</label></li>
+        </ul>
+    </nav>
+
+    <aside class="official-side-nav" aria-label="Herramientas de usuario">
+        <label for="state-login" id="auth-trigger" class="btn-login" aria-label="Herramientas de usuario" tabindex="0">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                stroke-linecap="round" stroke-linejoin="round">
+                <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+                <circle cx="12" cy="7" r="4"></circle>
+            </svg>
+            <span id="auth-text">Iniciar sesión</span>
+        </label>
+        <label for="state-pokedex" class="btn-search" aria-label="Ver Pokédex" tabindex="0">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                stroke-linecap="round" stroke-linejoin="round">
+                <circle cx="11" cy="11" r="8"></circle>
+                <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+            </svg>
+        </label>
+        <!-- Botón hamburguesa para la comunidad en móvil -->
+        <input type="checkbox" id="community-toggle" class="community-toggle-checkbox">
+        <label for="community-toggle" class="btn-community-toggle" aria-label="Ver entrenadores recientes">
+            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                stroke-linecap="round" stroke-linejoin="round">
+                <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
+                <circle cx="9" cy="7" r="4"></circle>
+                <path d="M23 21v-2a4 4 0 0 0-3-3.87"></path>
+                <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
+            </svg>
+        </label>
+    </aside>
+
+    <span class="page-background-container" aria-hidden="true"></span>
+
+    <main>
+        <header class="view-home" id="inicio">
+            <span class="scroll-layer" aria-hidden="true"></span>
+
+            <div class="hero-content-wrapper">
+                <div class="hero-left-col">
+                    <img src="assets/Logo-caja.png" alt="Logo de la Caja" class="hero-logo-caja">
+                    <img src="assets/Ya_Disponible.png" alt="Ya Disponible" class="hero-badge">
+                </div>
+                <div class="hero-right-col">
+                    <img src="assets/referencia-caja.png" alt="Caja de Referencia" class="hero-box-floating">
+                </div>
+            </div>
+
+            <h1 class="hero-logo-wrapper">
+                <span class="sr-only">Pokémon Trading Cards Oficial TCG</span>
+                <picture>
+                    <img src="assets/Logo.png" alt="Pokémon Trading Cards Logo" class="hero-logo" aria-hidden="true">
+                </picture>
+            </h1>
+
+            <nav class="arrow-down-container" aria-label="Navegación hacia los sobres">
+                <label for="state-packs" class="arrow-action-wrapper" aria-label="Ver sobres" tabindex="0">
+                    <img src="assets/Ver_Sobres_Pokemon.png" alt="Ver Sobres" class="ver-sobres-img">
+                    <span class="arrow-down-btn"></span>
+                </label>
+            </nav>
+
+            <nav class="arrow-left-container" aria-label="Navegación hacia noticias">
+                <label for="state-news" class="arrow-action-wrapper-left" aria-label="Ver noticias" tabindex="0">
+                    <span class="arrow-left-btn"></span>
+                </label>
+            </nav>
+
+            <section class="community-preview" aria-label="Comunidad de Entrenadores">
+                <div class="community-container">
+                    <h3>Entrenadores Recientes</h3>
+                    <div id="community-list-container">
+                        <!-- Se llena desde app.js con una tabla -->
+                        <p class="loading-text">Cargando comunidad...</p>
+                    </div>
+                </div>
+            </section>
+        </header>
+
+        <section class="view-packs" id="cartas" aria-label="Selección de Sobres de Pokémon">
+            <ul class="packs-grid">
+                <li class="pack-slot">
+                    <label for="state-pack-a" class="pack" aria-label="Abrir sobre A" tabindex="0">
+                        <figure class="pack-inner">
+                            <img src="assets/booster_pks/Sobre_A.png" alt="Sobre Pokémon A">
+                            <i class="holo-gradient-layer" aria-hidden="true"></i>
+                        </figure>
+                    </label>
+                </li>
+                <li class="pack-slot">
+                    <label for="state-pack-b" class="pack" aria-label="Abrir sobre B" tabindex="0">
+                        <figure class="pack-inner">
+                            <img src="assets/booster_pks/Sobre_B.png" alt="Sobre Pokémon B">
+                            <i class="holo-gradient-layer" aria-hidden="true"></i>
+                        </figure>
+                    </label>
+                </li>
+                <li class="pack-slot">
+                    <label for="state-pack-c" class="pack" aria-label="Abrir sobre C" tabindex="0">
+                        <figure class="pack-inner">
+                            <img src="assets/booster_pks/Sobre_C.png" alt="Sobre Pokémon C">
+                            <i class="holo-gradient-layer" aria-hidden="true"></i>
+                        </figure>
+                    </label>
+                </li>
+            </ul>
+            <nav aria-label="Navegación de retorno">
+                <label for="state-home" class="close-btn" tabindex="0">Volver al Inicio</label>
+            </nav>
+        </section>
+
+        <section class="view-news" id="noticias" aria-label="Noticias Pokémon">
+            <div class="news-content-wrapper">
+                <ul class="news-grid">
+                    <li class="news-item item-left">
+                        <img src="assets/news/noticia_1.png" alt="Noticia Principal">
+                    </li>
+                    <li class="news-item item-right-top">
+                        <img src="assets/news/noticia_2.png" alt="Noticia Secundaria Superior">
+                    </li>
+                    <li class="news-item item-right-bottom">
+                        <img src="assets/news/noticia_3.png" alt="Noticia Secundaria Inferior">
+                    </li>
+                </ul>
+                <nav aria-label="Cerrar noticias">
+                    <label for="state-home" class="close-btn btn-close-news" tabindex="0">Volver al Inicio</label>
+                </nav>
+            </div>
+        </section>
+
+        <section class="view-pokedex" id="pokedex" aria-label="Pokédex Regional">
+            <div class="pokedex-header">
+                <h2>Pokédex Regional</h2>
+                <div class="pokedex-controls">
+                    <label for="pokedex-sort">Ordenar por:</label>
+                    <select id="pokedex-sort" class="modern-select">
+                        <option value="num-asc">Número Inferior</option>
+                        <option value="num-desc">Número Superior</option>
+                        <option value="alpha-asc">Nombre (A-Z)</option>
+                        <option value="alpha-desc">Nombre (Z-A)</option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="pokedex-carousel-wrapper">
+                <button class="carousel-nav prev" id="pokedex-prev" aria-label="Anterior">
+                    <svg viewBox="0 0 24 24">
+                        <path d="M15.41 7.41L14 6l-6 6 6 6 1.41-1.41L10.83 12z" />
+                    </svg>
+                </button>
+
+                <div class="pokedex-carousel" id="pokedex-list">
+                    <!-- Dinámico desde app.js -->
+                    <p class="loading-text">Cargando Pokédex...</p>
+                </div>
+
+                <button class="carousel-nav next" id="pokedex-next" aria-label="Siguiente">
+                    <svg viewBox="0 0 24 24">
+                        <path d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z" />
+                    </svg>
+                </button>
+            </div>
+
+            <nav aria-label="Cerrar pokedex">
+                <label for="state-home" class="close-btn" tabindex="0">Volver al Inicio</label>
+            </nav>
+
+            <!-- Decoraciones vectoriales -->
+            <div class="pokedex-decor decor-top" aria-hidden="true"></div>
+            <div class="pokedex-decor decor-bottom" aria-hidden="true"></div>
+        </section>
+
+        <section class="view-cards" aria-label="Cartas Reveladas">
+            <span class="cards-display-background" aria-hidden="true"></span>
+            <label for="card-none" class="card-close-overlay" aria-hidden="true"></label>
+            <ul class="cards-grid" id="cards-container">
+                <!-- Se llena dinámicamente desde app.js -->
+            </ul>
+
+            <nav aria-label="Navegación de retorno a sobres" class="nav-return-packs">
+                <label for="state-packs" class="close-btn" tabindex="0">Volver</label>
+            </nav>
+        </section>
+
+        <section class="view-login" id="login" aria-label="Iniciar Sesión">
+            <div class="login-content-wrapper">
+                <form class="login-form" id="login-form" novalidate>
+                    <h2>Iniciar Sesión</h2>
+                    <div class="form-group">
+                        <label for="login-email">Correo Electrónico</label>
+                        <input type="email" id="login-email" name="email" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="login-password">Contraseña</label>
+                        <input type="password" id="login-password" name="password" required>
+                    </div>
+                    <div class="form-actions">
+                        <button type="submit" class="btn-submit">Ingresar</button>
+                        <label for="state-register" class="btn-register" tabindex="0">Registrarse</label>
+                    </div>
+                </form>
+                <nav aria-label="Cerrar login">
+                    <label for="state-home" class="close-btn btn-close-login" tabindex="0">Volver al Inicio</label>
+                </nav>
+            </div>
+        </section>
+
+        <section class="view-register" id="register" aria-label="Registrarse">
+            <div class="login-content-wrapper">
+                <form class="login-form" id="register-form" novalidate>
+                    <h2>Registrarse</h2>
+                    <div class="form-group">
+                        <label for="reg-nombre">Nombre de Usuario</label>
+                        <input type="text" id="reg-nombre" name="nombre" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="reg-datos">Fecha de Nacimiento</label>
+                        <input type="date" id="reg-datos" name="datos" required class="input-date-dark">
+                    </div>
+                    <div class="form-group">
+                        <label for="reg-email">Correo Electrónico</label>
+                        <input type="email" id="reg-email" name="email" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="reg-password">Contraseña</label>
+                        <input type="password" id="reg-password" name="password" required>
+                    </div>
+                    <div class="form-actions">
+                        <button type="submit" class="btn-submit">Crear Cuenta</button>
+                        <label for="state-login" class="btn-register" tabindex="0">Ya tengo cuenta</label>
+                    </div>
+                </form>
+                <nav aria-label="Cerrar registro">
+                    <label for="state-home" class="close-btn btn-close-login" tabindex="0">Volver al Inicio</label>
+                </nav>
+            </div>
+        </section>
+
+        <section class="view-profile" id="profile" aria-label="Mi Perfil">
+            <div class="login-content-wrapper">
+                <form class="login-form" id="profile-form" novalidate>
+                    <h2>Mi Perfil</h2>
+                    <div class="form-group">
+                        <label for="profile-username">Nombre de Usuario</label>
+                        <input type="text" id="profile-username" name="username" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Correo Electrónico</label>
+                        <input type="email" id="profile-email" disabled style="opacity: 0.6; cursor: not-allowed;">
+                    </div>
+                    <div class="form-group">
+                        <label for="profile-password">Nueva Contraseña (dejar en blanco para mantener)</label>
+                        <input type="password" id="profile-password" name="password">
+                    </div>
+                    <div class="form-actions">
+                        <button type="submit" class="btn-submit">Guardar Cambios</button>
+                        <button type="button" id="btn-admin-mode" class="btn-admin-mode">&#9881; Iniciar modo administrador</button>
+                        <button type="button" id="btn-logout" class="btn-register"
+                            style="background: #e3350d; color: white; border: none; width: 100%; margin-top: 10px;">Cerrar
+                            Sesión</button>
+                    </div>
+                </form>
+                <nav aria-label="Cerrar perfil">
+                    <label for="state-home" class="close-btn btn-close-login" tabindex="0">Volver al Inicio</label>
+                </nav>
+            </div>
+        </section>
+
+        <!-- Videojuegos Section -->
+        <section class="view-videojuegos" aria-label="Mini-Juego Pokémon">
+            <div class="videojuegos-container">
+                <div class="videojuegos-header">
+                    <h2>Pokémon Clasico</h2>
+                    <p class="videojuegos-description">Un tributo interactivo a la era dorada de Pokémon, conmemorando
+                        las mecánicas clásicas de combate por turnos y el arte pixelado que marcaron a toda una
+                        generación de entrenadores.</p>
+                </div>
+
+                <!-- Mensaje para orientación vertical -->
+                <div class="orientation-warning">
+                    <p>¡Entrenador!</p>
+                    <p>Gira tu dispositivo a modo horizontal para poder jugar.</p>
+                    <span class="rotate-icon">↻</span>
+                </div>
+
+                <div class="game-wrapper">
+                    <!-- Punto de montaje del juego React (se monta en este div) -->
+                    <div id="pokemon-game-root"></div>
+                </div>
+
+                <div class="videojuegos-flowchart-container">
+                    <h3 class="flowchart-title">Evolución de Consolas y Juegos Pokémon</h3>
+                    <img src="assets/videogames_&_application/linea_de_flujo_videojuegos.png" alt="Línea de flujo de videojuegos Pokémon" class="flowchart-img">
+                </div>
+
+                <div class="videojuegos-promo-container">
+                    <div class="promo-card">
+                        <img src="assets/videogames_&_application/800px-Carátula_Leyendas_Poke_Z-A_(Switch).png" alt="Pokémon Legends: Z-A" class="promo-img">
+                        <div class="promo-info">
+                            <h3>¡Ya disponible!</h3>
+                            <p>¡La espera ha terminado! Embárcate en una nueva aventura en la región de Kalos con <strong>Pokémon Legends: Z-A</strong>. Descubre los misterios que aguardan en Ciudad Luminalia en esta increíble experiencia, ya disponible para la familia de consolas Nintendo Switch.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <nav aria-label="Cerrar videojuegos">
+                    <label for="state-home" class="close-btn" tabindex="0">Volver al Inicio</label>
+                </nav>
+            </div>
+        </section>
+
+        <section class="view-tcg-event" id="tcg-event" aria-label="Eventos de Campeonato TCG">
+            <div class="tcg-event-container">
+                <div class="tcg-event-banner">
+                    <img src="assets/tcg_event/pokemon_tcg_event_main.png" alt="Pokémon TCG Event Main Banner">
+                </div>
+                
+                <div class="tcg-event-description">
+                    <h2>Pokémon TCG Showdown 2025</h2>
+                    <p>¡Prepárate para el evento más emocionante del año! Únete a miles de entrenadores de todo el mundo en el <strong>Pokémon TCG Showdown 2025</strong>. Demuestra tus habilidades, compite con los mejores y gana premios exclusivos. Ya seas un veterano o un principiante, ¡hay un lugar para ti en la arena!</p>
+                </div>
+
+                <div class="tcg-event-schedule">
+                    <img src="assets/tcg_event/pokemon_tcg_event_schedule.png" alt="Pokémon TCG Event Schedule">
+                </div>
+
+                <nav aria-label="Cerrar evento TCG">
+                    <label for="state-home" class="close-btn" tabindex="0">Volver al Inicio</label>
+                </nav>
+            </div>
+        </section>
+
+        <section class="view-footer-modal" aria-label="Información legal y contacto">
+            <span class="cards-display-background" aria-hidden="true"></span>
+            <label for="footer-none" class="card-close-overlay" aria-hidden="true"></label>
+
+            <div class="footer-modal-box">
+                <article class="footer-info content-terms">
+                    <h2>Términos de uso</h2>
+                    <div class="footer-grid-content">
+                        <div>
+                            <h3>1. Aceptación</h3>
+                            <p>Al acceder a este sitio web, usted acepta estar sujeto a estos Términos de uso, todas las
+                                leyes y regulaciones aplicables.</p>
+                        </div>
+                        <div>
+                            <h3>2. Licencia de Uso</h3>
+                            <p>Se concede permiso para descargar temporalmente una copia de los materiales para
+                                visualización transitoria personal y no comercial.</p>
+                        </div>
+                        <div>
+                            <h3>3. Propiedad Intelectual</h3>
+                            <p>El diseño del sitio, el texto, los gráficos y las interfaces son propiedad de The Pokémon
+                                Company.</p>
+                        </div>
+                        <div>
+                            <h3>4. Limitaciones</h3>
+                            <p>En ningún caso seremos responsables de los daños que surjan del uso o la incapacidad de
+                                usar los materiales.</p>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="footer-info content-privacy">
+                    <h2>Política de privacidad</h2>
+                    <div class="footer-grid-content">
+                        <div>
+                            <h3>Recopilación de Datos</h3>
+                            <p>Recopilamos información para brindar mejores servicios a todos nuestros usuarios, desde
+                                el idioma que hablas hasta el contenido que consumes.</p>
+                        </div>
+                        <div>
+                            <h3>Uso de la Información</h3>
+                            <p>Utilizamos la información que recopilamos de todos nuestros servicios para
+                                proporcionarlos, mantenerlos, protegerlos y mejorarlos.</p>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="footer-info content-contact">
+                    <h2>Contacto</h2>
+                    <div class="footer-grid-content">
+                        <div>
+                            <h3>Soporte al Entrenador</h3>
+                            <p>¿Tienes problemas con tu cuenta de Trainer Club? Visita nuestro portal de soporte para
+                                obtener ayuda técnica.</p>
+                        </div>
+                        <div>
+                            <h3>Consultas Comerciales</h3>
+                            <p>Para prensa, patrocinios y eventos oficiales, escríbenos a nuestro correo corporativo.
+                            </p>
+                        </div>
+                    </div>
+                </article>
+
+                <label for="footer-none" class="close-details-btn" style="margin-top: 2rem;">Cerrar Panel</label>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- ============================================================
+         PANEL DE ADMINISTRADOR (overlay full-screen)
+    ============================================================ -->
+    <div id="admin-overlay" class="admin-overlay" aria-hidden="true" aria-label="Panel de Administrador">
+        <div class="admin-panel">
+            <header class="admin-panel-header">
+                <div class="admin-header-left">
+                    <span class="admin-badge">&#9650; ADMIN</span>
+                    <h2>Panel de Control &mdash; Pokémon TCG</h2>
+                </div>
+                <button id="btn-close-admin" class="admin-close-btn" aria-label="Cerrar panel">&times;</button>
+            </header>
+
+            <div class="admin-api-status" id="admin-api-status">
+                <span class="status-dot" id="status-dot"></span>
+                <span id="status-label">Conectando con la API...</span>
+                <span class="status-endpoint">GET /api/users &bull; http://127.0.0.1:8000</span>
+            </div>
+
+            <div class="admin-body">
+                <!-- Lista de Usuarios Registrados -->
+                <section class="admin-section" aria-label="Usuarios registrados">
+                    <div class="admin-section-header">
+                        <h3>&#128100; Usuarios Registrados</h3>
+                        <span class="admin-count-badge" id="admin-user-count">Cargando...</span>
+                    </div>
+                    <div class="admin-table-wrapper">
+                        <table class="admin-table" id="admin-users-table">
+                            <thead>
+                                <tr>
+                                    <th>#ID</th>
+                                    <th>Nombre de usuario</th>
+                                    <th>Correo electrónico</th>
+                                    <th>Rol</th>
+                                    <th>Ver actividad</th>
+                                </tr>
+                            </thead>
+                            <tbody id="admin-users-tbody">
+                                <tr><td colspan="5" class="admin-loading">Cargando usuarios...</td></tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </section>
+
+                <!-- Panel de Actividad del Usuario Seleccionado -->
+                <section class="admin-section admin-activity-panel" id="admin-activity-panel" aria-label="Actividad del usuario" style="display:none;">
+                    <div class="admin-section-header">
+                        <h3>&#128202; Actividad de: <span id="admin-activity-username"></span></h3>
+                        <button id="btn-close-activity" class="admin-close-activity-btn" aria-label="Cerrar actividad">&larr; Volver</button>
+                    </div>
+
+                    <div class="admin-activity-grid">
+                        <!-- Cartas favoritas -->
+                        <div class="activity-card">
+                            <div class="activity-card-icon">&#10084;</div>
+                            <h4>Cartas favoritas</h4>
+                            <div id="activity-favorites" class="activity-favorites-list">
+                                <p class="admin-empty">Sin favoritos registrados.</p>
+                            </div>
+                        </div>
+
+                        <!-- Victorias en el mini-juego -->
+                        <div class="activity-card">
+                            <div class="activity-card-icon">&#127942;</div>
+                            <h4>Victorias en el Mini-Juego</h4>
+                            <div id="activity-victories" class="activity-victories-display">
+                                <span class="victories-number" id="victories-count">0</span>
+                                <span class="victories-label">victorias</span>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal de Código de Administrador -->
+    <div id="admin-code-modal" class="admin-code-modal" aria-hidden="true" role="dialog" aria-modal="true" aria-labelledby="admin-modal-title">
+        <div class="admin-code-modal-box">
+            <button id="btn-close-admin-modal" class="modal-close-x" aria-label="Cerrar">&times;</button>
+            <div class="modal-icon">&#128274;</div>
+            <h3 id="admin-modal-title">Acceso Restringido</h3>
+            <p>Ingresa el c&oacute;digo de administrador para activar el modo de control.</p>
+            <input type="password" id="admin-code-input" class="admin-code-input" placeholder="C&oacute;digo de administrador" autocomplete="off" maxlength="32">
+            <p id="admin-code-error" class="admin-code-error" aria-live="polite"></p>
+            <button id="btn-confirm-admin" class="btn-confirm-admin">Confirmar acceso</button>
+        </div>
+    </div>
+
+    <footer class="main-footer">
+        <div class="footer-content">
+            <small class="copyright">
+                © 2026 Pokémon. © 1995–2026 Nintendo / Creatures Inc. / GAME FREAK inc.
+            </small>
+            <nav class="footer-nav" aria-label="Enlaces legales e institucionales">
+                <label for="footer-terms" class="footer-link" tabindex="0">Términos de uso</label>
+                <label for="footer-privacy" class="footer-link" tabindex="0">Política de privacidad</label>
+                <label for="footer-contact" class="footer-link" tabindex="0">Contacto</label>
+            </nav>
+        </div>
+    </footer>
+
+    <!-- Juego React: se monta en #pokemon-game-root cuando el DOM esté listo -->
+    <script type="module" src="web_mini_game/pokemon-battle/dist/assets/game.js"></script>
+
+</body>
+
+</html>
