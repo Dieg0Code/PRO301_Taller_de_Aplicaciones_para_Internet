@@ -39,7 +39,7 @@ Each class has its own generation scripts located in `clases/semana-XX/YY/ppt/so
 3. **PPTX Decks:** Must be derived strictly from the session's README.
 
 ### Pedagogical Standards
-- **Language:** All student-facing material **must be in correct Spanish** (using `ñ`, accents, and proper grammar). No internal "meta" comments in student materials.
+- **Language:** All student-facing material **must be in correct Spanish** (using `ñ`, accents, and proper grammar). No internal "meta" comments in student materials. BAJO NINGUNA CIRCUNSTANCIA se debe filtrar contexto interno, métodos de revisión del docente, ni firmas como "Evaluación asistida por IA". Todo material hacia los estudiantes (clases, feedback, etc.) debe ser un producto final impecable y redactado en el rol del docente.
 - **Tone:** Professional, technical, clear, and didactic. Avoid "hype" or over-simplification.
 - **Principles of Pedagogical Engineering (High-Performance Instruction):**
     1. **Semantic Anchoring:** Every abstract concept must be immediately anchored by a concrete implementation (code) or a structural visualization (diagram). Theoretical drifting is prohibited.

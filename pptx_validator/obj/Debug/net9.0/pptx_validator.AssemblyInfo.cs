@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("pptx_validator")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+7ecb945a7887869aac856a6d8d74f17ca2beaff3")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+46a88a8dff96ced788f65b8ea15952be62d41d4c")]
 [assembly: System.Reflection.AssemblyProductAttribute("pptx_validator")]
 [assembly: System.Reflection.AssemblyTitleAttribute("pptx_validator")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
