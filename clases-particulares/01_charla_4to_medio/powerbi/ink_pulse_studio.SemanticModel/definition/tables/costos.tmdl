@@ -1,0 +1,93 @@
+table costos
+	lineageTag: 4227a699-f585-45db-8870-93b9941d26c6
+
+	measure 'Costos BI' = SUM('costos'[costo_total_clp])
+		formatString: "$"#,##0
+		displayFolder: Rentabilidad
+		lineageTag: 3f46deff-8c64-43a8-8cb8-acd3e6b29b20
+
+	measure 'Ganancia BI' = SUM('costos'[ganancia_estimada_clp])
+		formatString: "$"#,##0
+		displayFolder: Rentabilidad
+		lineageTag: 46fb6386-3d99-427e-869f-e1b1c67be306
+
+	measure 'Margen real estimado' = DIVIDE([Ganancia BI], [Ventas confirmadas BI])
+		formatString: 0.0%
+		displayFolder: Rentabilidad
+		lineageTag: 59e83c5d-e686-434f-8ae7-3b457b276416
+
+	measure 'Insumos BI' = SUM('costos'[insumos_clp])
+		formatString: "$"#,##0
+		displayFolder: Rentabilidad
+		lineageTag: 46fb6386-3d99-4c06-85ce-ebc8ff624295
+
+	measure 'Comisiones artistas BI' = SUM('costos'[comision_artista_clp])
+		formatString: "$"#,##0
+		displayFolder: Rentabilidad
+		lineageTag: 46fb6386-3d99-4617-8a33-3b63ef35ed6c
+
+	column costo_id
+		dataType: string
+		lineageTag: 751be7a4-d0bf-44f4-838d-ee4870778b20
+		summarizeBy: none
+		sourceColumn: costo_id
+
+	column reserva_id
+		dataType: string
+		lineageTag: 5f310902-b21d-410c-87ca-54735121a29e
+		summarizeBy: none
+		sourceColumn: reserva_id
+
+	column comision_artista_clp
+		dataType: int64
+		formatString: 0
+		lineageTag: fd936f2c-5837-4c57-8298-1574f95b00e3
+		summarizeBy: sum
+		sourceColumn: comision_artista_clp
+
+	column insumos_clp
+		dataType: int64
+		formatString: 0
+		lineageTag: b1dfab60-147b-4366-8320-5cec1c93b142
+		summarizeBy: sum
+		sourceColumn: insumos_clp
+
+	column marketing_atribuido_clp
+		dataType: int64
+		formatString: 0
+		lineageTag: d7b9818a-3a95-4ea0-8efa-35677f9ba14e
+		summarizeBy: sum
+		sourceColumn: marketing_atribuido_clp
+
+	column costo_fijo_estimado_clp
+		dataType: int64
+		formatString: 0
+		lineageTag: d7b9818a-3a95-4652-8571-dba2b2314f68
+		summarizeBy: sum
+		sourceColumn: costo_fijo_estimado_clp
+
+	column costo_total_clp
+		dataType: int64
+		formatString: 0
+		lineageTag: 6244f473-8f24-4723-8ce4-46cefec67ab5
+		summarizeBy: sum
+		sourceColumn: costo_total_clp
+
+	column ganancia_estimada_clp
+		dataType: int64
+		formatString: 0
+		lineageTag: 268030b7-4b68-4d39-8384-5dc5cef07101
+		summarizeBy: sum
+		sourceColumn: ganancia_estimada_clp
+
+	partition costos = m
+		mode: import
+		source =
+				let
+				    Origen = Csv.Document(File.Contents("C:\Users\Diego Obando\dev\pro301-taller-de-aplicaciones-para-internet\clases-particulares\01_charla_4to_medio\datos\modelo_negocio\costos.csv"),[Delimiter=",", Columns=8, Encoding=65001, QuoteStyle=QuoteStyle.Csv]),
+				    #"Encabezados promovidos" = Table.PromoteHeaders(Origen, [PromoteAllScalars=true]),
+				    #"Tipo cambiado" = Table.TransformColumnTypes(#"Encabezados promovidos",{{"costo_id", type text}, {"reserva_id", type text}, {"comision_artista_clp", Int64.Type}, {"insumos_clp", Int64.Type}, {"marketing_atribuido_clp", Int64.Type}, {"costo_fijo_estimado_clp", Int64.Type}, {"costo_total_clp", Int64.Type}, {"ganancia_estimada_clp", Int64.Type}})
+				in
+				    #"Tipo cambiado"
+
+	annotation PBI_ResultType = Table

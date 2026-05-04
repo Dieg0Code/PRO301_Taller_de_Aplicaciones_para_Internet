@@ -1,0 +1,139 @@
+table solicitudes
+	lineageTag: 197831cd-481a-4091-8792-1babe6f036f7
+
+	measure 'Solicitudes' = COUNTROWS('solicitudes')
+		formatString: #,##0
+		displayFolder: Comercial
+		lineageTag: 609dc1ec-1cd9-4f45-8cbb-1dc4824c99ea
+
+	measure 'Reservas confirmadas BI' = CALCULATE([Solicitudes], 'solicitudes'[estado_solicitud] = "confirmada")
+		formatString: #,##0
+		displayFolder: Comercial
+		lineageTag: 3f46deff-87c6-4816-8793-c2e904ac5aa6
+
+	measure 'Conversion BI' = DIVIDE([Reservas confirmadas BI], [Solicitudes])
+		formatString: 0.0%
+		displayFolder: Comercial
+		lineageTag: 3f46deff-87c6-4816-876c-a3838e54856e
+
+	measure 'Tiempo respuesta promedio' = AVERAGE('solicitudes'[minutos_respuesta])
+		formatString: #,##0
+		displayFolder: Comercial
+		lineageTag: fb8a9a3b-430a-4452-83f9-0602ef0a2091
+
+	measure 'Ventas posibles BI' = SUM('solicitudes'[monto_cotizado_clp])
+		formatString: "$"#,##0
+		displayFolder: Comercial
+		lineageTag: b7ce5677-0f4e-409e-8f57-f2ff547baff1
+
+	column solicitud_id
+		dataType: string
+		lineageTag: ae08b83f-19c8-4e40-8727-e274b21fd7ef
+		summarizeBy: none
+		sourceColumn: solicitud_id
+
+	column cliente_id
+		dataType: string
+		lineageTag: 268030b7-9140-46c8-8f3d-cd5b424ef23d
+		summarizeBy: none
+		sourceColumn: cliente_id
+
+	column artista_id
+		dataType: string
+		lineageTag: eacc7cfb-dd0c-420c-8db4-b993cac67ab5
+		summarizeBy: none
+		sourceColumn: artista_id
+
+	column campana_id
+		dataType: string
+		lineageTag: 5f310902-2079-4bbd-8ab1-fbdf8e0a3e71
+		summarizeBy: none
+		sourceColumn: campana_id
+
+	column fecha_solicitud
+		dataType: dateTime
+		formatString: Short Date
+		lineageTag: ae08b83f-19c8-4e40-8a73-d1c2fe7ba16f
+		summarizeBy: none
+		sourceColumn: fecha_solicitud
+
+	column hora_solicitud
+		dataType: string
+		lineageTag: b1dfab60-ca53-4197-8fad-84735584ca8e
+		summarizeBy: none
+		sourceColumn: hora_solicitud
+
+	column canal_contacto
+		dataType: string
+		lineageTag: fd936f2c-8e97-4553-8cd4-3699a7b5ed06
+		summarizeBy: none
+		sourceColumn: canal_contacto
+
+	column fuente_llegada
+		dataType: string
+		lineageTag: 6244f473-5584-4a84-8631-9015327f65e4
+		summarizeBy: none
+		sourceColumn: fuente_llegada
+
+	column estilo_tatuaje
+		dataType: string
+		lineageTag: 137d4546-6c35-47f1-80f8-fad177b149e4
+		summarizeBy: none
+		sourceColumn: estilo_tatuaje
+
+	column zona_cuerpo
+		dataType: string
+		lineageTag: 9bf5cdce-e4bd-4f79-8fa1-c83d0111a284
+		summarizeBy: none
+		sourceColumn: zona_cuerpo
+
+	column tamano
+		dataType: string
+		lineageTag: eacc7cfb-dd0c-420c-8813-2328d8577589
+		summarizeBy: none
+		sourceColumn: tamano
+
+	column monto_cotizado_clp
+		dataType: int64
+		formatString: 0
+		lineageTag: d7b9818a-a8f1-4335-84fa-6699a5258b24
+		summarizeBy: sum
+		sourceColumn: monto_cotizado_clp
+
+	column minutos_respuesta
+		dataType: int64
+		formatString: 0
+		lineageTag: 00a65215-33aa-4422-874f-21c2fc95bb8e
+		summarizeBy: sum
+		sourceColumn: minutos_respuesta
+
+	column estado_solicitud
+		dataType: string
+		lineageTag: 5f310902-2079-4bbd-843c-b69d2e841553
+		summarizeBy: none
+		sourceColumn: estado_solicitud
+
+	column etapa_pipeline
+		dataType: string
+		lineageTag: eacc7cfb-dd0c-420c-8153-594983494da8
+		summarizeBy: none
+		sourceColumn: etapa_pipeline
+
+	column score_oportunidad
+		dataType: int64
+		formatString: 0
+		lineageTag: eacc7cfb-dd0c-420c-8ba8-a0fb93d65a7c
+		summarizeBy: sum
+		sourceColumn: score_oportunidad
+
+	partition solicitudes = m
+		mode: import
+		source =
+				let
+				    Origen = Csv.Document(File.Contents("C:\Users\Diego Obando\dev\pro301-taller-de-aplicaciones-para-internet\clases-particulares\01_charla_4to_medio\datos\modelo_negocio\solicitudes.csv"),[Delimiter=",", Columns=16, Encoding=65001, QuoteStyle=QuoteStyle.Csv]),
+				    #"Encabezados promovidos" = Table.PromoteHeaders(Origen, [PromoteAllScalars=true]),
+				    #"Tipo cambiado" = Table.TransformColumnTypes(#"Encabezados promovidos",{{"solicitud_id", type text}, {"cliente_id", type text}, {"artista_id", type text}, {"campana_id", type text}, {"fecha_solicitud", type date}, {"hora_solicitud", type text}, {"canal_contacto", type text}, {"fuente_llegada", type text}, {"estilo_tatuaje", type text}, {"zona_cuerpo", type text}, {"tamano", type text}, {"monto_cotizado_clp", Int64.Type}, {"minutos_respuesta", Int64.Type}, {"estado_solicitud", type text}, {"etapa_pipeline", type text}, {"score_oportunidad", Int64.Type}})
+				in
+				    #"Tipo cambiado"
+
+	annotation PBI_ResultType = Table

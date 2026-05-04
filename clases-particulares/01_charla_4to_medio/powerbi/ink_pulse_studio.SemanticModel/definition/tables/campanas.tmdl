@@ -1,0 +1,53 @@
+table campanas
+	lineageTag: bbd6df84-4a6e-46be-80f1-0f87a248216c
+
+	column campana_id
+		dataType: string
+		lineageTag: fd936f2e-1890-45c4-8e72-534d2e8838b1
+		summarizeBy: none
+		sourceColumn: campana_id
+
+	column nombre_campana
+		dataType: string
+		lineageTag: 751be7a6-9018-4d37-8793-08db993d6ec8
+		summarizeBy: none
+		sourceColumn: nombre_campana
+
+	column canal
+		dataType: string
+		lineageTag: 9bf5cdcc-b67a-4fae-868a-bef15b08c6ea
+		summarizeBy: none
+		sourceColumn: canal
+
+	column costo_campana_clp
+		dataType: int64
+		formatString: 0
+		lineageTag: ae08b831-cfcf-4295-85ca-730549641820
+		summarizeBy: sum
+		sourceColumn: costo_campana_clp
+
+	column fecha_inicio
+		dataType: dateTime
+		formatString: Short Date
+		lineageTag: 137d4544-3ef2-4797-8f42-daffa611bb07
+		summarizeBy: none
+		sourceColumn: fecha_inicio
+
+	column fecha_fin
+		dataType: dateTime
+		formatString: Short Date
+		lineageTag: 9bf5cdcc-b67a-4f1f-87ca-0aa050dffd6e
+		summarizeBy: none
+		sourceColumn: fecha_fin
+
+	partition campanas = m
+		mode: import
+		source =
+				let
+				    Origen = Csv.Document(File.Contents("C:\Users\Diego Obando\dev\pro301-taller-de-aplicaciones-para-internet\clases-particulares\01_charla_4to_medio\datos\modelo_negocio\campanas.csv"),[Delimiter=",", Columns=6, Encoding=65001, QuoteStyle=QuoteStyle.Csv]),
+				    #"Encabezados promovidos" = Table.PromoteHeaders(Origen, [PromoteAllScalars=true]),
+				    #"Tipo cambiado" = Table.TransformColumnTypes(#"Encabezados promovidos",{{"campana_id", type text}, {"nombre_campana", type text}, {"canal", type text}, {"costo_campana_clp", Int64.Type}, {"fecha_inicio", type date}, {"fecha_fin", type date}})
+				in
+				    #"Tipo cambiado"
+
+	annotation PBI_ResultType = Table

@@ -1,0 +1,7 @@
+artista_id,nombre_artista,especialidad,tarifa_hora_clp,horas_disponibles_dia,comision_pct,estado
+ART-001,Nova Ink,fine line,38000,6.25,0.48,activo
+ART-002,Kuro,blackwork,45000,6.5,0.52,activo
+ART-003,Lina Dot,minimalista,34000,6,0.45,activo
+ART-004,Rayo,tradicional,42000,6.5,0.5,activo
+ART-005,Mila Shade,sombras suaves,40000,6.25,0.48,activo
+ART-006,Atlas,piezas grandes,50000,7,0.55,activo

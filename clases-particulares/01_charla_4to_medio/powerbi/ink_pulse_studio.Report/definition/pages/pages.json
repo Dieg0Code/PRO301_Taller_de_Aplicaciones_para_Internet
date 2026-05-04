@@ -1,0 +1,13 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/pagesMetadata/1.0.0/schema.json",
+  "pageOrder": [
+    "17fab5ed598d88453da1",
+    "flujo_dinero",
+    "indicadores_gerenciales",
+    "canales_conversion",
+    "rentabilidad_real",
+    "operacion_agenda",
+    "clientes_feedback"
+  ],
+  "activePageName": "17fab5ed598d88453da1"
+}

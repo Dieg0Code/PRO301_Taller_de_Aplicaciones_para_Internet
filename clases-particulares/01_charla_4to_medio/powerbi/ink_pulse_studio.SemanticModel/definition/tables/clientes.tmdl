@@ -1,0 +1,64 @@
+table clientes
+	lineageTag: 066b6a88-f826-4e36-8878-ff1e9f3d9091
+
+	column cliente_id
+		dataType: string
+		lineageTag: 395723e7-2441-4038-8fde-534d2e8838b0
+		summarizeBy: none
+		sourceColumn: cliente_id
+
+	column nombre_cliente
+		dataType: string
+		lineageTag: d7b98181-0a6b-4a24-8844-57fd05134866
+		summarizeBy: none
+		sourceColumn: nombre_cliente
+
+	column contacto
+		dataType: string
+		lineageTag: ae08b830-37d6-4fac-89e8-0cfbd9a92122
+		summarizeBy: none
+		sourceColumn: contacto
+
+	column canal_preferido
+		dataType: string
+		lineageTag: 137d4545-c6af-4ed7-8bf7-9a3a5abc5f67
+		summarizeBy: none
+		sourceColumn: canal_preferido
+
+	column comuna
+		dataType: string
+		lineageTag: 268030b8-bf5e-4724-8753-c8e69a56917c
+		summarizeBy: none
+		sourceColumn: comuna
+
+	column primera_solicitud
+		dataType: dateTime
+		formatString: Short Date
+		lineageTag: 00a65216-51bc-4510-8f87-66d1f7eea8e4
+		summarizeBy: none
+		sourceColumn: primera_solicitud
+
+	column cliente_recurrente
+		dataType: string
+		lineageTag: 751be7ab-e085-44fc-8b12-1f5b0a2d4ddb
+		summarizeBy: none
+		sourceColumn: cliente_recurrente
+
+	column visitas_estimadas
+		dataType: int64
+		formatString: 0
+		lineageTag: c4e29e52-9578-41f5-88aa-79648eb5f36c
+		summarizeBy: sum
+		sourceColumn: visitas_estimadas
+
+	partition clientes = m
+		mode: import
+		source =
+				let
+				    Origen = Csv.Document(File.Contents("C:\Users\Diego Obando\dev\pro301-taller-de-aplicaciones-para-internet\clases-particulares\01_charla_4to_medio\datos\modelo_negocio\clientes.csv"),[Delimiter=",", Columns=8, Encoding=65001, QuoteStyle=QuoteStyle.Csv]),
+				    #"Encabezados promovidos" = Table.PromoteHeaders(Origen, [PromoteAllScalars=true]),
+				    #"Tipo cambiado" = Table.TransformColumnTypes(#"Encabezados promovidos",{{"cliente_id", type text}, {"nombre_cliente", type text}, {"contacto", type text}, {"canal_preferido", type text}, {"comuna", type text}, {"primera_solicitud", type date}, {"cliente_recurrente", type text}, {"visitas_estimadas", Int64.Type}})
+				in
+				    #"Tipo cambiado"
+
+	annotation PBI_ResultType = Table

@@ -1,0 +1,110 @@
+table reservas
+	lineageTag: 20c905a0-74c0-4410-866a-77d0b517b6fa
+
+	measure 'Reservas' = COUNTROWS('reservas')
+		formatString: #,##0
+		displayFolder: Ventas
+		lineageTag: 2cd18d21-4858-4036-870f-fb66114c6c40
+
+	measure 'Ventas confirmadas BI' = SUM('reservas'[monto_final_clp])
+		formatString: "$"#,##0
+		displayFolder: Ventas
+		lineageTag: 023f2fcf-6e3a-4294-8466-3215923a955f
+
+	measure 'Abonos BI' = SUM('reservas'[abono_clp])
+		formatString: "$"#,##0
+		displayFolder: Ventas
+		lineageTag: a45905a9-c0d0-48b1-8b19-adfd82bfaf4f
+
+	measure 'Falta cobrar BI' = SUM('reservas'[saldo_por_cobrar_clp])
+		formatString: "$"#,##0
+		displayFolder: Ventas
+		lineageTag: b7ce567a-5bc3-4725-83f1-f50b3b5acef1
+
+	measure 'Ticket real promedio' = AVERAGE('reservas'[monto_final_clp])
+		formatString: "$"#,##0
+		displayFolder: Ventas
+		lineageTag: 8ab7a747-e6b2-4a16-8b2e-25718774e679
+
+	column reserva_id
+		dataType: string
+		lineageTag: b1dfab9f-c6ed-400c-81f2-534d2e883884
+		summarizeBy: none
+		sourceColumn: reserva_id
+
+	column solicitud_id
+		dataType: string
+		lineageTag: d7b981b5-ac03-4ed9-8fe6-a0e8b2d57fc3
+		summarizeBy: none
+		sourceColumn: solicitud_id
+
+	column cliente_id
+		dataType: string
+		lineageTag: 5f31093d-248b-465a-8d70-bd6744621eaa
+		summarizeBy: none
+		sourceColumn: cliente_id
+
+	column artista_id
+		dataType: string
+		lineageTag: 5f31093d-248b-46be-8cb4-35efccea9622
+		summarizeBy: none
+		sourceColumn: artista_id
+
+	column fecha_reserva
+		dataType: dateTime
+		formatString: Short Date
+		lineageTag: 9bf5cdf9-68c7-4aaa-86f7-3b6ec968909f
+		summarizeBy: none
+		sourceColumn: fecha_reserva
+
+	column fecha_agendada
+		dataType: dateTime
+		formatString: Short Date
+		lineageTag: 882eda6e-f3d4-41f1-8da8-71e177b5e640
+		summarizeBy: none
+		sourceColumn: fecha_agendada
+
+	column horario_preferido
+		dataType: string
+		lineageTag: 4c6a16a2-bf98-4d1d-8db5-22cf6bc329ca
+		summarizeBy: none
+		sourceColumn: horario_preferido
+
+	column monto_final_clp
+		dataType: int64
+		formatString: 0
+		lineageTag: d7b981b5-ac03-4ef3-8655-d97db9c17589
+		summarizeBy: sum
+		sourceColumn: monto_final_clp
+
+	column abono_clp
+		dataType: int64
+		formatString: 0
+		lineageTag: 4c6a16a2-bf98-4d65-836c-1028d8577819
+		summarizeBy: sum
+		sourceColumn: abono_clp
+
+	column saldo_por_cobrar_clp
+		dataType: int64
+		formatString: 0
+		lineageTag: 6244f448-95be-4bea-85ca-aa601b58f07f
+		summarizeBy: sum
+		sourceColumn: saldo_por_cobrar_clp
+
+	column estado_pago
+		dataType: string
+		lineageTag: 9bf5cdf9-68c7-4abb-8d19-e1249f2fa04f
+		summarizeBy: none
+		sourceColumn: estado_pago
+
+	partition reservas = m
+		mode: import
+		source =
+				let
+				    Origen = Csv.Document(File.Contents("C:\Users\Diego Obando\dev\pro301-taller-de-aplicaciones-para-internet\clases-particulares\01_charla_4to_medio\datos\modelo_negocio\reservas.csv"),[Delimiter=",", Columns=11, Encoding=65001, QuoteStyle=QuoteStyle.Csv]),
+				    #"Encabezados promovidos" = Table.PromoteHeaders(Origen, [PromoteAllScalars=true]),
+				    #"Tipo cambiado" = Table.TransformColumnTypes(#"Encabezados promovidos",{{"reserva_id", type text}, {"solicitud_id", type text}, {"cliente_id", type text}, {"artista_id", type text}, {"fecha_reserva", type date}, {"fecha_agendada", type date}, {"horario_preferido", type text}, {"monto_final_clp", Int64.Type}, {"abono_clp", Int64.Type}, {"saldo_por_cobrar_clp", Int64.Type}, {"estado_pago", type text}})
+				in
+				    #"Tipo cambiado"
+
+	annotation PBI_ResultType = Table

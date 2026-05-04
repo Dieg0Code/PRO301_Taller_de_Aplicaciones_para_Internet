@@ -1,0 +1,47 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  color-scheme: light;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background: #FFFFFF;
+  color: #0F172A;
+  font-feature-settings: "kern", "calt", "ss01", "cv11";
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+::selection {
+  background: #0E5C3A;
+  color: #FFFFFF;
+}
+
+.tabular {
+  font-feature-settings: "tnum", "lnum";
+  font-variant-numeric: tabular-nums lining-nums;
+}
+
+/* Scroll thin */
+.scroll-thin::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+.scroll-thin::-webkit-scrollbar-track { background: transparent; }
+.scroll-thin::-webkit-scrollbar-thumb { background: #CBD5E1; border-radius: 3px; }
+.scroll-thin::-webkit-scrollbar-thumb:hover { background: #94A3B8; }
+
+/* No-scroll utility for mobile drawer */
+.no-body-scroll { overflow: hidden; }
+
+/* Focus rings consistent */
+*:focus-visible {
+  outline: 2px solid #0E5C3A;
+  outline-offset: 2px;
+}

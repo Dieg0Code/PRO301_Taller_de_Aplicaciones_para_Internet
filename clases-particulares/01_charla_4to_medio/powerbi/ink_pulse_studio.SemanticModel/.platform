@@ -1,0 +1,11 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/gitIntegration/platformProperties/2.0.0/schema.json",
+  "metadata": {
+    "type": "SemanticModel",
+    "displayName": "ink_pulse_studio"
+  },
+  "config": {
+    "version": "2.0",
+    "logicalId": "05945571-6584-4050-bf02-11931173d48b"
+  }
+}

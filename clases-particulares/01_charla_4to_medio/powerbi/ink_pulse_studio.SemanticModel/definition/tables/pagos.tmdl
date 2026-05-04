@@ -1,0 +1,57 @@
+table pagos
+	lineageTag: 55347637-04e6-430d-84fb-9df4b67fc426
+
+	measure 'Pagos recibidos BI' = SUM('pagos'[monto_clp])
+		formatString: "$"#,##0
+		displayFolder: Caja
+		lineageTag: 59e83c56-d7ac-4ad9-8db9-acc48074e897
+
+	column pago_id
+		dataType: string
+		lineageTag: 751be731-a61e-47e0-8add-77cb9986b273
+		summarizeBy: none
+		sourceColumn: pago_id
+
+	column reserva_id
+		dataType: string
+		lineageTag: c4e29e80-df61-4098-88b5-7d8146a3aa55
+		summarizeBy: none
+		sourceColumn: reserva_id
+
+	column fecha_pago
+		dataType: dateTime
+		formatString: Short Date
+		lineageTag: d7b98157-8072-4b75-8da0-9323a44d0c33
+		summarizeBy: none
+		sourceColumn: fecha_pago
+
+	column monto_clp
+		dataType: int64
+		formatString: 0
+		lineageTag: 5f3109df-08f5-4337-84e7-0ca25648172a
+		summarizeBy: sum
+		sourceColumn: monto_clp
+
+	column tipo_pago
+		dataType: string
+		lineageTag: 00a652cc-93af-49c6-80bb-406e128cd36f
+		summarizeBy: none
+		sourceColumn: tipo_pago
+
+	column metodo_pago
+		dataType: string
+		lineageTag: 4c6a1608-57e2-48f4-8335-aa9dbf83d94e
+		summarizeBy: none
+		sourceColumn: metodo_pago
+
+	partition pagos = m
+		mode: import
+		source =
+				let
+				    Origen = Csv.Document(File.Contents("C:\Users\Diego Obando\dev\pro301-taller-de-aplicaciones-para-internet\clases-particulares\01_charla_4to_medio\datos\modelo_negocio\pagos.csv"),[Delimiter=",", Columns=6, Encoding=65001, QuoteStyle=QuoteStyle.Csv]),
+				    #"Encabezados promovidos" = Table.PromoteHeaders(Origen, [PromoteAllScalars=true]),
+				    #"Tipo cambiado" = Table.TransformColumnTypes(#"Encabezados promovidos",{{"pago_id", type text}, {"reserva_id", type text}, {"fecha_pago", type date}, {"monto_clp", Int64.Type}, {"tipo_pago", type text}, {"metodo_pago", type text}})
+				in
+				    #"Tipo cambiado"
+
+	annotation PBI_ResultType = Table

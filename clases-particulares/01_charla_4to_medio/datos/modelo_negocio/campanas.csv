@@ -1,0 +1,8 @@
+campana_id,nombre_campana,canal,costo_campana_clp,fecha_inicio,fecha_fin
+CAMP-IG-01,Reels portafolio,Instagram organico,180000,2026-05-01,2026-06-30
+CAMP-TK-01,Videos proceso,TikTok organico,120000,2026-05-01,2026-06-30
+CAMP-GO-01,Busqueda local,Google,90000,2026-05-01,2026-06-30
+CAMP-REF-01,Referidos,Boca a boca,0,2026-05-01,2026-06-30
+CAMP-DIR-01,Visita directa,Local fisico,0,2026-05-01,2026-06-30
+CAMP-AIEP-01,Activacion AIEP,Evento,60000,2026-05-01,2026-06-30
+CAMP-RET-01,Clientes que vuelven,Retencion,30000,2026-05-01,2026-06-30

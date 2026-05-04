@@ -1,0 +1,77 @@
+table feedback
+	lineageTag: 066b6748-c5ac-40d4-8a6a-90801f3d9094
+
+	measure 'Feedbacks' = COUNTROWS('feedback')
+		formatString: #,##0
+		displayFolder: Clientes
+		lineageTag: fb8a9a3a-51d0-4543-8ce1-cc776895c9e1
+
+	measure 'Rating promedio' = AVERAGE('feedback'[rating])
+		formatString: 0.0
+		displayFolder: Clientes
+		lineageTag: 730212b2-d958-4dc7-85a1-e1549d6ba2bd
+
+	measure 'Clientes recomiendan' = CALCULATE([Feedbacks], 'feedback'[recomendaria] = "si")
+		formatString: #,##0
+		displayFolder: Clientes
+		lineageTag: 9da47014-bf3a-4f20-8a72-ecf868ff2cd0
+
+	measure 'Tasa recomendacion' = DIVIDE([Clientes recomiendan], [Feedbacks])
+		formatString: 0.0%
+		displayFolder: Clientes
+		lineageTag: 3f46def6-1d9c-4909-8452-c2150a6b2637
+
+	column feedback_id
+		dataType: string
+		lineageTag: eacc7c04-b2a2-4dbd-8797-00fd3dc10e69
+		summarizeBy: none
+		sourceColumn: feedback_id
+
+	column reserva_id
+		dataType: string
+		lineageTag: 137d45b5-8f9f-4884-897a-dbc5a600b0c8
+		summarizeBy: none
+		sourceColumn: reserva_id
+
+	column cliente_id
+		dataType: string
+		lineageTag: 395723d3-a5b5-4296-813c-f1a38026d222
+		summarizeBy: none
+		sourceColumn: cliente_id
+
+	column rating
+		dataType: double
+		formatString: 0.00
+		lineageTag: eacc7c04-b2a2-4d75-8b11-22043c4c7262
+		summarizeBy: sum
+		sourceColumn: rating
+
+	column recomendaria
+		dataType: string
+		lineageTag: b1dfab5b-2d3d-4aee-85e2-0b4728ff55a5
+		summarizeBy: none
+		sourceColumn: recomendaria
+
+	column hubo_reclamo
+		dataType: string
+		lineageTag: b1dfab5b-2d3d-4a40-8294-7ddfe2d57fc3
+		summarizeBy: none
+		sourceColumn: hubo_reclamo
+
+	column comentario
+		dataType: string
+		lineageTag: 6244f48c-3a2a-45c6-85f8-70d1e2c4740c
+		summarizeBy: none
+		sourceColumn: comentario
+
+	partition feedback = m
+		mode: import
+		source =
+				let
+				    Origen = Csv.Document(File.Contents("C:\Users\Diego Obando\dev\pro301-taller-de-aplicaciones-para-internet\clases-particulares\01_charla_4to_medio\datos\modelo_negocio\feedback.csv"),[Delimiter=",", Columns=7, Encoding=65001, QuoteStyle=QuoteStyle.Csv]),
+				    #"Encabezados promovidos" = Table.PromoteHeaders(Origen, [PromoteAllScalars=true]),
+				    #"Tipo cambiado" = Table.TransformColumnTypes(#"Encabezados promovidos",{{"feedback_id", type text}, {"reserva_id", type text}, {"cliente_id", type text}, {"rating", type number}, {"recomendaria", type text}, {"hubo_reclamo", type text}, {"comentario", type text}})
+				in
+				    #"Tipo cambiado"
+
+	annotation PBI_ResultType = Table

@@ -1,0 +1,11 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/gitIntegration/platformProperties/2.0.0/schema.json",
+  "metadata": {
+    "type": "Report",
+    "displayName": "ink_pulse_studio"
+  },
+  "config": {
+    "version": "2.0",
+    "logicalId": "bd2f771f-9dd6-4903-9600-115cce5040fa"
+  }
+}

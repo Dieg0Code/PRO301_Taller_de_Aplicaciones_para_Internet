@@ -1,0 +1,30 @@
+model Model
+	culture: es-ES
+	defaultPowerBIDataSourceVersion: powerBI_V3
+	sourceQueryCulture: es-ES
+	dataAccessOptions
+		legacyRedirects
+		returnErrorValuesAsNull
+
+annotation __PBI_TimeIntelligenceEnabled = 1
+
+annotation PBI_QueryOrder = ["reservas_ink_pulse_studio","clientes","artistas","campanas","solicitudes","reservas","sesiones","pagos","costos","feedback"]
+
+annotation PBI_ProTooling = ["DevMode"]
+
+ref table reservas_ink_pulse_studio
+ref table DateTableTemplate_4aea7f72-cca5-4e4e-8793-19a855cf3c1b
+ref table LocalDateTable_afc98f6a-93ac-4686-a22e-226b3275522b
+ref table LocalDateTable_e952be0f-cd46-4354-9082-e52eb3b46231
+ref table clientes
+ref table artistas
+ref table campanas
+ref table solicitudes
+ref table reservas
+ref table sesiones
+ref table pagos
+ref table costos
+ref table feedback
+
+ref cultureInfo es-ES
+

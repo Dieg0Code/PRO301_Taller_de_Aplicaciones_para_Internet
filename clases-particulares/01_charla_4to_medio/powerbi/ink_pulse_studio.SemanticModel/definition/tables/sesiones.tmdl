@@ -1,0 +1,97 @@
+table sesiones
+	lineageTag: e40dcc5d-444c-485c-8257-0ad8f95bf233
+
+	measure 'Sesiones' = COUNTROWS('sesiones')
+		formatString: #,##0
+		displayFolder: Operacion
+		lineageTag: 2cd18d28-f9ec-4033-82bb-b3ee99c4e4f1
+
+	measure 'Horas agendadas' = SUM('sesiones'[duracion_horas])
+		formatString: #,##0.0
+		displayFolder: Operacion
+		lineageTag: 2cd18d28-f9ec-403c-8e73-59c02d27ea35
+
+	measure 'Sesiones realizadas' = CALCULATE([Sesiones], 'sesiones'[estado_sesion] = "realizada")
+		formatString: #,##0
+		displayFolder: Operacion
+		lineageTag: e8154964-b528-4c7f-8ef7-ff2ff38d8d6f
+
+	measure 'Asistencia' = DIVIDE([Sesiones realizadas], [Sesiones])
+		formatString: 0.0%
+		displayFolder: Operacion
+		lineageTag: fb8a9a3b-2ab3-4bea-832f-23ea9d6e3397
+
+	column sesion_id
+		dataType: string
+		lineageTag: eacc7cf9-6cf2-4bee-8729-e0ec1c93b16c
+		summarizeBy: none
+		sourceColumn: sesion_id
+
+	column reserva_id
+		dataType: string
+		lineageTag: 751be7a2-bb6d-4c40-8db6-97896a4cfc79
+		summarizeBy: none
+		sourceColumn: reserva_id
+
+	column artista_id
+		dataType: string
+		lineageTag: 9bf5cdc0-190b-4afa-80f8-792b08ae5a1f
+		summarizeBy: none
+		sourceColumn: artista_id
+
+	column fecha_agendada
+		dataType: dateTime
+		formatString: Short Date
+		lineageTag: c4e29e5b-06dc-4535-816c-b5ad3bf92a0c
+		summarizeBy: none
+		sourceColumn: fecha_agendada
+
+	column fecha_realizada
+		dataType: dateTime
+		formatString: Short Date
+		lineageTag: 6244f471-e47a-4353-8b8e-8630301a5f67
+		summarizeBy: none
+		sourceColumn: fecha_realizada
+
+	column duracion_horas
+		dataType: double
+		formatString: 0.00
+		lineageTag: 4c6a16d3-8e54-4ddb-8ba2-30f05a378c22
+		summarizeBy: sum
+		sourceColumn: duracion_horas
+
+	column estado_sesion
+		dataType: string
+		lineageTag: 137d4548-9183-4233-8591-6a3be2e01817
+		summarizeBy: none
+		sourceColumn: estado_sesion
+
+	column estilo_tatuaje
+		dataType: string
+		lineageTag: 268030b5-a83e-47ca-80a8-18d2d5392a0c
+		summarizeBy: none
+		sourceColumn: estilo_tatuaje
+
+	column zona_cuerpo
+		dataType: string
+		lineageTag: 882eda9f-ca90-4937-8be8-3b9a718d4a20
+		summarizeBy: none
+		sourceColumn: zona_cuerpo
+
+	column tamano
+		dataType: string
+		lineageTag: 9bf5cdc0-190b-4a88-8755-66c0f8fd607e
+		summarizeBy: none
+		sourceColumn: tamano
+
+	partition sesiones = m
+		mode: import
+		source =
+				let
+				    Origen = Csv.Document(File.Contents("C:\Users\Diego Obando\dev\pro301-taller-de-aplicaciones-para-internet\clases-particulares\01_charla_4to_medio\datos\modelo_negocio\sesiones.csv"),[Delimiter=",", Columns=10, Encoding=65001, QuoteStyle=QuoteStyle.Csv]),
+				    #"Encabezados promovidos" = Table.PromoteHeaders(Origen, [PromoteAllScalars=true]),
+				    #"Tipo cambiado" = Table.TransformColumnTypes(#"Encabezados promovidos",{{"sesion_id", type text}, {"reserva_id", type text}, {"artista_id", type text}, {"fecha_agendada", type date}, {"fecha_realizada", type date}, {"duracion_horas", type number}, {"estado_sesion", type text}, {"estilo_tatuaje", type text}, {"zona_cuerpo", type text}, {"tamano", type text}})
+				in
+				    #"Tipo cambiado"
+
+	annotation PBI_ResultType = Table

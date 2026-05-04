@@ -1,0 +1,1001 @@
+solicitud_id,cliente_id,artista_id,campana_id,fecha_solicitud,hora_solicitud,canal_contacto,fuente_llegada,estilo_tatuaje,zona_cuerpo,tamano,monto_cotizado_clp,minutos_respuesta,estado_solicitud,etapa_pipeline,score_oportunidad
+RES-0001,CLI-0001,ART-004,CAMP-TK-01,2026-05-24,13:00,WhatsApp,TikTok,tradicional,mano/dedos,pequeno,65000,23,pendiente,esperando respuesta cliente,12
+RES-0002,CLI-0002,ART-001,CAMP-IG-01,2026-06-01,14:30,Instagram,Instagram,lettering,pecho,pequeno,45000,114,confirmada,reserva confirmada,32
+RES-0003,CLI-0003,ART-004,CAMP-RET-01,2026-06-12,12:30,WhatsApp,cliente recurrente,lettering color,espalda,mediano,135000,83,confirmada,reserva confirmada,66
+RES-0004,CLI-0004,ART-005,CAMP-TK-01,2026-05-13,11:30,Instagram,TikTok,geometrico color,brazo,sesion larga,260000,35,contactar,pendiente de contacto,52
+RES-0005,CLI-0005,ART-001,CAMP-AIEP-01,2026-05-20,13:30,WhatsApp,evento AIEP,fine line,mano/dedos,mediano,90000,111,contactar,pendiente de contacto,21
+RES-0006,CLI-0006,ART-004,CAMP-RET-01,2026-05-24,09:00,WhatsApp,cliente recurrente,lettering,tobillo,sesion larga,260000,167,pendiente,esperando respuesta cliente,55
+RES-0007,CLI-0007,ART-006,CAMP-IG-01,2026-05-22,13:00,Instagram,Instagram,blackwork,mano/dedos,mediano,115000,118,pendiente,esperando respuesta cliente,21
+RES-0008,CLI-0008,ART-001,CAMP-DIR-01,2026-05-21,17:30,WhatsApp,visita directa,minimalista,cuello,mediano,110000,105,confirmada,reserva confirmada,44
+RES-0009,CLI-0009,ART-004,CAMP-REF-01,2026-06-08,16:00,WhatsApp,recomendacion,blackwork,hombro,sesion larga,360000,34,pendiente,esperando respuesta cliente,76
+RES-0010,CLI-0010,ART-004,CAMP-AIEP-01,2026-05-20,13:00,Instagram,evento AIEP,tradicional color,antebrazo,pequeno,65000,162,confirmada,reserva confirmada,41
+RES-0011,CLI-0011,ART-006,CAMP-IG-01,2026-05-20,11:00,WhatsApp,Instagram,blackwork,antebrazo,pequeno,60000,73,confirmada,reserva confirmada,35
+RES-0012,CLI-0012,ART-004,CAMP-REF-01,2026-05-14,12:00,Instagram,recomendacion,blackwork,pecho,sesion larga,345000,59,pendiente,esperando respuesta cliente,74
+RES-0013,CLI-0013,ART-002,CAMP-TK-01,2026-05-24,16:00,WhatsApp,TikTok,geometrico,hombro,mediano,105000,98,confirmada,reserva confirmada,43
+RES-0014,CLI-0014,ART-005,CAMP-RET-01,2026-06-15,12:30,WhatsApp,cliente recurrente,fine line,mano/dedos,mediano,115000,212,pendiente,esperando respuesta cliente,38
+RES-0015,CLI-0015,ART-002,CAMP-TK-01,2026-05-28,17:30,WhatsApp,TikTok,geometrico,muneca,mediano,95000,61,contactar,pendiente de contacto,22
+RES-0016,CLI-0016,ART-006,CAMP-RET-01,2026-05-16,10:00,WhatsApp,cliente recurrente,geometrico color,hombro,pequeno,65000,95,pendiente,esperando respuesta cliente,24
+RES-0017,CLI-0017,ART-004,CAMP-DIR-01,2026-06-12,11:30,WhatsApp,visita directa,tradicional,costillas,mediano,115000,152,pendiente,esperando respuesta cliente,21
+RES-0018,CLI-0018,ART-006,CAMP-IG-01,2026-05-17,14:00,WhatsApp,Instagram,geometrico,costillas,sesion larga,425000,93,confirmada,reserva confirmada,100
+RES-0019,CLI-0019,ART-002,CAMP-REF-01,2026-06-16,14:00,WhatsApp,recomendacion,tradicional color,pecho,mediano,170000,180,contactar,pendiente de contacto,41
+RES-0020,CLI-0020,ART-002,CAMP-TK-01,2026-06-05,09:00,Instagram,TikTok,geometrico,muneca,grande,195000,77,cancelada,perdida,36
+RES-0021,CLI-0021,ART-006,CAMP-TK-01,2026-05-19,11:30,Instagram,TikTok,blackwork,muneca,pequeno,50000,373,pendiente,esperando respuesta cliente,14
+RES-0022,CLI-0022,ART-002,CAMP-TK-01,2026-06-11,14:00,WhatsApp,TikTok,tradicional color,brazo,grande,245000,260,pendiente,esperando respuesta cliente,45
+RES-0023,CLI-0023,ART-004,CAMP-IG-01,2026-05-20,12:30,WhatsApp,Instagram,tradicional color,mano/dedos,pequeno,65000,90,confirmada,reserva confirmada,41
+RES-0024,CLI-0024,ART-006,CAMP-IG-01,2026-05-28,17:30,WhatsApp,Instagram,blackwork,costillas,grande,245000,108,pendiente,esperando respuesta cliente,50
+RES-0025,CLI-0025,ART-004,CAMP-GO-01,2026-06-07,17:30,WhatsApp,Google,lettering color,hombro,grande,245000,153,contactar,pendiente de contacto,50
+RES-0026,CLI-0026,ART-003,CAMP-GO-01,2026-06-14,15:00,WhatsApp,Google,fine line,espalda,sesion larga,305000,116,pendiente,esperando respuesta cliente,56
+RES-0027,CLI-0027,ART-001,CAMP-IG-01,2026-06-15,15:00,WhatsApp,Instagram,minimalista,pecho,mediano,130000,42,pendiente,esperando respuesta cliente,29
+RES-0028,CLI-0028,ART-003,CAMP-RET-01,2026-06-06,15:30,WhatsApp,cliente recurrente,minimalista color,cuello,grande,180000,61,confirmada,reserva confirmada,74
+RES-0029,CLI-0029,ART-004,CAMP-GO-01,2026-06-03,09:30,Instagram,Google,tradicional color,mano/dedos,mediano,100000,275,confirmada,reserva confirmada,47
+RES-0030,CLI-0030,ART-006,CAMP-TK-01,2026-06-04,14:30,WhatsApp,TikTok,geometrico color,brazo,mediano,140000,82,pendiente,esperando respuesta cliente,30
+RES-0031,CLI-0031,ART-004,CAMP-IG-01,2026-05-22,16:00,Instagram,Instagram,blackwork,pierna,pequeno,70000,85,confirmada,reserva confirmada,42
+RES-0032,CLI-0032,ART-005,CAMP-IG-01,2026-06-04,13:30,WhatsApp,Instagram,minimalista,mano/dedos,pequeno,45000,174,confirmada,reserva confirmada,37
+RES-0033,CLI-0033,ART-003,CAMP-RET-01,2026-06-19,14:00,WhatsApp,cliente recurrente,fine line,cuello,mediano,110000,265,reagendada,reagendar fecha,37
+RES-0034,CLI-0034,ART-005,CAMP-AIEP-01,2026-05-22,17:30,WhatsApp,evento AIEP,minimalista,antebrazo,pequeno,40000,68,pendiente,esperando respuesta cliente,12
+RES-0035,CLI-0035,ART-006,CAMP-IG-01,2026-06-01,17:00,WhatsApp,Instagram,blackwork,hombro,pequeno,60000,62,pendiente,esperando respuesta cliente,16
+RES-0036,CLI-0036,ART-006,CAMP-AIEP-01,2026-06-10,13:00,Instagram,evento AIEP,geometrico,brazo,mediano,100000,169,pendiente,esperando respuesta cliente,23
+RES-0037,CLI-0037,ART-003,CAMP-IG-01,2026-05-16,15:30,WhatsApp,Instagram,fine line,cuello,pequeno,45000,54,cancelada,perdida,13
+RES-0038,CLI-0038,ART-004,CAMP-IG-01,2026-05-14,10:00,Instagram,Instagram,blackwork,muneca,sesion larga,260000,186,pendiente,esperando respuesta cliente,48
+RES-0039,CLI-0039,ART-003,CAMP-RET-01,2026-05-14,13:00,Instagram,cliente recurrente,geometrico color,pecho,pequeno,55000,320,contactar,pendiente de contacto,27
+RES-0040,CLI-0040,ART-005,CAMP-DIR-01,2026-06-07,11:00,WhatsApp,visita directa,minimalista,costillas,pequeno,40000,14,cancelada,perdida,12
+RES-0041,CLI-0041,ART-001,CAMP-REF-01,2026-05-23,16:30,WhatsApp,recomendacion,fine line,antebrazo,sesion larga,260000,22,contactar,pendiente de contacto,57
+RES-0042,CLI-0042,ART-002,CAMP-DIR-01,2026-06-19,11:00,WhatsApp,visita directa,tradicional,pecho,mediano,140000,212,confirmada,reserva confirmada,54
+RES-0043,CLI-0043,ART-003,CAMP-DIR-01,2026-06-17,15:00,WhatsApp,visita directa,minimalista,brazo,grande,180000,144,cancelada,perdida,38
+RES-0044,CLI-0044,ART-004,CAMP-GO-01,2026-06-07,15:30,Instagram,Google,blackwork,pierna,mediano,115000,63,pendiente,esperando respuesta cliente,26
+RES-0045,CLI-0045,ART-003,CAMP-TK-01,2026-06-09,14:00,WhatsApp,TikTok,minimalista,espalda,mediano,85000,72,pendiente,esperando respuesta cliente,20
+RES-0046,CLI-0046,ART-002,CAMP-IG-01,2026-05-22,15:30,WhatsApp,Instagram,blackwork,tobillo,grande,220000,102,contactar,pendiente de contacto,45
+RES-0047,CLI-0047,ART-003,CAMP-REF-01,2026-06-06,14:30,Instagram,recomendacion,minimalista,muneca,mediano,85000,119,pendiente,esperando respuesta cliente,30
+RES-0048,CLI-0048,ART-005,CAMP-RET-01,2026-06-02,09:00,WhatsApp,cliente recurrente,fine line,muneca,sesion larga,260000,184,reagendada,reagendar fecha,60
+RES-0049,CLI-0049,ART-006,CAMP-IG-01,2026-05-19,17:30,WhatsApp,Instagram,blackwork color,costillas,mediano,165000,81,cancelada,perdida,35
+RES-0050,CLI-0050,ART-005,CAMP-IG-01,2026-06-05,15:30,WhatsApp,Instagram,fine line,hombro,pequeno,55000,191,cancelada,perdida,15
+RES-0051,CLI-0051,ART-006,CAMP-DIR-01,2026-06-17,13:30,WhatsApp,visita directa,blackwork color,pierna,sesion larga,450000,173,pendiente,esperando respuesta cliente,78
+RES-0052,CLI-0052,ART-005,CAMP-IG-01,2026-06-03,10:00,WhatsApp,Instagram,geometrico color,brazo,pequeno,40000,66,confirmada,reserva confirmada,31
+RES-0053,CLI-0053,ART-002,CAMP-GO-01,2026-06-16,12:30,WhatsApp,Google,geometrico,cuello,mediano,120000,137,cancelada,perdida,27
+RES-0054,CLI-0054,ART-003,CAMP-DIR-01,2026-05-16,10:30,WhatsApp,visita directa,geometrico,espalda,pequeno,40000,163,cancelada,perdida,12
+RES-0055,CLI-0055,ART-002,CAMP-IG-01,2026-06-10,14:30,Instagram,Instagram,blackwork,pierna,mediano,170000,154,pendiente,esperando respuesta cliente,31
+RES-0056,CLI-0056,ART-002,CAMP-GO-01,2026-05-27,09:30,WhatsApp,Google,tradicional color,mano/dedos,mediano,170000,118,contactar,pendiente de contacto,36
+RES-0057,CLI-0057,ART-001,CAMP-GO-01,2026-06-02,12:00,WhatsApp,Google,lettering,antebrazo,pequeno,40000,168,pendiente,esperando respuesta cliente,12
+RES-0058,CLI-0058,ART-003,CAMP-GO-01,2026-05-20,16:00,Instagram,Google,fine line,mano/dedos,pequeno,40000,39,contactar,pendiente de contacto,12
+RES-0059,CLI-0059,ART-002,CAMP-TK-01,2026-05-14,10:30,WhatsApp,TikTok,tradicional color,tobillo,sesion larga,330000,55,pendiente,esperando respuesta cliente,61
+RES-0060,CLI-0060,ART-005,CAMP-REF-01,2026-05-18,14:30,Instagram,recomendacion,geometrico color,brazo,pequeno,40000,78,confirmada,reserva confirmada,46
+RES-0061,CLI-0061,ART-006,CAMP-IG-01,2026-05-25,12:00,Instagram,Instagram,geometrico,cuello,grande,260000,109,confirmada,reserva confirmada,71
+RES-0062,CLI-0062,ART-004,CAMP-REF-01,2026-05-28,14:00,Instagram,recomendacion,lettering,tobillo,grande,180000,215,reagendada,reagendar fecha,44
+RES-0063,CLI-0063,ART-006,CAMP-IG-01,2026-06-15,10:30,WhatsApp,Instagram,geometrico,pierna,pequeno,75000,106,pendiente,esperando respuesta cliente,14
+RES-0064,CLI-0064,ART-003,CAMP-TK-01,2026-06-08,13:30,WhatsApp,TikTok,fine line,tobillo,mediano,85000,19,pendiente,esperando respuesta cliente,15
+RES-0065,CLI-0065,ART-002,CAMP-IG-01,2026-05-26,10:00,WhatsApp,Instagram,geometrico,antebrazo,mediano,105000,49,confirmada,reserva confirmada,48
+RES-0066,CLI-0066,ART-002,CAMP-IG-01,2026-05-18,13:00,Instagram,Instagram,geometrico color,antebrazo,grande,305000,90,pendiente,esperando respuesta cliente,51
+RES-0067,CLI-0067,ART-006,CAMP-RET-01,2026-05-18,15:30,WhatsApp,cliente recurrente,geometrico,espalda,grande,330000,68,confirmada,reserva confirmada,96
+RES-0068,CLI-0068,ART-002,CAMP-AIEP-01,2026-05-21,11:00,WhatsApp,evento AIEP,geometrico,antebrazo,pequeno,40000,182,pendiente,esperando respuesta cliente,12
+RES-0069,CLI-0069,ART-004,CAMP-IG-01,2026-05-29,10:00,WhatsApp,Instagram,lettering,antebrazo,grande,180000,39,confirmada,reserva confirmada,62
+RES-0070,CLI-0070,ART-006,CAMP-TK-01,2026-06-17,15:00,WhatsApp,TikTok,tradicional color,hombro,grande,330000,67,confirmada,reserva confirmada,80
+RES-0071,CLI-0071,ART-005,CAMP-IG-01,2026-05-28,14:00,WhatsApp,Instagram,minimalista,pecho,pequeno,45000,126,pendiente,esperando respuesta cliente,13
+RES-0072,CLI-0072,ART-003,CAMP-DIR-01,2026-05-19,12:30,WhatsApp,visita directa,geometrico,costillas,mediano,100000,191,cancelada,perdida,23
+RES-0073,CLI-0073,ART-001,CAMP-IG-01,2026-05-14,10:00,WhatsApp,Instagram,lettering color,espalda,pequeno,40000,218,pendiente,esperando respuesta cliente,12
+RES-0074,CLI-0074,ART-002,CAMP-DIR-01,2026-06-05,17:30,WhatsApp,visita directa,blackwork,cuello,mediano,105000,73,pendiente,esperando respuesta cliente,19
+RES-0075,CLI-0075,ART-005,CAMP-DIR-01,2026-06-02,15:30,WhatsApp,visita directa,minimalista color,hombro,pequeno,50000,92,contactar,pendiente de contacto,12
+RES-0076,CLI-0076,ART-002,CAMP-GO-01,2026-06-05,17:00,Instagram,Google,tradicional,costillas,sesion larga,430000,362,confirmada,reserva confirmada,100
+RES-0077,CLI-0077,ART-006,CAMP-REF-01,2026-05-24,09:00,WhatsApp,recomendacion,geometrico,muneca,grande,180000,195,contactar,pendiente de contacto,48
+RES-0078,CLI-0078,ART-004,CAMP-TK-01,2026-05-29,16:30,Instagram,TikTok,lettering,pecho,pequeno,40000,49,pendiente,esperando respuesta cliente,12
+RES-0079,CLI-0079,ART-002,CAMP-TK-01,2026-05-15,16:30,Instagram,TikTok,tradicional color,pierna,mediano,150000,258,contactar,pendiente de contacto,27
+RES-0080,CLI-0080,ART-001,CAMP-IG-01,2026-06-03,12:00,Instagram,Instagram,minimalista color,costillas,mediano,85000,201,pendiente,esperando respuesta cliente,20
+RES-0081,CLI-0081,ART-006,CAMP-GO-01,2026-06-14,10:00,WhatsApp,Google,blackwork,hombro,pequeno,75000,164,confirmada,reserva confirmada,38
+RES-0082,CLI-0082,ART-001,CAMP-IG-01,2026-06-07,14:30,WhatsApp,Instagram,lettering color,brazo,pequeno,40000,32,pendiente,esperando respuesta cliente,12
+RES-0083,CLI-0083,ART-006,CAMP-AIEP-01,2026-06-12,15:00,WhatsApp,evento AIEP,geometrico color,pierna,mediano,160000,75,pendiente,esperando respuesta cliente,34
+RES-0084,CLI-0084,ART-001,CAMP-REF-01,2026-05-31,16:30,Instagram,recomendacion,minimalista,mano/dedos,pequeno,40000,110,pendiente,esperando respuesta cliente,22
+RES-0085,CLI-0085,ART-006,CAMP-TK-01,2026-06-11,14:00,WhatsApp,TikTok,tradicional,mano/dedos,grande,240000,76,confirmada,reserva confirmada,73
+RES-0086,CLI-0086,ART-004,CAMP-REF-01,2026-05-31,16:30,Instagram,recomendacion,lettering,tobillo,sesion larga,260000,70,contactar,pendiente de contacto,53
+RES-0087,CLI-0087,ART-006,CAMP-GO-01,2026-06-09,17:00,WhatsApp,Google,tradicional color,pierna,mediano,170000,28,cancelada,perdida,36
+RES-0088,CLI-0088,ART-006,CAMP-RET-01,2026-05-14,14:30,WhatsApp,cliente recurrente,blackwork,costillas,pequeno,75000,154,pendiente,esperando respuesta cliente,31
+RES-0089,CLI-0089,ART-004,CAMP-AIEP-01,2026-06-05,09:00,WhatsApp,evento AIEP,blackwork color,tobillo,mediano,105000,30,pendiente,esperando respuesta cliente,24
+RES-0090,CLI-0090,ART-004,CAMP-DIR-01,2026-05-16,17:00,WhatsApp,visita directa,blackwork,cuello,mediano,115000,154,confirmada,reserva confirmada,50
+RES-0091,CLI-0091,ART-003,CAMP-REF-01,2026-06-01,13:30,WhatsApp,recomendacion,minimalista color,brazo,grande,185000,25,pendiente,esperando respuesta cliente,45
+RES-0092,CLI-0092,ART-001,CAMP-RET-01,2026-05-23,11:30,WhatsApp,cliente recurrente,fine line,tobillo,pequeno,45000,123,confirmada,reserva confirmada,49
+RES-0093,CLI-0093,ART-004,CAMP-IG-01,2026-06-17,09:30,WhatsApp,Instagram,lettering,espalda,mediano,95000,120,confirmada,reserva confirmada,46
+RES-0094,CLI-0094,ART-001,CAMP-AIEP-01,2026-05-21,17:30,WhatsApp,evento AIEP,fine line,pecho,grande,210000,132,cancelada,perdida,43
+RES-0095,CLI-0095,ART-003,CAMP-AIEP-01,2026-06-19,13:30,Instagram,evento AIEP,fine line,antebrazo,mediano,85000,98,confirmada,reserva confirmada,39
+RES-0096,CLI-0096,ART-002,CAMP-TK-01,2026-06-17,11:00,Instagram,TikTok,blackwork,espalda,mediano,150000,205,reagendada,reagendar fecha,27
+RES-0097,CLI-0097,ART-005,CAMP-IG-01,2026-06-15,14:30,WhatsApp,Instagram,fine line,mano/dedos,mediano,120000,187,confirmada,reserva confirmada,51
+RES-0098,CLI-0098,ART-003,CAMP-AIEP-01,2026-05-20,16:30,WhatsApp,evento AIEP,fine line,antebrazo,grande,180000,69,pendiente,esperando respuesta cliente,33
+RES-0099,CLI-0099,ART-001,CAMP-RET-01,2026-05-31,10:30,WhatsApp,cliente recurrente,minimalista,pecho,pequeno,40000,129,reagendada,reagendar fecha,19
+RES-0100,CLI-0100,ART-001,CAMP-GO-01,2026-06-10,17:00,WhatsApp,Google,minimalista color,cuello,mediano,160000,40,contactar,pendiente de contacto,34
+RES-0101,CLI-0101,ART-003,CAMP-IG-01,2026-05-20,09:00,WhatsApp,Instagram,geometrico,muneca,mediano,85000,127,pendiente,esperando respuesta cliente,20
+RES-0102,CLI-0102,ART-003,CAMP-IG-01,2026-06-14,11:30,Instagram,Instagram,geometrico,pierna,grande,190000,127,pendiente,esperando respuesta cliente,31
+RES-0103,CLI-0103,ART-002,CAMP-TK-01,2026-05-16,11:00,Instagram,TikTok,geometrico,muneca,sesion larga,265000,32,pendiente,esperando respuesta cliente,49
+RES-0104,CLI-0104,ART-003,CAMP-AIEP-01,2026-06-05,17:30,WhatsApp,evento AIEP,geometrico,espalda,pequeno,40000,36,confirmada,reserva confirmada,31
+RES-0105,CLI-0105,ART-006,CAMP-REF-01,2026-06-01,09:00,WhatsApp,recomendacion,tradicional,pecho,mediano,165000,151,confirmada,reserva confirmada,69
+RES-0106,CLI-0106,ART-004,CAMP-IG-01,2026-06-04,12:30,WhatsApp,Instagram,tradicional,tobillo,mediano,115000,122,pendiente,esperando respuesta cliente,21
+RES-0107,CLI-0107,ART-001,CAMP-IG-01,2026-06-07,12:30,Instagram,Instagram,fine line,pierna,pequeno,40000,137,pendiente,esperando respuesta cliente,12
+RES-0108,CLI-0108,ART-001,CAMP-TK-01,2026-06-12,12:30,WhatsApp,TikTok,minimalista,antebrazo,grande,180000,112,pendiente,esperando respuesta cliente,38
+RES-0109,CLI-0109,ART-005,CAMP-AIEP-01,2026-06-17,16:30,Instagram,evento AIEP,fine line,antebrazo,mediano,105000,181,pendiente,esperando respuesta cliente,24
+RES-0110,CLI-0110,ART-002,CAMP-REF-01,2026-05-13,09:00,WhatsApp,recomendacion,geometrico,hombro,mediano,165000,172,confirmada,reserva confirmada,64
+RES-0111,CLI-0111,ART-003,CAMP-IG-01,2026-06-08,12:30,Instagram,Instagram,fine line,costillas,mediano,85000,160,pendiente,esperando respuesta cliente,20
+RES-0112,CLI-0112,ART-005,CAMP-IG-01,2026-06-17,15:00,WhatsApp,Instagram,minimalista,costillas,mediano,85000,183,pendiente,esperando respuesta cliente,15
+RES-0113,CLI-0113,ART-003,CAMP-IG-01,2026-05-31,14:00,Instagram,Instagram,geometrico,hombro,mediano,85000,101,confirmada,reserva confirmada,44
+RES-0114,CLI-0114,ART-004,CAMP-TK-01,2026-06-07,17:00,WhatsApp,TikTok,tradicional color,tobillo,grande,230000,25,pendiente,esperando respuesta cliente,47
+RES-0115,CLI-0115,ART-002,CAMP-REF-01,2026-05-31,15:00,WhatsApp,recomendacion,geometrico,pecho,mediano,170000,91,confirmada,reserva confirmada,70
+RES-0116,CLI-0116,ART-005,CAMP-IG-01,2026-06-06,11:30,WhatsApp,Instagram,minimalista,pierna,grande,180000,177,pendiente,esperando respuesta cliente,33
+RES-0117,CLI-0117,ART-005,CAMP-DIR-01,2026-05-17,13:00,WhatsApp,visita directa,minimalista,muneca,grande,180000,150,pendiente,esperando respuesta cliente,38
+RES-0118,CLI-0118,ART-001,CAMP-RET-01,2026-06-07,11:00,WhatsApp,cliente recurrente,minimalista color,muneca,mediano,85000,129,confirmada,reserva confirmada,51
+RES-0119,CLI-0119,ART-001,CAMP-AIEP-01,2026-05-20,12:30,Instagram,evento AIEP,minimalista,pecho,sesion larga,260000,334,confirmada,reserva confirmada,76
+RES-0120,CLI-0120,ART-006,CAMP-GO-01,2026-06-14,09:30,WhatsApp,Google,blackwork,pierna,mediano,130000,110,pendiente,esperando respuesta cliente,29
+RES-0121,CLI-0121,ART-001,CAMP-IG-01,2026-05-20,16:30,WhatsApp,Instagram,minimalista,hombro,pequeno,45000,131,confirmada,reserva confirmada,37
+RES-0122,CLI-0122,ART-005,CAMP-RET-01,2026-06-05,12:00,WhatsApp,cliente recurrente,fine line,cuello,pequeno,60000,184,confirmada,reserva confirmada,52
+RES-0123,CLI-0123,ART-006,CAMP-IG-01,2026-05-15,12:30,WhatsApp,Instagram,blackwork,cuello,mediano,130000,122,confirmada,reserva confirmada,53
+RES-0124,CLI-0124,ART-005,CAMP-TK-01,2026-05-23,13:30,WhatsApp,TikTok,fine line color,pierna,mediano,85000,24,pendiente,esperando respuesta cliente,20
+RES-0125,CLI-0125,ART-003,CAMP-TK-01,2026-06-18,11:00,WhatsApp,TikTok,geometrico,muneca,grande,180000,105,pendiente,esperando respuesta cliente,29
+RES-0126,CLI-0126,ART-005,CAMP-REF-01,2026-05-16,15:30,WhatsApp,recomendacion,geometrico color,hombro,grande,275000,77,confirmada,reserva confirmada,80
+RES-0127,CLI-0127,ART-004,CAMP-IG-01,2026-06-02,14:00,WhatsApp,Instagram,blackwork,costillas,grande,225000,188,confirmada,reserva confirmada,70
+RES-0128,CLI-0128,ART-003,CAMP-IG-01,2026-05-31,10:30,WhatsApp,Instagram,geometrico,antebrazo,pequeno,40000,24,confirmada,reserva confirmada,31
+RES-0129,CLI-0129,ART-003,CAMP-GO-01,2026-06-04,12:30,Instagram,Google,minimalista,brazo,mediano,100000,32,pendiente,esperando respuesta cliente,18
+RES-0130,CLI-0130,ART-002,CAMP-IG-01,2026-05-19,10:30,Instagram,Instagram,blackwork,pierna,mediano,170000,373,pendiente,esperando respuesta cliente,36
+RES-0131,CLI-0131,ART-001,CAMP-DIR-01,2026-05-30,16:00,WhatsApp,visita directa,minimalista,pierna,mediano,85000,70,confirmada,reserva confirmada,44
+RES-0132,CLI-0132,ART-003,CAMP-IG-01,2026-06-06,10:30,WhatsApp,Instagram,minimalista,costillas,pequeno,40000,22,confirmada,reserva confirmada,36
+RES-0133,CLI-0133,ART-006,CAMP-GO-01,2026-05-17,09:00,WhatsApp,Google,geometrico color,brazo,pequeno,60000,163,cancelada,perdida,16
+RES-0134,CLI-0134,ART-003,CAMP-REF-01,2026-05-24,15:30,Instagram,recomendacion,minimalista,hombro,pequeno,40000,106,pendiente,esperando respuesta cliente,22
+RES-0135,CLI-0135,ART-004,CAMP-AIEP-01,2026-06-17,17:00,WhatsApp,evento AIEP,blackwork,muneca,grande,235000,180,confirmada,reserva confirmada,68
+RES-0136,CLI-0136,ART-002,CAMP-RET-01,2026-05-21,15:00,WhatsApp,cliente recurrente,tradicional color,muneca,sesion larga,260000,55,pendiente,esperando respuesta cliente,64
+RES-0137,CLI-0137,ART-006,CAMP-AIEP-01,2026-06-06,13:00,Instagram,evento AIEP,geometrico,cuello,mediano,135000,36,cancelada,perdida,25
+RES-0138,CLI-0138,ART-003,CAMP-AIEP-01,2026-05-14,12:00,Instagram,evento AIEP,fine line,brazo,mediano,85000,163,pendiente,esperando respuesta cliente,20
+RES-0139,CLI-0139,ART-005,CAMP-IG-01,2026-05-17,12:00,WhatsApp,Instagram,geometrico color,pierna,mediano,150000,105,confirmada,reserva confirmada,56
+RES-0140,CLI-0140,ART-003,CAMP-DIR-01,2026-06-15,10:00,WhatsApp,visita directa,geometrico,antebrazo,grande,180000,148,pendiente,esperando respuesta cliente,33
+RES-0141,CLI-0141,ART-005,CAMP-IG-01,2026-05-26,13:00,Instagram,Instagram,geometrico,brazo,mediano,85000,133,pendiente,esperando respuesta cliente,15
+RES-0142,CLI-0142,ART-001,CAMP-REF-01,2026-06-13,14:00,WhatsApp,recomendacion,fine line,costillas,pequeno,55000,157,confirmada,reserva confirmada,49
+RES-0143,CLI-0143,ART-006,CAMP-IG-01,2026-06-17,12:00,WhatsApp,Instagram,geometrico,cuello,mediano,160000,76,contactar,pendiente de contacto,34
+RES-0144,CLI-0144,ART-005,CAMP-IG-01,2026-05-15,15:00,WhatsApp,Instagram,minimalista,pierna,sesion larga,260000,164,pendiente,esperando respuesta cliente,52
+RES-0145,CLI-0145,ART-005,CAMP-GO-01,2026-05-15,14:30,WhatsApp,Google,geometrico,cuello,pequeno,70000,67,confirmada,reserva confirmada,42
+RES-0146,CLI-0146,ART-006,CAMP-RET-01,2026-05-30,13:30,Instagram,cliente recurrente,tradicional color,muneca,mediano,170000,191,confirmada,reserva confirmada,72
+RES-0147,CLI-0147,ART-003,CAMP-REF-01,2026-06-10,10:00,WhatsApp,recomendacion,fine line,brazo,mediano,85000,140,confirmada,reserva confirmada,54
+RES-0148,CLI-0148,ART-003,CAMP-DIR-01,2026-05-17,15:30,Instagram,visita directa,fine line,hombro,sesion larga,260000,81,confirmada,reserva confirmada,71
+RES-0149,CLI-0149,ART-004,CAMP-REF-01,2026-05-20,16:30,WhatsApp,recomendacion,lettering,cuello,pequeno,45000,136,confirmada,reserva confirmada,47
+RES-0150,CLI-0150,ART-004,CAMP-IG-01,2026-06-13,12:30,WhatsApp,Instagram,lettering,hombro,pequeno,55000,122,pendiente,esperando respuesta cliente,15
+RES-0151,CLI-0151,ART-006,CAMP-REF-01,2026-05-27,12:30,WhatsApp,recomendacion,blackwork,antebrazo,pequeno,65000,23,pendiente,esperando respuesta cliente,27
+RES-0152,CLI-0152,ART-005,CAMP-RET-01,2026-05-25,16:00,WhatsApp,cliente recurrente,minimalista,hombro,mediano,85000,106,pendiente,esperando respuesta cliente,32
+RES-0153,CLI-0153,ART-006,CAMP-DIR-01,2026-05-17,10:00,WhatsApp,visita directa,blackwork,hombro,mediano,100000,185,pendiente,esperando respuesta cliente,23
+RES-0154,CLI-0154,ART-003,CAMP-GO-01,2026-06-09,16:30,WhatsApp,Google,minimalista color,hombro,mediano,85000,57,pendiente,esperando respuesta cliente,20
+RES-0155,CLI-0155,ART-006,CAMP-IG-01,2026-05-24,09:00,Instagram,Instagram,geometrico,mano/dedos,mediano,140000,67,confirmada,reserva confirmada,54
+RES-0156,CLI-0156,ART-001,CAMP-TK-01,2026-05-24,14:00,Instagram,TikTok,fine line color,cuello,mediano,120000,72,pendiente,esperando respuesta cliente,27
+RES-0157,CLI-0157,ART-003,CAMP-TK-01,2026-05-31,16:30,WhatsApp,TikTok,geometrico,pecho,grande,180000,165,pendiente,esperando respuesta cliente,38
+RES-0158,CLI-0158,ART-002,CAMP-RET-01,2026-06-18,11:00,WhatsApp,cliente recurrente,blackwork,costillas,mediano,170000,54,confirmada,reserva confirmada,67
+RES-0159,CLI-0159,ART-002,CAMP-TK-01,2026-05-26,15:30,WhatsApp,TikTok,geometrico,tobillo,mediano,85000,132,confirmada,reserva confirmada,44
+RES-0160,CLI-0160,ART-005,CAMP-TK-01,2026-05-24,15:00,WhatsApp,TikTok,geometrico,mano/dedos,grande,205000,97,confirmada,reserva confirmada,66
+RES-0161,CLI-0161,ART-005,CAMP-RET-01,2026-06-19,14:00,WhatsApp,cliente recurrente,geometrico,costillas,pequeno,40000,88,pendiente,esperando respuesta cliente,24
+RES-0162,CLI-0162,ART-004,CAMP-REF-01,2026-06-10,09:00,WhatsApp,recomendacion,blackwork,muneca,mediano,85000,176,confirmada,reserva confirmada,49
+RES-0163,CLI-0163,ART-006,CAMP-GO-01,2026-06-08,17:30,WhatsApp,Google,tradicional,brazo,mediano,100000,264,cancelada,perdida,18
+RES-0164,CLI-0164,ART-005,CAMP-IG-01,2026-05-25,17:00,WhatsApp,Instagram,minimalista color,brazo,pequeno,40000,81,confirmada,reserva confirmada,36
+RES-0165,CLI-0165,ART-003,CAMP-TK-01,2026-05-27,13:00,WhatsApp,TikTok,minimalista,hombro,pequeno,40000,188,pendiente,esperando respuesta cliente,12
+RES-0166,CLI-0166,ART-003,CAMP-REF-01,2026-05-16,13:30,WhatsApp,recomendacion,geometrico,espalda,mediano,110000,57,contactar,pendiente de contacto,30
+RES-0167,CLI-0167,ART-004,CAMP-TK-01,2026-05-18,14:00,WhatsApp,TikTok,lettering,brazo,grande,190000,118,pendiente,esperando respuesta cliente,40
+RES-0168,CLI-0168,ART-006,CAMP-TK-01,2026-05-23,14:00,WhatsApp,TikTok,blackwork,pecho,mediano,160000,192,pendiente,esperando respuesta cliente,34
+RES-0169,CLI-0169,ART-004,CAMP-IG-01,2026-05-18,16:30,Instagram,Instagram,tradicional color,hombro,grande,290000,217,contactar,pendiente de contacto,49
+RES-0170,CLI-0170,ART-004,CAMP-TK-01,2026-05-29,17:00,WhatsApp,TikTok,tradicional color,pierna,pequeno,50000,101,confirmada,reserva confirmada,33
+RES-0171,CLI-0171,ART-004,CAMP-TK-01,2026-06-06,17:00,Instagram,TikTok,blackwork,pierna,mediano,160000,252,confirmada,reserva confirmada,53
+RES-0172,CLI-0172,ART-001,CAMP-DIR-01,2026-06-13,12:00,WhatsApp,visita directa,fine line,hombro,grande,195000,108,confirmada,reserva confirmada,60
+RES-0173,CLI-0173,ART-006,CAMP-IG-01,2026-06-02,17:30,WhatsApp,Instagram,geometrico color,mano/dedos,mediano,150000,108,confirmada,reserva confirmada,56
+RES-0174,CLI-0174,ART-006,CAMP-RET-01,2026-05-29,17:30,WhatsApp,cliente recurrente,geometrico,tobillo,grande,190000,265,confirmada,reserva confirmada,76
+RES-0175,CLI-0175,ART-002,CAMP-DIR-01,2026-05-22,10:00,WhatsApp,visita directa,blackwork,muneca,mediano,90000,115,confirmada,reserva confirmada,45
+RES-0176,CLI-0176,ART-003,CAMP-TK-01,2026-06-06,11:30,WhatsApp,TikTok,geometrico,mano/dedos,pequeno,50000,58,contactar,pendiente de contacto,14
+RES-0177,CLI-0177,ART-003,CAMP-REF-01,2026-05-17,13:30,WhatsApp,recomendacion,geometrico color,pierna,mediano,85000,49,contactar,pendiente de contacto,30
+RES-0178,CLI-0178,ART-002,CAMP-TK-01,2026-05-19,12:30,WhatsApp,TikTok,geometrico color,cuello,grande,230000,41,confirmada,reserva confirmada,71
+RES-0179,CLI-0179,ART-006,CAMP-TK-01,2026-06-05,15:00,WhatsApp,TikTok,geometrico color,espalda,sesion larga,440000,201,confirmada,reserva confirmada,100
+RES-0180,CLI-0180,ART-006,CAMP-IG-01,2026-05-20,15:30,Instagram,Instagram,blackwork color,muneca,mediano,130000,244,pendiente,esperando respuesta cliente,24
+RES-0181,CLI-0181,ART-004,CAMP-AIEP-01,2026-06-02,16:30,WhatsApp,evento AIEP,tradicional,costillas,pequeno,80000,191,confirmada,reserva confirmada,39
+RES-0182,CLI-0182,ART-004,CAMP-RET-01,2026-05-25,15:00,WhatsApp,cliente recurrente,blackwork,hombro,mediano,85000,145,pendiente,esperando respuesta cliente,27
+RES-0183,CLI-0183,ART-006,CAMP-RET-01,2026-06-08,17:00,WhatsApp,cliente recurrente,tradicional,pierna,grande,215000,137,pendiente,esperando respuesta cliente,56
+RES-0184,CLI-0184,ART-004,CAMP-IG-01,2026-06-13,15:00,Instagram,Instagram,lettering,hombro,grande,180000,180,contactar,pendiente de contacto,38
+RES-0185,CLI-0185,ART-003,CAMP-AIEP-01,2026-06-01,16:30,WhatsApp,evento AIEP,geometrico color,mano/dedos,pequeno,40000,170,pendiente,esperando respuesta cliente,12
+RES-0186,CLI-0186,ART-003,CAMP-TK-01,2026-06-14,12:30,WhatsApp,TikTok,minimalista color,tobillo,pequeno,40000,70,confirmada,reserva confirmada,31
+RES-0187,CLI-0078,ART-004,CAMP-REF-01,2026-06-02,12:30,Instagram,recomendacion,tradicional color,pecho,grande,330000,305,confirmada,reserva confirmada,90
+RES-0188,CLI-0187,ART-002,CAMP-DIR-01,2026-06-12,11:30,WhatsApp,visita directa,geometrico color,espalda,grande,330000,193,pendiente,esperando respuesta cliente,61
+RES-0189,CLI-0188,ART-002,CAMP-IG-01,2026-05-30,11:00,Instagram,Instagram,tradicional,hombro,mediano,115000,227,contactar,pendiente de contacto,26
+RES-0190,CLI-0189,ART-006,CAMP-AIEP-01,2026-05-20,13:00,WhatsApp,evento AIEP,geometrico color,muneca,grande,250000,35,confirmada,reserva confirmada,69
+RES-0191,CLI-0190,ART-004,CAMP-TK-01,2026-06-09,17:30,WhatsApp,TikTok,tradicional color,mano/dedos,mediano,170000,191,pendiente,esperando respuesta cliente,31
+RES-0192,CLI-0191,ART-003,CAMP-AIEP-01,2026-05-14,09:30,WhatsApp,evento AIEP,geometrico,pecho,mediano,145000,50,pendiente,esperando respuesta cliente,31
+RES-0193,CLI-0192,ART-002,CAMP-DIR-01,2026-06-07,11:30,WhatsApp,visita directa,geometrico,muneca,mediano,90000,31,pendiente,esperando respuesta cliente,21
+RES-0194,CLI-0193,ART-002,CAMP-TK-01,2026-05-14,12:30,WhatsApp,TikTok,tradicional,costillas,mediano,160000,236,pendiente,esperando respuesta cliente,29
+RES-0195,CLI-0194,ART-002,CAMP-TK-01,2026-05-14,09:00,WhatsApp,TikTok,geometrico color,hombro,mediano,135000,34,confirmada,reserva confirmada,49
+RES-0196,CLI-0195,ART-002,CAMP-RET-01,2026-06-12,09:00,Instagram,cliente recurrente,tradicional color,tobillo,pequeno,40000,51,confirmada,reserva confirmada,48
+RES-0197,CLI-0196,ART-001,CAMP-REF-01,2026-06-15,17:00,Instagram,recomendacion,lettering color,tobillo,pequeno,45000,200,pendiente,esperando respuesta cliente,23
+RES-0198,CLI-0197,ART-006,CAMP-TK-01,2026-05-24,11:00,WhatsApp,TikTok,tradicional,cuello,grande,330000,242,contactar,pendiente de contacto,60
+RES-0199,CLI-0198,ART-006,CAMP-IG-01,2026-05-26,10:00,WhatsApp,Instagram,blackwork,muneca,mediano,135000,143,confirmada,reserva confirmada,49
+RES-0200,CLI-0199,ART-001,CAMP-GO-01,2026-06-03,14:30,WhatsApp,Google,fine line,brazo,mediano,85000,69,confirmada,reserva confirmada,39
+RES-0201,CLI-0200,ART-005,CAMP-TK-01,2026-05-21,13:00,Instagram,TikTok,fine line color,pecho,mediano,170000,182,contactar,pendiente de contacto,31
+RES-0202,CLI-0201,ART-004,CAMP-GO-01,2026-06-12,13:00,WhatsApp,Google,blackwork,espalda,mediano,115000,80,confirmada,reserva confirmada,50
+RES-0203,CLI-0202,ART-003,CAMP-REF-01,2026-05-28,16:00,WhatsApp,recomendacion,geometrico,brazo,sesion larga,260000,100,pendiente,esperando respuesta cliente,58
+RES-0204,CLI-0203,ART-005,CAMP-AIEP-01,2026-06-01,12:00,Instagram,evento AIEP,minimalista,cuello,sesion larga,260000,82,pendiente,esperando respuesta cliente,52
+RES-0205,CLI-0204,ART-003,CAMP-REF-01,2026-05-16,09:00,WhatsApp,recomendacion,minimalista color,tobillo,pequeno,40000,76,cancelada,perdida,22
+RES-0206,CLI-0205,ART-002,CAMP-GO-01,2026-06-09,10:30,WhatsApp,Google,blackwork,antebrazo,mediano,105000,18,cancelada,perdida,24
+RES-0207,CLI-0206,ART-003,CAMP-DIR-01,2026-06-16,17:00,Instagram,visita directa,geometrico,antebrazo,mediano,85000,199,confirmada,reserva confirmada,39
+RES-0208,CLI-0207,ART-003,CAMP-IG-01,2026-06-19,09:30,Instagram,Instagram,geometrico,hombro,mediano,85000,135,reagendada,reagendar fecha,20
+RES-0209,CLI-0208,ART-002,CAMP-AIEP-01,2026-05-23,16:00,WhatsApp,evento AIEP,tradicional,brazo,mediano,95000,124,confirmada,reserva confirmada,46
+RES-0210,CLI-0209,ART-001,CAMP-AIEP-01,2026-06-02,11:30,WhatsApp,evento AIEP,fine line,hombro,mediano,90000,188,contactar,pendiente de contacto,16
+RES-0211,CLI-0210,ART-004,CAMP-RET-01,2026-06-07,15:00,WhatsApp,cliente recurrente,blackwork,mano/dedos,grande,205000,149,contactar,pendiente de contacto,54
+RES-0212,CLI-0211,ART-003,CAMP-RET-01,2026-06-15,15:30,Instagram,cliente recurrente,fine line,espalda,pequeno,40000,123,pendiente,esperando respuesta cliente,19
+RES-0213,CLI-0212,ART-003,CAMP-AIEP-01,2026-06-18,14:30,Instagram,evento AIEP,fine line,espalda,sesion larga,275000,263,cancelada,perdida,51
+RES-0214,CLI-0213,ART-006,CAMP-TK-01,2026-05-31,10:30,WhatsApp,TikTok,geometrico color,muneca,mediano,105000,23,pendiente,esperando respuesta cliente,19
+RES-0215,CLI-0214,ART-004,CAMP-RET-01,2026-05-15,15:30,WhatsApp,cliente recurrente,blackwork,cuello,pequeno,40000,16,confirmada,reserva confirmada,48
+RES-0216,CLI-0215,ART-002,CAMP-DIR-01,2026-06-07,13:30,Instagram,visita directa,tradicional,cuello,grande,200000,29,contactar,pendiente de contacto,41
+RES-0217,CLI-0216,ART-004,CAMP-TK-01,2026-06-12,09:00,Instagram,TikTok,blackwork,antebrazo,pequeno,60000,254,confirmada,reserva confirmada,40
+RES-0218,CLI-0217,ART-001,CAMP-TK-01,2026-05-18,15:30,WhatsApp,TikTok,fine line,antebrazo,sesion larga,260000,120,confirmada,reserva confirmada,71
+RES-0219,CLI-0218,ART-002,CAMP-GO-01,2026-06-10,11:30,Instagram,Google,tradicional color,brazo,mediano,150000,180,confirmada,reserva confirmada,56
+RES-0220,CLI-0219,ART-002,CAMP-TK-01,2026-05-31,11:00,WhatsApp,TikTok,blackwork,muneca,mediano,120000,43,contactar,pendiente de contacto,27
+RES-0221,CLI-0220,ART-001,CAMP-IG-01,2026-05-14,17:30,WhatsApp,Instagram,fine line color,antebrazo,mediano,120000,77,pendiente,esperando respuesta cliente,27
+RES-0222,CLI-0221,ART-005,CAMP-DIR-01,2026-06-18,10:00,WhatsApp,visita directa,geometrico,tobillo,sesion larga,260000,44,pendiente,esperando respuesta cliente,43
+RES-0223,CLI-0222,ART-001,CAMP-IG-01,2026-05-13,09:30,WhatsApp,Instagram,minimalista,tobillo,mediano,85000,186,contactar,pendiente de contacto,15
+RES-0224,CLI-0223,ART-002,CAMP-RET-01,2026-05-19,15:30,WhatsApp,cliente recurrente,blackwork,cuello,mediano,170000,87,confirmada,reserva confirmada,72
+RES-0225,CLI-0224,ART-006,CAMP-TK-01,2026-06-12,14:00,WhatsApp,TikTok,blackwork,mano/dedos,mediano,155000,54,pendiente,esperando respuesta cliente,33
+RES-0226,CLI-0225,ART-004,CAMP-TK-01,2026-06-17,09:00,WhatsApp,TikTok,blackwork,tobillo,pequeno,40000,73,pendiente,esperando respuesta cliente,12
+RES-0227,CLI-0226,ART-005,CAMP-DIR-01,2026-05-26,17:30,Instagram,visita directa,minimalista,costillas,mediano,105000,171,confirmada,reserva confirmada,43
+RES-0228,CLI-0227,ART-005,CAMP-IG-01,2026-06-16,17:00,WhatsApp,Instagram,minimalista,antebrazo,mediano,85000,132,reagendada,reagendar fecha,20
+RES-0229,CLI-0228,ART-004,CAMP-GO-01,2026-05-15,09:00,Instagram,Google,blackwork color,pecho,pequeno,70000,223,pendiente,esperando respuesta cliente,13
+RES-0230,CLI-0229,ART-005,CAMP-REF-01,2026-05-22,16:30,Instagram,recomendacion,fine line,costillas,sesion larga,350000,101,pendiente,esperando respuesta cliente,75
+RES-0231,CLI-0230,ART-005,CAMP-REF-01,2026-05-13,10:00,Instagram,recomendacion,fine line,antebrazo,grande,180000,159,contactar,pendiente de contacto,48
+RES-0232,CLI-0231,ART-006,CAMP-AIEP-01,2026-05-29,17:30,WhatsApp,evento AIEP,tradicional,brazo,mediano,170000,202,confirmada,reserva confirmada,60
+RES-0233,CLI-0232,ART-003,CAMP-AIEP-01,2026-06-17,11:30,WhatsApp,evento AIEP,minimalista color,muneca,mediano,85000,150,confirmada,reserva confirmada,39
+RES-0234,CLI-0233,ART-001,CAMP-RET-01,2026-05-16,11:30,WhatsApp,cliente recurrente,lettering,espalda,mediano,105000,69,contactar,pendiente de contacto,31
+RES-0235,CLI-0234,ART-001,CAMP-AIEP-01,2026-06-19,10:00,Instagram,evento AIEP,minimalista,brazo,mediano,110000,326,pendiente,esperando respuesta cliente,20
+RES-0236,CLI-0235,ART-004,CAMP-IG-01,2026-06-14,09:30,WhatsApp,Instagram,blackwork color,tobillo,grande,300000,179,cancelada,perdida,56
+RES-0237,CLI-0236,ART-003,CAMP-REF-01,2026-06-16,11:00,WhatsApp,recomendacion,minimalista color,costillas,grande,225000,46,confirmada,reserva confirmada,80
+RES-0238,CLI-0237,ART-006,CAMP-IG-01,2026-05-16,15:00,WhatsApp,Instagram,blackwork,pecho,mediano,170000,130,pendiente,esperando respuesta cliente,36
+RES-0239,CLI-0238,ART-002,CAMP-TK-01,2026-05-22,09:00,Instagram,TikTok,geometrico,mano/dedos,pequeno,70000,105,confirmada,reserva confirmada,42
+RES-0240,CLI-0239,ART-003,CAMP-TK-01,2026-05-31,12:00,WhatsApp,TikTok,minimalista,pierna,mediano,90000,129,confirmada,reserva confirmada,45
+RES-0241,CLI-0240,ART-003,CAMP-IG-01,2026-06-17,16:30,WhatsApp,Instagram,geometrico,pecho,pequeno,40000,210,reagendada,reagendar fecha,12
+RES-0242,CLI-0241,ART-006,CAMP-TK-01,2026-05-27,09:30,WhatsApp,TikTok,geometrico,tobillo,sesion larga,260000,44,confirmada,reserva confirmada,76
+RES-0243,CLI-0242,ART-001,CAMP-GO-01,2026-05-31,16:00,Instagram,Google,minimalista color,muneca,grande,185000,124,reagendada,reagendar fecha,35
+RES-0244,CLI-0243,ART-005,CAMP-IG-01,2026-06-17,11:30,WhatsApp,Instagram,fine line,cuello,grande,220000,197,pendiente,esperando respuesta cliente,45
+RES-0245,CLI-0244,ART-006,CAMP-DIR-01,2026-06-18,13:00,Instagram,visita directa,geometrico,brazo,grande,260000,277,confirmada,reserva confirmada,71
+RES-0246,CLI-0245,ART-004,CAMP-TK-01,2026-06-13,15:30,Instagram,TikTok,lettering color,costillas,sesion larga,375000,114,pendiente,esperando respuesta cliente,69
+RES-0247,CLI-0246,ART-006,CAMP-GO-01,2026-05-13,17:30,Instagram,Google,tradicional,pierna,grande,285000,31,pendiente,esperando respuesta cliente,52
+RES-0248,CLI-0247,ART-005,CAMP-DIR-01,2026-05-29,11:00,WhatsApp,visita directa,minimalista,mano/dedos,sesion larga,265000,69,pendiente,esperando respuesta cliente,49
+RES-0249,CLI-0248,ART-006,CAMP-GO-01,2026-05-20,10:00,WhatsApp,Google,blackwork,costillas,grande,330000,104,confirmada,reserva confirmada,84
+RES-0250,CLI-0249,ART-001,CAMP-TK-01,2026-06-03,09:00,WhatsApp,TikTok,minimalista,hombro,sesion larga,260000,195,confirmada,reserva confirmada,72
+RES-0251,CLI-0250,ART-002,CAMP-TK-01,2026-05-17,14:00,WhatsApp,TikTok,geometrico color,costillas,mediano,170000,113,confirmada,reserva confirmada,60
+RES-0252,CLI-0251,ART-005,CAMP-AIEP-01,2026-05-16,15:00,WhatsApp,evento AIEP,minimalista color,antebrazo,mediano,90000,87,pendiente,esperando respuesta cliente,16
+RES-0253,CLI-0252,ART-005,CAMP-GO-01,2026-05-23,10:00,Instagram,Google,fine line color,espalda,pequeno,60000,155,pendiente,esperando respuesta cliente,16
+RES-0254,CLI-0253,ART-005,CAMP-IG-01,2026-06-15,14:00,WhatsApp,Instagram,minimalista,espalda,sesion larga,260000,30,pendiente,esperando respuesta cliente,48
+RES-0255,CLI-0254,ART-003,CAMP-AIEP-01,2026-05-25,12:30,WhatsApp,evento AIEP,minimalista,brazo,grande,180000,181,pendiente,esperando respuesta cliente,38
+RES-0256,CLI-0255,ART-004,CAMP-DIR-01,2026-06-09,15:30,WhatsApp,visita directa,lettering,espalda,pequeno,40000,98,cancelada,perdida,12
+RES-0257,CLI-0256,ART-002,CAMP-IG-01,2026-05-18,13:30,WhatsApp,Instagram,geometrico,hombro,pequeno,65000,28,confirmada,reserva confirmada,41
+RES-0258,CLI-0257,ART-002,CAMP-RET-01,2026-06-04,09:30,Instagram,cliente recurrente,tradicional,hombro,pequeno,60000,62,confirmada,reserva confirmada,47
+RES-0259,CLI-0258,ART-003,CAMP-TK-01,2026-06-19,09:00,Instagram,TikTok,fine line,hombro,grande,180000,167,confirmada,reserva confirmada,57
+RES-0260,CLI-0259,ART-006,CAMP-DIR-01,2026-06-10,09:00,WhatsApp,visita directa,geometrico,brazo,pequeno,60000,71,confirmada,reserva confirmada,35
+RES-0261,CLI-0260,ART-005,CAMP-GO-01,2026-06-02,16:30,WhatsApp,Google,fine line,costillas,mediano,115000,126,confirmada,reserva confirmada,50
+RES-0262,CLI-0261,ART-001,CAMP-GO-01,2026-05-26,17:00,WhatsApp,Google,fine line,tobillo,pequeno,40000,127,confirmada,reserva confirmada,36
+RES-0263,CLI-0262,ART-001,CAMP-AIEP-01,2026-05-13,12:00,Instagram,evento AIEP,fine line,tobillo,mediano,85000,72,confirmada,reserva confirmada,39
+RES-0264,CLI-0263,ART-004,CAMP-TK-01,2026-05-17,17:30,Instagram,TikTok,lettering color,mano/dedos,pequeno,70000,183,pendiente,esperando respuesta cliente,18
+RES-0265,CLI-0218,ART-002,CAMP-AIEP-01,2026-06-03,17:30,Instagram,evento AIEP,geometrico,hombro,grande,230000,107,pendiente,esperando respuesta cliente,47
+RES-0266,CLI-0264,ART-004,CAMP-IG-01,2026-05-13,11:30,WhatsApp,Instagram,blackwork,tobillo,grande,180000,96,confirmada,reserva confirmada,62
+RES-0267,CLI-0265,ART-003,CAMP-GO-01,2026-05-16,09:30,Instagram,Google,fine line,espalda,mediano,90000,263,pendiente,esperando respuesta cliente,21
+RES-0268,CLI-0266,ART-004,CAMP-TK-01,2026-06-05,16:30,WhatsApp,TikTok,blackwork,pecho,pequeno,65000,113,confirmada,reserva confirmada,41
+RES-0269,CLI-0267,ART-001,CAMP-RET-01,2026-06-12,09:30,Instagram,cliente recurrente,lettering,brazo,mediano,85000,260,confirmada,reserva confirmada,56
+RES-0270,CLI-0268,ART-003,CAMP-TK-01,2026-06-14,13:00,WhatsApp,TikTok,fine line color,antebrazo,mediano,85000,84,confirmada,reserva confirmada,44
+RES-0271,CLI-0269,ART-003,CAMP-REF-01,2026-06-03,16:30,Instagram,recomendacion,geometrico,brazo,mediano,105000,212,pendiente,esperando respuesta cliente,29
+RES-0272,CLI-0270,ART-006,CAMP-AIEP-01,2026-05-24,09:30,WhatsApp,evento AIEP,geometrico,pierna,mediano,120000,151,cancelada,perdida,22
+RES-0273,CLI-0271,ART-002,CAMP-REF-01,2026-06-06,17:30,WhatsApp,recomendacion,geometrico,muneca,pequeno,50000,101,confirmada,reserva confirmada,48
+RES-0274,CLI-0272,ART-002,CAMP-AIEP-01,2026-05-13,13:00,WhatsApp,evento AIEP,blackwork,tobillo,mediano,105000,49,contactar,pendiente de contacto,24
+RES-0275,CLI-0273,ART-003,CAMP-IG-01,2026-05-21,10:00,WhatsApp,Instagram,fine line color,costillas,grande,290000,128,confirmada,reserva confirmada,78
+RES-0276,CLI-0274,ART-006,CAMP-TK-01,2026-06-04,14:30,Instagram,TikTok,tradicional,muneca,grande,180000,180,confirmada,reserva confirmada,62
+RES-0277,CLI-0275,ART-001,CAMP-REF-01,2026-06-13,10:30,WhatsApp,recomendacion,fine line,pierna,grande,180000,16,cancelada,perdida,48
+RES-0278,CLI-0276,ART-002,CAMP-TK-01,2026-06-14,09:30,WhatsApp,TikTok,blackwork,antebrazo,mediano,90000,118,pendiente,esperando respuesta cliente,16
+RES-0279,CLI-0277,ART-001,CAMP-IG-01,2026-06-07,13:30,WhatsApp,Instagram,minimalista,antebrazo,pequeno,45000,13,confirmada,reserva confirmada,37
+RES-0280,CLI-0278,ART-004,CAMP-TK-01,2026-05-24,17:00,WhatsApp,TikTok,lettering,antebrazo,mediano,120000,97,pendiente,esperando respuesta cliente,22
+RES-0281,CLI-0279,ART-001,CAMP-GO-01,2026-05-20,14:30,WhatsApp,Google,minimalista,pierna,grande,210000,105,confirmada,reserva confirmada,63
+RES-0282,CLI-0280,ART-006,CAMP-RET-01,2026-05-28,16:30,WhatsApp,cliente recurrente,geometrico,costillas,grande,235000,148,confirmada,reserva confirmada,84
+RES-0283,CLI-0281,ART-002,CAMP-RET-01,2026-06-12,12:00,Instagram,cliente recurrente,blackwork,mano/dedos,mediano,110000,191,pendiente,esperando respuesta cliente,37
+RES-0284,CLI-0282,ART-002,CAMP-DIR-01,2026-06-18,10:30,Instagram,visita directa,geometrico,antebrazo,mediano,145000,319,contactar,pendiente de contacto,31
+RES-0285,CLI-0283,ART-001,CAMP-IG-01,2026-06-15,09:00,Instagram,Instagram,fine line color,muneca,grande,210000,152,pendiente,esperando respuesta cliente,34
+RES-0286,CLI-0284,ART-002,CAMP-REF-01,2026-05-26,17:30,WhatsApp,recomendacion,tradicional,mano/dedos,grande,185000,67,confirmada,reserva confirmada,73
+RES-0287,CLI-0285,ART-003,CAMP-IG-01,2026-06-06,16:00,WhatsApp,Instagram,fine line,pecho,mediano,110000,72,confirmada,reserva confirmada,49
+RES-0288,CLI-0286,ART-001,CAMP-GO-01,2026-06-15,12:00,Instagram,Google,fine line,hombro,grande,185000,164,confirmada,reserva confirmada,63
+RES-0289,CLI-0287,ART-003,CAMP-REF-01,2026-06-02,10:00,WhatsApp,recomendacion,minimalista,cuello,mediano,85000,73,confirmada,reserva confirmada,49
+RES-0290,CLI-0288,ART-006,CAMP-IG-01,2026-05-28,14:30,Instagram,Instagram,blackwork,cuello,grande,275000,174,confirmada,reserva confirmada,79
+RES-0291,CLI-0289,ART-003,CAMP-REF-01,2026-05-27,10:30,Instagram,recomendacion,geometrico,brazo,mediano,105000,257,cancelada,perdida,34
+RES-0292,CLI-0290,ART-003,CAMP-TK-01,2026-06-19,15:00,WhatsApp,TikTok,fine line,mano/dedos,mediano,85000,70,pendiente,esperando respuesta cliente,20
+RES-0293,CLI-0291,ART-004,CAMP-TK-01,2026-06-01,09:00,WhatsApp,TikTok,tradicional color,cuello,pequeno,80000,33,pendiente,esperando respuesta cliente,15
+RES-0294,CLI-0292,ART-006,CAMP-REF-01,2026-05-20,16:30,WhatsApp,recomendacion,blackwork,pierna,pequeno,65000,112,contactar,pendiente de contacto,27
+RES-0295,CLI-0293,ART-005,CAMP-DIR-01,2026-05-20,13:00,WhatsApp,visita directa,minimalista,hombro,grande,180000,94,pendiente,esperando respuesta cliente,38
+RES-0296,CLI-0294,ART-002,CAMP-IG-01,2026-06-15,15:30,WhatsApp,Instagram,tradicional color,mano/dedos,sesion larga,415000,191,confirmada,reserva confirmada,100
+RES-0297,CLI-0295,ART-006,CAMP-TK-01,2026-05-23,15:30,WhatsApp,TikTok,blackwork,cuello,pequeno,55000,117,pendiente,esperando respuesta cliente,15
+RES-0298,CLI-0296,ART-003,CAMP-REF-01,2026-06-11,12:00,WhatsApp,recomendacion,geometrico,costillas,grande,225000,123,pendiente,esperando respuesta cliente,51
+RES-0299,CLI-0297,ART-001,CAMP-IG-01,2026-06-18,11:00,Instagram,Instagram,minimalista,tobillo,pequeno,40000,373,pendiente,esperando respuesta cliente,12
+RES-0300,CLI-0298,ART-004,CAMP-RET-01,2026-05-31,09:00,WhatsApp,cliente recurrente,lettering,pecho,mediano,85000,85,confirmada,reserva confirmada,51
+RES-0301,CLI-0299,ART-002,CAMP-IG-01,2026-05-21,11:00,WhatsApp,Instagram,blackwork color,tobillo,mediano,120000,73,confirmada,reserva confirmada,51
+RES-0302,CLI-0300,ART-006,CAMP-AIEP-01,2026-06-03,11:30,Instagram,evento AIEP,blackwork,cuello,pequeno,80000,34,cancelada,perdida,20
+RES-0303,CLI-0301,ART-004,CAMP-REF-01,2026-05-25,11:00,Instagram,recomendacion,blackwork,tobillo,sesion larga,290000,191,contactar,pendiente de contacto,64
+RES-0304,CLI-0302,ART-006,CAMP-TK-01,2026-06-06,11:00,WhatsApp,TikTok,geometrico,hombro,pequeno,60000,73,contactar,pendiente de contacto,16
+RES-0305,CLI-0303,ART-005,CAMP-AIEP-01,2026-06-11,12:30,WhatsApp,evento AIEP,minimalista,pecho,pequeno,45000,171,contactar,pendiente de contacto,13
+RES-0306,CLI-0304,ART-006,CAMP-REF-01,2026-06-18,14:30,WhatsApp,recomendacion,blackwork,muneca,grande,240000,21,pendiente,esperando respuesta cliente,55
+RES-0307,CLI-0305,ART-001,CAMP-TK-01,2026-06-05,16:00,Instagram,TikTok,fine line color,pecho,sesion larga,295000,251,pendiente,esperando respuesta cliente,55
+RES-0308,CLI-0306,ART-005,CAMP-AIEP-01,2026-06-04,16:30,WhatsApp,evento AIEP,geometrico,cuello,mediano,140000,108,pendiente,esperando respuesta cliente,30
+RES-0309,CLI-0307,ART-006,CAMP-TK-01,2026-05-21,16:00,WhatsApp,TikTok,geometrico,mano/dedos,pequeno,70000,260,cancelada,perdida,18
+RES-0310,CLI-0308,ART-003,CAMP-IG-01,2026-05-24,16:30,WhatsApp,Instagram,minimalista,pierna,pequeno,40000,97,pendiente,esperando respuesta cliente,12
+RES-0311,CLI-0309,ART-004,CAMP-GO-01,2026-05-13,10:30,WhatsApp,Google,tradicional color,pecho,pequeno,70000,32,pendiente,esperando respuesta cliente,13
+RES-0312,CLI-0310,ART-002,CAMP-RET-01,2026-05-20,16:30,WhatsApp,cliente recurrente,tradicional color,costillas,pequeno,80000,201,pendiente,esperando respuesta cliente,27
+RES-0313,CLI-0311,ART-005,CAMP-RET-01,2026-06-10,14:00,WhatsApp,cliente recurrente,fine line,pecho,pequeno,40000,79,pendiente,esperando respuesta cliente,19
+RES-0314,CLI-0312,ART-006,CAMP-IG-01,2026-05-19,10:30,WhatsApp,Instagram,blackwork,pierna,grande,245000,79,contactar,pendiente de contacto,45
+RES-0315,CLI-0313,ART-004,CAMP-REF-01,2026-06-04,17:00,WhatsApp,recomendacion,blackwork,costillas,pequeno,65000,92,cancelada,perdida,27
+RES-0316,CLI-0314,ART-001,CAMP-IG-01,2026-05-22,17:00,WhatsApp,Instagram,lettering,hombro,pequeno,40000,153,confirmada,reserva confirmada,36
+RES-0317,CLI-0315,ART-006,CAMP-DIR-01,2026-06-18,09:30,WhatsApp,visita directa,blackwork,mano/dedos,pequeno,75000,251,pendiente,esperando respuesta cliente,19
+RES-0318,CLI-0316,ART-002,CAMP-TK-01,2026-05-24,12:30,WhatsApp,TikTok,tradicional color,costillas,grande,330000,117,confirmada,reserva confirmada,89
+RES-0319,CLI-0317,ART-003,CAMP-REF-01,2026-06-15,13:00,WhatsApp,recomendacion,fine line,antebrazo,mediano,85000,64,confirmada,reserva confirmada,54
+RES-0320,CLI-0318,ART-005,CAMP-TK-01,2026-05-19,09:00,WhatsApp,TikTok,geometrico,pecho,grande,315000,25,pendiente,esperando respuesta cliente,58
+RES-0321,CLI-0319,ART-004,CAMP-REF-01,2026-05-25,15:00,Instagram,recomendacion,tradicional color,mano/dedos,mediano,130000,37,contactar,pendiente de contacto,39
+RES-0322,CLI-0320,ART-004,CAMP-IG-01,2026-05-13,16:30,WhatsApp,Instagram,blackwork,cuello,grande,290000,136,contactar,pendiente de contacto,58
+RES-0323,CLI-0321,ART-005,CAMP-RET-01,2026-05-19,11:00,Instagram,cliente recurrente,geometrico,mano/dedos,pequeno,50000,342,cancelada,perdida,26
+RES-0324,CLI-0322,ART-003,CAMP-DIR-01,2026-05-27,13:30,WhatsApp,visita directa,fine line,cuello,grande,220000,29,confirmada,reserva confirmada,60
+RES-0325,CLI-0323,ART-001,CAMP-RET-01,2026-06-09,15:00,WhatsApp,cliente recurrente,lettering,antebrazo,pequeno,40000,43,pendiente,esperando respuesta cliente,24
+RES-0326,CLI-0324,ART-001,CAMP-IG-01,2026-05-21,13:30,WhatsApp,Instagram,fine line color,antebrazo,mediano,100000,17,pendiente,esperando respuesta cliente,23
+RES-0327,CLI-0325,ART-003,CAMP-IG-01,2026-06-17,10:30,WhatsApp,Instagram,minimalista color,mano/dedos,grande,185000,112,confirmada,reserva confirmada,63
+RES-0328,CLI-0326,ART-003,CAMP-REF-01,2026-06-02,13:00,WhatsApp,recomendacion,geometrico,pecho,mediano,105000,188,pendiente,esperando respuesta cliente,29
+RES-0329,CLI-0327,ART-002,CAMP-REF-01,2026-06-14,10:00,Instagram,recomendacion,geometrico,antebrazo,mediano,85000,250,reagendada,reagendar fecha,25
+RES-0330,CLI-0328,ART-001,CAMP-AIEP-01,2026-06-07,11:30,WhatsApp,evento AIEP,lettering,espalda,mediano,130000,104,confirmada,reserva confirmada,53
+RES-0331,CLI-0329,ART-005,CAMP-IG-01,2026-05-28,15:30,WhatsApp,Instagram,minimalista,mano/dedos,mediano,85000,47,confirmada,reserva confirmada,39
+RES-0332,CLI-0226,ART-003,CAMP-RET-01,2026-06-16,11:00,Instagram,cliente recurrente,minimalista,costillas,pequeno,40000,188,pendiente,esperando respuesta cliente,24
+RES-0333,CLI-0330,ART-006,CAMP-TK-01,2026-05-18,10:00,WhatsApp,TikTok,geometrico color,cuello,mediano,170000,32,pendiente,esperando respuesta cliente,31
+RES-0334,CLI-0331,ART-003,CAMP-REF-01,2026-06-17,09:30,WhatsApp,recomendacion,minimalista,espalda,mediano,85000,47,pendiente,esperando respuesta cliente,30
+RES-0335,CLI-0332,ART-001,CAMP-TK-01,2026-05-20,12:00,WhatsApp,TikTok,lettering,pecho,mediano,125000,94,confirmada,reserva confirmada,47
+RES-0336,CLI-0333,ART-003,CAMP-DIR-01,2026-06-02,10:00,WhatsApp,visita directa,fine line,brazo,mediano,85000,46,contactar,pendiente de contacto,20
+RES-0337,CLI-0334,ART-003,CAMP-RET-01,2026-06-14,13:30,WhatsApp,cliente recurrente,minimalista,costillas,sesion larga,260000,42,confirmada,reserva confirmada,88
+RES-0338,CLI-0335,ART-001,CAMP-GO-01,2026-05-19,15:00,WhatsApp,Google,lettering,hombro,mediano,85000,171,pendiente,esperando respuesta cliente,20
+RES-0339,CLI-0336,ART-004,CAMP-DIR-01,2026-06-03,10:00,WhatsApp,visita directa,lettering,tobillo,sesion larga,260000,175,confirmada,reserva confirmada,72
+RES-0340,CLI-0337,ART-002,CAMP-TK-01,2026-05-21,14:00,Instagram,TikTok,tradicional,hombro,grande,325000,310,confirmada,reserva confirmada,84
+RES-0341,CLI-0338,ART-003,CAMP-REF-01,2026-06-18,14:00,WhatsApp,recomendacion,minimalista,hombro,sesion larga,260000,121,pendiente,esperando respuesta cliente,53
+RES-0342,CLI-0339,ART-001,CAMP-TK-01,2026-05-27,14:30,Instagram,TikTok,lettering,espalda,sesion larga,345000,162,contactar,pendiente de contacto,59
+RES-0343,CLI-0340,ART-004,CAMP-TK-01,2026-05-25,12:30,WhatsApp,TikTok,lettering,espalda,grande,210000,117,reagendada,reagendar fecha,43
+RES-0344,CLI-0341,ART-006,CAMP-IG-01,2026-06-14,11:30,WhatsApp,Instagram,tradicional color,brazo,mediano,105000,161,confirmada,reserva confirmada,48
+RES-0345,CLI-0342,ART-004,CAMP-DIR-01,2026-06-10,09:00,WhatsApp,visita directa,lettering color,hombro,pequeno,40000,56,confirmada,reserva confirmada,36
+RES-0346,CLI-0343,ART-005,CAMP-AIEP-01,2026-06-10,10:00,WhatsApp,evento AIEP,minimalista,mano/dedos,sesion larga,260000,108,pendiente,esperando respuesta cliente,48
+RES-0347,CLI-0344,ART-004,CAMP-REF-01,2026-05-26,10:30,Instagram,recomendacion,lettering color,tobillo,mediano,85000,268,contactar,pendiente de contacto,30
+RES-0348,CLI-0195,ART-002,CAMP-REF-01,2026-05-29,15:00,Instagram,recomendacion,blackwork,pecho,mediano,160000,142,pendiente,esperando respuesta cliente,44
+RES-0349,CLI-0345,ART-003,CAMP-IG-01,2026-05-29,16:00,WhatsApp,Instagram,fine line,cuello,mediano,85000,141,pendiente,esperando respuesta cliente,20
+RES-0350,CLI-0346,ART-001,CAMP-RET-01,2026-05-25,15:00,WhatsApp,cliente recurrente,fine line,pecho,mediano,105000,201,contactar,pendiente de contacto,36
+RES-0351,CLI-0347,ART-004,CAMP-REF-01,2026-06-11,15:30,WhatsApp,recomendacion,tradicional,tobillo,mediano,95000,59,pendiente,esperando respuesta cliente,27
+RES-0352,CLI-0215,ART-001,CAMP-GO-01,2026-05-30,17:00,Instagram,Google,fine line color,pecho,mediano,90000,70,pendiente,esperando respuesta cliente,16
+RES-0353,CLI-0348,ART-003,CAMP-TK-01,2026-05-21,15:30,Instagram,TikTok,fine line color,cuello,pequeno,60000,167,pendiente,esperando respuesta cliente,16
+RES-0354,CLI-0349,ART-001,CAMP-TK-01,2026-06-09,13:00,WhatsApp,TikTok,fine line color,mano/dedos,mediano,85000,113,confirmada,reserva confirmada,39
+RES-0355,CLI-0350,ART-003,CAMP-GO-01,2026-05-22,14:00,WhatsApp,Google,minimalista,costillas,grande,220000,32,confirmada,reserva confirmada,60
+RES-0356,CLI-0351,ART-003,CAMP-DIR-01,2026-05-15,11:00,WhatsApp,visita directa,minimalista,antebrazo,mediano,85000,184,confirmada,reserva confirmada,44
+RES-0357,CLI-0352,ART-003,CAMP-REF-01,2026-05-30,17:00,WhatsApp,recomendacion,geometrico,muneca,mediano,85000,154,reagendada,reagendar fecha,25
+RES-0358,CLI-0353,ART-003,CAMP-IG-01,2026-06-16,10:00,Instagram,Instagram,fine line,mano/dedos,pequeno,40000,274,pendiente,esperando respuesta cliente,12
+RES-0359,CLI-0354,ART-005,CAMP-GO-01,2026-06-05,11:00,WhatsApp,Google,geometrico,tobillo,pequeno,40000,132,cancelada,perdida,12
+RES-0360,CLI-0355,ART-003,CAMP-RET-01,2026-06-11,13:30,WhatsApp,cliente recurrente,geometrico,tobillo,grande,180000,139,contactar,pendiente de contacto,50
+RES-0361,CLI-0356,ART-001,CAMP-IG-01,2026-05-28,13:30,Instagram,Instagram,lettering color,cuello,pequeno,55000,132,pendiente,esperando respuesta cliente,12
+RES-0362,CLI-0357,ART-002,CAMP-DIR-01,2026-05-30,16:00,Instagram,visita directa,blackwork,costillas,mediano,170000,149,confirmada,reserva confirmada,55
+RES-0363,CLI-0358,ART-005,CAMP-REF-01,2026-06-16,09:00,WhatsApp,recomendacion,geometrico,cuello,sesion larga,320000,194,pendiente,esperando respuesta cliente,64
+RES-0364,CLI-0359,ART-003,CAMP-TK-01,2026-06-19,10:00,WhatsApp,TikTok,fine line color,espalda,mediano,100000,111,pendiente,esperando respuesta cliente,18
+RES-0365,CLI-0360,ART-004,CAMP-TK-01,2026-06-02,09:00,WhatsApp,TikTok,lettering,antebrazo,pequeno,40000,128,confirmada,reserva confirmada,36
+RES-0366,CLI-0361,ART-006,CAMP-GO-01,2026-06-09,17:00,WhatsApp,Google,tradicional color,cuello,sesion larga,450000,242,contactar,pendiente de contacto,83
+RES-0367,CLI-0362,ART-005,CAMP-GO-01,2026-06-17,11:00,WhatsApp,Google,fine line,tobillo,pequeno,40000,63,pendiente,esperando respuesta cliente,12
+RES-0368,CLI-0363,ART-005,CAMP-IG-01,2026-06-12,16:00,Instagram,Instagram,geometrico color,espalda,pequeno,60000,164,pendiente,esperando respuesta cliente,12
+RES-0369,CLI-0364,ART-002,CAMP-IG-01,2026-06-17,15:30,Instagram,Instagram,geometrico,antebrazo,mediano,130000,275,confirmada,reserva confirmada,53
+RES-0370,CLI-0365,ART-004,CAMP-RET-01,2026-06-12,15:30,WhatsApp,cliente recurrente,lettering,antebrazo,grande,180000,41,pendiente,esperando respuesta cliente,50
+RES-0371,CLI-0366,ART-006,CAMP-TK-01,2026-05-16,16:30,Instagram,TikTok,geometrico color,brazo,pequeno,60000,88,contactar,pendiente de contacto,12
+RES-0372,CLI-0367,ART-005,CAMP-TK-01,2026-06-18,10:30,Instagram,TikTok,fine line color,costillas,sesion larga,290000,94,contactar,pendiente de contacto,53
+RES-0373,CLI-0368,ART-002,CAMP-GO-01,2026-06-07,12:30,WhatsApp,Google,blackwork,antebrazo,grande,180000,170,pendiente,esperando respuesta cliente,33
+RES-0374,CLI-0369,ART-006,CAMP-IG-01,2026-05-27,09:30,Instagram,Instagram,tradicional,hombro,pequeno,75000,65,reagendada,reagendar fecha,14
+RES-0375,CLI-0370,ART-003,CAMP-GO-01,2026-06-08,13:30,WhatsApp,Google,geometrico,antebrazo,pequeno,40000,147,confirmada,reserva confirmada,36
+RES-0376,CLI-0371,ART-001,CAMP-IG-01,2026-06-04,17:30,WhatsApp,Instagram,lettering,costillas,pequeno,40000,95,pendiente,esperando respuesta cliente,12
+RES-0377,CLI-0372,ART-001,CAMP-IG-01,2026-05-14,13:00,WhatsApp,Instagram,lettering,pierna,pequeno,40000,204,contactar,pendiente de contacto,12
+RES-0378,CLI-0148,ART-001,CAMP-GO-01,2026-06-09,13:00,Instagram,Google,lettering color,tobillo,grande,200000,126,pendiente,esperando respuesta cliente,32
+RES-0379,CLI-0373,ART-005,CAMP-AIEP-01,2026-05-13,10:00,Instagram,evento AIEP,minimalista,espalda,mediano,85000,190,pendiente,esperando respuesta cliente,20
+RES-0380,CLI-0374,ART-004,CAMP-IG-01,2026-06-05,17:30,WhatsApp,Instagram,lettering color,antebrazo,sesion larga,260000,47,confirmada,reserva confirmada,76
+RES-0381,CLI-0375,ART-004,CAMP-RET-01,2026-05-17,13:30,Instagram,cliente recurrente,blackwork,brazo,sesion larga,315000,174,contactar,pendiente de contacto,70
+RES-0382,CLI-0376,ART-001,CAMP-TK-01,2026-05-14,09:00,WhatsApp,TikTok,minimalista,pierna,mediano,85000,147,confirmada,reserva confirmada,44
+RES-0383,CLI-0377,ART-002,CAMP-IG-01,2026-06-08,14:30,WhatsApp,Instagram,blackwork,hombro,grande,235000,154,confirmada,reserva confirmada,72
+RES-0384,CLI-0378,ART-003,CAMP-IG-01,2026-06-02,12:00,WhatsApp,Instagram,minimalista,tobillo,mediano,85000,34,cancelada,perdida,20
+RES-0385,CLI-0379,ART-005,CAMP-REF-01,2026-05-26,09:00,Instagram,recomendacion,minimalista,costillas,pequeno,65000,128,confirmada,reserva confirmada,51
+RES-0386,CLI-0169,ART-004,CAMP-TK-01,2026-05-26,13:30,Instagram,TikTok,lettering,brazo,pequeno,40000,202,confirmada,reserva confirmada,31
+RES-0387,CLI-0380,ART-002,CAMP-DIR-01,2026-05-31,12:30,WhatsApp,visita directa,tradicional,espalda,mediano,140000,252,cancelada,perdida,25
+RES-0388,CLI-0381,ART-006,CAMP-TK-01,2026-05-16,15:00,Instagram,TikTok,blackwork,tobillo,grande,245000,72,pendiente,esperando respuesta cliente,50
+RES-0389,CLI-0382,ART-004,CAMP-RET-01,2026-06-16,11:00,Instagram,cliente recurrente,blackwork color,antebrazo,grande,180000,36,confirmada,reserva confirmada,69
+RES-0390,CLI-0383,ART-004,CAMP-RET-01,2026-06-06,13:30,WhatsApp,cliente recurrente,blackwork,costillas,sesion larga,305000,189,confirmada,reserva confirmada,96
+RES-0391,CLI-0375,ART-001,CAMP-TK-01,2026-06-15,09:30,Instagram,TikTok,fine line,antebrazo,mediano,95000,159,reagendada,reagendar fecha,22
+RES-0392,CLI-0384,ART-001,CAMP-RET-01,2026-05-28,11:30,Instagram,cliente recurrente,fine line,brazo,pequeno,50000,144,confirmada,reserva confirmada,50
+RES-0393,CLI-0385,ART-005,CAMP-REF-01,2026-06-19,13:00,Instagram,recomendacion,minimalista,brazo,mediano,85000,348,contactar,pendiente de contacto,30
+RES-0394,CLI-0386,ART-006,CAMP-IG-01,2026-06-03,17:00,Instagram,Instagram,tradicional,muneca,grande,200000,336,reagendada,reagendar fecha,41
+RES-0395,CLI-0387,ART-006,CAMP-TK-01,2026-05-13,12:30,WhatsApp,TikTok,blackwork color,antebrazo,sesion larga,430000,159,pendiente,esperando respuesta cliente,79
+RES-0396,CLI-0388,ART-002,CAMP-RET-01,2026-05-24,10:00,Instagram,cliente recurrente,blackwork color,pecho,pequeno,55000,44,cancelada,perdida,27
+RES-0397,CLI-0389,ART-001,CAMP-IG-01,2026-05-21,13:30,Instagram,Instagram,minimalista,brazo,sesion larga,260000,348,pendiente,esperando respuesta cliente,47
+RES-0398,CLI-0390,ART-002,CAMP-AIEP-01,2026-06-03,10:00,WhatsApp,evento AIEP,blackwork color,cuello,pequeno,50000,46,pendiente,esperando respuesta cliente,14
+RES-0399,CLI-0391,ART-005,CAMP-GO-01,2026-05-30,14:30,Instagram,Google,geometrico,espalda,mediano,165000,264,contactar,pendiente de contacto,30
+RES-0400,CLI-0392,ART-004,CAMP-TK-01,2026-05-25,16:00,WhatsApp,TikTok,blackwork,pierna,sesion larga,310000,68,contactar,pendiente de contacto,52
+RES-0401,CLI-0393,ART-003,CAMP-TK-01,2026-06-19,09:30,Instagram,TikTok,geometrico,cuello,mediano,90000,78,confirmada,reserva confirmada,45
+RES-0402,CLI-0394,ART-003,CAMP-REF-01,2026-05-31,15:00,WhatsApp,recomendacion,geometrico,pierna,pequeno,40000,45,confirmada,reserva confirmada,46
+RES-0403,CLI-0395,ART-001,CAMP-DIR-01,2026-06-09,12:30,WhatsApp,visita directa,minimalista,pecho,mediano,85000,33,confirmada,reserva confirmada,44
+RES-0404,CLI-0396,ART-004,CAMP-GO-01,2026-06-16,16:00,WhatsApp,Google,tradicional color,muneca,grande,230000,74,confirmada,reserva confirmada,71
+RES-0405,CLI-0397,ART-005,CAMP-TK-01,2026-05-14,14:30,WhatsApp,TikTok,minimalista,espalda,pequeno,40000,85,cancelada,perdida,12
+RES-0406,CLI-0398,ART-003,CAMP-AIEP-01,2026-05-20,12:30,WhatsApp,evento AIEP,fine line,hombro,pequeno,40000,162,pendiente,esperando respuesta cliente,12
+RES-0407,CLI-0399,ART-003,CAMP-REF-01,2026-06-11,10:00,Instagram,recomendacion,minimalista,pecho,mediano,85000,181,cancelada,perdida,30
+RES-0408,CLI-0369,ART-002,CAMP-AIEP-01,2026-06-17,13:30,Instagram,evento AIEP,tradicional,mano/dedos,pequeno,55000,64,pendiente,esperando respuesta cliente,12
+RES-0409,CLI-0400,ART-001,CAMP-GO-01,2026-05-19,09:30,WhatsApp,Google,lettering color,hombro,pequeno,60000,98,pendiente,esperando respuesta cliente,16
+RES-0410,CLI-0401,ART-002,CAMP-REF-01,2026-05-22,11:00,WhatsApp,recomendacion,blackwork,pecho,mediano,155000,195,confirmada,reserva confirmada,67
+RES-0411,CLI-0402,ART-006,CAMP-IG-01,2026-06-05,17:30,WhatsApp,Instagram,geometrico,cuello,mediano,170000,252,contactar,pendiente de contacto,36
+RES-0412,CLI-0403,ART-004,CAMP-IG-01,2026-05-16,10:00,WhatsApp,Instagram,tradicional color,pecho,mediano,120000,66,contactar,pendiente de contacto,27
+RES-0413,CLI-0404,ART-002,CAMP-IG-01,2026-05-27,14:30,WhatsApp,Instagram,blackwork,mano/dedos,mediano,150000,156,pendiente,esperando respuesta cliente,32
+RES-0414,CLI-0405,ART-006,CAMP-TK-01,2026-06-05,15:00,WhatsApp,TikTok,tradicional color,brazo,pequeno,50000,68,confirmada,reserva confirmada,38
+RES-0415,CLI-0406,ART-006,CAMP-TK-01,2026-05-19,17:00,Instagram,TikTok,geometrico,pierna,pequeno,40000,251,pendiente,esperando respuesta cliente,12
+RES-0416,CLI-0407,ART-004,CAMP-DIR-01,2026-05-17,17:00,WhatsApp,visita directa,lettering,costillas,pequeno,65000,143,confirmada,reserva confirmada,41
+RES-0417,CLI-0408,ART-001,CAMP-RET-01,2026-06-13,14:00,WhatsApp,cliente recurrente,fine line,tobillo,mediano,95000,65,confirmada,reserva confirmada,53
+RES-0418,CLI-0409,ART-003,CAMP-AIEP-01,2026-05-16,13:30,WhatsApp,evento AIEP,geometrico,espalda,pequeno,45000,62,contactar,pendiente de contacto,13
+RES-0419,CLI-0410,ART-005,CAMP-TK-01,2026-05-21,12:00,WhatsApp,TikTok,fine line,pecho,pequeno,40000,187,contactar,pendiente de contacto,12
+RES-0420,CLI-0411,ART-005,CAMP-REF-01,2026-05-22,11:30,WhatsApp,recomendacion,geometrico color,costillas,mediano,170000,198,cancelada,perdida,46
+RES-0421,CLI-0412,ART-002,CAMP-RET-01,2026-06-17,15:30,WhatsApp,cliente recurrente,geometrico,muneca,pequeno,55000,120,confirmada,reserva confirmada,46
+RES-0422,CLI-0413,ART-004,CAMP-GO-01,2026-06-07,13:30,WhatsApp,Google,lettering color,pecho,grande,330000,166,confirmada,reserva confirmada,85
+RES-0423,CLI-0414,ART-004,CAMP-IG-01,2026-05-24,10:00,WhatsApp,Instagram,tradicional color,costillas,pequeno,80000,141,confirmada,reserva confirmada,44
+RES-0424,CLI-0415,ART-002,CAMP-DIR-01,2026-05-20,13:30,Instagram,visita directa,geometrico,espalda,grande,300000,288,contactar,pendiente de contacto,55
+RES-0425,CLI-0416,ART-006,CAMP-IG-01,2026-05-14,09:00,WhatsApp,Instagram,geometrico,pecho,grande,280000,102,confirmada,reserva confirmada,80
+RES-0426,CLI-0417,ART-004,CAMP-GO-01,2026-05-15,12:30,WhatsApp,Google,blackwork,tobillo,mediano,125000,114,confirmada,reserva confirmada,47
+RES-0427,CLI-0418,ART-002,CAMP-DIR-01,2026-05-20,17:00,WhatsApp,visita directa,tradicional color,costillas,mediano,130000,117,confirmada,reserva confirmada,53
+RES-0428,CLI-0419,ART-003,CAMP-IG-01,2026-06-12,12:30,WhatsApp,Instagram,geometrico,hombro,pequeno,40000,56,cancelada,perdida,12
+RES-0429,CLI-0420,ART-002,CAMP-AIEP-01,2026-06-04,13:30,WhatsApp,evento AIEP,geometrico,tobillo,pequeno,45000,29,confirmada,reserva confirmada,37
+RES-0430,CLI-0421,ART-006,CAMP-IG-01,2026-06-17,12:30,WhatsApp,Instagram,blackwork,costillas,pequeno,80000,167,confirmada,reserva confirmada,44
+RES-0431,CLI-0422,ART-002,CAMP-RET-01,2026-05-30,16:30,Instagram,cliente recurrente,tradicional color,antebrazo,pequeno,75000,110,pendiente,esperando respuesta cliente,26
+RES-0432,CLI-0423,ART-006,CAMP-IG-01,2026-05-17,10:30,WhatsApp,Instagram,blackwork,antebrazo,mediano,110000,115,confirmada,reserva confirmada,49
+RES-0433,CLI-0424,ART-002,CAMP-AIEP-01,2026-05-27,12:30,Instagram,evento AIEP,blackwork color,cuello,pequeno,70000,102,confirmada,reserva confirmada,42
+RES-0434,CLI-0425,ART-005,CAMP-RET-01,2026-06-08,16:00,WhatsApp,cliente recurrente,minimalista color,pierna,pequeno,45000,25,contactar,pendiente de contacto,25
+RES-0435,CLI-0426,ART-005,CAMP-IG-01,2026-05-22,11:00,WhatsApp,Instagram,minimalista color,pecho,grande,180000,130,contactar,pendiente de contacto,33
+RES-0436,CLI-0427,ART-004,CAMP-TK-01,2026-05-27,15:30,WhatsApp,TikTok,tradicional,costillas,mediano,170000,21,confirmada,reserva confirmada,60
+RES-0437,CLI-0428,ART-005,CAMP-TK-01,2026-06-13,16:00,Instagram,TikTok,minimalista,espalda,pequeno,60000,34,cancelada,perdida,16
+RES-0438,CLI-0429,ART-005,CAMP-TK-01,2026-05-14,13:30,WhatsApp,TikTok,fine line color,antebrazo,pequeno,45000,110,cancelada,perdida,13
+RES-0439,CLI-0430,ART-001,CAMP-RET-01,2026-06-01,13:30,WhatsApp,cliente recurrente,lettering,tobillo,mediano,85000,69,confirmada,reserva confirmada,51
+RES-0440,CLI-0431,ART-005,CAMP-RET-01,2026-05-25,13:30,WhatsApp,cliente recurrente,fine line color,espalda,pequeno,55000,144,cancelada,perdida,22
+RES-0441,CLI-0432,ART-002,CAMP-DIR-01,2026-06-05,16:30,WhatsApp,visita directa,tradicional,espalda,pequeno,75000,135,confirmada,reserva confirmada,38
+RES-0442,CLI-0433,ART-001,CAMP-GO-01,2026-06-13,12:00,Instagram,Google,fine line,espalda,grande,180000,140,pendiente,esperando respuesta cliente,33
+RES-0443,CLI-0434,ART-005,CAMP-IG-01,2026-06-07,14:00,Instagram,Instagram,geometrico,hombro,grande,275000,219,confirmada,reserva confirmada,70
+RES-0444,CLI-0435,ART-006,CAMP-TK-01,2026-06-09,15:30,WhatsApp,TikTok,geometrico color,pierna,mediano,170000,36,confirmada,reserva confirmada,60
+RES-0445,CLI-0436,ART-004,CAMP-REF-01,2026-05-31,15:00,WhatsApp,recomendacion,blackwork,brazo,pequeno,65000,120,pendiente,esperando respuesta cliente,22
+RES-0446,CLI-0437,ART-003,CAMP-GO-01,2026-06-02,12:00,WhatsApp,Google,fine line,muneca,grande,180000,57,confirmada,reserva confirmada,58
+RES-0447,CLI-0438,ART-004,CAMP-GO-01,2026-05-23,16:30,WhatsApp,Google,blackwork,pierna,mediano,110000,159,pendiente,esperando respuesta cliente,25
+RES-0448,CLI-0439,ART-002,CAMP-REF-01,2026-06-03,14:00,WhatsApp,recomendacion,geometrico color,cuello,grande,290000,49,confirmada,reserva confirmada,87
+RES-0449,CLI-0440,ART-005,CAMP-RET-01,2026-06-04,15:00,Instagram,cliente recurrente,minimalista,tobillo,sesion larga,260000,151,pendiente,esperando respuesta cliente,60
+RES-0450,CLI-0441,ART-001,CAMP-TK-01,2026-05-22,13:30,WhatsApp,TikTok,minimalista color,pecho,mediano,85000,91,confirmada,reserva confirmada,44
+RES-0451,CLI-0442,ART-003,CAMP-TK-01,2026-05-31,16:30,WhatsApp,TikTok,geometrico,espalda,pequeno,50000,121,pendiente,esperando respuesta cliente,14
+RES-0452,CLI-0443,ART-003,CAMP-AIEP-01,2026-06-07,17:30,Instagram,evento AIEP,fine line,espalda,grande,235000,42,pendiente,esperando respuesta cliente,39
+RES-0453,CLI-0444,ART-002,CAMP-DIR-01,2026-05-16,12:30,Instagram,visita directa,tradicional,pierna,pequeno,45000,47,contactar,pendiente de contacto,13
+RES-0454,CLI-0445,ART-003,CAMP-RET-01,2026-06-07,16:30,WhatsApp,cliente recurrente,minimalista,tobillo,pequeno,40000,77,confirmada,reserva confirmada,43
+RES-0455,CLI-0446,ART-001,CAMP-REF-01,2026-05-21,11:00,WhatsApp,recomendacion,fine line,cuello,mediano,100000,137,pendiente,esperando respuesta cliente,33
+RES-0456,CLI-0447,ART-005,CAMP-RET-01,2026-06-10,09:00,Instagram,cliente recurrente,fine line,cuello,pequeno,40000,107,pendiente,esperando respuesta cliente,24
+RES-0457,CLI-0448,ART-003,CAMP-GO-01,2026-06-15,17:30,Instagram,Google,minimalista,espalda,grande,235000,210,confirmada,reserva confirmada,68
+RES-0458,CLI-0449,ART-003,CAMP-REF-01,2026-06-19,13:00,Instagram,recomendacion,fine line,antebrazo,grande,180000,257,confirmada,reserva confirmada,68
+RES-0459,CLI-0450,ART-003,CAMP-IG-01,2026-06-16,09:30,WhatsApp,Instagram,fine line,muneca,pequeno,40000,58,pendiente,esperando respuesta cliente,12
+RES-0460,CLI-0451,ART-006,CAMP-GO-01,2026-06-17,17:30,Instagram,Google,blackwork,brazo,grande,240000,84,confirmada,reserva confirmada,68
+RES-0461,CLI-0452,ART-001,CAMP-TK-01,2026-05-17,16:30,WhatsApp,TikTok,lettering color,costillas,grande,190000,169,confirmada,reserva confirmada,64
+RES-0462,CLI-0453,ART-003,CAMP-REF-01,2026-05-15,09:00,WhatsApp,recomendacion,geometrico color,costillas,pequeno,75000,107,confirmada,reserva confirmada,53
+RES-0463,CLI-0454,ART-003,CAMP-RET-01,2026-05-25,10:00,Instagram,cliente recurrente,fine line,muneca,grande,180000,34,confirmada,reserva confirmada,74
+RES-0464,CLI-0455,ART-001,CAMP-GO-01,2026-05-22,12:00,Instagram,Google,lettering color,mano/dedos,mediano,155000,179,confirmada,reserva confirmada,57
+RES-0465,CLI-0456,ART-001,CAMP-DIR-01,2026-05-26,17:00,WhatsApp,visita directa,fine line,tobillo,sesion larga,260000,63,contactar,pendiente de contacto,43
+RES-0466,CLI-0457,ART-002,CAMP-TK-01,2026-06-19,17:00,WhatsApp,TikTok,geometrico color,brazo,mediano,135000,241,pendiente,esperando respuesta cliente,30
+RES-0467,CLI-0458,ART-004,CAMP-RET-01,2026-05-23,16:30,WhatsApp,cliente recurrente,lettering,pierna,pequeno,50000,39,confirmada,reserva confirmada,50
+RES-0468,CLI-0459,ART-001,CAMP-AIEP-01,2026-06-18,10:00,WhatsApp,evento AIEP,lettering,tobillo,mediano,85000,40,pendiente,esperando respuesta cliente,20
+RES-0469,CLI-0460,ART-006,CAMP-TK-01,2026-05-18,11:00,Instagram,TikTok,blackwork,mano/dedos,pequeno,80000,156,pendiente,esperando respuesta cliente,20
+RES-0470,CLI-0461,ART-003,CAMP-AIEP-01,2026-06-07,11:30,WhatsApp,evento AIEP,geometrico color,tobillo,pequeno,40000,126,cancelada,perdida,12
+RES-0471,CLI-0462,ART-004,CAMP-RET-01,2026-06-04,16:00,WhatsApp,cliente recurrente,blackwork,tobillo,sesion larga,295000,222,contactar,pendiente de contacto,67
+RES-0472,CLI-0463,ART-006,CAMP-TK-01,2026-05-31,12:00,Instagram,TikTok,tradicional color,pecho,mediano,135000,269,pendiente,esperando respuesta cliente,30
+RES-0473,CLI-0464,ART-004,CAMP-AIEP-01,2026-05-26,11:00,Instagram,evento AIEP,blackwork color,espalda,mediano,140000,120,pendiente,esperando respuesta cliente,30
+RES-0474,CLI-0465,ART-003,CAMP-TK-01,2026-06-12,15:30,WhatsApp,TikTok,minimalista,pierna,pequeno,40000,47,confirmada,reserva confirmada,31
+RES-0475,CLI-0466,ART-004,CAMP-DIR-01,2026-05-19,15:00,WhatsApp,visita directa,blackwork color,hombro,grande,280000,171,confirmada,reserva confirmada,80
+RES-0476,CLI-0467,ART-003,CAMP-IG-01,2026-05-16,11:00,WhatsApp,Instagram,geometrico,tobillo,grande,180000,65,confirmada,reserva confirmada,62
+RES-0477,CLI-0468,ART-006,CAMP-REF-01,2026-06-11,09:00,WhatsApp,recomendacion,tradicional color,espalda,pequeno,65000,238,pendiente,esperando respuesta cliente,27
+RES-0478,CLI-0469,ART-002,CAMP-GO-01,2026-05-28,17:00,Instagram,Google,geometrico,pierna,mediano,85000,55,reagendada,reagendar fecha,20
+RES-0479,CLI-0470,ART-004,CAMP-AIEP-01,2026-06-11,15:30,Instagram,evento AIEP,lettering,tobillo,grande,180000,357,pendiente,esperando respuesta cliente,33
+RES-0480,CLI-0471,ART-001,CAMP-TK-01,2026-05-18,17:00,WhatsApp,TikTok,minimalista,cuello,pequeno,45000,54,confirmada,reserva confirmada,37
+RES-0481,CLI-0472,ART-003,CAMP-RET-01,2026-06-13,11:30,WhatsApp,cliente recurrente,minimalista,pierna,grande,180000,185,confirmada,reserva confirmada,74
+RES-0482,CLI-0473,ART-002,CAMP-TK-01,2026-06-16,12:00,Instagram,TikTok,geometrico,antebrazo,mediano,90000,262,confirmada,reserva confirmada,45
+RES-0483,CLI-0474,ART-002,CAMP-AIEP-01,2026-06-02,13:00,WhatsApp,evento AIEP,tradicional,espalda,mediano,170000,267,confirmada,reserva confirmada,60
+RES-0484,CLI-0246,ART-006,CAMP-AIEP-01,2026-06-14,15:00,Instagram,evento AIEP,geometrico color,hombro,pequeno,70000,99,pendiente,esperando respuesta cliente,18
+RES-0485,CLI-0475,ART-002,CAMP-GO-01,2026-05-14,17:30,Instagram,Google,tradicional color,brazo,mediano,130000,74,pendiente,esperando respuesta cliente,29
+RES-0486,CLI-0476,ART-001,CAMP-TK-01,2026-05-30,11:00,Instagram,TikTok,lettering color,costillas,mediano,160000,43,cancelada,perdida,34
+RES-0487,CLI-0477,ART-006,CAMP-IG-01,2026-06-11,14:30,WhatsApp,Instagram,tradicional color,hombro,mediano,170000,112,pendiente,esperando respuesta cliente,36
+RES-0488,CLI-0478,ART-003,CAMP-REF-01,2026-05-16,14:00,Instagram,recomendacion,minimalista,pierna,mediano,85000,60,pendiente,esperando respuesta cliente,25
+RES-0489,CLI-0479,ART-001,CAMP-DIR-01,2026-06-06,09:00,WhatsApp,visita directa,minimalista,cuello,mediano,135000,92,pendiente,esperando respuesta cliente,30
+RES-0490,CLI-0480,ART-006,CAMP-REF-01,2026-06-12,12:30,WhatsApp,recomendacion,blackwork color,mano/dedos,grande,330000,235,pendiente,esperando respuesta cliente,71
+RES-0491,CLI-0481,ART-006,CAMP-DIR-01,2026-05-27,16:00,Instagram,visita directa,blackwork color,mano/dedos,mediano,170000,71,confirmada,reserva confirmada,60
+RES-0492,CLI-0482,ART-006,CAMP-REF-01,2026-06-05,11:30,WhatsApp,recomendacion,geometrico,pierna,pequeno,50000,39,reagendada,reagendar fecha,24
+RES-0493,CLI-0289,ART-005,CAMP-TK-01,2026-06-04,15:30,Instagram,TikTok,minimalista,muneca,grande,180000,330,reagendada,reagendar fecha,34
+RES-0494,CLI-0483,ART-002,CAMP-REF-01,2026-06-11,14:30,WhatsApp,recomendacion,geometrico color,cuello,pequeno,50000,127,reagendada,reagendar fecha,24
+RES-0495,CLI-0484,ART-005,CAMP-TK-01,2026-05-31,14:00,Instagram,TikTok,geometrico color,cuello,sesion larga,450000,228,contactar,pendiente de contacto,83
+RES-0496,CLI-0485,ART-004,CAMP-RET-01,2026-05-20,09:00,Instagram,cliente recurrente,blackwork,pierna,grande,300000,68,confirmada,reserva confirmada,87
+RES-0497,CLI-0486,ART-002,CAMP-TK-01,2026-05-23,09:30,WhatsApp,TikTok,geometrico,brazo,mediano,105000,108,pendiente,esperando respuesta cliente,19
+RES-0498,CLI-0487,ART-001,CAMP-TK-01,2026-06-09,17:00,WhatsApp,TikTok,minimalista,costillas,grande,190000,47,pendiente,esperando respuesta cliente,40
+RES-0499,CLI-0488,ART-001,CAMP-TK-01,2026-05-29,17:00,Instagram,TikTok,minimalista,pierna,sesion larga,260000,32,confirmada,reserva confirmada,76
+RES-0500,CLI-0489,ART-001,CAMP-IG-01,2026-06-08,10:30,Instagram,Instagram,lettering,pecho,mediano,130000,119,confirmada,reserva confirmada,48
+RES-0501,CLI-0490,ART-002,CAMP-DIR-01,2026-05-21,16:00,WhatsApp,visita directa,blackwork,espalda,mediano,115000,127,pendiente,esperando respuesta cliente,21
+RES-0502,CLI-0447,ART-006,CAMP-TK-01,2026-06-06,09:30,Instagram,TikTok,blackwork color,muneca,mediano,160000,83,contactar,pendiente de contacto,34
+RES-0503,CLI-0491,ART-005,CAMP-AIEP-01,2026-05-26,16:30,WhatsApp,evento AIEP,fine line,cuello,mediano,130000,235,contactar,pendiente de contacto,24
+RES-0504,CLI-0492,ART-003,CAMP-GO-01,2026-05-27,17:30,WhatsApp,Google,fine line,antebrazo,mediano,85000,20,pendiente,esperando respuesta cliente,20
+RES-0505,CLI-0493,ART-001,CAMP-TK-01,2026-06-16,14:00,WhatsApp,TikTok,fine line,espalda,mediano,95000,175,pendiente,esperando respuesta cliente,17
+RES-0506,CLI-0494,ART-001,CAMP-DIR-01,2026-05-13,16:00,WhatsApp,visita directa,fine line,pierna,pequeno,50000,174,confirmada,reserva confirmada,38
+RES-0507,CLI-0495,ART-006,CAMP-IG-01,2026-05-17,11:30,Instagram,Instagram,blackwork color,muneca,mediano,110000,162,confirmada,reserva confirmada,49
+RES-0508,CLI-0496,ART-004,CAMP-RET-01,2026-06-12,15:00,WhatsApp,cliente recurrente,tradicional color,cuello,mediano,170000,85,confirmada,reserva confirmada,72
+RES-0509,CLI-0497,ART-004,CAMP-TK-01,2026-05-21,10:30,WhatsApp,TikTok,tradicional color,muneca,pequeno,40000,265,confirmada,reserva confirmada,31
+RES-0510,CLI-0498,ART-002,CAMP-RET-01,2026-05-15,10:00,WhatsApp,cliente recurrente,tradicional,brazo,pequeno,55000,100,contactar,pendiente de contacto,27
+RES-0511,CLI-0499,ART-001,CAMP-IG-01,2026-05-22,14:30,WhatsApp,Instagram,fine line,pecho,mediano,140000,196,contactar,pendiente de contacto,25
+RES-0512,CLI-0500,ART-005,CAMP-GO-01,2026-05-22,12:30,WhatsApp,Google,geometrico color,brazo,sesion larga,280000,60,confirmada,reserva confirmada,76
+RES-0513,CLI-0501,ART-005,CAMP-RET-01,2026-06-10,15:00,WhatsApp,cliente recurrente,fine line,pecho,mediano,125000,186,contactar,pendiente de contacto,35
+RES-0514,CLI-0502,ART-004,CAMP-GO-01,2026-06-07,17:00,Instagram,Google,tradicional color,antebrazo,grande,320000,149,pendiente,esperando respuesta cliente,59
+RES-0515,CLI-0503,ART-005,CAMP-GO-01,2026-05-15,14:30,Instagram,Google,minimalista color,brazo,mediano,90000,56,pendiente,esperando respuesta cliente,21
+RES-0516,CLI-0504,ART-002,CAMP-RET-01,2026-06-16,09:00,Instagram,cliente recurrente,blackwork,cuello,mediano,140000,261,confirmada,reserva confirmada,66
+RES-0517,CLI-0080,ART-002,CAMP-TK-01,2026-05-15,17:30,Instagram,TikTok,blackwork,antebrazo,sesion larga,325000,322,reagendada,reagendar fecha,60
+RES-0518,CLI-0505,ART-004,CAMP-IG-01,2026-05-17,13:30,Instagram,Instagram,blackwork,brazo,pequeno,40000,194,pendiente,esperando respuesta cliente,12
+RES-0519,CLI-0506,ART-004,CAMP-REF-01,2026-06-19,13:30,WhatsApp,recomendacion,blackwork color,tobillo,sesion larga,320000,79,confirmada,reserva confirmada,93
+RES-0520,CLI-0507,ART-004,CAMP-TK-01,2026-05-21,17:00,Instagram,TikTok,lettering,tobillo,pequeno,40000,205,contactar,pendiente de contacto,12
+RES-0521,CLI-0508,ART-003,CAMP-DIR-01,2026-05-27,14:00,Instagram,visita directa,fine line,mano/dedos,pequeno,40000,197,pendiente,esperando respuesta cliente,12
+RES-0522,CLI-0509,ART-005,CAMP-IG-01,2026-05-19,17:30,WhatsApp,Instagram,minimalista,costillas,pequeno,65000,92,confirmada,reserva confirmada,36
+RES-0523,CLI-0510,ART-006,CAMP-AIEP-01,2026-05-22,14:30,Instagram,evento AIEP,geometrico,costillas,pequeno,55000,201,cancelada,perdida,15
+RES-0524,CLI-0511,ART-001,CAMP-TK-01,2026-05-17,12:00,WhatsApp,TikTok,minimalista,pecho,grande,180000,150,confirmada,reserva confirmada,62
+RES-0525,CLI-0512,ART-005,CAMP-GO-01,2026-06-17,13:00,WhatsApp,Google,minimalista,espalda,pequeno,40000,152,pendiente,esperando respuesta cliente,12
+RES-0526,CLI-0513,ART-006,CAMP-IG-01,2026-05-20,17:30,WhatsApp,Instagram,geometrico color,cuello,grande,295000,45,confirmada,reserva confirmada,83
+RES-0527,CLI-0514,ART-004,CAMP-REF-01,2026-05-29,10:00,Instagram,recomendacion,lettering,mano/dedos,pequeno,40000,246,confirmada,reserva confirmada,46
+RES-0528,CLI-0062,ART-004,CAMP-IG-01,2026-05-13,16:00,Instagram,Instagram,lettering,hombro,mediano,90000,108,reagendada,reagendar fecha,16
+RES-0529,CLI-0515,ART-004,CAMP-TK-01,2026-06-05,15:00,WhatsApp,TikTok,tradicional,costillas,pequeno,55000,84,confirmada,reserva confirmada,34
+RES-0530,CLI-0516,ART-005,CAMP-TK-01,2026-06-13,14:30,Instagram,TikTok,fine line color,tobillo,grande,180000,113,confirmada,reserva confirmada,62
+RES-0531,CLI-0517,ART-005,CAMP-GO-01,2026-05-17,14:00,WhatsApp,Google,geometrico,costillas,pequeno,70000,47,contactar,pendiente de contacto,18
+RES-0532,CLI-0518,ART-001,CAMP-DIR-01,2026-06-03,14:30,Instagram,visita directa,fine line,pierna,pequeno,40000,82,pendiente,esperando respuesta cliente,12
+RES-0533,CLI-0519,ART-006,CAMP-AIEP-01,2026-05-30,13:30,Instagram,evento AIEP,tradicional,muneca,mediano,85000,243,confirmada,reserva confirmada,44
+RES-0534,CLI-0520,ART-004,CAMP-DIR-01,2026-06-05,11:00,WhatsApp,visita directa,blackwork color,tobillo,mediano,155000,75,confirmada,reserva confirmada,52
+RES-0535,CLI-0521,ART-005,CAMP-AIEP-01,2026-06-16,11:00,WhatsApp,evento AIEP,minimalista,mano/dedos,mediano,90000,152,confirmada,reserva confirmada,45
+RES-0536,CLI-0522,ART-002,CAMP-TK-01,2026-06-06,16:30,WhatsApp,TikTok,geometrico color,costillas,mediano,170000,132,pendiente,esperando respuesta cliente,31
+RES-0537,CLI-0523,ART-006,CAMP-TK-01,2026-06-08,14:30,WhatsApp,TikTok,blackwork color,pierna,mediano,120000,177,confirmada,reserva confirmada,51
+RES-0538,CLI-0524,ART-004,CAMP-REF-01,2026-06-09,09:30,Instagram,recomendacion,tradicional color,costillas,pequeno,80000,236,pendiente,esperando respuesta cliente,30
+RES-0539,CLI-0525,ART-003,CAMP-GO-01,2026-05-28,11:30,Instagram,Google,fine line,antebrazo,sesion larga,260000,94,contactar,pendiente de contacto,52
+RES-0540,CLI-0526,ART-005,CAMP-REF-01,2026-06-17,11:30,WhatsApp,recomendacion,fine line,tobillo,pequeno,40000,188,cancelada,perdida,22
+RES-0541,CLI-0527,ART-005,CAMP-GO-01,2026-05-14,15:30,Instagram,Google,minimalista,costillas,mediano,105000,77,confirmada,reserva confirmada,48
+RES-0542,CLI-0528,ART-002,CAMP-DIR-01,2026-06-11,10:30,Instagram,visita directa,blackwork color,espalda,sesion larga,450000,81,pendiente,esperando respuesta cliente,83
+RES-0543,CLI-0529,ART-001,CAMP-DIR-01,2026-06-03,11:00,WhatsApp,visita directa,minimalista,pierna,pequeno,40000,30,pendiente,esperando respuesta cliente,12
+RES-0544,CLI-0530,ART-001,CAMP-DIR-01,2026-06-04,09:00,Instagram,visita directa,fine line,muneca,grande,180000,198,confirmada,reserva confirmada,58
+RES-0545,CLI-0531,ART-001,CAMP-RET-01,2026-05-22,13:00,Instagram,cliente recurrente,fine line,costillas,mediano,135000,215,confirmada,reserva confirmada,66
+RES-0546,CLI-0532,ART-003,CAMP-IG-01,2026-05-18,14:30,WhatsApp,Instagram,fine line color,pecho,mediano,95000,75,pendiente,esperando respuesta cliente,22
+RES-0547,CLI-0533,ART-005,CAMP-IG-01,2026-05-21,15:00,WhatsApp,Instagram,fine line color,muneca,pequeno,40000,114,confirmada,reserva confirmada,36
+RES-0548,CLI-0534,ART-002,CAMP-GO-01,2026-06-09,15:00,WhatsApp,Google,tradicional color,muneca,sesion larga,315000,107,confirmada,reserva confirmada,82
+RES-0549,CLI-0060,ART-006,CAMP-GO-01,2026-06-02,11:30,Instagram,Google,tradicional,brazo,pequeno,60000,121,confirmada,reserva confirmada,35
+RES-0550,CLI-0535,ART-006,CAMP-REF-01,2026-06-02,13:00,WhatsApp,recomendacion,geometrico,espalda,pequeno,65000,187,pendiente,esperando respuesta cliente,27
+RES-0551,CLI-0536,ART-006,CAMP-DIR-01,2026-05-29,10:00,WhatsApp,visita directa,tradicional color,espalda,mediano,170000,66,confirmada,reserva confirmada,60
+RES-0552,CLI-0537,ART-001,CAMP-IG-01,2026-05-26,17:00,WhatsApp,Instagram,fine line,cuello,mediano,85000,163,confirmada,reserva confirmada,39
+RES-0553,CLI-0538,ART-005,CAMP-TK-01,2026-05-16,12:00,WhatsApp,TikTok,fine line,pierna,mediano,135000,122,pendiente,esperando respuesta cliente,25
+RES-0554,CLI-0539,ART-004,CAMP-IG-01,2026-06-18,16:30,WhatsApp,Instagram,lettering,brazo,mediano,105000,118,reagendada,reagendar fecha,24
+RES-0555,CLI-0195,ART-003,CAMP-IG-01,2026-06-01,15:30,Instagram,Instagram,minimalista,pierna,mediano,105000,261,pendiente,esperando respuesta cliente,24
+RES-0556,CLI-0540,ART-002,CAMP-TK-01,2026-06-14,11:30,Instagram,TikTok,tradicional color,pecho,grande,320000,232,pendiente,esperando respuesta cliente,58
+RES-0557,CLI-0541,ART-003,CAMP-DIR-01,2026-06-15,12:00,Instagram,visita directa,fine line,hombro,mediano,85000,147,pendiente,esperando respuesta cliente,20
+RES-0558,CLI-0542,ART-003,CAMP-TK-01,2026-06-15,13:30,WhatsApp,TikTok,geometrico color,hombro,pequeno,55000,66,pendiente,esperando respuesta cliente,15
+RES-0559,CLI-0543,ART-006,CAMP-TK-01,2026-05-16,14:00,WhatsApp,TikTok,blackwork,costillas,pequeno,80000,199,pendiente,esperando respuesta cliente,20
+RES-0560,CLI-0544,ART-004,CAMP-DIR-01,2026-06-18,11:30,Instagram,visita directa,blackwork,costillas,sesion larga,390000,201,confirmada,reserva confirmada,91
+RES-0561,CLI-0545,ART-002,CAMP-IG-01,2026-05-16,17:30,WhatsApp,Instagram,blackwork color,pecho,mediano,155000,166,contactar,pendiente de contacto,28
+RES-0562,CLI-0546,ART-001,CAMP-AIEP-01,2026-06-18,13:00,Instagram,evento AIEP,fine line,antebrazo,pequeno,40000,183,pendiente,esperando respuesta cliente,12
+RES-0563,CLI-0547,ART-004,CAMP-IG-01,2026-06-16,11:00,WhatsApp,Instagram,tradicional color,muneca,mediano,150000,58,contactar,pendiente de contacto,32
+RES-0564,CLI-0548,ART-002,CAMP-TK-01,2026-06-10,16:30,WhatsApp,TikTok,geometrico,cuello,mediano,135000,30,confirmada,reserva confirmada,49
+RES-0565,CLI-0549,ART-001,CAMP-REF-01,2026-06-10,09:30,WhatsApp,recomendacion,fine line,espalda,grande,230000,43,pendiente,esperando respuesta cliente,57
+RES-0566,CLI-0550,ART-005,CAMP-RET-01,2026-06-04,15:30,Instagram,cliente recurrente,minimalista,antebrazo,grande,185000,250,confirmada,reserva confirmada,71
+RES-0567,CLI-0551,ART-004,CAMP-RET-01,2026-06-01,14:30,Instagram,cliente recurrente,lettering,brazo,pequeno,40000,58,reagendada,reagendar fecha,19
+RES-0568,CLI-0552,ART-005,CAMP-TK-01,2026-06-16,17:00,WhatsApp,TikTok,geometrico,brazo,grande,180000,28,contactar,pendiente de contacto,38
+RES-0569,CLI-0553,ART-003,CAMP-GO-01,2026-05-17,11:30,Instagram,Google,fine line,tobillo,pequeno,40000,129,pendiente,esperando respuesta cliente,12
+RES-0570,CLI-0554,ART-005,CAMP-IG-01,2026-05-31,09:30,Instagram,Instagram,minimalista,antebrazo,mediano,110000,236,pendiente,esperando respuesta cliente,25
+RES-0571,CLI-0555,ART-006,CAMP-IG-01,2026-05-17,15:30,WhatsApp,Instagram,blackwork color,pecho,pequeno,60000,122,confirmada,reserva confirmada,35
+RES-0572,CLI-0475,ART-002,CAMP-GO-01,2026-05-31,15:00,Instagram,Google,blackwork,brazo,sesion larga,295000,57,confirmada,reserva confirmada,83
+RES-0573,CLI-0556,ART-005,CAMP-IG-01,2026-05-19,16:00,WhatsApp,Instagram,geometrico color,tobillo,pequeno,40000,30,confirmada,reserva confirmada,36
+RES-0574,CLI-0557,ART-004,CAMP-GO-01,2026-06-03,14:30,WhatsApp,Google,lettering color,costillas,mediano,110000,180,confirmada,reserva confirmada,49
+RES-0575,CLI-0558,ART-006,CAMP-DIR-01,2026-05-29,14:30,WhatsApp,visita directa,tradicional color,costillas,mediano,170000,156,pendiente,esperando respuesta cliente,36
+RES-0576,CLI-0559,ART-002,CAMP-IG-01,2026-05-18,14:30,WhatsApp,Instagram,geometrico,antebrazo,grande,265000,224,cancelada,perdida,44
+RES-0577,CLI-0560,ART-003,CAMP-IG-01,2026-06-07,11:30,WhatsApp,Instagram,fine line color,espalda,pequeno,40000,203,reagendada,reagendar fecha,12
+RES-0578,CLI-0561,ART-001,CAMP-GO-01,2026-06-07,12:00,WhatsApp,Google,fine line,brazo,grande,180000,35,confirmada,reserva confirmada,62
+RES-0579,CLI-0562,ART-005,CAMP-AIEP-01,2026-05-16,15:30,WhatsApp,evento AIEP,geometrico,costillas,pequeno,45000,251,contactar,pendiente de contacto,13
+RES-0580,CLI-0563,ART-006,CAMP-AIEP-01,2026-05-20,13:30,Instagram,evento AIEP,tradicional,pecho,pequeno,80000,128,contactar,pendiente de contacto,20
+RES-0581,CLI-0564,ART-004,CAMP-AIEP-01,2026-06-09,16:30,WhatsApp,evento AIEP,lettering color,costillas,pequeno,60000,119,confirmada,reserva confirmada,40
+RES-0582,CLI-0565,ART-006,CAMP-GO-01,2026-06-04,10:00,Instagram,Google,blackwork,tobillo,mediano,140000,279,pendiente,esperando respuesta cliente,25
+RES-0583,CLI-0566,ART-006,CAMP-RET-01,2026-05-13,09:00,WhatsApp,cliente recurrente,blackwork,cuello,pequeno,75000,29,pendiente,esperando respuesta cliente,31
+RES-0584,CLI-0567,ART-004,CAMP-TK-01,2026-05-23,12:00,Instagram,TikTok,tradicional color,pecho,mediano,125000,48,pendiente,esperando respuesta cliente,28
+RES-0585,CLI-0568,ART-006,CAMP-RET-01,2026-05-27,10:30,WhatsApp,cliente recurrente,blackwork color,antebrazo,mediano,120000,20,confirmada,reserva confirmada,63
+RES-0586,CLI-0569,ART-004,CAMP-IG-01,2026-05-13,10:00,Instagram,Instagram,blackwork color,antebrazo,mediano,100000,87,pendiente,esperando respuesta cliente,23
+RES-0587,CLI-0570,ART-005,CAMP-DIR-01,2026-05-21,16:00,WhatsApp,visita directa,geometrico,pecho,pequeno,40000,110,confirmada,reserva confirmada,31
+RES-0588,CLI-0571,ART-005,CAMP-RET-01,2026-06-08,14:00,WhatsApp,cliente recurrente,fine line,pecho,grande,180000,26,confirmada,reserva confirmada,74
+RES-0589,CLI-0572,ART-005,CAMP-REF-01,2026-06-06,13:00,WhatsApp,recomendacion,geometrico,pecho,pequeno,40000,48,cancelada,perdida,17
+RES-0590,CLI-0573,ART-001,CAMP-RET-01,2026-06-10,17:00,Instagram,cliente recurrente,fine line,antebrazo,sesion larga,260000,259,confirmada,reserva confirmada,83
+RES-0591,CLI-0574,ART-002,CAMP-TK-01,2026-05-15,17:00,WhatsApp,TikTok,blackwork color,espalda,pequeno,55000,148,pendiente,esperando respuesta cliente,12
+RES-0592,CLI-0575,ART-004,CAMP-TK-01,2026-06-18,10:00,Instagram,TikTok,blackwork,brazo,pequeno,40000,334,confirmada,reserva confirmada,36
+RES-0593,CLI-0576,ART-001,CAMP-GO-01,2026-06-07,13:00,WhatsApp,Google,lettering,tobillo,grande,180000,61,pendiente,esperando respuesta cliente,29
+RES-0594,CLI-0577,ART-005,CAMP-TK-01,2026-05-25,11:30,WhatsApp,TikTok,geometrico,brazo,pequeno,40000,88,cancelada,perdida,12
+RES-0595,CLI-0578,ART-001,CAMP-TK-01,2026-06-11,10:00,WhatsApp,TikTok,lettering color,muneca,pequeno,40000,41,contactar,pendiente de contacto,12
+RES-0596,CLI-0269,ART-005,CAMP-REF-01,2026-05-23,15:00,Instagram,recomendacion,fine line,brazo,mediano,85000,250,pendiente,esperando respuesta cliente,25
+RES-0597,CLI-0579,ART-003,CAMP-DIR-01,2026-05-15,10:00,WhatsApp,visita directa,geometrico color,costillas,mediano,135000,18,contactar,pendiente de contacto,30
+RES-0598,CLI-0580,ART-004,CAMP-AIEP-01,2026-06-06,16:30,WhatsApp,evento AIEP,blackwork,brazo,sesion larga,380000,43,reagendada,reagendar fecha,70
+RES-0599,CLI-0581,ART-006,CAMP-AIEP-01,2026-06-14,09:30,WhatsApp,evento AIEP,tradicional color,tobillo,grande,190000,216,confirmada,reserva confirmada,64
+RES-0600,CLI-0582,ART-002,CAMP-IG-01,2026-06-04,09:00,WhatsApp,Instagram,geometrico,pecho,pequeno,60000,157,contactar,pendiente de contacto,16
+RES-0601,CLI-0583,ART-002,CAMP-TK-01,2026-06-06,10:00,WhatsApp,TikTok,tradicional,antebrazo,mediano,90000,249,contactar,pendiente de contacto,21
+RES-0602,CLI-0584,ART-006,CAMP-GO-01,2026-06-13,14:30,WhatsApp,Google,geometrico,brazo,mediano,95000,51,confirmada,reserva confirmada,46
+RES-0603,CLI-0585,ART-006,CAMP-RET-01,2026-05-13,16:00,WhatsApp,cliente recurrente,blackwork,mano/dedos,mediano,115000,77,confirmada,reserva confirmada,62
+RES-0604,CLI-0586,ART-002,CAMP-DIR-01,2026-05-17,13:00,WhatsApp,visita directa,blackwork,cuello,mediano,110000,147,reagendada,reagendar fecha,20
+RES-0605,CLI-0587,ART-005,CAMP-GO-01,2026-05-21,14:00,WhatsApp,Google,geometrico,espalda,mediano,100000,40,contactar,pendiente de contacto,23
+RES-0606,CLI-0588,ART-001,CAMP-IG-01,2026-05-27,09:00,Instagram,Instagram,minimalista,cuello,sesion larga,315000,187,pendiente,esperando respuesta cliente,53
+RES-0607,CLI-0589,ART-003,CAMP-IG-01,2026-06-13,13:00,WhatsApp,Instagram,fine line,muneca,mediano,85000,242,contactar,pendiente de contacto,20
+RES-0608,CLI-0590,ART-004,CAMP-DIR-01,2026-05-23,12:00,WhatsApp,visita directa,blackwork,pecho,grande,200000,41,confirmada,reserva confirmada,65
+RES-0609,CLI-0591,ART-003,CAMP-IG-01,2026-06-16,10:30,WhatsApp,Instagram,geometrico color,mano/dedos,mediano,100000,91,confirmada,reserva confirmada,47
+RES-0610,CLI-0592,ART-005,CAMP-AIEP-01,2026-05-15,11:30,Instagram,evento AIEP,minimalista,tobillo,pequeno,40000,284,pendiente,esperando respuesta cliente,12
+RES-0611,CLI-0593,ART-006,CAMP-TK-01,2026-05-22,12:30,Instagram,TikTok,tradicional color,hombro,sesion larga,405000,255,pendiente,esperando respuesta cliente,75
+RES-0612,CLI-0594,ART-003,CAMP-AIEP-01,2026-05-22,14:00,WhatsApp,evento AIEP,minimalista,mano/dedos,pequeno,40000,92,pendiente,esperando respuesta cliente,12
+RES-0613,CLI-0595,ART-002,CAMP-DIR-01,2026-06-06,10:30,WhatsApp,visita directa,geometrico,muneca,pequeno,45000,103,confirmada,reserva confirmada,32
+RES-0614,CLI-0596,ART-002,CAMP-AIEP-01,2026-06-19,17:30,WhatsApp,evento AIEP,geometrico,antebrazo,mediano,125000,20,cancelada,perdida,28
+RES-0615,CLI-0597,ART-005,CAMP-AIEP-01,2026-06-15,14:00,WhatsApp,evento AIEP,geometrico color,pecho,pequeno,80000,51,confirmada,reserva confirmada,44
+RES-0616,CLI-0598,ART-002,CAMP-IG-01,2026-06-17,15:30,Instagram,Instagram,tradicional,cuello,sesion larga,290000,375,confirmada,reserva confirmada,82
+RES-0617,CLI-0599,ART-003,CAMP-IG-01,2026-06-17,12:30,Instagram,Instagram,minimalista,costillas,grande,180000,38,cancelada,perdida,33
+RES-0618,CLI-0010,ART-003,CAMP-AIEP-01,2026-05-27,14:30,Instagram,evento AIEP,fine line,espalda,pequeno,40000,88,confirmada,reserva confirmada,31
+RES-0619,CLI-0600,ART-003,CAMP-RET-01,2026-06-07,12:00,WhatsApp,cliente recurrente,geometrico,costillas,pequeno,60000,239,cancelada,perdida,28
+RES-0620,CLI-0601,ART-001,CAMP-IG-01,2026-05-16,15:00,WhatsApp,Instagram,fine line,tobillo,grande,180000,165,reagendada,reagendar fecha,33
+RES-0621,CLI-0602,ART-001,CAMP-AIEP-01,2026-05-22,09:00,WhatsApp,evento AIEP,lettering color,cuello,grande,185000,153,confirmada,reserva confirmada,63
+RES-0622,CLI-0603,ART-004,CAMP-IG-01,2026-05-20,10:30,WhatsApp,Instagram,lettering color,hombro,mediano,120000,170,confirmada,reserva confirmada,46
+RES-0623,CLI-0604,ART-004,CAMP-GO-01,2026-06-11,16:00,Instagram,Google,blackwork color,pierna,mediano,120000,213,confirmada,reserva confirmada,46
+RES-0624,CLI-0605,ART-002,CAMP-GO-01,2026-06-05,09:00,WhatsApp,Google,geometrico,tobillo,grande,245000,179,confirmada,reserva confirmada,70
+RES-0625,CLI-0606,ART-005,CAMP-GO-01,2026-06-10,16:30,WhatsApp,Google,minimalista,pecho,mediano,85000,46,pendiente,esperando respuesta cliente,15
+RES-0626,CLI-0607,ART-002,CAMP-IG-01,2026-05-23,15:00,Instagram,Instagram,tradicional color,mano/dedos,mediano,165000,81,cancelada,perdida,35
+RES-0627,CLI-0608,ART-004,CAMP-RET-01,2026-06-08,11:00,Instagram,cliente recurrente,blackwork color,muneca,mediano,85000,74,confirmada,reserva confirmada,51
+RES-0628,CLI-0609,ART-002,CAMP-GO-01,2026-05-15,17:00,WhatsApp,Google,geometrico,tobillo,grande,180000,45,confirmada,reserva confirmada,57
+RES-0629,CLI-0610,ART-005,CAMP-TK-01,2026-05-13,09:30,WhatsApp,TikTok,fine line,costillas,pequeno,65000,153,cancelada,perdida,17
+RES-0630,CLI-0611,ART-001,CAMP-RET-01,2026-06-05,16:00,WhatsApp,cliente recurrente,lettering color,pecho,sesion larga,290000,44,pendiente,esperando respuesta cliente,66
+RES-0631,CLI-0612,ART-005,CAMP-GO-01,2026-05-28,09:00,WhatsApp,Google,minimalista color,pierna,mediano,90000,20,confirmada,reserva confirmada,45
+RES-0632,CLI-0613,ART-002,CAMP-IG-01,2026-05-28,13:00,WhatsApp,Instagram,blackwork,cuello,pequeno,80000,102,pendiente,esperando respuesta cliente,20
+RES-0633,CLI-0614,ART-004,CAMP-TK-01,2026-05-27,12:00,WhatsApp,TikTok,blackwork,pierna,mediano,85000,73,pendiente,esperando respuesta cliente,20
+RES-0634,CLI-0615,ART-001,CAMP-TK-01,2026-06-02,16:30,Instagram,TikTok,minimalista,tobillo,pequeno,40000,134,pendiente,esperando respuesta cliente,12
+RES-0635,CLI-0616,ART-005,CAMP-DIR-01,2026-05-30,13:30,WhatsApp,visita directa,minimalista,pecho,mediano,130000,90,pendiente,esperando respuesta cliente,29
+RES-0636,CLI-0617,ART-003,CAMP-GO-01,2026-05-20,15:00,WhatsApp,Google,fine line,espalda,mediano,100000,130,pendiente,esperando respuesta cliente,23
+RES-0637,CLI-0575,ART-002,CAMP-IG-01,2026-05-24,13:30,Instagram,Instagram,tradicional color,antebrazo,mediano,140000,249,contactar,pendiente de contacto,30
+RES-0638,CLI-0618,ART-001,CAMP-IG-01,2026-05-19,17:30,Instagram,Instagram,fine line color,pierna,grande,240000,193,confirmada,reserva confirmada,69
+RES-0639,CLI-0619,ART-001,CAMP-IG-01,2026-06-07,15:00,WhatsApp,Instagram,lettering,pierna,grande,180000,43,confirmada,reserva confirmada,62
+RES-0640,CLI-0620,ART-003,CAMP-RET-01,2026-06-02,15:00,WhatsApp,cliente recurrente,minimalista color,hombro,grande,180000,176,confirmada,reserva confirmada,69
+RES-0641,CLI-0621,ART-002,CAMP-DIR-01,2026-06-11,11:00,WhatsApp,visita directa,geometrico,hombro,grande,290000,68,confirmada,reserva confirmada,78
+RES-0642,CLI-0622,ART-002,CAMP-IG-01,2026-06-19,10:30,WhatsApp,Instagram,blackwork,antebrazo,pequeno,60000,115,cancelada,perdida,16
+RES-0643,CLI-0623,ART-006,CAMP-DIR-01,2026-06-08,12:30,WhatsApp,visita directa,tradicional color,cuello,mediano,170000,135,cancelada,perdida,31
+RES-0644,CLI-0624,ART-001,CAMP-TK-01,2026-05-22,14:30,WhatsApp,TikTok,fine line,pecho,pequeno,40000,46,confirmada,reserva confirmada,36
+RES-0645,CLI-0625,ART-003,CAMP-DIR-01,2026-05-15,12:00,Instagram,visita directa,fine line,mano/dedos,pequeno,40000,200,pendiente,esperando respuesta cliente,12
+RES-0646,CLI-0626,ART-001,CAMP-REF-01,2026-05-28,16:00,WhatsApp,recomendacion,fine line color,pecho,grande,185000,109,pendiente,esperando respuesta cliente,49
+RES-0647,CLI-0627,ART-005,CAMP-REF-01,2026-05-29,11:00,WhatsApp,recomendacion,minimalista,costillas,sesion larga,260000,156,cancelada,perdida,62
+RES-0648,CLI-0628,ART-004,CAMP-REF-01,2026-05-25,11:30,WhatsApp,recomendacion,lettering,cuello,grande,205000,93,pendiente,esperando respuesta cliente,52
+RES-0649,CLI-0629,ART-001,CAMP-RET-01,2026-05-25,13:00,WhatsApp,cliente recurrente,lettering,costillas,grande,180000,99,contactar,pendiente de contacto,50
+RES-0650,CLI-0630,ART-006,CAMP-GO-01,2026-06-18,16:30,WhatsApp,Google,geometrico,pierna,pequeno,75000,239,confirmada,reserva confirmada,43
+RES-0651,CLI-0036,ART-003,CAMP-REF-01,2026-05-25,17:30,Instagram,recomendacion,minimalista,cuello,grande,215000,37,confirmada,reserva confirmada,74
+RES-0652,CLI-0631,ART-001,CAMP-TK-01,2026-05-18,11:00,Instagram,TikTok,minimalista,hombro,pequeno,45000,102,confirmada,reserva confirmada,37
+RES-0653,CLI-0364,ART-002,CAMP-AIEP-01,2026-05-26,16:30,Instagram,evento AIEP,tradicional color,pecho,pequeno,80000,110,pendiente,esperando respuesta cliente,20
+RES-0654,CLI-0632,ART-005,CAMP-AIEP-01,2026-06-19,11:30,WhatsApp,evento AIEP,minimalista,costillas,grande,195000,76,cancelada,perdida,40
+RES-0655,CLI-0633,ART-001,CAMP-IG-01,2026-06-16,14:30,Instagram,Instagram,minimalista,mano/dedos,mediano,120000,108,cancelada,perdida,27
+RES-0656,CLI-0634,ART-002,CAMP-IG-01,2026-05-22,12:30,WhatsApp,Instagram,blackwork,muneca,mediano,130000,114,pendiente,esperando respuesta cliente,29
+RES-0657,CLI-0635,ART-002,CAMP-REF-01,2026-05-28,13:30,WhatsApp,recomendacion,blackwork color,antebrazo,grande,330000,49,contactar,pendiente de contacto,71
+RES-0658,CLI-0636,ART-002,CAMP-TK-01,2026-05-28,12:30,Instagram,TikTok,tradicional,costillas,pequeno,50000,152,confirmada,reserva confirmada,38
+RES-0659,CLI-0637,ART-005,CAMP-AIEP-01,2026-05-25,14:30,WhatsApp,evento AIEP,fine line,brazo,grande,190000,27,pendiente,esperando respuesta cliente,40
+RES-0660,CLI-0638,ART-001,CAMP-RET-01,2026-06-09,16:00,WhatsApp,cliente recurrente,fine line color,cuello,mediano,90000,66,confirmada,reserva confirmada,52
+RES-0661,CLI-0639,ART-005,CAMP-GO-01,2026-06-17,15:00,WhatsApp,Google,geometrico,cuello,pequeno,40000,89,confirmada,reserva confirmada,31
+RES-0662,CLI-0640,ART-004,CAMP-RET-01,2026-05-18,17:00,WhatsApp,cliente recurrente,tradicional color,pecho,pequeno,55000,119,cancelada,perdida,27
+RES-0663,CLI-0641,ART-001,CAMP-GO-01,2026-05-22,14:00,WhatsApp,Google,lettering,espalda,grande,220000,226,confirmada,reserva confirmada,69
+RES-0664,CLI-0642,ART-001,CAMP-REF-01,2026-05-17,09:30,WhatsApp,recomendacion,minimalista,costillas,grande,220000,160,pendiente,esperando respuesta cliente,51
+RES-0665,CLI-0643,ART-001,CAMP-RET-01,2026-06-11,15:00,Instagram,cliente recurrente,minimalista,pierna,pequeno,40000,241,contactar,pendiente de contacto,24
+RES-0666,CLI-0644,ART-002,CAMP-TK-01,2026-05-25,17:30,Instagram,TikTok,geometrico,costillas,pequeno,45000,62,pendiente,esperando respuesta cliente,13
+RES-0667,CLI-0645,ART-006,CAMP-IG-01,2026-05-24,14:30,WhatsApp,Instagram,blackwork,tobillo,sesion larga,260000,132,cancelada,perdida,52
+RES-0668,CLI-0646,ART-006,CAMP-IG-01,2026-05-17,17:30,Instagram,Instagram,blackwork,antebrazo,grande,305000,117,confirmada,reserva confirmada,80
+RES-0669,CLI-0647,ART-002,CAMP-DIR-01,2026-05-21,15:30,WhatsApp,visita directa,tradicional,pierna,pequeno,60000,21,confirmada,reserva confirmada,40
+RES-0670,CLI-0648,ART-001,CAMP-IG-01,2026-05-22,11:30,WhatsApp,Instagram,minimalista,espalda,pequeno,40000,104,confirmada,reserva confirmada,31
+RES-0671,CLI-0649,ART-005,CAMP-RET-01,2026-06-11,16:30,WhatsApp,cliente recurrente,geometrico color,costillas,mediano,140000,57,reagendada,reagendar fecha,42
+RES-0672,CLI-0650,ART-003,CAMP-IG-01,2026-05-27,12:00,WhatsApp,Instagram,fine line,antebrazo,pequeno,40000,108,confirmada,reserva confirmada,36
+RES-0673,CLI-0651,ART-001,CAMP-GO-01,2026-06-04,10:30,WhatsApp,Google,minimalista,pecho,mediano,100000,132,pendiente,esperando respuesta cliente,23
+RES-0674,CLI-0652,ART-003,CAMP-IG-01,2026-06-13,12:00,Instagram,Instagram,minimalista,tobillo,grande,180000,277,contactar,pendiente de contacto,38
+RES-0675,CLI-0653,ART-001,CAMP-TK-01,2026-05-16,09:00,WhatsApp,TikTok,lettering,brazo,pequeno,45000,195,pendiente,esperando respuesta cliente,13
+RES-0676,CLI-0654,ART-005,CAMP-TK-01,2026-05-17,11:30,WhatsApp,TikTok,fine line,mano/dedos,mediano,100000,43,pendiente,esperando respuesta cliente,23
+RES-0677,CLI-0655,ART-002,CAMP-DIR-01,2026-06-18,15:30,Instagram,visita directa,blackwork,costillas,pequeno,80000,262,confirmada,reserva confirmada,44
+RES-0678,CLI-0656,ART-004,CAMP-DIR-01,2026-05-21,16:30,WhatsApp,visita directa,tradicional,pecho,mediano,95000,33,pendiente,esperando respuesta cliente,17
+RES-0679,CLI-0657,ART-004,CAMP-DIR-01,2026-05-15,16:30,WhatsApp,visita directa,lettering,hombro,grande,190000,65,confirmada,reserva confirmada,59
+RES-0680,CLI-0658,ART-005,CAMP-GO-01,2026-05-15,16:30,WhatsApp,Google,fine line color,cuello,pequeno,65000,154,contactar,pendiente de contacto,17
+RES-0681,CLI-0659,ART-005,CAMP-IG-01,2026-05-31,14:30,WhatsApp,Instagram,minimalista,espalda,mediano,85000,128,cancelada,perdida,20
+RES-0682,CLI-0660,ART-003,CAMP-TK-01,2026-06-02,12:30,WhatsApp,TikTok,fine line,hombro,mediano,85000,178,pendiente,esperando respuesta cliente,20
+RES-0683,CLI-0661,ART-002,CAMP-REF-01,2026-06-02,17:30,WhatsApp,recomendacion,tradicional color,costillas,pequeno,80000,100,confirmada,reserva confirmada,54
+RES-0684,CLI-0662,ART-001,CAMP-IG-01,2026-05-15,16:00,WhatsApp,Instagram,lettering,pecho,pequeno,60000,166,cancelada,perdida,16
+RES-0685,CLI-0663,ART-005,CAMP-IG-01,2026-05-25,17:30,WhatsApp,Instagram,geometrico,antebrazo,pequeno,40000,20,pendiente,esperando respuesta cliente,12
+RES-0686,CLI-0664,ART-001,CAMP-DIR-01,2026-06-12,09:30,WhatsApp,visita directa,minimalista color,muneca,mediano,85000,107,contactar,pendiente de contacto,15
+RES-0687,CLI-0665,ART-001,CAMP-RET-01,2026-06-12,15:00,WhatsApp,cliente recurrente,lettering,tobillo,mediano,85000,161,reagendada,reagendar fecha,32
+RES-0688,CLI-0666,ART-006,CAMP-DIR-01,2026-05-13,12:00,WhatsApp,visita directa,tradicional color,mano/dedos,pequeno,55000,96,pendiente,esperando respuesta cliente,15
+RES-0689,CLI-0667,ART-003,CAMP-GO-01,2026-06-14,13:30,WhatsApp,Google,geometrico color,muneca,pequeno,40000,28,pendiente,esperando respuesta cliente,12
+RES-0690,CLI-0668,ART-003,CAMP-IG-01,2026-06-13,15:00,Instagram,Instagram,fine line,hombro,sesion larga,260000,251,pendiente,esperando respuesta cliente,48
+RES-0691,CLI-0669,ART-006,CAMP-RET-01,2026-05-15,15:30,WhatsApp,cliente recurrente,blackwork,muneca,pequeno,40000,144,confirmada,reserva confirmada,48
+RES-0692,CLI-0670,ART-003,CAMP-AIEP-01,2026-06-10,12:00,WhatsApp,evento AIEP,geometrico,antebrazo,pequeno,40000,97,cancelada,perdida,12
+RES-0693,CLI-0671,ART-001,CAMP-DIR-01,2026-06-16,12:00,WhatsApp,visita directa,lettering,muneca,mediano,85000,83,confirmada,reserva confirmada,44
+RES-0694,CLI-0672,ART-003,CAMP-IG-01,2026-06-05,15:30,WhatsApp,Instagram,fine line color,tobillo,mediano,85000,83,contactar,pendiente de contacto,15
+RES-0695,CLI-0673,ART-001,CAMP-IG-01,2026-06-10,15:00,WhatsApp,Instagram,minimalista,hombro,pequeno,40000,161,confirmada,reserva confirmada,31
+RES-0696,CLI-0674,ART-002,CAMP-TK-01,2026-06-01,11:30,WhatsApp,TikTok,geometrico color,cuello,mediano,170000,263,confirmada,reserva confirmada,55
+RES-0697,CLI-0675,ART-006,CAMP-IG-01,2026-05-25,17:30,WhatsApp,Instagram,geometrico,cuello,pequeno,45000,89,confirmada,reserva confirmada,32
+RES-0698,CLI-0676,ART-002,CAMP-DIR-01,2026-06-10,11:00,Instagram,visita directa,geometrico,pecho,grande,290000,150,confirmada,reserva confirmada,82
+RES-0699,CLI-0677,ART-005,CAMP-AIEP-01,2026-05-20,13:00,Instagram,evento AIEP,minimalista,brazo,pequeno,50000,214,confirmada,reserva confirmada,38
+RES-0700,CLI-0678,ART-002,CAMP-RET-01,2026-06-17,17:30,WhatsApp,cliente recurrente,geometrico color,brazo,grande,210000,67,confirmada,reserva confirmada,74
+RES-0701,CLI-0679,ART-005,CAMP-IG-01,2026-05-16,11:00,WhatsApp,Instagram,geometrico color,espalda,grande,255000,61,pendiente,esperando respuesta cliente,51
+RES-0702,CLI-0680,ART-002,CAMP-AIEP-01,2026-06-15,09:30,WhatsApp,evento AIEP,blackwork,pierna,mediano,100000,193,pendiente,esperando respuesta cliente,18
+RES-0703,CLI-0681,ART-001,CAMP-GO-01,2026-06-08,15:00,Instagram,Google,lettering,costillas,mediano,125000,74,pendiente,esperando respuesta cliente,28
+RES-0704,CLI-0682,ART-002,CAMP-DIR-01,2026-05-24,13:00,Instagram,visita directa,geometrico,hombro,grande,245000,179,confirmada,reserva confirmada,69
+RES-0705,CLI-0683,ART-004,CAMP-DIR-01,2026-06-19,14:00,WhatsApp,visita directa,blackwork,cuello,grande,215000,59,pendiente,esperando respuesta cliente,44
+RES-0706,CLI-0684,ART-001,CAMP-REF-01,2026-06-07,13:30,WhatsApp,recomendacion,minimalista,pecho,sesion larga,295000,20,contactar,pendiente de contacto,60
+RES-0707,CLI-0685,ART-003,CAMP-IG-01,2026-05-27,15:30,Instagram,Instagram,minimalista,pierna,mediano,100000,318,pendiente,esperando respuesta cliente,23
+RES-0708,CLI-0356,ART-002,CAMP-GO-01,2026-06-02,16:00,Instagram,Google,blackwork,brazo,mediano,90000,149,confirmada,reserva confirmada,40
+RES-0709,CLI-0448,ART-001,CAMP-RET-01,2026-05-27,17:30,Instagram,cliente recurrente,minimalista,pierna,pequeno,40000,176,pendiente,esperando respuesta cliente,24
+RES-0710,CLI-0686,ART-003,CAMP-RET-01,2026-06-08,09:30,Instagram,cliente recurrente,fine line,muneca,mediano,85000,66,pendiente,esperando respuesta cliente,27
+RES-0711,CLI-0687,ART-004,CAMP-RET-01,2026-05-18,12:00,WhatsApp,cliente recurrente,blackwork,hombro,pequeno,55000,25,cancelada,perdida,27
+RES-0712,CLI-0688,ART-005,CAMP-GO-01,2026-06-08,17:30,WhatsApp,Google,minimalista color,brazo,grande,200000,117,confirmada,reserva confirmada,65
+RES-0713,CLI-0689,ART-006,CAMP-RET-01,2026-06-11,15:30,WhatsApp,cliente recurrente,geometrico,hombro,grande,250000,108,confirmada,reserva confirmada,86
+RES-0714,CLI-0393,ART-003,CAMP-IG-01,2026-05-16,14:00,Instagram,Instagram,geometrico,mano/dedos,grande,180000,166,pendiente,esperando respuesta cliente,33
+RES-0715,CLI-0690,ART-005,CAMP-TK-01,2026-06-05,17:00,WhatsApp,TikTok,geometrico,pierna,pequeno,55000,58,confirmada,reserva confirmada,39
+RES-0716,CLI-0691,ART-002,CAMP-GO-01,2026-06-08,15:00,WhatsApp,Google,tradicional,tobillo,pequeno,50000,86,confirmada,reserva confirmada,33
+RES-0717,CLI-0692,ART-002,CAMP-DIR-01,2026-06-01,11:30,WhatsApp,visita directa,tradicional color,brazo,pequeno,80000,122,confirmada,reserva confirmada,44
+RES-0718,CLI-0693,ART-004,CAMP-IG-01,2026-05-29,12:00,Instagram,Instagram,blackwork color,muneca,pequeno,55000,264,contactar,pendiente de contacto,12
+RES-0719,CLI-0694,ART-005,CAMP-AIEP-01,2026-05-29,09:30,WhatsApp,evento AIEP,minimalista,espalda,pequeno,40000,79,contactar,pendiente de contacto,12
+RES-0720,CLI-0646,ART-004,CAMP-DIR-01,2026-05-29,13:00,Instagram,visita directa,blackwork,muneca,mediano,90000,224,contactar,pendiente de contacto,21
+RES-0721,CLI-0695,ART-002,CAMP-AIEP-01,2026-05-26,17:30,WhatsApp,evento AIEP,geometrico color,costillas,sesion larga,450000,203,pendiente,esperando respuesta cliente,83
+RES-0722,CLI-0696,ART-006,CAMP-IG-01,2026-06-09,12:30,WhatsApp,Instagram,tradicional color,cuello,pequeno,75000,84,confirmada,reserva confirmada,43
+RES-0723,CLI-0288,ART-004,CAMP-TK-01,2026-05-22,11:30,Instagram,TikTok,tradicional color,cuello,mediano,140000,113,contactar,pendiente de contacto,30
+RES-0724,CLI-0599,ART-004,CAMP-AIEP-01,2026-06-16,13:00,Instagram,evento AIEP,tradicional color,brazo,pequeno,75000,164,confirmada,reserva confirmada,38
+RES-0725,CLI-0565,ART-006,CAMP-IG-01,2026-05-26,11:00,Instagram,Instagram,geometrico,mano/dedos,sesion larga,275000,94,reagendada,reagendar fecha,55
+RES-0726,CLI-0697,ART-002,CAMP-TK-01,2026-06-02,12:30,WhatsApp,TikTok,tradicional color,hombro,mediano,115000,194,pendiente,esperando respuesta cliente,26
+RES-0727,CLI-0698,ART-006,CAMP-AIEP-01,2026-05-23,17:00,WhatsApp,evento AIEP,blackwork,pierna,pequeno,45000,141,pendiente,esperando respuesta cliente,13
+RES-0728,CLI-0699,ART-005,CAMP-REF-01,2026-06-10,11:00,Instagram,recomendacion,fine line color,pierna,grande,245000,120,confirmada,reserva confirmada,75
+RES-0729,CLI-0700,ART-004,CAMP-TK-01,2026-05-24,13:00,WhatsApp,TikTok,lettering color,antebrazo,grande,180000,154,pendiente,esperando respuesta cliente,38
+RES-0730,CLI-0701,ART-006,CAMP-GO-01,2026-05-25,09:00,Instagram,Google,blackwork color,espalda,pequeno,80000,80,confirmada,reserva confirmada,44
+RES-0731,CLI-0702,ART-004,CAMP-TK-01,2026-05-13,10:00,Instagram,TikTok,blackwork,muneca,pequeno,40000,289,contactar,pendiente de contacto,12
+RES-0732,CLI-0703,ART-001,CAMP-TK-01,2026-05-18,09:30,Instagram,TikTok,lettering,muneca,pequeno,40000,246,confirmada,reserva confirmada,36
+RES-0733,CLI-0704,ART-003,CAMP-RET-01,2026-06-04,15:00,Instagram,cliente recurrente,minimalista color,pecho,grande,240000,222,pendiente,esperando respuesta cliente,57
+RES-0734,CLI-0705,ART-001,CAMP-IG-01,2026-05-22,14:30,WhatsApp,Instagram,minimalista,brazo,mediano,85000,194,contactar,pendiente de contacto,20
+RES-0735,CLI-0706,ART-001,CAMP-IG-01,2026-06-16,12:00,WhatsApp,Instagram,minimalista color,costillas,grande,220000,162,confirmada,reserva confirmada,69
+RES-0736,CLI-0707,ART-004,CAMP-TK-01,2026-05-27,10:00,WhatsApp,TikTok,tradicional color,antebrazo,pequeno,50000,105,pendiente,esperando respuesta cliente,14
+RES-0737,CLI-0708,ART-001,CAMP-TK-01,2026-06-08,10:00,WhatsApp,TikTok,minimalista color,pecho,grande,185000,41,confirmada,reserva confirmada,63
+RES-0738,CLI-0709,ART-006,CAMP-TK-01,2026-05-23,09:00,Instagram,TikTok,blackwork,tobillo,mediano,85000,56,cancelada,perdida,20
+RES-0739,CLI-0710,ART-006,CAMP-DIR-01,2026-05-13,13:00,WhatsApp,visita directa,blackwork,tobillo,grande,245000,66,confirmada,reserva confirmada,74
+RES-0740,CLI-0711,ART-003,CAMP-TK-01,2026-06-14,15:00,WhatsApp,TikTok,fine line color,antebrazo,mediano,115000,19,confirmada,reserva confirmada,45
+RES-0741,CLI-0712,ART-002,CAMP-IG-01,2026-05-26,10:00,WhatsApp,Instagram,geometrico,espalda,sesion larga,275000,124,confirmada,reserva confirmada,79
+RES-0742,CLI-0713,ART-003,CAMP-GO-01,2026-05-18,12:00,WhatsApp,Google,geometrico,brazo,mediano,115000,140,contactar,pendiente de contacto,21
+RES-0743,CLI-0714,ART-003,CAMP-TK-01,2026-06-01,10:30,WhatsApp,TikTok,fine line,pecho,grande,180000,122,pendiente,esperando respuesta cliente,38
+RES-0744,CLI-0715,ART-005,CAMP-IG-01,2026-05-19,13:30,Instagram,Instagram,fine line,hombro,pequeno,40000,109,pendiente,esperando respuesta cliente,12
+RES-0745,CLI-0716,ART-001,CAMP-IG-01,2026-06-11,13:00,WhatsApp,Instagram,fine line,antebrazo,pequeno,40000,180,pendiente,esperando respuesta cliente,12
+RES-0746,CLI-0717,ART-006,CAMP-DIR-01,2026-06-07,16:30,WhatsApp,visita directa,tradicional color,antebrazo,grande,315000,175,confirmada,reserva confirmada,77
+RES-0747,CLI-0718,ART-004,CAMP-DIR-01,2026-06-05,10:00,WhatsApp,visita directa,tradicional,antebrazo,grande,180000,74,pendiente,esperando respuesta cliente,33
+RES-0748,CLI-0719,ART-004,CAMP-TK-01,2026-05-23,15:00,WhatsApp,TikTok,lettering,mano/dedos,pequeno,45000,77,pendiente,esperando respuesta cliente,12
+RES-0749,CLI-0720,ART-006,CAMP-GO-01,2026-05-27,16:30,WhatsApp,Google,tradicional,pierna,mediano,100000,109,confirmada,reserva confirmada,47
+RES-0750,CLI-0721,ART-005,CAMP-TK-01,2026-05-20,17:30,Instagram,TikTok,fine line,mano/dedos,mediano,105000,129,contactar,pendiente de contacto,24
+RES-0751,CLI-0722,ART-004,CAMP-DIR-01,2026-05-27,12:30,WhatsApp,visita directa,blackwork color,costillas,mediano,140000,184,confirmada,reserva confirmada,54
+RES-0752,CLI-0723,ART-003,CAMP-REF-01,2026-05-21,16:30,WhatsApp,recomendacion,minimalista,pecho,grande,180000,189,confirmada,reserva confirmada,72
+RES-0753,CLI-0724,ART-004,CAMP-DIR-01,2026-05-30,11:30,WhatsApp,visita directa,blackwork,espalda,grande,270000,128,pendiente,esperando respuesta cliente,54
+RES-0754,CLI-0725,ART-006,CAMP-TK-01,2026-06-02,17:30,WhatsApp,TikTok,tradicional color,cuello,mediano,165000,136,pendiente,esperando respuesta cliente,35
+RES-0755,CLI-0726,ART-003,CAMP-IG-01,2026-06-06,09:00,WhatsApp,Instagram,fine line,pecho,mediano,130000,201,pendiente,esperando respuesta cliente,29
+RES-0756,CLI-0727,ART-001,CAMP-TK-01,2026-05-23,17:00,WhatsApp,TikTok,fine line,pecho,mediano,145000,108,pendiente,esperando respuesta cliente,26
+RES-0757,CLI-0728,ART-005,CAMP-TK-01,2026-06-17,13:00,WhatsApp,TikTok,geometrico,mano/dedos,grande,270000,50,pendiente,esperando respuesta cliente,50
+RES-0758,CLI-0729,ART-003,CAMP-GO-01,2026-06-02,10:00,WhatsApp,Google,fine line,espalda,pequeno,45000,128,confirmada,reserva confirmada,37
+RES-0759,CLI-0730,ART-006,CAMP-TK-01,2026-06-19,17:00,Instagram,TikTok,geometrico,antebrazo,pequeno,65000,177,pendiente,esperando respuesta cliente,17
+RES-0760,CLI-0731,ART-001,CAMP-TK-01,2026-06-07,14:00,WhatsApp,TikTok,fine line,mano/dedos,pequeno,45000,260,confirmada,reserva confirmada,37
+RES-0761,CLI-0732,ART-003,CAMP-GO-01,2026-06-15,13:00,Instagram,Google,geometrico,mano/dedos,pequeno,40000,227,pendiente,esperando respuesta cliente,12
+RES-0762,CLI-0618,ART-005,CAMP-TK-01,2026-06-19,15:30,Instagram,TikTok,minimalista,costillas,pequeno,40000,57,pendiente,esperando respuesta cliente,12
+RES-0763,CLI-0137,ART-004,CAMP-IG-01,2026-06-03,13:00,Instagram,Instagram,blackwork color,muneca,grande,255000,177,pendiente,esperando respuesta cliente,47
+RES-0764,CLI-0733,ART-002,CAMP-IG-01,2026-05-18,15:30,WhatsApp,Instagram,geometrico,costillas,mediano,105000,22,confirmada,reserva confirmada,43
+RES-0765,CLI-0734,ART-002,CAMP-REF-01,2026-05-24,12:30,Instagram,recomendacion,geometrico,cuello,pequeno,50000,76,confirmada,reserva confirmada,48
+RES-0766,CLI-0735,ART-006,CAMP-RET-01,2026-05-26,09:30,Instagram,cliente recurrente,blackwork,mano/dedos,mediano,170000,37,pendiente,esperando respuesta cliente,48
+RES-0767,CLI-0736,ART-005,CAMP-GO-01,2026-05-25,13:00,WhatsApp,Google,geometrico,pecho,pequeno,45000,124,confirmada,reserva confirmada,32
+RES-0768,CLI-0737,ART-006,CAMP-IG-01,2026-06-17,11:00,WhatsApp,Instagram,blackwork color,muneca,mediano,110000,60,confirmada,reserva confirmada,44
+RES-0769,CLI-0738,ART-003,CAMP-TK-01,2026-05-20,10:00,WhatsApp,TikTok,fine line,cuello,mediano,90000,79,pendiente,esperando respuesta cliente,16
+RES-0770,CLI-0739,ART-005,CAMP-IG-01,2026-06-04,09:00,WhatsApp,Instagram,minimalista,hombro,sesion larga,260000,71,contactar,pendiente de contacto,48
+RES-0771,CLI-0608,ART-005,CAMP-TK-01,2026-06-07,17:00,Instagram,TikTok,fine line,mano/dedos,mediano,85000,305,pendiente,esperando respuesta cliente,15
+RES-0772,CLI-0740,ART-004,CAMP-TK-01,2026-05-16,11:00,Instagram,TikTok,blackwork,pecho,mediano,170000,252,contactar,pendiente de contacto,31
+RES-0773,CLI-0741,ART-005,CAMP-GO-01,2026-05-26,17:30,WhatsApp,Google,minimalista,hombro,mediano,85000,14,cancelada,perdida,15
+RES-0774,CLI-0742,ART-002,CAMP-IG-01,2026-05-21,16:30,WhatsApp,Instagram,tradicional,cuello,pequeno,50000,157,pendiente,esperando respuesta cliente,14
+RES-0775,CLI-0743,ART-006,CAMP-GO-01,2026-05-18,10:30,WhatsApp,Google,geometrico,costillas,mediano,130000,37,contactar,pendiente de contacto,29
+RES-0776,CLI-0744,ART-001,CAMP-TK-01,2026-05-28,10:30,WhatsApp,TikTok,fine line,antebrazo,grande,180000,27,cancelada,perdida,33
+RES-0777,CLI-0745,ART-003,CAMP-IG-01,2026-05-20,09:00,WhatsApp,Instagram,fine line color,mano/dedos,grande,210000,71,confirmada,reserva confirmada,63
+RES-0778,CLI-0746,ART-005,CAMP-TK-01,2026-05-17,16:30,Instagram,TikTok,minimalista,espalda,mediano,110000,82,pendiente,esperando respuesta cliente,20
+RES-0779,CLI-0747,ART-001,CAMP-REF-01,2026-05-16,17:00,WhatsApp,recomendacion,lettering,cuello,mediano,120000,53,cancelada,perdida,37
+RES-0780,CLI-0748,ART-004,CAMP-REF-01,2026-05-26,15:30,WhatsApp,recomendacion,tradicional,espalda,pequeno,65000,37,confirmada,reserva confirmada,51
+RES-0781,CLI-0749,ART-004,CAMP-GO-01,2026-05-17,16:00,WhatsApp,Google,lettering,brazo,pequeno,50000,87,contactar,pendiente de contacto,14
+RES-0782,CLI-0750,ART-002,CAMP-DIR-01,2026-05-22,09:30,WhatsApp,visita directa,tradicional color,muneca,grande,280000,82,confirmada,reserva confirmada,76
+RES-0783,CLI-0751,ART-005,CAMP-DIR-01,2026-05-31,11:30,WhatsApp,visita directa,geometrico,muneca,mediano,85000,60,confirmada,reserva confirmada,44
+RES-0784,CLI-0752,ART-006,CAMP-IG-01,2026-05-22,17:30,Instagram,Instagram,tradicional color,costillas,mediano,170000,37,confirmada,reserva confirmada,60
+RES-0785,CLI-0753,ART-003,CAMP-AIEP-01,2026-06-06,15:30,Instagram,evento AIEP,fine line,brazo,mediano,100000,60,confirmada,reserva confirmada,47
+RES-0786,CLI-0754,ART-002,CAMP-TK-01,2026-06-01,12:00,WhatsApp,TikTok,blackwork,espalda,pequeno,60000,111,confirmada,reserva confirmada,35
+RES-0787,CLI-0755,ART-002,CAMP-IG-01,2026-05-24,11:30,Instagram,Instagram,blackwork color,costillas,grande,330000,124,reagendada,reagendar fecha,65
+RES-0788,CLI-0756,ART-003,CAMP-TK-01,2026-05-22,09:00,WhatsApp,TikTok,fine line,muneca,pequeno,40000,114,pendiente,esperando respuesta cliente,12
+RES-0789,CLI-0757,ART-004,CAMP-IG-01,2026-06-04,11:30,WhatsApp,Instagram,blackwork color,cuello,sesion larga,445000,176,confirmada,reserva confirmada,100
+RES-0790,CLI-0758,ART-006,CAMP-RET-01,2026-06-04,10:30,WhatsApp,cliente recurrente,blackwork,tobillo,pequeno,55000,48,confirmada,reserva confirmada,51
+RES-0791,CLI-0759,ART-006,CAMP-IG-01,2026-06-06,16:30,Instagram,Instagram,geometrico,tobillo,mediano,85000,82,pendiente,esperando respuesta cliente,20
+RES-0792,CLI-0760,ART-001,CAMP-AIEP-01,2026-05-20,09:00,WhatsApp,evento AIEP,fine line,muneca,pequeno,40000,95,cancelada,perdida,12
+RES-0793,CLI-0761,ART-005,CAMP-DIR-01,2026-05-30,16:00,WhatsApp,visita directa,geometrico,costillas,mediano,130000,219,pendiente,esperando respuesta cliente,24
+RES-0794,CLI-0246,ART-004,CAMP-IG-01,2026-06-15,15:00,Instagram,Instagram,tradicional color,pecho,pequeno,60000,29,pendiente,esperando respuesta cliente,16
+RES-0795,CLI-0762,ART-006,CAMP-TK-01,2026-05-31,14:00,WhatsApp,TikTok,geometrico,antebrazo,mediano,160000,61,confirmada,reserva confirmada,58
+RES-0796,CLI-0763,ART-001,CAMP-TK-01,2026-06-02,12:30,Instagram,TikTok,fine line,muneca,grande,180000,243,pendiente,esperando respuesta cliente,34
+RES-0797,CLI-0443,ART-004,CAMP-IG-01,2026-06-11,09:00,Instagram,Instagram,tradicional,mano/dedos,pequeno,75000,113,confirmada,reserva confirmada,38
+RES-0798,CLI-0764,ART-005,CAMP-RET-01,2026-06-14,16:30,Instagram,cliente recurrente,geometrico,muneca,mediano,95000,340,confirmada,reserva confirmada,58
+RES-0799,CLI-0765,ART-006,CAMP-IG-01,2026-05-19,15:30,WhatsApp,Instagram,geometrico color,brazo,pequeno,50000,111,reagendada,reagendar fecha,14
+RES-0800,CLI-0766,ART-004,CAMP-GO-01,2026-06-07,14:30,WhatsApp,Google,tradicional,hombro,pequeno,65000,91,cancelada,perdida,17
+RES-0801,CLI-0767,ART-002,CAMP-IG-01,2026-06-06,16:30,WhatsApp,Instagram,tradicional,brazo,mediano,115000,44,contactar,pendiente de contacto,21
+RES-0802,CLI-0768,ART-003,CAMP-IG-01,2026-06-05,09:00,WhatsApp,Instagram,fine line,antebrazo,pequeno,40000,97,pendiente,esperando respuesta cliente,12
+RES-0803,CLI-0769,ART-002,CAMP-AIEP-01,2026-05-18,14:30,WhatsApp,evento AIEP,blackwork,pierna,mediano,135000,113,confirmada,reserva confirmada,54
+RES-0804,CLI-0770,ART-004,CAMP-GO-01,2026-05-14,15:00,Instagram,Google,lettering,muneca,pequeno,45000,224,cancelada,perdida,13
+RES-0805,CLI-0771,ART-002,CAMP-IG-01,2026-06-07,10:00,Instagram,Instagram,blackwork,muneca,mediano,85000,144,reagendada,reagendar fecha,20
+RES-0806,CLI-0772,ART-003,CAMP-IG-01,2026-06-09,16:30,WhatsApp,Instagram,fine line,cuello,pequeno,40000,88,reagendada,reagendar fecha,12
+RES-0807,CLI-0773,ART-003,CAMP-AIEP-01,2026-05-20,11:30,Instagram,evento AIEP,minimalista,pecho,pequeno,40000,47,confirmada,reserva confirmada,36
+RES-0808,CLI-0575,ART-002,CAMP-REF-01,2026-06-10,13:00,Instagram,recomendacion,blackwork,brazo,pequeno,65000,86,confirmada,reserva confirmada,51
+RES-0809,CLI-0774,ART-003,CAMP-RET-01,2026-05-23,14:00,Instagram,cliente recurrente,fine line,pecho,mediano,85000,215,contactar,pendiente de contacto,32
+RES-0810,CLI-0775,ART-003,CAMP-TK-01,2026-05-31,16:00,WhatsApp,TikTok,fine line,tobillo,pequeno,40000,110,pendiente,esperando respuesta cliente,12
+RES-0811,CLI-0776,ART-004,CAMP-IG-01,2026-05-27,14:00,WhatsApp,Instagram,tradicional,mano/dedos,pequeno,50000,108,confirmada,reserva confirmada,38
+RES-0812,CLI-0130,ART-006,CAMP-AIEP-01,2026-06-19,12:00,Instagram,evento AIEP,tradicional color,mano/dedos,grande,245000,63,contactar,pendiente de contacto,50
+RES-0813,CLI-0777,ART-002,CAMP-GO-01,2026-06-11,09:00,WhatsApp,Google,geometrico color,antebrazo,mediano,120000,27,pendiente,esperando respuesta cliente,27
+RES-0814,CLI-0778,ART-006,CAMP-REF-01,2026-06-02,09:00,WhatsApp,recomendacion,geometrico,pierna,mediano,120000,110,pendiente,esperando respuesta cliente,32
+RES-0815,CLI-0779,ART-003,CAMP-AIEP-01,2026-05-16,13:00,WhatsApp,evento AIEP,minimalista,pecho,mediano,85000,118,pendiente,esperando respuesta cliente,15
+RES-0816,CLI-0780,ART-003,CAMP-REF-01,2026-06-02,17:30,WhatsApp,recomendacion,fine line,muneca,pequeno,40000,106,confirmada,reserva confirmada,46
+RES-0817,CLI-0781,ART-004,CAMP-IG-01,2026-05-24,11:30,WhatsApp,Instagram,lettering color,costillas,mediano,140000,97,confirmada,reserva confirmada,54
+RES-0818,CLI-0782,ART-005,CAMP-IG-01,2026-05-31,10:00,WhatsApp,Instagram,geometrico,antebrazo,pequeno,45000,76,pendiente,esperando respuesta cliente,12
+RES-0819,CLI-0783,ART-004,CAMP-TK-01,2026-06-19,11:30,WhatsApp,TikTok,lettering,cuello,mediano,150000,133,pendiente,esperando respuesta cliente,32
+RES-0820,CLI-0784,ART-001,CAMP-TK-01,2026-06-08,16:30,Instagram,TikTok,minimalista,cuello,pequeno,40000,39,confirmada,reserva confirmada,36
+RES-0821,CLI-0785,ART-002,CAMP-AIEP-01,2026-05-20,12:30,WhatsApp,evento AIEP,tradicional,brazo,mediano,115000,76,cancelada,perdida,26
+RES-0822,CLI-0786,ART-002,CAMP-TK-01,2026-05-16,16:30,WhatsApp,TikTok,blackwork,hombro,pequeno,45000,154,reagendada,reagendar fecha,13
+RES-0823,CLI-0787,ART-005,CAMP-IG-01,2026-06-11,16:30,WhatsApp,Instagram,geometrico color,costillas,mediano,160000,34,pendiente,esperando respuesta cliente,34
+RES-0824,CLI-0788,ART-001,CAMP-AIEP-01,2026-06-19,17:00,WhatsApp,evento AIEP,fine line,tobillo,pequeno,40000,226,confirmada,reserva confirmada,36
+RES-0825,CLI-0789,ART-005,CAMP-REF-01,2026-05-15,09:30,Instagram,recomendacion,minimalista,muneca,mediano,85000,144,pendiente,esperando respuesta cliente,30
+RES-0826,CLI-0790,ART-003,CAMP-GO-01,2026-06-11,17:00,WhatsApp,Google,geometrico,mano/dedos,mediano,95000,91,confirmada,reserva confirmada,46
+RES-0827,CLI-0791,ART-005,CAMP-IG-01,2026-06-02,16:30,Instagram,Instagram,minimalista,hombro,pequeno,40000,212,confirmada,reserva confirmada,31
+RES-0828,CLI-0792,ART-003,CAMP-REF-01,2026-05-18,09:30,WhatsApp,recomendacion,geometrico,tobillo,grande,180000,225,cancelada,perdida,43
+RES-0829,CLI-0793,ART-003,CAMP-AIEP-01,2026-05-28,15:00,WhatsApp,evento AIEP,fine line color,espalda,pequeno,45000,114,cancelada,perdida,13
+RES-0830,CLI-0794,ART-005,CAMP-GO-01,2026-06-10,17:30,Instagram,Google,minimalista,cuello,grande,180000,234,reagendada,reagendar fecha,38
+RES-0831,CLI-0795,ART-006,CAMP-IG-01,2026-05-31,15:00,WhatsApp,Instagram,geometrico,tobillo,mediano,110000,84,pendiente,esperando respuesta cliente,25
+RES-0832,CLI-0796,ART-003,CAMP-TK-01,2026-06-15,15:30,WhatsApp,TikTok,geometrico,pierna,pequeno,40000,30,confirmada,reserva confirmada,36
+RES-0833,CLI-0797,ART-002,CAMP-AIEP-01,2026-06-18,15:30,WhatsApp,evento AIEP,blackwork color,brazo,mediano,105000,159,pendiente,esperando respuesta cliente,19
+RES-0834,CLI-0798,ART-002,CAMP-IG-01,2026-05-23,17:00,WhatsApp,Instagram,blackwork,muneca,pequeno,55000,98,contactar,pendiente de contacto,15
+RES-0835,CLI-0799,ART-001,CAMP-IG-01,2026-06-02,14:00,WhatsApp,Instagram,lettering,tobillo,mediano,85000,126,reagendada,reagendar fecha,20
+RES-0836,CLI-0800,ART-004,CAMP-RET-01,2026-06-08,09:00,Instagram,cliente recurrente,tradicional color,brazo,pequeno,55000,356,confirmada,reserva confirmada,51
+RES-0837,CLI-0801,ART-006,CAMP-REF-01,2026-05-13,13:30,WhatsApp,recomendacion,blackwork,brazo,pequeno,50000,182,confirmada,reserva confirmada,48
+RES-0838,CLI-0802,ART-006,CAMP-DIR-01,2026-05-27,14:30,WhatsApp,visita directa,geometrico color,mano/dedos,mediano,115000,207,pendiente,esperando respuesta cliente,26
+RES-0839,CLI-0803,ART-006,CAMP-IG-01,2026-06-13,12:00,WhatsApp,Instagram,blackwork,espalda,mediano,160000,111,contactar,pendiente de contacto,29
+RES-0840,CLI-0481,ART-001,CAMP-TK-01,2026-05-23,11:00,Instagram,TikTok,minimalista,tobillo,mediano,85000,62,pendiente,esperando respuesta cliente,20
+RES-0841,CLI-0286,ART-005,CAMP-IG-01,2026-05-27,10:30,Instagram,Instagram,geometrico color,mano/dedos,mediano,100000,112,pendiente,esperando respuesta cliente,18
+RES-0842,CLI-0804,ART-003,CAMP-REF-01,2026-05-19,11:30,WhatsApp,recomendacion,fine line color,hombro,pequeno,40000,66,contactar,pendiente de contacto,17
+RES-0843,CLI-0805,ART-001,CAMP-IG-01,2026-05-24,14:00,WhatsApp,Instagram,fine line,muneca,pequeno,40000,156,pendiente,esperando respuesta cliente,12
+RES-0844,CLI-0806,ART-002,CAMP-GO-01,2026-05-16,11:30,WhatsApp,Google,geometrico,pecho,mediano,170000,25,pendiente,esperando respuesta cliente,31
+RES-0845,CLI-0096,ART-005,CAMP-REF-01,2026-06-19,14:00,Instagram,recomendacion,geometrico,brazo,sesion larga,260000,176,pendiente,esperando respuesta cliente,58
+RES-0846,CLI-0807,ART-006,CAMP-REF-01,2026-05-29,10:30,Instagram,recomendacion,blackwork color,hombro,mediano,140000,69,confirmada,reserva confirmada,64
+RES-0847,CLI-0563,ART-005,CAMP-RET-01,2026-05-17,11:00,Instagram,cliente recurrente,geometrico color,hombro,pequeno,55000,85,confirmada,reserva confirmada,51
+RES-0848,CLI-0808,ART-004,CAMP-IG-01,2026-06-03,11:30,WhatsApp,Instagram,blackwork,muneca,sesion larga,260000,172,reagendada,reagendar fecha,52
+RES-0849,CLI-0809,ART-001,CAMP-GO-01,2026-06-02,09:30,Instagram,Google,minimalista,pecho,sesion larga,265000,314,pendiente,esperando respuesta cliente,49
+RES-0850,CLI-0810,ART-005,CAMP-TK-01,2026-05-15,09:30,WhatsApp,TikTok,fine line,tobillo,pequeno,40000,27,pendiente,esperando respuesta cliente,12
+RES-0851,CLI-0811,ART-004,CAMP-REF-01,2026-05-21,11:00,WhatsApp,recomendacion,blackwork color,espalda,mediano,155000,117,confirmada,reserva confirmada,67
+RES-0852,CLI-0812,ART-005,CAMP-AIEP-01,2026-06-04,15:00,WhatsApp,evento AIEP,minimalista,pierna,pequeno,40000,91,pendiente,esperando respuesta cliente,12
+RES-0853,CLI-0813,ART-004,CAMP-IG-01,2026-05-23,16:00,WhatsApp,Instagram,tradicional color,pecho,grande,330000,83,confirmada,reserva confirmada,85
+RES-0854,CLI-0814,ART-005,CAMP-RET-01,2026-06-13,12:30,WhatsApp,cliente recurrente,fine line color,costillas,mediano,170000,184,confirmada,reserva confirmada,72
+RES-0855,CLI-0815,ART-005,CAMP-AIEP-01,2026-06-18,16:30,WhatsApp,evento AIEP,fine line,cuello,mediano,115000,173,contactar,pendiente de contacto,26
+RES-0856,CLI-0816,ART-006,CAMP-RET-01,2026-05-23,17:30,Instagram,cliente recurrente,geometrico color,hombro,mediano,170000,68,confirmada,reserva confirmada,72
+RES-0857,CLI-0817,ART-005,CAMP-IG-01,2026-06-07,09:30,WhatsApp,Instagram,geometrico color,tobillo,grande,200000,90,cancelada,perdida,41
+RES-0858,CLI-0818,ART-004,CAMP-REF-01,2026-05-14,09:00,WhatsApp,recomendacion,blackwork,hombro,pequeno,50000,104,confirmada,reserva confirmada,48
+RES-0859,CLI-0819,ART-004,CAMP-AIEP-01,2026-06-04,09:00,WhatsApp,evento AIEP,blackwork,hombro,sesion larga,350000,34,cancelada,perdida,60
+RES-0860,CLI-0820,ART-002,CAMP-RET-01,2026-05-25,13:00,WhatsApp,cliente recurrente,tradicional,antebrazo,mediano,110000,110,confirmada,reserva confirmada,61
+RES-0861,CLI-0821,ART-001,CAMP-TK-01,2026-05-24,13:30,WhatsApp,TikTok,fine line,hombro,mediano,85000,105,pendiente,esperando respuesta cliente,20
+RES-0862,CLI-0822,ART-001,CAMP-IG-01,2026-05-21,10:00,WhatsApp,Instagram,lettering,hombro,mediano,85000,80,pendiente,esperando respuesta cliente,20
+RES-0863,CLI-0823,ART-006,CAMP-TK-01,2026-06-08,16:30,Instagram,TikTok,geometrico,muneca,pequeno,40000,106,pendiente,esperando respuesta cliente,12
+RES-0864,CLI-0824,ART-005,CAMP-TK-01,2026-05-17,12:30,WhatsApp,TikTok,fine line,brazo,pequeno,40000,103,reagendada,reagendar fecha,12
+RES-0865,CLI-0825,ART-004,CAMP-DIR-01,2026-06-10,11:30,WhatsApp,visita directa,lettering,mano/dedos,grande,240000,74,pendiente,esperando respuesta cliente,40
+RES-0866,CLI-0826,ART-002,CAMP-REF-01,2026-05-30,12:30,Instagram,recomendacion,geometrico color,espalda,pequeno,80000,208,pendiente,esperando respuesta cliente,30
+RES-0867,CLI-0827,ART-001,CAMP-AIEP-01,2026-06-02,11:00,WhatsApp,evento AIEP,fine line,mano/dedos,pequeno,55000,129,contactar,pendiente de contacto,15
+RES-0868,CLI-0828,ART-004,CAMP-TK-01,2026-05-14,15:30,Instagram,TikTok,lettering color,muneca,grande,180000,139,pendiente,esperando respuesta cliente,38
+RES-0869,CLI-0829,ART-005,CAMP-TK-01,2026-05-28,11:30,Instagram,TikTok,fine line color,brazo,mediano,140000,103,confirmada,reserva confirmada,54
+RES-0870,CLI-0830,ART-001,CAMP-AIEP-01,2026-05-19,15:30,WhatsApp,evento AIEP,lettering,brazo,mediano,85000,161,confirmada,reserva confirmada,44
+RES-0871,CLI-0831,ART-005,CAMP-IG-01,2026-05-22,11:30,WhatsApp,Instagram,minimalista color,costillas,mediano,135000,227,cancelada,perdida,30
+RES-0872,CLI-0832,ART-004,CAMP-RET-01,2026-05-24,14:30,Instagram,cliente recurrente,tradicional color,costillas,pequeno,55000,64,confirmada,reserva confirmada,46
+RES-0873,CLI-0764,ART-005,CAMP-IG-01,2026-06-15,11:30,Instagram,Instagram,minimalista,antebrazo,grande,180000,18,confirmada,reserva confirmada,58
+RES-0874,CLI-0833,ART-002,CAMP-RET-01,2026-06-07,14:00,WhatsApp,cliente recurrente,tradicional,costillas,pequeno,50000,44,confirmada,reserva confirmada,45
+RES-0875,CLI-0113,ART-002,CAMP-RET-01,2026-06-05,12:30,Instagram,cliente recurrente,geometrico,brazo,grande,255000,89,confirmada,reserva confirmada,83
+RES-0876,CLI-0834,ART-005,CAMP-IG-01,2026-05-17,11:30,WhatsApp,Instagram,fine line color,tobillo,grande,180000,136,contactar,pendiente de contacto,38
+RES-0877,CLI-0835,ART-004,CAMP-TK-01,2026-05-25,14:00,Instagram,TikTok,lettering,mano/dedos,pequeno,55000,97,reagendada,reagendar fecha,15
+RES-0878,CLI-0836,ART-004,CAMP-TK-01,2026-05-29,16:00,Instagram,TikTok,lettering,costillas,mediano,155000,228,cancelada,perdida,33
+RES-0879,CLI-0837,ART-004,CAMP-TK-01,2026-05-13,17:30,WhatsApp,TikTok,lettering,hombro,mediano,95000,169,pendiente,esperando respuesta cliente,17
+RES-0880,CLI-0838,ART-003,CAMP-AIEP-01,2026-05-27,16:30,Instagram,evento AIEP,minimalista color,muneca,grande,180000,307,reagendada,reagendar fecha,38
+RES-0881,CLI-0839,ART-004,CAMP-TK-01,2026-05-20,11:00,WhatsApp,TikTok,lettering,pecho,mediano,90000,34,confirmada,reserva confirmada,45
+RES-0882,CLI-0840,ART-001,CAMP-REF-01,2026-06-05,16:00,WhatsApp,recomendacion,lettering,espalda,grande,180000,175,confirmada,reserva confirmada,72
+RES-0883,CLI-0841,ART-006,CAMP-RET-01,2026-06-11,16:30,WhatsApp,cliente recurrente,geometrico color,hombro,mediano,140000,137,pendiente,esperando respuesta cliente,42
+RES-0884,CLI-0842,ART-005,CAMP-GO-01,2026-05-13,12:30,Instagram,Google,geometrico,antebrazo,sesion larga,285000,59,pendiente,esperando respuesta cliente,53
+RES-0885,CLI-0502,ART-002,CAMP-TK-01,2026-06-18,09:30,Instagram,TikTok,blackwork,antebrazo,pequeno,40000,328,contactar,pendiente de contacto,12
+RES-0886,CLI-0843,ART-004,CAMP-TK-01,2026-05-28,10:00,WhatsApp,TikTok,blackwork,pecho,grande,330000,254,confirmada,reserva confirmada,85
+RES-0887,CLI-0844,ART-001,CAMP-AIEP-01,2026-06-10,11:00,WhatsApp,evento AIEP,minimalista,brazo,mediano,90000,31,cancelada,perdida,21
+RES-0888,CLI-0845,ART-002,CAMP-RET-01,2026-06-17,11:00,WhatsApp,cliente recurrente,geometrico,antebrazo,sesion larga,325000,53,pendiente,esperando respuesta cliente,67
+RES-0889,CLI-0565,ART-006,CAMP-TK-01,2026-06-09,11:00,Instagram,TikTok,blackwork,pecho,mediano,135000,174,confirmada,reserva confirmada,54
+RES-0890,CLI-0846,ART-005,CAMP-REF-01,2026-05-20,09:30,WhatsApp,recomendacion,minimalista,tobillo,grande,180000,45,contactar,pendiente de contacto,43
+RES-0891,CLI-0847,ART-006,CAMP-REF-01,2026-05-28,09:30,WhatsApp,recomendacion,tradicional,muneca,grande,255000,40,confirmada,reserva confirmada,76
+RES-0892,CLI-0848,ART-006,CAMP-DIR-01,2026-06-08,11:30,Instagram,visita directa,tradicional color,pecho,pequeno,55000,109,confirmada,reserva confirmada,39
+RES-0893,CLI-0849,ART-003,CAMP-RET-01,2026-05-18,13:00,WhatsApp,cliente recurrente,minimalista color,antebrazo,pequeno,45000,192,contactar,pendiente de contacto,20
+RES-0894,CLI-0850,ART-004,CAMP-IG-01,2026-06-15,14:30,Instagram,Instagram,lettering,pierna,grande,235000,204,pendiente,esperando respuesta cliente,39
+RES-0895,CLI-0851,ART-003,CAMP-TK-01,2026-05-26,13:00,WhatsApp,TikTok,geometrico,muneca,pequeno,40000,64,confirmada,reserva confirmada,36
+RES-0896,CLI-0852,ART-002,CAMP-TK-01,2026-05-28,13:00,WhatsApp,TikTok,tradicional,brazo,mediano,140000,99,pendiente,esperando respuesta cliente,30
+RES-0897,CLI-0853,ART-001,CAMP-IG-01,2026-06-12,17:30,Instagram,Instagram,minimalista color,muneca,pequeno,40000,125,confirmada,reserva confirmada,36
+RES-0898,CLI-0854,ART-006,CAMP-DIR-01,2026-05-16,13:00,Instagram,visita directa,blackwork color,espalda,pequeno,80000,59,pendiente,esperando respuesta cliente,20
+RES-0899,CLI-0855,ART-006,CAMP-GO-01,2026-06-14,16:30,Instagram,Google,tradicional,pecho,mediano,110000,36,pendiente,esperando respuesta cliente,25
+RES-0900,CLI-0856,ART-003,CAMP-GO-01,2026-05-21,09:00,WhatsApp,Google,geometrico,espalda,mediano,85000,77,contactar,pendiente de contacto,20
+RES-0901,CLI-0857,ART-004,CAMP-TK-01,2026-05-20,11:30,WhatsApp,TikTok,tradicional color,tobillo,grande,180000,78,confirmada,reserva confirmada,62
+RES-0902,CLI-0858,ART-001,CAMP-REF-01,2026-05-17,17:30,WhatsApp,recomendacion,fine line,hombro,pequeno,55000,238,pendiente,esperando respuesta cliente,20
+RES-0903,CLI-0859,ART-002,CAMP-AIEP-01,2026-05-27,09:30,WhatsApp,evento AIEP,geometrico,costillas,pequeno,80000,257,contactar,pendiente de contacto,20
+RES-0904,CLI-0643,ART-002,CAMP-TK-01,2026-06-13,15:00,Instagram,TikTok,tradicional color,muneca,mediano,85000,229,confirmada,reserva confirmada,39
+RES-0905,CLI-0860,ART-003,CAMP-RET-01,2026-05-28,13:30,Instagram,cliente recurrente,geometrico,muneca,mediano,85000,269,reagendada,reagendar fecha,32
+RES-0906,CLI-0861,ART-002,CAMP-DIR-01,2026-06-16,17:30,Instagram,visita directa,blackwork color,muneca,grande,280000,227,confirmada,reserva confirmada,71
+RES-0907,CLI-0862,ART-003,CAMP-IG-01,2026-05-14,13:30,WhatsApp,Instagram,geometrico,pecho,pequeno,40000,145,pendiente,esperando respuesta cliente,12
+RES-0908,CLI-0863,ART-006,CAMP-RET-01,2026-06-11,11:00,WhatsApp,cliente recurrente,geometrico,pierna,sesion larga,365000,121,confirmada,reserva confirmada,98
+RES-0909,CLI-0864,ART-002,CAMP-RET-01,2026-06-13,09:30,WhatsApp,cliente recurrente,geometrico,tobillo,mediano,85000,48,cancelada,perdida,27
+RES-0910,CLI-0865,ART-001,CAMP-REF-01,2026-05-18,10:00,WhatsApp,recomendacion,lettering,cuello,grande,180000,17,confirmada,reserva confirmada,72
+RES-0911,CLI-0866,ART-006,CAMP-REF-01,2026-06-05,10:00,WhatsApp,recomendacion,geometrico,pierna,grande,260000,179,confirmada,reserva confirmada,86
+RES-0912,CLI-0867,ART-003,CAMP-GO-01,2026-06-07,13:00,WhatsApp,Google,fine line color,mano/dedos,pequeno,40000,103,confirmada,reserva confirmada,36
+RES-0913,CLI-0868,ART-005,CAMP-AIEP-01,2026-05-22,10:30,WhatsApp,evento AIEP,minimalista,antebrazo,sesion larga,260000,139,confirmada,reserva confirmada,71
+RES-0914,CLI-0869,ART-004,CAMP-REF-01,2026-05-31,10:00,WhatsApp,recomendacion,tradicional color,muneca,grande,240000,79,confirmada,reserva confirmada,79
+RES-0915,CLI-0870,ART-005,CAMP-TK-01,2026-05-20,10:00,WhatsApp,TikTok,fine line,hombro,pequeno,50000,84,contactar,pendiente de contacto,14
+RES-0916,CLI-0871,ART-005,CAMP-RET-01,2026-05-18,14:30,WhatsApp,cliente recurrente,minimalista,hombro,mediano,90000,19,confirmada,reserva confirmada,57
+RES-0917,CLI-0872,ART-001,CAMP-DIR-01,2026-05-21,13:00,WhatsApp,visita directa,fine line,brazo,mediano,85000,115,contactar,pendiente de contacto,20
+RES-0918,CLI-0873,ART-006,CAMP-TK-01,2026-05-30,13:30,WhatsApp,TikTok,geometrico,muneca,sesion larga,260000,26,confirmada,reserva confirmada,71
+RES-0919,CLI-0874,ART-006,CAMP-TK-01,2026-06-07,15:00,Instagram,TikTok,tradicional color,antebrazo,mediano,130000,220,contactar,pendiente de contacto,29
+RES-0920,CLI-0875,ART-005,CAMP-TK-01,2026-06-10,10:00,WhatsApp,TikTok,geometrico color,pecho,pequeno,70000,246,pendiente,esperando respuesta cliente,18
+RES-0921,CLI-0876,ART-005,CAMP-REF-01,2026-05-24,15:00,WhatsApp,recomendacion,fine line color,espalda,mediano,100000,29,contactar,pendiente de contacto,33
+RES-0922,CLI-0877,ART-001,CAMP-RET-01,2026-05-21,16:00,Instagram,cliente recurrente,minimalista,hombro,mediano,85000,159,pendiente,esperando respuesta cliente,32
+RES-0923,CLI-0263,ART-005,CAMP-TK-01,2026-05-19,11:30,Instagram,TikTok,fine line color,hombro,sesion larga,265000,47,contactar,pendiente de contacto,53
+RES-0924,CLI-0878,ART-002,CAMP-TK-01,2026-05-15,10:30,WhatsApp,TikTok,blackwork,hombro,mediano,105000,112,confirmada,reserva confirmada,43
+RES-0925,CLI-0879,ART-002,CAMP-REF-01,2026-06-01,11:00,WhatsApp,recomendacion,tradicional,tobillo,grande,215000,120,pendiente,esperando respuesta cliente,54
+RES-0926,CLI-0880,ART-003,CAMP-IG-01,2026-06-06,11:30,WhatsApp,Instagram,fine line color,mano/dedos,pequeno,60000,82,confirmada,reserva confirmada,40
+RES-0927,CLI-0861,ART-005,CAMP-IG-01,2026-06-07,16:30,Instagram,Instagram,geometrico,antebrazo,pequeno,40000,74,pendiente,esperando respuesta cliente,12
+RES-0928,CLI-0881,ART-003,CAMP-IG-01,2026-05-24,11:30,WhatsApp,Instagram,minimalista,espalda,mediano,85000,42,confirmada,reserva confirmada,44
+RES-0929,CLI-0882,ART-003,CAMP-IG-01,2026-06-15,14:00,Instagram,Instagram,minimalista color,pierna,sesion larga,265000,25,contactar,pendiente de contacto,49
+RES-0930,CLI-0883,ART-002,CAMP-DIR-01,2026-06-17,15:00,Instagram,visita directa,blackwork,costillas,mediano,130000,202,pendiente,esperando respuesta cliente,29
+RES-0931,CLI-0884,ART-004,CAMP-TK-01,2026-05-17,12:30,Instagram,TikTok,tradicional color,tobillo,mediano,160000,245,pendiente,esperando respuesta cliente,29
+RES-0932,CLI-0885,ART-003,CAMP-REF-01,2026-05-18,15:30,WhatsApp,recomendacion,geometrico,espalda,pequeno,40000,15,pendiente,esperando respuesta cliente,17
+RES-0933,CLI-0886,ART-001,CAMP-RET-01,2026-05-31,16:00,WhatsApp,cliente recurrente,fine line,antebrazo,grande,190000,113,pendiente,esperando respuesta cliente,43
+RES-0934,CLI-0887,ART-003,CAMP-TK-01,2026-05-26,11:30,WhatsApp,TikTok,minimalista,pierna,mediano,85000,86,pendiente,esperando respuesta cliente,15
+RES-0935,CLI-0888,ART-006,CAMP-TK-01,2026-06-06,13:00,WhatsApp,TikTok,blackwork,mano/dedos,grande,330000,89,contactar,pendiente de contacto,61
+RES-0936,CLI-0889,ART-002,CAMP-DIR-01,2026-06-08,17:00,WhatsApp,visita directa,blackwork color,mano/dedos,grande,300000,113,reagendada,reagendar fecha,60
+RES-0937,CLI-0890,ART-004,CAMP-GO-01,2026-05-31,12:30,Instagram,Google,blackwork,cuello,pequeno,80000,25,confirmada,reserva confirmada,39
+RES-0938,CLI-0891,ART-001,CAMP-REF-01,2026-05-19,13:30,WhatsApp,recomendacion,lettering,pierna,grande,190000,95,confirmada,reserva confirmada,70
+RES-0939,CLI-0892,ART-002,CAMP-GO-01,2026-05-26,09:00,WhatsApp,Google,blackwork,costillas,mediano,170000,129,pendiente,esperando respuesta cliente,31
+RES-0940,CLI-0169,ART-005,CAMP-GO-01,2026-06-13,13:30,Instagram,Google,fine line,mano/dedos,pequeno,40000,225,pendiente,esperando respuesta cliente,12
+RES-0941,CLI-0893,ART-006,CAMP-RET-01,2026-05-27,17:00,WhatsApp,cliente recurrente,blackwork,hombro,mediano,170000,88,confirmada,reserva confirmada,72
+RES-0942,CLI-0894,ART-006,CAMP-REF-01,2026-05-31,12:30,WhatsApp,recomendacion,tradicional,muneca,pequeno,65000,139,confirmada,reserva confirmada,46
+RES-0943,CLI-0895,ART-001,CAMP-GO-01,2026-05-17,16:00,WhatsApp,Google,lettering,antebrazo,grande,180000,52,confirmada,reserva confirmada,62
+RES-0944,CLI-0896,ART-002,CAMP-RET-01,2026-05-19,13:30,WhatsApp,cliente recurrente,tradicional color,pecho,pequeno,65000,208,confirmada,reserva confirmada,53
+RES-0945,CLI-0897,ART-002,CAMP-IG-01,2026-05-18,09:30,Instagram,Instagram,tradicional color,costillas,pequeno,80000,51,contactar,pendiente de contacto,20
+RES-0946,CLI-0898,ART-006,CAMP-GO-01,2026-05-22,13:30,Instagram,Google,blackwork color,pierna,grande,250000,272,pendiente,esperando respuesta cliente,50
+RES-0947,CLI-0258,ART-003,CAMP-REF-01,2026-06-11,12:00,Instagram,recomendacion,fine line,pecho,sesion larga,260000,172,confirmada,reserva confirmada,86
+RES-0948,CLI-0899,ART-004,CAMP-TK-01,2026-05-18,11:30,Instagram,TikTok,blackwork,pecho,grande,270000,216,confirmada,reserva confirmada,78
+RES-0949,CLI-0900,ART-005,CAMP-RET-01,2026-06-05,10:30,Instagram,cliente recurrente,geometrico,cuello,mediano,95000,262,confirmada,reserva confirmada,53
+RES-0950,CLI-0901,ART-004,CAMP-AIEP-01,2026-05-15,09:30,WhatsApp,evento AIEP,lettering,antebrazo,grande,180000,18,confirmada,reserva confirmada,57
+RES-0951,CLI-0902,ART-004,CAMP-TK-01,2026-06-06,14:30,WhatsApp,TikTok,lettering,cuello,pequeno,40000,216,confirmada,reserva confirmada,36
+RES-0952,CLI-0903,ART-004,CAMP-RET-01,2026-05-20,10:00,Instagram,cliente recurrente,blackwork,tobillo,mediano,130000,306,contactar,pendiente de contacto,41
+RES-0953,CLI-0904,ART-001,CAMP-RET-01,2026-06-15,15:00,WhatsApp,cliente recurrente,lettering,espalda,mediano,85000,122,contactar,pendiente de contacto,32
+RES-0954,CLI-0905,ART-004,CAMP-AIEP-01,2026-06-13,09:00,Instagram,evento AIEP,tradicional color,hombro,pequeno,55000,179,pendiente,esperando respuesta cliente,12
+RES-0955,CLI-0906,ART-003,CAMP-RET-01,2026-05-14,16:30,Instagram,cliente recurrente,fine line color,espalda,mediano,135000,56,confirmada,reserva confirmada,66
+RES-0956,CLI-0907,ART-003,CAMP-TK-01,2026-06-17,09:00,WhatsApp,TikTok,fine line color,mano/dedos,grande,180000,94,cancelada,perdida,33
+RES-0957,CLI-0908,ART-003,CAMP-TK-01,2026-05-17,11:30,Instagram,TikTok,geometrico,espalda,pequeno,40000,66,confirmada,reserva confirmada,31
+RES-0958,CLI-0909,ART-004,CAMP-AIEP-01,2026-05-22,15:30,Instagram,evento AIEP,lettering,espalda,grande,180000,128,pendiente,esperando respuesta cliente,38
+RES-0959,CLI-0910,ART-005,CAMP-RET-01,2026-05-22,12:30,WhatsApp,cliente recurrente,geometrico color,muneca,sesion larga,260000,77,pendiente,esperando respuesta cliente,60
+RES-0960,CLI-0911,ART-002,CAMP-RET-01,2026-05-24,17:00,WhatsApp,cliente recurrente,geometrico color,brazo,pequeno,45000,97,pendiente,esperando respuesta cliente,25
+RES-0961,CLI-0912,ART-006,CAMP-IG-01,2026-06-19,10:30,WhatsApp,Instagram,tradicional color,cuello,mediano,140000,146,pendiente,esperando respuesta cliente,30
+RES-0962,CLI-0913,ART-004,CAMP-GO-01,2026-05-18,11:00,WhatsApp,Google,lettering,costillas,mediano,105000,161,pendiente,esperando respuesta cliente,24
+RES-0963,CLI-0914,ART-006,CAMP-IG-01,2026-06-11,12:00,WhatsApp,Instagram,tradicional,tobillo,mediano,90000,72,confirmada,reserva confirmada,40
+RES-0964,CLI-0915,ART-001,CAMP-GO-01,2026-06-19,17:00,WhatsApp,Google,fine line,cuello,mediano,125000,152,contactar,pendiente de contacto,28
+RES-0965,CLI-0916,ART-001,CAMP-REF-01,2026-06-01,17:30,Instagram,recomendacion,fine line,pecho,grande,180000,131,pendiente,esperando respuesta cliente,48
+RES-0966,CLI-0917,ART-006,CAMP-GO-01,2026-06-05,16:30,Instagram,Google,geometrico,pecho,mediano,170000,147,contactar,pendiente de contacto,36
+RES-0967,CLI-0918,ART-001,CAMP-AIEP-01,2026-05-21,11:00,WhatsApp,evento AIEP,fine line,pecho,mediano,130000,230,cancelada,perdida,29
+RES-0968,CLI-0919,ART-003,CAMP-DIR-01,2026-06-11,13:00,WhatsApp,visita directa,geometrico color,costillas,sesion larga,330000,110,confirmada,reserva confirmada,80
+RES-0969,CLI-0920,ART-002,CAMP-TK-01,2026-05-18,10:30,WhatsApp,TikTok,geometrico,pecho,pequeno,80000,30,confirmada,reserva confirmada,44
+RES-0970,CLI-0921,ART-002,CAMP-IG-01,2026-06-09,14:00,Instagram,Instagram,blackwork,antebrazo,pequeno,50000,259,confirmada,reserva confirmada,33
+RES-0971,CLI-0909,ART-006,CAMP-GO-01,2026-05-30,14:30,Instagram,Google,tradicional color,tobillo,pequeno,40000,102,pendiente,esperando respuesta cliente,12
+RES-0972,CLI-0922,ART-002,CAMP-TK-01,2026-06-10,12:30,WhatsApp,TikTok,tradicional,costillas,sesion larga,355000,183,contactar,pendiente de contacto,61
+RES-0973,CLI-0119,ART-006,CAMP-IG-01,2026-05-19,13:30,Instagram,Instagram,tradicional color,pierna,pequeno,55000,278,pendiente,esperando respuesta cliente,15
+RES-0974,CLI-0923,ART-001,CAMP-IG-01,2026-06-11,13:30,WhatsApp,Instagram,minimalista,hombro,pequeno,40000,117,cancelada,perdida,12
+RES-0975,CLI-0924,ART-004,CAMP-TK-01,2026-06-07,14:00,Instagram,TikTok,blackwork,espalda,mediano,170000,48,confirmada,reserva confirmada,55
+RES-0976,CLI-0925,ART-004,CAMP-DIR-01,2026-05-21,10:00,WhatsApp,visita directa,lettering,hombro,pequeno,50000,186,confirmada,reserva confirmada,38
+RES-0977,CLI-0926,ART-005,CAMP-AIEP-01,2026-06-18,16:00,WhatsApp,evento AIEP,minimalista,cuello,mediano,100000,32,confirmada,reserva confirmada,47
+RES-0978,CLI-0927,ART-004,CAMP-REF-01,2026-06-10,10:00,Instagram,recomendacion,blackwork,hombro,pequeno,70000,46,confirmada,reserva confirmada,52
+RES-0979,CLI-0928,ART-001,CAMP-TK-01,2026-05-17,09:00,WhatsApp,TikTok,fine line color,pierna,pequeno,60000,127,contactar,pendiente de contacto,16
+RES-0980,CLI-0734,ART-004,CAMP-TK-01,2026-06-02,10:00,Instagram,TikTok,lettering,mano/dedos,grande,250000,253,pendiente,esperando respuesta cliente,41
+RES-0981,CLI-0929,ART-003,CAMP-IG-01,2026-05-30,13:30,WhatsApp,Instagram,fine line color,tobillo,pequeno,40000,86,pendiente,esperando respuesta cliente,12
+RES-0982,CLI-0930,ART-001,CAMP-TK-01,2026-05-22,17:00,WhatsApp,TikTok,lettering,brazo,pequeno,40000,29,confirmada,reserva confirmada,31
+RES-0983,CLI-0931,ART-001,CAMP-GO-01,2026-06-19,12:00,Instagram,Google,fine line,pecho,mediano,85000,197,pendiente,esperando respuesta cliente,15
+RES-0984,CLI-0932,ART-005,CAMP-REF-01,2026-06-11,17:00,WhatsApp,recomendacion,minimalista,tobillo,pequeno,40000,196,confirmada,reserva confirmada,46
+RES-0985,CLI-0933,ART-005,CAMP-DIR-01,2026-05-22,16:00,WhatsApp,visita directa,geometrico,hombro,mediano,100000,188,cancelada,perdida,23
+RES-0986,CLI-0156,ART-001,CAMP-GO-01,2026-06-03,12:00,Instagram,Google,lettering color,brazo,grande,190000,275,cancelada,perdida,40
+RES-0987,CLI-0297,ART-004,CAMP-REF-01,2026-05-26,17:30,Instagram,recomendacion,lettering color,hombro,grande,180000,27,confirmada,reserva confirmada,67
+RES-0988,CLI-0934,ART-001,CAMP-RET-01,2026-06-15,15:00,WhatsApp,cliente recurrente,lettering color,mano/dedos,pequeno,60000,46,pendiente,esperando respuesta cliente,23
+RES-0989,CLI-0935,ART-003,CAMP-IG-01,2026-06-19,17:00,WhatsApp,Instagram,minimalista,cuello,pequeno,40000,183,pendiente,esperando respuesta cliente,12
+RES-0990,CLI-0936,ART-004,CAMP-IG-01,2026-05-15,16:30,WhatsApp,Instagram,tradicional color,pecho,sesion larga,310000,58,confirmada,reserva confirmada,85
+RES-0991,CLI-0937,ART-002,CAMP-DIR-01,2026-06-02,17:00,WhatsApp,visita directa,blackwork,mano/dedos,mediano,140000,178,contactar,pendiente de contacto,25
+RES-0992,CLI-0938,ART-004,CAMP-IG-01,2026-06-07,10:00,WhatsApp,Instagram,tradicional color,pecho,mediano,110000,128,confirmada,reserva confirmada,49
+RES-0993,CLI-0939,ART-004,CAMP-TK-01,2026-05-17,10:30,Instagram,TikTok,tradicional color,espalda,grande,295000,73,confirmada,reserva confirmada,83
+RES-0994,CLI-0940,ART-002,CAMP-DIR-01,2026-05-30,11:30,WhatsApp,visita directa,blackwork,espalda,mediano,120000,60,contactar,pendiente de contacto,22
+RES-0995,CLI-0941,ART-004,CAMP-TK-01,2026-06-10,17:00,Instagram,TikTok,tradicional,tobillo,mediano,115000,80,reagendada,reagendar fecha,26
+RES-0996,CLI-0942,ART-006,CAMP-IG-01,2026-06-10,16:00,WhatsApp,Instagram,geometrico,pierna,mediano,170000,88,confirmada,reserva confirmada,55
+RES-0997,CLI-0943,ART-006,CAMP-DIR-01,2026-05-20,12:00,WhatsApp,visita directa,blackwork,espalda,grande,330000,126,contactar,pendiente de contacto,65
+RES-0998,CLI-0944,ART-003,CAMP-AIEP-01,2026-06-01,09:30,Instagram,evento AIEP,fine line,brazo,pequeno,45000,92,pendiente,esperando respuesta cliente,12
+RES-0999,CLI-0945,ART-003,CAMP-IG-01,2026-06-07,10:30,Instagram,Instagram,geometrico color,muneca,pequeno,45000,162,confirmada,reserva confirmada,37
+RES-1000,CLI-0946,ART-005,CAMP-REF-01,2026-06-17,11:30,WhatsApp,recomendacion,minimalista,antebrazo,grande,180000,147,contactar,pendiente de contacto,48

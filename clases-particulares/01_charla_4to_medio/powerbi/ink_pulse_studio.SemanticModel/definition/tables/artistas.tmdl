@@ -1,0 +1,59 @@
+table artistas
+	lineageTag: 4227a44d-482a-4afa-8cd8-0a96d371dcd7
+
+	column artista_id
+		dataType: string
+		lineageTag: fd936f83-dd0d-40d4-8e12-534d2e88385c
+		summarizeBy: none
+		sourceColumn: artista_id
+
+	column nombre_artista
+		dataType: string
+		lineageTag: 137d456d-33af-42ac-80cc-d1b03d9f04aa
+		summarizeBy: none
+		sourceColumn: nombre_artista
+
+	column especialidad
+		dataType: string
+		lineageTag: fd936f83-dd0d-4091-8fe6-985a9c3b91e9
+		summarizeBy: none
+		sourceColumn: especialidad
+
+	column tarifa_hora_clp
+		dataType: int64
+		formatString: 0
+		lineageTag: b1dfab47-19c9-4426-82ee-7e183149fd01
+		summarizeBy: sum
+		sourceColumn: tarifa_hora_clp
+
+	column horas_disponibles_dia
+		dataType: double
+		formatString: 0.00
+		lineageTag: ae08b8dc-061a-4fbf-8fe4-4e563cd08ed9
+		summarizeBy: sum
+		sourceColumn: horas_disponibles_dia
+
+	column comision_pct
+		dataType: double
+		formatString: 0.00
+		lineageTag: ae08b8dc-061a-4fac-8ba2-30f89c3b91e9
+		summarizeBy: sum
+		sourceColumn: comision_pct
+
+	column estado
+		dataType: string
+		lineageTag: 751be70b-5585-4819-8fbb-406e12b26030
+		summarizeBy: none
+		sourceColumn: estado
+
+	partition artistas = m
+		mode: import
+		source =
+				let
+				    Origen = Csv.Document(File.Contents("C:\Users\Diego Obando\dev\pro301-taller-de-aplicaciones-para-internet\clases-particulares\01_charla_4to_medio\datos\modelo_negocio\artistas.csv"),[Delimiter=",", Columns=7, Encoding=65001, QuoteStyle=QuoteStyle.Csv]),
+				    #"Encabezados promovidos" = Table.PromoteHeaders(Origen, [PromoteAllScalars=true]),
+				    #"Tipo cambiado" = Table.TransformColumnTypes(#"Encabezados promovidos",{{"artista_id", type text}, {"nombre_artista", type text}, {"especialidad", type text}, {"tarifa_hora_clp", Int64.Type}, {"horas_disponibles_dia", type number}, {"comision_pct", type number}, {"estado", type text}})
+				in
+				    #"Tipo cambiado"
+
+	annotation PBI_ResultType = Table

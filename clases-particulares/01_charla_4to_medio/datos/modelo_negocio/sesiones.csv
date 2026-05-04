@@ -1,0 +1,391 @@
+sesion_id,reserva_id,artista_id,fecha_agendada,fecha_realizada,duracion_horas,estado_sesion,estilo_tatuaje,zona_cuerpo,tamano
+SES-0002,BOOK-0002,ART-001,2026-06-04,2026-06-04,1,realizada,lettering,pecho,pequeno
+SES-0003,BOOK-0003,ART-004,2026-06-16,2026-06-16,2.25,realizada,lettering color,espalda,mediano
+SES-0008,BOOK-0008,ART-001,2026-05-26,2026-05-26,3,realizada,minimalista,cuello,mediano
+SES-0010,BOOK-0010,ART-004,2026-05-23,2026-05-23,1.25,realizada,tradicional color,antebrazo,pequeno
+SES-0011,BOOK-0011,ART-006,2026-05-23,2026-05-23,1,realizada,blackwork,antebrazo,pequeno
+SES-0013,BOOK-0013,ART-002,2026-05-27,2026-05-27,2.25,realizada,geometrico,hombro,mediano
+SES-0018,BOOK-0018,ART-006,2026-05-20,2026-05-20,6,realizada,geometrico,costillas,sesion larga
+SES-0023,BOOK-0023,ART-004,2026-05-23,2026-05-23,1,realizada,tradicional color,mano/dedos,pequeno
+SES-0028,BOOK-0028,ART-003,2026-06-09,2026-06-09,3.5,realizada,minimalista color,cuello,grande
+SES-0029,BOOK-0029,ART-004,2026-06-06,2026-06-06,1.75,realizada,tradicional color,mano/dedos,mediano
+SES-0031,BOOK-0031,ART-004,2026-05-26,2026-05-26,1.25,realizada,blackwork,pierna,pequeno
+SES-0032,BOOK-0032,ART-005,2026-06-09,,1,reprogramada,minimalista,mano/dedos,pequeno
+SES-0042,BOOK-0042,ART-002,2026-06-23,2026-06-23,2.25,realizada,tradicional,pecho,mediano
+SES-0052,BOOK-0052,ART-005,2026-06-06,2026-06-06,0.75,realizada,geometrico color,brazo,pequeno
+SES-0060,BOOK-0060,ART-005,2026-05-21,2026-05-21,0.75,realizada,geometrico color,brazo,pequeno
+SES-0061,BOOK-0061,ART-006,2026-05-28,2026-05-28,4.5,realizada,geometrico,cuello,grande
+SES-0065,BOOK-0065,ART-002,2026-05-29,2026-05-29,2.25,realizada,geometrico,antebrazo,mediano
+SES-0067,BOOK-0067,ART-006,2026-05-21,2026-05-21,4.5,realizada,geometrico,espalda,grande
+SES-0069,BOOK-0069,ART-004,2026-06-02,2026-06-02,3.5,realizada,lettering,antebrazo,grande
+SES-0070,BOOK-0070,ART-006,2026-06-20,2026-06-20,5.5,realizada,tradicional color,hombro,grande
+SES-0076,BOOK-0076,ART-002,2026-06-09,2026-06-09,6,realizada,tradicional,costillas,sesion larga
+SES-0081,BOOK-0081,ART-006,2026-06-17,2026-06-17,1.25,realizada,blackwork,hombro,pequeno
+SES-0085,BOOK-0085,ART-006,2026-06-16,2026-06-16,3.5,realizada,tradicional,mano/dedos,grande
+SES-0090,BOOK-0090,ART-004,2026-05-19,2026-05-19,1.75,realizada,blackwork,cuello,mediano
+SES-0092,BOOK-0092,ART-001,2026-05-26,2026-05-26,1.25,realizada,fine line,tobillo,pequeno
+SES-0093,BOOK-0093,ART-004,2026-06-20,,1.75,no asistio,lettering,espalda,mediano
+SES-0095,BOOK-0095,ART-003,2026-06-23,,2.25,reprogramada,fine line,antebrazo,mediano
+SES-0097,BOOK-0097,ART-005,2026-06-18,2026-06-18,3,realizada,fine line,mano/dedos,mediano
+SES-0104,BOOK-0104,ART-003,2026-06-09,2026-06-09,0.75,realizada,geometrico,espalda,pequeno
+SES-0105,BOOK-0105,ART-006,2026-06-04,2026-06-04,2.25,realizada,tradicional,pecho,mediano
+SES-0110,BOOK-0110,ART-002,2026-05-16,,3,reprogramada,geometrico,hombro,mediano
+SES-0113,BOOK-0113,ART-003,2026-06-03,2026-06-03,1.75,realizada,geometrico,hombro,mediano
+SES-0115,BOOK-0115,ART-002,2026-06-03,2026-06-03,3,realizada,geometrico,pecho,mediano
+SES-0118,BOOK-0118,ART-001,2026-06-10,2026-06-10,2.25,realizada,minimalista color,muneca,mediano
+SES-0119,BOOK-0119,ART-001,2026-05-23,2026-05-23,5,realizada,minimalista,pecho,sesion larga
+SES-0121,BOOK-0121,ART-001,2026-05-23,,1.25,reprogramada,minimalista,hombro,pequeno
+SES-0122,BOOK-0122,ART-005,2026-06-09,2026-06-09,1.25,realizada,fine line,cuello,pequeno
+SES-0123,BOOK-0123,ART-006,2026-05-19,2026-05-19,1.75,realizada,blackwork,cuello,mediano
+SES-0126,BOOK-0126,ART-005,2026-05-19,2026-05-19,5.5,realizada,geometrico color,hombro,grande
+SES-0127,BOOK-0127,ART-004,2026-06-05,2026-06-05,3.5,realizada,blackwork,costillas,grande
+SES-0128,BOOK-0128,ART-003,2026-06-03,2026-06-03,0.75,realizada,geometrico,antebrazo,pequeno
+SES-0131,BOOK-0131,ART-001,2026-06-02,2026-06-02,2.25,realizada,minimalista,pierna,mediano
+SES-0132,BOOK-0132,ART-003,2026-06-09,2026-06-09,0.75,realizada,minimalista,costillas,pequeno
+SES-0135,BOOK-0135,ART-004,2026-06-23,2026-06-23,5.5,realizada,blackwork,muneca,grande
+SES-0139,BOOK-0139,ART-005,2026-05-20,2026-05-20,3,realizada,geometrico color,pierna,mediano
+SES-0142,BOOK-0142,ART-001,2026-06-16,2026-06-16,1.25,realizada,fine line,costillas,pequeno
+SES-0145,BOOK-0145,ART-005,2026-05-20,2026-05-20,1.25,realizada,geometrico,cuello,pequeno
+SES-0146,BOOK-0146,ART-006,2026-06-02,2026-06-02,3,realizada,tradicional color,muneca,mediano
+SES-0147,BOOK-0147,ART-003,2026-06-13,2026-06-13,2.25,realizada,fine line,brazo,mediano
+SES-0148,BOOK-0148,ART-003,2026-05-20,,5,reprogramada,fine line,hombro,sesion larga
+SES-0149,BOOK-0149,ART-004,2026-05-23,,1,reprogramada,lettering,cuello,pequeno
+SES-0155,BOOK-0155,ART-006,2026-05-27,2026-05-27,2.25,realizada,geometrico,mano/dedos,mediano
+SES-0158,BOOK-0158,ART-002,2026-06-23,2026-06-23,3,realizada,blackwork,costillas,mediano
+SES-0159,BOOK-0159,ART-002,2026-05-29,2026-05-29,1.75,realizada,geometrico,tobillo,mediano
+SES-0160,BOOK-0160,ART-005,2026-05-27,2026-05-27,4.5,realizada,geometrico,mano/dedos,grande
+SES-0162,BOOK-0162,ART-004,2026-06-13,2026-06-13,1.75,realizada,blackwork,muneca,mediano
+SES-0164,BOOK-0164,ART-005,2026-05-28,2026-05-28,0.75,realizada,minimalista color,brazo,pequeno
+SES-0170,BOOK-0170,ART-004,2026-06-02,2026-06-02,0.75,realizada,tradicional color,pierna,pequeno
+SES-0171,BOOK-0171,ART-004,2026-06-09,,3,reprogramada,blackwork,pierna,mediano
+SES-0172,BOOK-0172,ART-001,2026-06-17,2026-06-17,5.5,realizada,fine line,hombro,grande
+SES-0173,BOOK-0173,ART-006,2026-06-05,2026-06-05,2.25,realizada,geometrico color,mano/dedos,mediano
+SES-0174,BOOK-0174,ART-006,2026-06-03,,4.5,reprogramada,geometrico,tobillo,grande
+SES-0175,BOOK-0175,ART-002,2026-05-26,2026-05-26,2.25,realizada,blackwork,muneca,mediano
+SES-0178,BOOK-0178,ART-002,2026-05-22,2026-05-22,3.5,realizada,geometrico color,cuello,grande
+SES-0179,BOOK-0179,ART-006,2026-06-09,2026-06-09,6,realizada,geometrico color,espalda,sesion larga
+SES-0181,BOOK-0181,ART-004,2026-06-05,2026-06-05,1.25,realizada,tradicional,costillas,pequeno
+SES-0186,BOOK-0186,ART-003,2026-06-17,,1,no asistio,minimalista color,tobillo,pequeno
+SES-0187,BOOK-0187,ART-004,2026-06-10,2026-06-10,5.5,realizada,tradicional color,pecho,grande
+SES-0190,BOOK-0190,ART-006,2026-05-23,2026-05-23,4.5,realizada,geometrico color,muneca,grande
+SES-0195,BOOK-0195,ART-002,2026-05-19,,2.25,no asistio,geometrico color,hombro,mediano
+SES-0196,BOOK-0196,ART-002,2026-06-16,2026-06-16,0.75,realizada,tradicional color,tobillo,pequeno
+SES-0199,BOOK-0199,ART-006,2026-05-29,2026-05-29,3,realizada,blackwork,muneca,mediano
+SES-0200,BOOK-0200,ART-001,2026-06-06,2026-06-06,1.75,realizada,fine line,brazo,mediano
+SES-0202,BOOK-0202,ART-004,2026-06-16,2026-06-16,1.75,realizada,blackwork,espalda,mediano
+SES-0207,BOOK-0207,ART-003,2026-06-19,2026-06-19,1.75,realizada,geometrico,antebrazo,mediano
+SES-0209,BOOK-0209,ART-002,2026-05-26,,1.75,reprogramada,tradicional,brazo,mediano
+SES-0215,BOOK-0215,ART-004,2026-05-19,2026-05-19,0.75,realizada,blackwork,cuello,pequeno
+SES-0217,BOOK-0217,ART-004,2026-06-16,,1.25,no asistio,blackwork,antebrazo,pequeno
+SES-0218,BOOK-0218,ART-001,2026-05-21,2026-05-21,5,realizada,fine line,antebrazo,sesion larga
+SES-0219,BOOK-0219,ART-002,2026-06-13,2026-06-13,2.25,realizada,tradicional color,brazo,mediano
+SES-0224,BOOK-0224,ART-002,2026-05-22,2026-05-22,3,realizada,blackwork,cuello,mediano
+SES-0227,BOOK-0227,ART-005,2026-05-29,,2.25,no asistio,minimalista,costillas,mediano
+SES-0232,BOOK-0232,ART-006,2026-06-02,2026-06-02,3,realizada,tradicional,brazo,mediano
+SES-0233,BOOK-0233,ART-003,2026-06-20,2026-06-20,3,realizada,minimalista color,muneca,mediano
+SES-0237,BOOK-0237,ART-003,2026-06-24,2026-06-24,4.5,realizada,minimalista color,costillas,grande
+SES-0239,BOOK-0239,ART-002,2026-05-26,2026-05-26,1.25,realizada,geometrico,mano/dedos,pequeno
+SES-0240,BOOK-0240,ART-003,2026-06-03,2026-06-03,3,realizada,minimalista,pierna,mediano
+SES-0242,BOOK-0242,ART-006,2026-05-30,2026-05-30,5,realizada,geometrico,tobillo,sesion larga
+SES-0245,BOOK-0245,ART-006,2026-06-23,,4.5,no asistio,geometrico,brazo,grande
+SES-0249,BOOK-0249,ART-006,2026-05-26,2026-05-26,4.5,realizada,blackwork,costillas,grande
+SES-0250,BOOK-0250,ART-001,2026-06-09,2026-06-09,6,realizada,minimalista,hombro,sesion larga
+SES-0251,BOOK-0251,ART-002,2026-05-20,2026-05-20,3,realizada,geometrico color,costillas,mediano
+SES-0257,BOOK-0257,ART-002,2026-05-21,2026-05-21,1.25,realizada,geometrico,hombro,pequeno
+SES-0258,BOOK-0258,ART-002,2026-06-10,,1.25,no asistio,tradicional,hombro,pequeno
+SES-0259,BOOK-0259,ART-003,2026-06-25,2026-06-25,4.5,realizada,fine line,hombro,grande
+SES-0260,BOOK-0260,ART-006,2026-06-13,2026-06-13,1,realizada,geometrico,brazo,pequeno
+SES-0261,BOOK-0261,ART-005,2026-06-05,,2.25,reprogramada,fine line,costillas,mediano
+SES-0262,BOOK-0262,ART-001,2026-05-29,2026-05-29,1.25,realizada,fine line,tobillo,pequeno
+SES-0263,BOOK-0263,ART-001,2026-05-16,2026-05-16,1.75,realizada,fine line,tobillo,mediano
+SES-0266,BOOK-0266,ART-004,2026-05-16,2026-05-16,3.5,realizada,blackwork,tobillo,grande
+SES-0268,BOOK-0268,ART-004,2026-06-09,2026-06-09,1,realizada,blackwork,pecho,pequeno
+SES-0269,BOOK-0269,ART-001,2026-06-16,2026-06-16,1.75,realizada,lettering,brazo,mediano
+SES-0270,BOOK-0270,ART-003,2026-06-17,2026-06-17,1.75,realizada,fine line color,antebrazo,mediano
+SES-0273,BOOK-0273,ART-002,2026-06-10,2026-06-10,1.25,realizada,geometrico,muneca,pequeno
+SES-0275,BOOK-0275,ART-003,2026-05-26,2026-05-26,5.5,realizada,fine line color,costillas,grande
+SES-0276,BOOK-0276,ART-006,2026-06-10,2026-06-10,3.5,realizada,tradicional,muneca,grande
+SES-0279,BOOK-0279,ART-001,2026-06-10,2026-06-10,1.25,realizada,minimalista,antebrazo,pequeno
+SES-0281,BOOK-0281,ART-001,2026-05-27,2026-05-27,5.5,realizada,minimalista,pierna,grande
+SES-0282,BOOK-0282,ART-006,2026-06-04,2026-06-04,3.5,realizada,geometrico,costillas,grande
+SES-0286,BOOK-0286,ART-002,2026-05-30,2026-05-30,3.5,realizada,tradicional,mano/dedos,grande
+SES-0287,BOOK-0287,ART-003,2026-06-10,,3,reprogramada,fine line,pecho,mediano
+SES-0288,BOOK-0288,ART-001,2026-06-18,2026-06-18,4.5,realizada,fine line,hombro,grande
+SES-0289,BOOK-0289,ART-003,2026-06-05,2026-06-05,2.25,realizada,minimalista,cuello,mediano
+SES-0290,BOOK-0290,ART-006,2026-06-05,2026-06-05,3.5,realizada,blackwork,cuello,grande
+SES-0296,BOOK-0296,ART-002,2026-06-18,2026-06-18,6,realizada,tradicional color,mano/dedos,sesion larga
+SES-0300,BOOK-0300,ART-004,2026-06-03,2026-06-03,1.75,realizada,lettering,pecho,mediano
+SES-0301,BOOK-0301,ART-002,2026-05-27,2026-05-27,2.25,realizada,blackwork color,tobillo,mediano
+SES-0316,BOOK-0316,ART-001,2026-05-26,2026-05-26,1,realizada,lettering,hombro,pequeno
+SES-0318,BOOK-0318,ART-002,2026-05-28,2026-05-28,4.5,realizada,tradicional color,costillas,grande
+SES-0319,BOOK-0319,ART-003,2026-06-18,2026-06-18,2.25,realizada,fine line,antebrazo,mediano
+SES-0324,BOOK-0324,ART-003,2026-05-30,,5.5,reprogramada,fine line,cuello,grande
+SES-0327,BOOK-0327,ART-003,2026-06-26,2026-06-26,4.5,realizada,minimalista color,mano/dedos,grande
+SES-0330,BOOK-0330,ART-001,2026-06-11,2026-06-11,3,realizada,lettering,espalda,mediano
+SES-0331,BOOK-0331,ART-005,2026-06-02,2026-06-02,1.75,realizada,minimalista,mano/dedos,mediano
+SES-0335,BOOK-0335,ART-001,2026-05-28,2026-05-28,3,realizada,lettering,pecho,mediano
+SES-0337,BOOK-0337,ART-003,2026-06-27,2026-06-27,5,realizada,minimalista,costillas,sesion larga
+SES-0339,BOOK-0339,ART-004,2026-06-11,2026-06-11,6,realizada,lettering,tobillo,sesion larga
+SES-0340,BOOK-0340,ART-002,2026-06-02,2026-06-02,5.5,realizada,tradicional,hombro,grande
+SES-0344,BOOK-0344,ART-006,2026-06-17,2026-06-17,1.75,realizada,tradicional color,brazo,mediano
+SES-0345,BOOK-0345,ART-004,2026-06-13,,0.75,reprogramada,lettering color,hombro,pequeno
+SES-0354,BOOK-0354,ART-001,2026-06-12,2026-06-12,1.75,realizada,fine line color,mano/dedos,mediano
+SES-0355,BOOK-0355,ART-003,2026-05-27,2026-05-27,5.5,realizada,minimalista,costillas,grande
+SES-0356,BOOK-0356,ART-003,2026-05-19,,1.75,no asistio,minimalista,antebrazo,mediano
+SES-0362,BOOK-0362,ART-002,2026-06-03,2026-06-03,2.25,realizada,blackwork,costillas,mediano
+SES-0365,BOOK-0365,ART-004,2026-06-05,2026-06-05,1,realizada,lettering,antebrazo,pequeno
+SES-0369,BOOK-0369,ART-002,2026-06-20,2026-06-20,3,realizada,geometrico,antebrazo,mediano
+SES-0375,BOOK-0375,ART-003,2026-06-11,2026-06-11,1,realizada,geometrico,antebrazo,pequeno
+SES-0380,BOOK-0380,ART-004,2026-06-12,2026-06-12,5,realizada,lettering color,antebrazo,sesion larga
+SES-0382,BOOK-0382,ART-001,2026-05-19,2026-05-19,1.75,realizada,minimalista,pierna,mediano
+SES-0383,BOOK-0383,ART-002,2026-06-11,2026-06-11,4.5,realizada,blackwork,hombro,grande
+SES-0385,BOOK-0385,ART-005,2026-05-29,2026-05-29,1.25,realizada,minimalista,costillas,pequeno
+SES-0386,BOOK-0386,ART-004,2026-05-29,,1,reprogramada,lettering,brazo,pequeno
+SES-0389,BOOK-0389,ART-004,2026-06-19,2026-06-19,3.5,realizada,blackwork color,antebrazo,grande
+SES-0390,BOOK-0390,ART-004,2026-06-17,2026-06-17,5,realizada,blackwork,costillas,sesion larga
+SES-0392,BOOK-0392,ART-001,2026-06-02,,1.25,reprogramada,fine line,brazo,pequeno
+SES-0401,BOOK-0401,ART-003,2026-06-23,,2.25,no asistio,geometrico,cuello,mediano
+SES-0402,BOOK-0402,ART-003,2026-06-04,2026-06-04,1,realizada,geometrico,pierna,pequeno
+SES-0403,BOOK-0403,ART-001,2026-06-12,2026-06-12,1.75,realizada,minimalista,pecho,mediano
+SES-0404,BOOK-0404,ART-004,2026-06-20,2026-06-20,4.5,realizada,tradicional color,muneca,grande
+SES-0410,BOOK-0410,ART-002,2026-05-29,2026-05-29,2.25,realizada,blackwork,pecho,mediano
+SES-0414,BOOK-0414,ART-006,2026-06-09,2026-06-09,0.75,realizada,tradicional color,brazo,pequeno
+SES-0416,BOOK-0416,ART-004,2026-05-20,2026-05-20,1.25,realizada,lettering,costillas,pequeno
+SES-0417,BOOK-0417,ART-001,2026-06-16,2026-06-16,3,realizada,fine line,tobillo,mediano
+SES-0421,BOOK-0421,ART-002,2026-06-20,2026-06-20,1.25,realizada,geometrico,muneca,pequeno
+SES-0422,BOOK-0422,ART-004,2026-06-18,2026-06-18,5.5,realizada,lettering color,pecho,grande
+SES-0423,BOOK-0423,ART-004,2026-05-27,2026-05-27,1.25,realizada,tradicional color,costillas,pequeno
+SES-0425,BOOK-0425,ART-006,2026-05-19,2026-05-19,4.5,realizada,geometrico,pecho,grande
+SES-0426,BOOK-0426,ART-004,2026-05-19,,3,no asistio,blackwork,tobillo,mediano
+SES-0427,BOOK-0427,ART-002,2026-05-23,2026-05-23,1.75,realizada,tradicional color,costillas,mediano
+SES-0429,BOOK-0429,ART-002,2026-06-10,2026-06-10,1,realizada,geometrico,tobillo,pequeno
+SES-0430,BOOK-0430,ART-006,2026-06-20,2026-06-20,1,realizada,blackwork,costillas,pequeno
+SES-0432,BOOK-0432,ART-006,2026-05-21,,1.75,reprogramada,blackwork,antebrazo,mediano
+SES-0433,BOOK-0433,ART-002,2026-05-30,2026-05-30,1,realizada,blackwork color,cuello,pequeno
+SES-0436,BOOK-0436,ART-004,2026-05-30,2026-05-30,3,realizada,tradicional,costillas,mediano
+SES-0439,BOOK-0439,ART-001,2026-06-04,2026-06-04,2.25,realizada,lettering,tobillo,mediano
+SES-0441,BOOK-0441,ART-002,2026-06-10,2026-06-10,1.25,realizada,tradicional,espalda,pequeno
+SES-0443,BOOK-0443,ART-005,2026-06-10,2026-06-10,5.5,realizada,geometrico,hombro,grande
+SES-0444,BOOK-0444,ART-006,2026-06-12,2026-06-12,3,realizada,geometrico color,pierna,mediano
+SES-0446,BOOK-0446,ART-003,2026-06-06,2026-06-06,5.5,realizada,fine line,muneca,grande
+SES-0448,BOOK-0448,ART-002,2026-06-06,2026-06-06,4.5,realizada,geometrico color,cuello,grande
+SES-0450,BOOK-0450,ART-001,2026-05-28,2026-05-28,1.75,realizada,minimalista color,pecho,mediano
+SES-0454,BOOK-0454,ART-003,2026-06-10,,0.75,reprogramada,minimalista,tobillo,pequeno
+SES-0457,BOOK-0457,ART-003,2026-06-30,2026-06-30,5.5,realizada,minimalista,espalda,grande
+SES-0458,BOOK-0458,ART-003,2026-07-01,2026-07-01,5.5,realizada,fine line,antebrazo,grande
+SES-0460,BOOK-0460,ART-006,2026-06-24,2026-06-24,4.5,realizada,blackwork,brazo,grande
+SES-0461,BOOK-0461,ART-001,2026-05-20,2026-05-20,3.5,realizada,lettering color,costillas,grande
+SES-0462,BOOK-0462,ART-003,2026-05-19,2026-05-19,1.25,realizada,geometrico color,costillas,pequeno
+SES-0463,BOOK-0463,ART-003,2026-05-28,2026-05-28,3.5,realizada,fine line,muneca,grande
+SES-0464,BOOK-0464,ART-001,2026-05-29,2026-05-29,3,realizada,lettering color,mano/dedos,mediano
+SES-0467,BOOK-0467,ART-004,2026-05-26,2026-05-26,1.25,realizada,lettering,pierna,pequeno
+SES-0474,BOOK-0474,ART-003,2026-06-16,,1,reprogramada,minimalista,pierna,pequeno
+SES-0475,BOOK-0475,ART-004,2026-05-22,2026-05-22,4.5,realizada,blackwork color,hombro,grande
+SES-0476,BOOK-0476,ART-003,2026-05-21,2026-05-21,3.5,realizada,geometrico,tobillo,grande
+SES-0480,BOOK-0480,ART-001,2026-05-21,2026-05-21,1,realizada,minimalista,cuello,pequeno
+SES-0481,BOOK-0481,ART-003,2026-06-16,2026-06-16,4.5,realizada,minimalista,pierna,grande
+SES-0482,BOOK-0482,ART-002,2026-06-19,2026-06-19,2.25,realizada,geometrico,antebrazo,mediano
+SES-0483,BOOK-0483,ART-002,2026-06-05,2026-06-05,3,realizada,tradicional,espalda,mediano
+SES-0491,BOOK-0491,ART-006,2026-06-06,2026-06-06,3,realizada,blackwork color,mano/dedos,mediano
+SES-0496,BOOK-0496,ART-004,2026-05-28,2026-05-28,5.5,realizada,blackwork,pierna,grande
+SES-0499,BOOK-0499,ART-001,2026-06-03,2026-06-03,5,realizada,minimalista,pierna,sesion larga
+SES-0500,BOOK-0500,ART-001,2026-06-11,2026-06-11,3,realizada,lettering,pecho,mediano
+SES-0506,BOOK-0506,ART-001,2026-05-16,2026-05-16,1.25,realizada,fine line,pierna,pequeno
+SES-0507,BOOK-0507,ART-006,2026-05-22,2026-05-22,1.75,realizada,blackwork color,muneca,mediano
+SES-0508,BOOK-0508,ART-004,2026-06-19,2026-06-19,3,realizada,tradicional color,cuello,mediano
+SES-0509,BOOK-0509,ART-004,2026-05-26,2026-05-26,0.75,realizada,tradicional color,muneca,pequeno
+SES-0512,BOOK-0512,ART-005,2026-05-26,2026-05-26,6,realizada,geometrico color,brazo,sesion larga
+SES-0516,BOOK-0516,ART-002,2026-06-19,2026-06-19,2.25,realizada,blackwork,cuello,mediano
+SES-0519,BOOK-0519,ART-004,2026-06-24,2026-06-24,6,realizada,blackwork color,tobillo,sesion larga
+SES-0522,BOOK-0522,ART-005,2026-05-22,2026-05-22,1.25,realizada,minimalista,costillas,pequeno
+SES-0524,BOOK-0524,ART-001,2026-05-22,2026-05-22,4.5,realizada,minimalista,pecho,grande
+SES-0526,BOOK-0526,ART-006,2026-05-27,2026-05-27,3.5,realizada,geometrico color,cuello,grande
+SES-0527,BOOK-0527,ART-004,2026-06-02,2026-06-02,0.75,realizada,lettering,mano/dedos,pequeno
+SES-0529,BOOK-0529,ART-004,2026-06-09,2026-06-09,1,realizada,tradicional,costillas,pequeno
+SES-0530,BOOK-0530,ART-005,2026-06-16,2026-06-16,3.5,realizada,fine line color,tobillo,grande
+SES-0533,BOOK-0533,ART-006,2026-06-03,2026-06-03,1.75,realizada,tradicional,muneca,mediano
+SES-0534,BOOK-0534,ART-004,2026-06-13,2026-06-13,3,realizada,blackwork color,tobillo,mediano
+SES-0535,BOOK-0535,ART-005,2026-06-19,,2.25,reprogramada,minimalista,mano/dedos,mediano
+SES-0537,BOOK-0537,ART-006,2026-06-11,2026-06-11,1.75,realizada,blackwork color,pierna,mediano
+SES-0541,BOOK-0541,ART-005,2026-05-21,2026-05-21,2.25,realizada,minimalista,costillas,mediano
+SES-0544,BOOK-0544,ART-001,2026-06-13,2026-06-13,5.5,realizada,fine line,muneca,grande
+SES-0545,BOOK-0545,ART-001,2026-05-30,2026-05-30,3,realizada,fine line,costillas,mediano
+SES-0547,BOOK-0547,ART-005,2026-05-27,2026-05-27,0.75,realizada,fine line color,muneca,pequeno
+SES-0548,BOOK-0548,ART-002,2026-06-12,2026-06-12,6,realizada,tradicional color,muneca,sesion larga
+SES-0549,BOOK-0549,ART-006,2026-06-05,,1,reprogramada,tradicional,brazo,pequeno
+SES-0551,BOOK-0551,ART-006,2026-06-06,2026-06-06,3,realizada,tradicional color,espalda,mediano
+SES-0552,BOOK-0552,ART-001,2026-05-29,2026-05-29,1.75,realizada,fine line,cuello,mediano
+SES-0560,BOOK-0560,ART-004,2026-06-25,2026-06-25,6,realizada,blackwork,costillas,sesion larga
+SES-0564,BOOK-0564,ART-002,2026-06-13,2026-06-13,2.25,realizada,geometrico,cuello,mediano
+SES-0566,BOOK-0566,ART-005,2026-06-11,,5.5,no asistio,minimalista,antebrazo,grande
+SES-0571,BOOK-0571,ART-006,2026-05-20,2026-05-20,0.75,realizada,blackwork color,pecho,pequeno
+SES-0572,BOOK-0572,ART-002,2026-06-04,2026-06-04,5,realizada,blackwork,brazo,sesion larga
+SES-0573,BOOK-0573,ART-005,2026-05-22,2026-05-22,0.75,realizada,geometrico color,tobillo,pequeno
+SES-0574,BOOK-0574,ART-004,2026-06-06,2026-06-06,1.75,realizada,lettering color,costillas,mediano
+SES-0578,BOOK-0578,ART-001,2026-06-19,2026-06-19,3.5,realizada,fine line,brazo,grande
+SES-0581,BOOK-0581,ART-004,2026-06-12,2026-06-12,1,realizada,lettering color,costillas,pequeno
+SES-0585,BOOK-0585,ART-006,2026-05-30,2026-05-30,1.75,realizada,blackwork color,antebrazo,mediano
+SES-0587,BOOK-0587,ART-005,2026-05-27,2026-05-27,0.75,realizada,geometrico,pecho,pequeno
+SES-0588,BOOK-0588,ART-005,2026-06-12,2026-06-12,3.5,realizada,fine line,pecho,grande
+SES-0590,BOOK-0590,ART-001,2026-06-20,,5,no asistio,fine line,antebrazo,sesion larga
+SES-0592,BOOK-0592,ART-004,2026-06-23,2026-06-23,0.75,realizada,blackwork,brazo,pequeno
+SES-0599,BOOK-0599,ART-006,2026-06-17,,3.5,reprogramada,tradicional color,tobillo,grande
+SES-0602,BOOK-0602,ART-006,2026-06-16,2026-06-16,1.75,realizada,geometrico,brazo,mediano
+SES-0603,BOOK-0603,ART-006,2026-05-16,2026-05-16,1.75,realizada,blackwork,mano/dedos,mediano
+SES-0608,BOOK-0608,ART-004,2026-05-27,2026-05-27,3.5,realizada,blackwork,pecho,grande
+SES-0609,BOOK-0609,ART-003,2026-06-19,2026-06-19,2.25,realizada,geometrico color,mano/dedos,mediano
+SES-0613,BOOK-0613,ART-002,2026-06-10,2026-06-10,1.25,realizada,geometrico,muneca,pequeno
+SES-0615,BOOK-0615,ART-005,2026-06-18,2026-06-18,1.25,realizada,geometrico color,pecho,pequeno
+SES-0616,BOOK-0616,ART-002,2026-06-24,2026-06-24,5,realizada,tradicional,cuello,sesion larga
+SES-0618,BOOK-0618,ART-003,2026-06-02,2026-06-02,0.75,realizada,fine line,espalda,pequeno
+SES-0621,BOOK-0621,ART-001,2026-06-05,,3.5,reprogramada,lettering color,cuello,grande
+SES-0622,BOOK-0622,ART-004,2026-05-23,2026-05-23,2.25,realizada,lettering color,hombro,mediano
+SES-0623,BOOK-0623,ART-004,2026-06-26,2026-06-26,1.75,realizada,blackwork color,pierna,mediano
+SES-0624,BOOK-0624,ART-002,2026-06-16,2026-06-16,5.5,realizada,geometrico,tobillo,grande
+SES-0627,BOOK-0627,ART-004,2026-06-26,2026-06-26,1.75,realizada,blackwork color,muneca,mediano
+SES-0628,BOOK-0628,ART-002,2026-05-21,,4.5,no asistio,geometrico,tobillo,grande
+SES-0631,BOOK-0631,ART-005,2026-06-02,2026-06-02,2.25,realizada,minimalista color,pierna,mediano
+SES-0638,BOOK-0638,ART-001,2026-06-23,,5.5,reprogramada,fine line color,pierna,grande
+SES-0639,BOOK-0639,ART-001,2026-06-24,2026-06-24,3.5,realizada,lettering,pierna,grande
+SES-0640,BOOK-0640,ART-003,2026-06-11,2026-06-11,4.5,realizada,minimalista color,hombro,grande
+SES-0641,BOOK-0641,ART-002,2026-06-17,2026-06-17,5.5,realizada,geometrico,hombro,grande
+SES-0644,BOOK-0644,ART-001,2026-05-26,2026-05-26,0.75,realizada,fine line,pecho,pequeno
+SES-0650,BOOK-0650,ART-006,2026-06-23,,1.25,reprogramada,geometrico,pierna,pequeno
+SES-0651,BOOK-0651,ART-003,2026-05-29,2026-05-29,5.5,realizada,minimalista,cuello,grande
+SES-0652,BOOK-0652,ART-001,2026-05-22,2026-05-22,1.25,realizada,minimalista,hombro,pequeno
+SES-0658,BOOK-0658,ART-002,2026-06-02,2026-06-02,0.75,realizada,tradicional,costillas,pequeno
+SES-0660,BOOK-0660,ART-001,2026-06-12,2026-06-12,1.75,realizada,fine line color,cuello,mediano
+SES-0661,BOOK-0661,ART-005,2026-06-20,2026-06-20,0.75,realizada,geometrico,cuello,pequeno
+SES-0663,BOOK-0663,ART-001,2026-06-06,2026-06-06,4.5,realizada,lettering,espalda,grande
+SES-0668,BOOK-0668,ART-006,2026-06-13,,5.5,reprogramada,blackwork,antebrazo,grande
+SES-0669,BOOK-0669,ART-002,2026-05-26,,1,reprogramada,tradicional,pierna,pequeno
+SES-0670,BOOK-0670,ART-001,2026-05-27,,0.75,no asistio,minimalista,espalda,pequeno
+SES-0672,BOOK-0672,ART-003,2026-06-02,,1.25,reprogramada,fine line,antebrazo,pequeno
+SES-0677,BOOK-0677,ART-002,2026-06-23,2026-06-23,1.25,realizada,blackwork,costillas,pequeno
+SES-0679,BOOK-0679,ART-004,2026-05-20,,4.5,no asistio,lettering,hombro,grande
+SES-0683,BOOK-0683,ART-002,2026-06-05,2026-06-05,1,realizada,tradicional color,costillas,pequeno
+SES-0691,BOOK-0691,ART-006,2026-05-19,2026-05-19,0.75,realizada,blackwork,muneca,pequeno
+SES-0693,BOOK-0693,ART-001,2026-06-25,,3,no asistio,lettering,muneca,mediano
+SES-0695,BOOK-0695,ART-001,2026-06-18,2026-06-18,1,realizada,minimalista,hombro,pequeno
+SES-0696,BOOK-0696,ART-002,2026-06-25,,3,reprogramada,geometrico color,cuello,mediano
+SES-0697,BOOK-0697,ART-006,2026-05-28,2026-05-28,0.75,realizada,geometrico,cuello,pequeno
+SES-0698,BOOK-0698,ART-002,2026-06-26,2026-06-26,4.5,realizada,geometrico,pecho,grande
+SES-0699,BOOK-0699,ART-005,2026-05-23,2026-05-23,1.25,realizada,minimalista,brazo,pequeno
+SES-0700,BOOK-0700,ART-002,2026-06-25,2026-06-25,3.5,realizada,geometrico color,brazo,grande
+SES-0704,BOOK-0704,ART-002,2026-06-27,2026-06-27,4.5,realizada,geometrico,hombro,grande
+SES-0708,BOOK-0708,ART-002,2026-06-05,2026-06-05,1.75,realizada,blackwork,brazo,mediano
+SES-0712,BOOK-0712,ART-005,2026-06-13,2026-06-13,4.5,realizada,minimalista color,brazo,grande
+SES-0713,BOOK-0713,ART-006,2026-06-18,2026-06-18,4.5,realizada,geometrico,hombro,grande
+SES-0715,BOOK-0715,ART-005,2026-06-09,2026-06-09,1.25,realizada,geometrico,pierna,pequeno
+SES-0716,BOOK-0716,ART-002,2026-06-11,2026-06-11,1.25,realizada,tradicional,tobillo,pequeno
+SES-0717,BOOK-0717,ART-002,2026-06-04,2026-06-04,1.25,realizada,tradicional color,brazo,pequeno
+SES-0722,BOOK-0722,ART-006,2026-06-12,,1,reprogramada,tradicional color,cuello,pequeno
+SES-0724,BOOK-0724,ART-004,2026-06-26,2026-06-26,1.25,realizada,tradicional color,brazo,pequeno
+SES-0728,BOOK-0728,ART-005,2026-06-17,2026-06-17,5.5,realizada,fine line color,pierna,grande
+SES-0730,BOOK-0730,ART-006,2026-05-28,,1,reprogramada,blackwork color,espalda,pequeno
+SES-0732,BOOK-0732,ART-001,2026-05-28,2026-05-28,1.25,realizada,lettering,muneca,pequeno
+SES-0735,BOOK-0735,ART-001,2026-06-26,2026-06-26,4.5,realizada,minimalista color,costillas,grande
+SES-0737,BOOK-0737,ART-001,2026-06-27,2026-06-27,3.5,realizada,minimalista color,pecho,grande
+SES-0739,BOOK-0739,ART-006,2026-05-16,2026-05-16,4.5,realizada,blackwork,tobillo,grande
+SES-0740,BOOK-0740,ART-003,2026-06-17,2026-06-17,3,realizada,fine line color,antebrazo,mediano
+SES-0741,BOOK-0741,ART-002,2026-06-30,,5,no asistio,geometrico,espalda,sesion larga
+SES-0746,BOOK-0746,ART-006,2026-06-19,2026-06-19,5.5,realizada,tradicional color,antebrazo,grande
+SES-0749,BOOK-0749,ART-006,2026-06-10,2026-06-10,1.75,realizada,tradicional,pierna,mediano
+SES-0751,BOOK-0751,ART-004,2026-05-30,2026-05-30,1.75,realizada,blackwork color,costillas,mediano
+SES-0752,BOOK-0752,ART-003,2026-06-04,2026-06-04,4.5,realizada,minimalista,pecho,grande
+SES-0758,BOOK-0758,ART-003,2026-06-05,2026-06-05,1,realizada,fine line,espalda,pequeno
+SES-0760,BOOK-0760,ART-001,2026-06-10,2026-06-10,1,realizada,fine line,mano/dedos,pequeno
+SES-0764,BOOK-0764,ART-002,2026-05-23,2026-05-23,1.75,realizada,geometrico,costillas,mediano
+SES-0765,BOOK-0765,ART-002,2026-05-27,2026-05-27,0.75,realizada,geometrico,cuello,pequeno
+SES-0767,BOOK-0767,ART-005,2026-05-28,2026-05-28,1,realizada,geometrico,pecho,pequeno
+SES-0768,BOOK-0768,ART-006,2026-06-24,2026-06-24,1.75,realizada,blackwork color,muneca,mediano
+SES-0777,BOOK-0777,ART-003,2026-05-23,2026-05-23,5.5,realizada,fine line color,mano/dedos,grande
+SES-0780,BOOK-0780,ART-004,2026-05-29,2026-05-29,1,realizada,tradicional,espalda,pequeno
+SES-0782,BOOK-0782,ART-002,2026-07-01,2026-07-01,5.5,realizada,tradicional color,muneca,grande
+SES-0783,BOOK-0783,ART-005,2026-06-03,2026-06-03,1.75,realizada,geometrico,muneca,mediano
+SES-0784,BOOK-0784,ART-006,2026-05-26,,2.25,no asistio,tradicional color,costillas,mediano
+SES-0785,BOOK-0785,ART-003,2026-06-12,2026-06-12,3,realizada,fine line,brazo,mediano
+SES-0786,BOOK-0786,ART-002,2026-06-06,2026-06-06,1,realizada,blackwork,espalda,pequeno
+SES-0789,BOOK-0789,ART-004,2026-06-27,2026-06-27,6,realizada,blackwork color,cuello,sesion larga
+SES-0790,BOOK-0790,ART-006,2026-06-10,,1,reprogramada,blackwork,tobillo,pequeno
+SES-0795,BOOK-0795,ART-006,2026-06-11,2026-06-11,3,realizada,geometrico,antebrazo,mediano
+SES-0797,BOOK-0797,ART-004,2026-06-16,,1.25,reprogramada,tradicional,mano/dedos,pequeno
+SES-0798,BOOK-0798,ART-005,2026-06-19,,3,reprogramada,geometrico,muneca,mediano
+SES-0803,BOOK-0803,ART-002,2026-05-23,2026-05-23,2.25,realizada,blackwork,pierna,mediano
+SES-0807,BOOK-0807,ART-003,2026-05-28,2026-05-28,0.75,realizada,minimalista,pecho,pequeno
+SES-0808,BOOK-0808,ART-002,2026-06-13,2026-06-13,1.25,realizada,blackwork,brazo,pequeno
+SES-0811,BOOK-0811,ART-004,2026-05-30,2026-05-30,1,realizada,tradicional,mano/dedos,pequeno
+SES-0816,BOOK-0816,ART-003,2026-06-05,2026-06-05,0.75,realizada,fine line,muneca,pequeno
+SES-0817,BOOK-0817,ART-004,2026-05-29,2026-05-29,2.25,realizada,lettering color,costillas,mediano
+SES-0820,BOOK-0820,ART-001,2026-06-12,2026-06-12,1,realizada,minimalista,cuello,pequeno
+SES-0824,BOOK-0824,ART-001,2026-06-24,2026-06-24,1,realizada,fine line,tobillo,pequeno
+SES-0826,BOOK-0826,ART-003,2026-06-18,2026-06-18,2.25,realizada,geometrico,mano/dedos,mediano
+SES-0827,BOOK-0827,ART-005,2026-06-05,2026-06-05,0.75,realizada,minimalista,hombro,pequeno
+SES-0832,BOOK-0832,ART-003,2026-06-18,,0.75,reprogramada,geometrico,pierna,pequeno
+SES-0836,BOOK-0836,ART-004,2026-06-13,2026-06-13,1,realizada,tradicional color,brazo,pequeno
+SES-0837,BOOK-0837,ART-006,2026-05-16,2026-05-16,0.75,realizada,blackwork,brazo,pequeno
+SES-0846,BOOK-0846,ART-006,2026-06-11,2026-06-11,1.75,realizada,blackwork color,hombro,mediano
+SES-0847,BOOK-0847,ART-005,2026-05-20,2026-05-20,1,realizada,geometrico color,hombro,pequeno
+SES-0851,BOOK-0851,ART-004,2026-05-26,2026-05-26,2.25,realizada,blackwork color,espalda,mediano
+SES-0853,BOOK-0853,ART-004,2026-06-04,2026-06-04,5.5,realizada,tradicional color,pecho,grande
+SES-0854,BOOK-0854,ART-005,2026-06-20,2026-06-20,3,realizada,fine line color,costillas,mediano
+SES-0856,BOOK-0856,ART-006,2026-05-29,2026-05-29,3,realizada,geometrico color,hombro,mediano
+SES-0858,BOOK-0858,ART-004,2026-05-19,2026-05-19,1,realizada,blackwork,hombro,pequeno
+SES-0860,BOOK-0860,ART-002,2026-06-20,2026-06-20,2.25,realizada,tradicional,antebrazo,mediano
+SES-0869,BOOK-0869,ART-005,2026-06-03,2026-06-03,3,realizada,fine line color,brazo,mediano
+SES-0870,BOOK-0870,ART-001,2026-05-30,2026-05-30,1.75,realizada,lettering,brazo,mediano
+SES-0872,BOOK-0872,ART-004,2026-05-27,2026-05-27,0.75,realizada,tradicional color,costillas,pequeno
+SES-0873,BOOK-0873,ART-005,2026-06-23,2026-06-23,5.5,realizada,minimalista,antebrazo,grande
+SES-0874,BOOK-0874,ART-002,2026-06-11,,0.75,reprogramada,tradicional,costillas,pequeno
+SES-0875,BOOK-0875,ART-002,2026-07-02,2026-07-02,5.5,realizada,geometrico,brazo,grande
+SES-0881,BOOK-0881,ART-004,2026-05-29,2026-05-29,1.75,realizada,lettering,pecho,mediano
+SES-0882,BOOK-0882,ART-001,2026-06-30,2026-06-30,3.5,realizada,lettering,espalda,grande
+SES-0886,BOOK-0886,ART-004,2026-06-30,2026-06-30,5.5,realizada,blackwork,pecho,grande
+SES-0889,BOOK-0889,ART-006,2026-06-12,2026-06-12,1.75,realizada,blackwork,pecho,mediano
+SES-0891,BOOK-0891,ART-006,2026-06-25,2026-06-25,5.5,realizada,tradicional,muneca,grande
+SES-0892,BOOK-0892,ART-006,2026-06-12,2026-06-12,0.75,realizada,tradicional color,pecho,pequeno
+SES-0895,BOOK-0895,ART-003,2026-06-02,2026-06-02,0.75,realizada,geometrico,muneca,pequeno
+SES-0897,BOOK-0897,ART-001,2026-06-19,2026-06-19,1,realizada,minimalista color,muneca,pequeno
+SES-0901,BOOK-0901,ART-004,2026-06-03,2026-06-03,3.5,realizada,tradicional color,tobillo,grande
+SES-0904,BOOK-0904,ART-002,2026-06-19,2026-06-19,1.75,realizada,tradicional color,muneca,mediano
+SES-0906,BOOK-0906,ART-002,2026-07-03,2026-07-03,5.5,realizada,blackwork color,muneca,grande
+SES-0908,BOOK-0908,ART-006,2026-06-26,2026-06-26,6,realizada,geometrico,pierna,sesion larga
+SES-0910,BOOK-0910,ART-001,2026-07-01,2026-07-01,3.5,realizada,lettering,cuello,grande
+SES-0911,BOOK-0911,ART-006,2026-06-27,2026-06-27,4.5,realizada,geometrico,pierna,grande
+SES-0912,BOOK-0912,ART-003,2026-06-10,2026-06-10,0.75,realizada,fine line color,mano/dedos,pequeno
+SES-0913,BOOK-0913,ART-005,2026-05-30,2026-05-30,5,realizada,minimalista,antebrazo,sesion larga
+SES-0914,BOOK-0914,ART-004,2026-07-01,2026-07-01,5.5,realizada,tradicional color,muneca,grande
+SES-0916,BOOK-0916,ART-005,2026-05-21,2026-05-21,2.25,realizada,minimalista,hombro,mediano
+SES-0918,BOOK-0918,ART-006,2026-06-30,2026-06-30,5,realizada,geometrico,muneca,sesion larga
+SES-0924,BOOK-0924,ART-002,2026-05-19,2026-05-19,1.75,realizada,blackwork,hombro,mediano
+SES-0926,BOOK-0926,ART-003,2026-06-10,2026-06-10,1.25,realizada,fine line color,mano/dedos,pequeno
+SES-0928,BOOK-0928,ART-003,2026-06-02,2026-06-02,2.25,realizada,minimalista,espalda,mediano
+SES-0937,BOOK-0937,ART-004,2026-06-03,,1.25,reprogramada,blackwork,cuello,pequeno
+SES-0938,BOOK-0938,ART-001,2026-07-02,2026-07-02,5.5,realizada,lettering,pierna,grande
+SES-0941,BOOK-0941,ART-006,2026-07-01,2026-07-01,3,realizada,blackwork,hombro,mediano
+SES-0942,BOOK-0942,ART-006,2026-06-04,2026-06-04,1.25,realizada,tradicional,muneca,pequeno
+SES-0943,BOOK-0943,ART-001,2026-07-03,,3.5,no asistio,lettering,antebrazo,grande
+SES-0944,BOOK-0944,ART-002,2026-05-27,2026-05-27,1,realizada,tradicional color,pecho,pequeno
+SES-0947,BOOK-0947,ART-003,2026-07-02,2026-07-02,5,realizada,fine line,pecho,sesion larga
+SES-0948,BOOK-0948,ART-004,2026-05-21,2026-05-21,4.5,realizada,blackwork,pecho,grande
+SES-0949,BOOK-0949,ART-005,2026-06-09,2026-06-09,1.75,realizada,geometrico,cuello,mediano
+SES-0950,BOOK-0950,ART-004,2026-07-02,2026-07-02,4.5,realizada,lettering,antebrazo,grande
+SES-0951,BOOK-0951,ART-004,2026-06-09,,0.75,no asistio,lettering,cuello,pequeno
+SES-0955,BOOK-0955,ART-003,2026-05-19,2026-05-19,3,realizada,fine line color,espalda,mediano
+SES-0957,BOOK-0957,ART-003,2026-05-20,2026-05-20,0.75,realizada,geometrico,espalda,pequeno
+SES-0963,BOOK-0963,ART-006,2026-06-16,2026-06-16,1.75,realizada,tradicional,tobillo,mediano
+SES-0968,BOOK-0968,ART-003,2026-07-03,2026-07-03,6,realizada,geometrico color,costillas,sesion larga
+SES-0969,BOOK-0969,ART-002,2026-05-28,2026-05-28,1.25,realizada,geometrico,pecho,pequeno
+SES-0970,BOOK-0970,ART-002,2026-06-17,2026-06-17,1,realizada,blackwork,antebrazo,pequeno
+SES-0975,BOOK-0975,ART-004,2026-07-03,2026-07-03,3,realizada,blackwork,espalda,mediano
+SES-0976,BOOK-0976,ART-004,2026-06-02,2026-06-02,1.25,realizada,lettering,hombro,pequeno
+SES-0977,BOOK-0977,ART-005,2026-06-24,2026-06-24,2.25,realizada,minimalista,cuello,mediano
+SES-0978,BOOK-0978,ART-004,2026-06-17,2026-06-17,1.25,realizada,blackwork,hombro,pequeno
+SES-0982,BOOK-0982,ART-001,2026-05-30,2026-05-30,1,realizada,lettering,brazo,pequeno
+SES-0984,BOOK-0984,ART-005,2026-06-16,,1.25,reprogramada,minimalista,tobillo,pequeno
+SES-0987,BOOK-0987,ART-004,2026-07-03,2026-07-03,3.5,realizada,lettering color,hombro,grande
+SES-0990,BOOK-0990,ART-004,2026-07-04,,5,reprogramada,tradicional color,pecho,sesion larga
+SES-0992,BOOK-0992,ART-004,2026-06-26,2026-06-26,1.75,realizada,tradicional color,pecho,mediano
+SES-0993,BOOK-0993,ART-004,2026-07-07,2026-07-07,4.5,realizada,tradicional color,espalda,grande
+SES-0996,BOOK-0996,ART-006,2026-07-01,2026-07-01,3,realizada,geometrico,pierna,mediano
+SES-0999,BOOK-0999,ART-003,2026-06-12,,1.25,reprogramada,geometrico color,muneca,pequeno

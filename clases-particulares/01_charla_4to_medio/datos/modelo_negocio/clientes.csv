@@ -1,0 +1,947 @@
+cliente_id,nombre_cliente,contacto,canal_preferido,comuna,primera_solicitud,cliente_recurrente,visitas_estimadas
+CLI-0001,Emilia Castillo,+56936319320,WhatsApp,Puerto Octay,2026-05-24,no,1
+CLI-0002,Renata Paredes,@renata.paredes,Instagram,Puerto Octay,2026-06-01,no,1
+CLI-0003,Renata Oyarzo,+56941366678,WhatsApp,Ovejeria,2026-06-12,si,2
+CLI-0004,Agustin Alvarez,@agustin.alvarez,Instagram,Osorno,2026-05-13,no,1
+CLI-0005,Lucas Leiva,+56972842698,WhatsApp,Purranque,2026-05-20,no,1
+CLI-0006,Francisca Oyarzo,+56978292266,WhatsApp,Rio Negro,2026-05-24,si,4
+CLI-0007,Francisca Carrasco,@francisca.carrasco,Instagram,Puerto Octay,2026-05-22,si,4
+CLI-0008,Felipe Espinoza,+56990140881,WhatsApp,Purranque,2026-05-21,no,1
+CLI-0009,Lucas Gallardo,+56973323172,WhatsApp,Rio Negro,2026-06-08,no,1
+CLI-0010,Lucas Espinoza,@lucas.espinoza,Instagram,Rio Negro,2026-05-20,no,1
+CLI-0011,Martina Reyes,+56971542139,WhatsApp,Osorno,2026-05-20,no,1
+CLI-0012,Antonia Reyes,@antonia.reyes,Instagram,Puerto Octay,2026-05-14,no,1
+CLI-0013,Tomas Saavedra,+56933111885,WhatsApp,Rahue,2026-05-24,no,1
+CLI-0014,Nicolas Navarro,+56983070180,WhatsApp,San Pablo,2026-06-15,si,2
+CLI-0015,Diego Soto,+56944170236,WhatsApp,Ovejeria,2026-05-28,no,1
+CLI-0016,Camila Vargas,+56952882988,WhatsApp,Rahue,2026-05-16,si,3
+CLI-0017,Constanza Araya,+56973311464,WhatsApp,Rahue,2026-06-12,no,1
+CLI-0018,Martina Vera,+56984123120,WhatsApp,Puerto Octay,2026-05-17,no,1
+CLI-0019,Joaquin Vargas,+56954257239,WhatsApp,Purranque,2026-06-16,no,1
+CLI-0020,Agustin Rojas,@agustin.rojas,Instagram,Rio Negro,2026-06-05,no,1
+CLI-0021,Sebastian Espinoza,@sebastian.espinoza,Instagram,Puerto Octay,2026-05-19,no,1
+CLI-0022,Ignacio Mansilla,+56948388800,WhatsApp,Francke,2026-06-11,no,1
+CLI-0023,Maximiliano Gallardo,+56966861504,WhatsApp,San Pablo,2026-05-20,no,1
+CLI-0024,Tomas Soto,+56935187617,WhatsApp,Rahue,2026-05-28,si,2
+CLI-0025,Renata Oyarzo,+56981409866,WhatsApp,San Pablo,2026-06-07,no,1
+CLI-0026,Tomas Bravo,+56932329798,WhatsApp,Rio Negro,2026-06-14,no,1
+CLI-0027,Lucas Oyarzo,+56972961285,WhatsApp,Rio Negro,2026-06-15,no,1
+CLI-0028,Matias Carrasco,+56958114281,WhatsApp,Purranque,2026-06-06,si,2
+CLI-0029,Emilia Vera,@emilia.vera,Instagram,Purranque,2026-06-03,no,1
+CLI-0030,Lucas Alvarez,+56977838733,WhatsApp,Puerto Octay,2026-06-04,no,1
+CLI-0031,Nicolas Alvarez,@nicolas.alvarez,Instagram,Puerto Octay,2026-05-22,no,1
+CLI-0032,Fernanda Reyes,+56959500232,WhatsApp,Ovejeria,2026-06-04,no,1
+CLI-0033,Francisca Leiva,+56915645777,WhatsApp,Ovejeria,2026-06-19,si,3
+CLI-0034,Antonia Araya,+56968740999,WhatsApp,Rio Negro,2026-05-22,no,1
+CLI-0035,Martina Cortes,+56912845704,WhatsApp,Rio Negro,2026-06-01,no,1
+CLI-0036,Camila Espinoza,@camila.espinoza,Instagram,Ovejeria,2026-06-10,no,1
+CLI-0037,Francisca Morales,+56931988285,WhatsApp,Francke,2026-05-16,no,1
+CLI-0038,Sofia Vera,@sofia.vera,Instagram,Ovejeria,2026-05-14,no,1
+CLI-0039,Trinidad Rojas,@trinidad.rojas,Instagram,Ovejeria,2026-05-14,si,2
+CLI-0040,Florencia Vargas,+56926854541,WhatsApp,Ovejeria,2026-06-07,no,1
+CLI-0041,Constanza Carrasco,+56964788576,WhatsApp,Rio Negro,2026-05-23,no,1
+CLI-0042,Antonia Leiva,+56966723669,WhatsApp,Puerto Octay,2026-06-19,no,1
+CLI-0043,Valentina Soto,+56914140875,WhatsApp,Purranque,2026-06-17,no,1
+CLI-0044,Camila Vera,@camila.vera,Instagram,Francke,2026-06-07,no,1
+CLI-0045,Joaquin Alvarez,+56962780260,WhatsApp,Francke,2026-06-09,si,2
+CLI-0046,Maximiliano Morales,+56952924861,WhatsApp,Rio Negro,2026-05-22,no,1
+CLI-0047,Constanza Cardenas,@constanza.cardenas,Instagram,San Pablo,2026-06-06,no,1
+CLI-0048,Javiera Araya,+56977908972,WhatsApp,Puerto Octay,2026-06-02,si,2
+CLI-0049,Agustin Carrasco,+56965461194,WhatsApp,Rio Negro,2026-05-19,no,1
+CLI-0050,Renata Miranda,+56914528092,WhatsApp,Osorno,2026-06-05,no,1
+CLI-0051,Josefa Cardenas,+56911574987,WhatsApp,Rahue,2026-06-17,no,1
+CLI-0052,Isidora Leiva,+56998740280,WhatsApp,Osorno,2026-06-03,no,1
+CLI-0053,Felipe Miranda,+56980768142,WhatsApp,Francke,2026-06-16,si,2
+CLI-0054,Antonia Gallardo,+56988139321,WhatsApp,Ovejeria,2026-05-16,no,1
+CLI-0055,Sofia Alvarez,@sofia.alvarez,Instagram,Rahue,2026-06-10,si,4
+CLI-0056,Gabriel Morales,+56948844525,WhatsApp,San Pablo,2026-05-27,si,2
+CLI-0057,Sofia Soto,+56997045425,WhatsApp,Rahue,2026-06-02,no,1
+CLI-0058,Javiera Vera,@javiera.vera,Instagram,Osorno,2026-05-20,no,1
+CLI-0059,Maximiliano Navarro,+56917420382,WhatsApp,Rahue,2026-05-14,no,1
+CLI-0060,Benjamin Araya,@benjamin.araya,Instagram,Osorno,2026-05-18,no,1
+CLI-0061,Vicente Godoy,@vicente.godoy,Instagram,Purranque,2026-05-25,no,1
+CLI-0062,Renata Carrasco,@renata.carrasco,Instagram,Purranque,2026-05-28,no,1
+CLI-0063,Tomas Espinoza,+56969244267,WhatsApp,Purranque,2026-06-15,no,1
+CLI-0064,Fernanda Araya,+56924915759,WhatsApp,Osorno,2026-06-08,no,1
+CLI-0065,Antonia Miranda,+56913714766,WhatsApp,Puerto Octay,2026-05-26,no,1
+CLI-0066,Bastian Oyarzo,@bastian.oyarzo,Instagram,San Pablo,2026-05-18,no,1
+CLI-0067,Trinidad Araya,+56974941696,WhatsApp,San Pablo,2026-05-18,si,3
+CLI-0068,Valentina Alvarez,+56940076996,WhatsApp,San Pablo,2026-05-21,no,1
+CLI-0069,Gabriel Morales,+56978730311,WhatsApp,Ovejeria,2026-05-29,no,1
+CLI-0070,Vicente Espinoza,+56924436460,WhatsApp,Purranque,2026-06-17,no,1
+CLI-0071,Benjamin Cardenas,+56910227131,WhatsApp,San Pablo,2026-05-28,no,1
+CLI-0072,Diego Morales,+56993112148,WhatsApp,Ovejeria,2026-05-19,no,1
+CLI-0073,Florencia Leiva,+56969191068,WhatsApp,Purranque,2026-05-14,no,1
+CLI-0074,Camila Reyes,+56910957647,WhatsApp,Rio Negro,2026-06-05,no,1
+CLI-0075,Gabriel Bravo,+56935380089,WhatsApp,San Pablo,2026-06-02,no,1
+CLI-0076,Sebastian Munoz,@sebastian.munoz,Instagram,Osorno,2026-06-05,no,1
+CLI-0077,Joaquin Godoy,+56921862645,WhatsApp,Purranque,2026-05-24,no,1
+CLI-0078,Sebastian Rojas,@sebastian.rojas,Instagram,Rahue,2026-05-29,no,1
+CLI-0079,Trinidad Godoy,@trinidad.godoy,Instagram,Osorno,2026-05-15,no,1
+CLI-0080,Nicolas Soto,@nicolas.soto,Instagram,Puerto Octay,2026-06-03,no,1
+CLI-0081,Sofia Munoz,+56915711002,WhatsApp,Rio Negro,2026-06-14,no,1
+CLI-0082,Camila Castillo,+56984886321,WhatsApp,San Pablo,2026-06-07,no,1
+CLI-0083,Florencia Munoz,+56984305548,WhatsApp,Rio Negro,2026-06-12,no,1
+CLI-0084,Francisca Bravo,@francisca.bravo,Instagram,Ovejeria,2026-05-31,si,4
+CLI-0085,Catalina Espinoza,+56930079635,WhatsApp,Purranque,2026-06-11,no,1
+CLI-0086,Agustin Cardenas,@agustin.cardenas,Instagram,Osorno,2026-05-31,no,1
+CLI-0087,Gabriel Soto,+56963313052,WhatsApp,Ovejeria,2026-06-09,no,1
+CLI-0088,Benjamin Munoz,+56926924083,WhatsApp,Francke,2026-05-14,si,2
+CLI-0089,Agustin Bravo,+56921758702,WhatsApp,Rahue,2026-06-05,no,1
+CLI-0090,Emilia Saavedra,+56947355214,WhatsApp,Purranque,2026-05-16,no,1
+CLI-0091,Felipe Cortes,+56992368967,WhatsApp,Francke,2026-06-01,no,1
+CLI-0092,Emilia Mansilla,+56910931565,WhatsApp,Ovejeria,2026-05-23,si,3
+CLI-0093,Benjamin Gallardo,+56962990109,WhatsApp,Purranque,2026-06-17,no,1
+CLI-0094,Josefa Rojas,+56940649281,WhatsApp,Rahue,2026-05-21,no,1
+CLI-0095,Diego Oyarzo,@diego.oyarzo,Instagram,Purranque,2026-06-19,no,1
+CLI-0096,Valentina Saavedra,@valentina.saavedra,Instagram,San Pablo,2026-06-17,no,1
+CLI-0097,Martina Miranda,+56952698853,WhatsApp,Rio Negro,2026-06-15,no,1
+CLI-0098,Lucas Vargas,+56924363131,WhatsApp,Ovejeria,2026-05-20,no,1
+CLI-0099,Florencia Espinoza,+56946287159,WhatsApp,Rahue,2026-05-31,si,4
+CLI-0100,Vicente Morales,+56933784801,WhatsApp,Purranque,2026-06-10,no,1
+CLI-0101,Valentina Saavedra,+56995725710,WhatsApp,Francke,2026-05-20,no,1
+CLI-0102,Benjamin Morales,@benjamin.morales,Instagram,Rio Negro,2026-06-14,no,1
+CLI-0103,Tomas Alvarez,@tomas.alvarez,Instagram,Rahue,2026-05-16,no,1
+CLI-0104,Javiera Cortes,+56976499611,WhatsApp,Osorno,2026-06-05,no,1
+CLI-0105,Florencia Oyarzo,+56994589235,WhatsApp,Rio Negro,2026-06-01,no,1
+CLI-0106,Fernanda Miranda,+56926265164,WhatsApp,San Pablo,2026-06-04,no,1
+CLI-0107,Javiera Reyes,@javiera.reyes,Instagram,Puerto Octay,2026-06-07,no,1
+CLI-0108,Constanza Reyes,+56986752378,WhatsApp,Rahue,2026-06-12,no,1
+CLI-0109,Francisca Araya,@francisca.araya,Instagram,Purranque,2026-06-17,no,1
+CLI-0110,Diego Vera,+56950330152,WhatsApp,Rahue,2026-05-13,no,1
+CLI-0111,Agustin Oyarzo,@agustin.oyarzo,Instagram,Rahue,2026-06-08,no,1
+CLI-0112,Felipe Reyes,+56967084878,WhatsApp,Rahue,2026-06-17,no,1
+CLI-0113,Catalina Araya,@catalina.araya,Instagram,Ovejeria,2026-05-31,no,1
+CLI-0114,Valentina Soto,+56947128146,WhatsApp,San Pablo,2026-06-07,no,1
+CLI-0115,Camila Soto,+56951969920,WhatsApp,Ovejeria,2026-05-31,si,5
+CLI-0116,Nicolas Soto,+56917935137,WhatsApp,Francke,2026-06-06,si,2
+CLI-0117,Tomas Godoy,+56922643510,WhatsApp,Francke,2026-05-17,no,1
+CLI-0118,Sebastian Rojas,+56979035087,WhatsApp,Osorno,2026-06-07,si,4
+CLI-0119,Isidora Mansilla,@isidora.mansilla,Instagram,Francke,2026-05-20,no,1
+CLI-0120,Francisca Mansilla,+56991996265,WhatsApp,Francke,2026-06-14,no,1
+CLI-0121,Tomas Bravo,+56976541734,WhatsApp,Rahue,2026-05-20,no,1
+CLI-0122,Javiera Saavedra,+56953542677,WhatsApp,San Pablo,2026-06-05,si,3
+CLI-0123,Joaquin Vargas,+56957793245,WhatsApp,Osorno,2026-05-15,no,1
+CLI-0124,Gabriel Miranda,+56962394547,WhatsApp,Puerto Octay,2026-05-23,no,1
+CLI-0125,Diego Cortes,+56930412608,WhatsApp,Puerto Octay,2026-06-18,no,1
+CLI-0126,Josefa Gallardo,+56959018356,WhatsApp,Rahue,2026-05-16,no,1
+CLI-0127,Emilia Miranda,+56955211499,WhatsApp,Ovejeria,2026-06-02,no,1
+CLI-0128,Bastian Miranda,+56949988179,WhatsApp,Purranque,2026-05-31,no,1
+CLI-0129,Constanza Araya,@constanza.araya,Instagram,Osorno,2026-06-04,no,1
+CLI-0130,Isidora Leiva,@isidora.leiva,Instagram,Osorno,2026-05-19,no,1
+CLI-0131,Camila Munoz,+56933038535,WhatsApp,Purranque,2026-05-30,si,5
+CLI-0132,Catalina Reyes,+56991390740,WhatsApp,Francke,2026-06-06,no,1
+CLI-0133,Joaquin Oyarzo,+56977328161,WhatsApp,San Pablo,2026-05-17,no,1
+CLI-0134,Cristobal Carrasco,@cristobal.carrasco,Instagram,Osorno,2026-05-24,no,1
+CLI-0135,Joaquin Morales,+56960308157,WhatsApp,Rio Negro,2026-06-17,no,1
+CLI-0136,Isidora Alvarez,+56969082598,WhatsApp,Francke,2026-05-21,si,5
+CLI-0137,Florencia Araya,@florencia.araya,Instagram,Rahue,2026-06-06,no,1
+CLI-0138,Valentina Godoy,@valentina.godoy,Instagram,Puerto Octay,2026-05-14,no,1
+CLI-0139,Maximiliano Oyarzo,+56962823538,WhatsApp,San Pablo,2026-05-17,no,1
+CLI-0140,Emilia Cardenas,+56973283343,WhatsApp,Osorno,2026-06-15,no,1
+CLI-0141,Valentina Cortes,@valentina.cortes,Instagram,Francke,2026-05-26,no,1
+CLI-0142,Constanza Paredes,+56969144362,WhatsApp,Puerto Octay,2026-06-13,no,1
+CLI-0143,Matias Reyes,+56935950767,WhatsApp,Francke,2026-06-17,no,1
+CLI-0144,Constanza Carrasco,+56998206328,WhatsApp,Puerto Octay,2026-05-15,no,1
+CLI-0145,Martina Gallardo,+56918851367,WhatsApp,Puerto Octay,2026-05-15,no,1
+CLI-0146,Javiera Mansilla,@javiera.mansilla,Instagram,Francke,2026-05-30,si,4
+CLI-0147,Tomas Bravo,+56977443428,WhatsApp,Rio Negro,2026-06-10,no,1
+CLI-0148,Matias Soto,@matias.soto,Instagram,Purranque,2026-05-17,no,1
+CLI-0149,Nicolas Vera,+56975465011,WhatsApp,Francke,2026-05-20,no,1
+CLI-0150,Tomas Alvarez,+56996090731,WhatsApp,Francke,2026-06-13,no,1
+CLI-0151,Francisca Navarro,+56919921753,WhatsApp,Ovejeria,2026-05-27,no,1
+CLI-0152,Diego Oyarzo,+56989348034,WhatsApp,Osorno,2026-05-25,si,3
+CLI-0153,Renata Vargas,+56998077121,WhatsApp,Rahue,2026-05-17,si,5
+CLI-0154,Catalina Mansilla,+56976562286,WhatsApp,Rahue,2026-06-09,si,4
+CLI-0155,Isidora Bravo,@isidora.bravo,Instagram,Purranque,2026-05-24,no,1
+CLI-0156,Joaquin Alvarez,@joaquin.alvarez,Instagram,Rahue,2026-05-24,no,1
+CLI-0157,Florencia Carrasco,+56913286209,WhatsApp,Puerto Octay,2026-05-31,no,1
+CLI-0158,Josefa Vera,+56922357636,WhatsApp,Ovejeria,2026-06-18,si,3
+CLI-0159,Josefa Vera,+56993847737,WhatsApp,Puerto Octay,2026-05-26,no,1
+CLI-0160,Agustin Araya,+56927026964,WhatsApp,Rahue,2026-05-24,no,1
+CLI-0161,Valentina Leiva,+56967330965,WhatsApp,Purranque,2026-06-19,si,2
+CLI-0162,Fernanda Leiva,+56972471368,WhatsApp,Puerto Octay,2026-06-10,no,1
+CLI-0163,Maximiliano Castillo,+56930778165,WhatsApp,Rio Negro,2026-06-08,no,1
+CLI-0164,Antonia Carrasco,+56971351442,WhatsApp,Rahue,2026-05-25,si,3
+CLI-0165,Francisca Alvarez,+56989580142,WhatsApp,San Pablo,2026-05-27,no,1
+CLI-0166,Isidora Vargas,+56933299701,WhatsApp,Puerto Octay,2026-05-16,no,1
+CLI-0167,Nicolas Espinoza,+56981493118,WhatsApp,Purranque,2026-05-18,no,1
+CLI-0168,Florencia Alvarez,+56989690015,WhatsApp,San Pablo,2026-05-23,no,1
+CLI-0169,Josefa Navarro,@josefa.navarro,Instagram,Puerto Octay,2026-05-18,no,1
+CLI-0170,Florencia Reyes,+56928603057,WhatsApp,Purranque,2026-05-29,no,1
+CLI-0171,Florencia Godoy,@florencia.godoy,Instagram,Osorno,2026-06-06,no,1
+CLI-0172,Trinidad Navarro,+56942097217,WhatsApp,Ovejeria,2026-06-13,no,1
+CLI-0173,Lucas Espinoza,+56996551717,WhatsApp,Rahue,2026-06-02,no,1
+CLI-0174,Bastian Alvarez,+56917453018,WhatsApp,Rio Negro,2026-05-29,si,3
+CLI-0175,Agustin Vargas,+56969146787,WhatsApp,Rio Negro,2026-05-22,no,1
+CLI-0176,Cristobal Soto,+56911863621,WhatsApp,Francke,2026-06-06,no,1
+CLI-0177,Maximiliano Paredes,+56919509093,WhatsApp,Ovejeria,2026-05-17,no,1
+CLI-0178,Matias Miranda,+56955998955,WhatsApp,Rahue,2026-05-19,no,1
+CLI-0179,Antonia Munoz,+56932439079,WhatsApp,Puerto Octay,2026-06-05,no,1
+CLI-0180,Agustin Saavedra,@agustin.saavedra,Instagram,Rahue,2026-05-20,no,1
+CLI-0181,Lucas Godoy,+56941773472,WhatsApp,Puerto Octay,2026-06-02,no,1
+CLI-0182,Trinidad Gallardo,+56943532590,WhatsApp,Rahue,2026-05-25,si,5
+CLI-0183,Matias Soto,+56962363776,WhatsApp,Rio Negro,2026-06-08,si,5
+CLI-0184,Diego Araya,@diego.araya,Instagram,Francke,2026-06-13,no,1
+CLI-0185,Francisca Gallardo,+56948394236,WhatsApp,San Pablo,2026-06-01,no,1
+CLI-0186,Matias Alvarez,+56998786094,WhatsApp,Francke,2026-06-14,no,1
+CLI-0187,Nicolas Oyarzo,+56936408111,WhatsApp,San Pablo,2026-06-12,no,1
+CLI-0188,Nicolas Vargas,@nicolas.vargas,Instagram,San Pablo,2026-05-30,no,1
+CLI-0189,Diego Vargas,+56938350235,WhatsApp,San Pablo,2026-05-20,no,1
+CLI-0190,Josefa Rojas,+56955798679,WhatsApp,Osorno,2026-06-09,no,1
+CLI-0191,Camila Godoy,+56961276973,WhatsApp,Rio Negro,2026-05-14,no,1
+CLI-0192,Camila Oyarzo,+56927122989,WhatsApp,Rahue,2026-06-07,no,1
+CLI-0193,Catalina Bravo,+56951956259,WhatsApp,Purranque,2026-05-14,no,1
+CLI-0194,Bastian Soto,+56913443690,WhatsApp,Ovejeria,2026-05-14,no,1
+CLI-0195,Camila Miranda,@camila.miranda,Instagram,Osorno,2026-06-12,si,5
+CLI-0196,Florencia Reyes,@florencia.reyes,Instagram,Purranque,2026-06-15,no,1
+CLI-0197,Gabriel Cortes,+56926023420,WhatsApp,San Pablo,2026-05-24,no,1
+CLI-0198,Lucas Mansilla,+56947440503,WhatsApp,San Pablo,2026-05-26,no,1
+CLI-0199,Fernanda Araya,+56939949715,WhatsApp,San Pablo,2026-06-03,no,1
+CLI-0200,Renata Cortes,@renata.cortes,Instagram,Puerto Octay,2026-05-21,no,1
+CLI-0201,Josefa Cortes,+56954608366,WhatsApp,Purranque,2026-06-12,no,1
+CLI-0202,Vicente Bravo,+56964242201,WhatsApp,Rio Negro,2026-05-28,no,1
+CLI-0203,Constanza Morales,@constanza.morales,Instagram,Puerto Octay,2026-06-01,no,1
+CLI-0204,Gabriel Oyarzo,+56934086435,WhatsApp,Rahue,2026-05-16,si,4
+CLI-0205,Florencia Paredes,+56955259877,WhatsApp,Osorno,2026-06-09,no,1
+CLI-0206,Bastian Paredes,@bastian.paredes,Instagram,Purranque,2026-06-16,si,2
+CLI-0207,Camila Bravo,@camila.bravo,Instagram,Ovejeria,2026-06-19,no,1
+CLI-0208,Francisca Navarro,+56968255631,WhatsApp,San Pablo,2026-05-23,no,1
+CLI-0209,Benjamin Mansilla,+56940802656,WhatsApp,Puerto Octay,2026-06-02,no,1
+CLI-0210,Antonia Navarro,+56913741234,WhatsApp,Ovejeria,2026-06-07,si,5
+CLI-0211,Fernanda Reyes,@fernanda.reyes,Instagram,Rio Negro,2026-06-15,si,5
+CLI-0212,Gabriel Bravo,@gabriel.bravo,Instagram,Puerto Octay,2026-06-18,no,1
+CLI-0213,Bastian Vargas,+56983670607,WhatsApp,Rio Negro,2026-05-31,no,1
+CLI-0214,Felipe Rojas,+56962640899,WhatsApp,Osorno,2026-05-15,si,5
+CLI-0215,Isidora Espinoza,@isidora.espinoza,Instagram,Rio Negro,2026-06-07,no,1
+CLI-0216,Bastian Leiva,@bastian.leiva,Instagram,Ovejeria,2026-06-12,si,3
+CLI-0217,Constanza Castillo,+56997141157,WhatsApp,Puerto Octay,2026-05-18,no,1
+CLI-0218,Joaquin Morales,@joaquin.morales,Instagram,Francke,2026-06-10,no,1
+CLI-0219,Nicolas Alvarez,+56910214509,WhatsApp,Purranque,2026-05-31,no,1
+CLI-0220,Emilia Vargas,+56932920740,WhatsApp,San Pablo,2026-05-14,no,1
+CLI-0221,Agustin Carrasco,+56953104345,WhatsApp,Rahue,2026-06-18,no,1
+CLI-0222,Gabriel Oyarzo,+56916634667,WhatsApp,Purranque,2026-05-13,no,1
+CLI-0223,Joaquin Rojas,+56966674497,WhatsApp,Ovejeria,2026-05-19,si,2
+CLI-0224,Renata Espinoza,+56951300965,WhatsApp,Rahue,2026-06-12,no,1
+CLI-0225,Valentina Cortes,+56956096570,WhatsApp,Purranque,2026-06-17,no,1
+CLI-0226,Maximiliano Bravo,@maximiliano.bravo,Instagram,Osorno,2026-05-26,no,1
+CLI-0227,Lucas Reyes,+56957586692,WhatsApp,San Pablo,2026-06-16,no,1
+CLI-0228,Fernanda Saavedra,@fernanda.saavedra,Instagram,San Pablo,2026-05-15,no,1
+CLI-0229,Renata Vera,@renata.vera,Instagram,San Pablo,2026-05-22,no,1
+CLI-0230,Vicente Paredes,@vicente.paredes,Instagram,Ovejeria,2026-05-13,no,1
+CLI-0231,Joaquin Munoz,+56980859219,WhatsApp,Puerto Octay,2026-05-29,no,1
+CLI-0232,Gabriel Araya,+56972583257,WhatsApp,Rahue,2026-06-17,no,1
+CLI-0233,Martina Godoy,+56984514418,WhatsApp,Rio Negro,2026-05-16,si,5
+CLI-0234,Benjamin Rojas,@benjamin.rojas,Instagram,Osorno,2026-06-19,no,1
+CLI-0235,Joaquin Godoy,+56948289281,WhatsApp,Puerto Octay,2026-06-14,no,1
+CLI-0236,Ignacio Rojas,+56953768188,WhatsApp,Rio Negro,2026-06-16,no,1
+CLI-0237,Matias Castillo,+56959505310,WhatsApp,Rahue,2026-05-16,no,1
+CLI-0238,Bastian Araya,@bastian.araya,Instagram,Rahue,2026-05-22,no,1
+CLI-0239,Constanza Rojas,+56934632036,WhatsApp,San Pablo,2026-05-31,no,1
+CLI-0240,Matias Alvarez,+56984190213,WhatsApp,Rio Negro,2026-06-17,no,1
+CLI-0241,Vicente Cardenas,+56970921176,WhatsApp,Francke,2026-05-27,no,1
+CLI-0242,Bastian Godoy,@bastian.godoy,Instagram,Puerto Octay,2026-05-31,no,1
+CLI-0243,Agustin Carrasco,+56959271155,WhatsApp,Purranque,2026-06-17,no,1
+CLI-0244,Trinidad Espinoza,@trinidad.espinoza,Instagram,Purranque,2026-06-18,no,1
+CLI-0245,Matias Araya,@matias.araya,Instagram,Rahue,2026-06-13,no,1
+CLI-0246,Bastian Morales,@bastian.morales,Instagram,Purranque,2026-05-13,no,1
+CLI-0247,Gabriel Reyes,+56915087749,WhatsApp,Rio Negro,2026-05-29,no,1
+CLI-0248,Francisca Navarro,+56919965044,WhatsApp,San Pablo,2026-05-20,no,1
+CLI-0249,Trinidad Gallardo,+56919657399,WhatsApp,Rahue,2026-06-03,no,1
+CLI-0250,Florencia Saavedra,+56942288120,WhatsApp,Osorno,2026-05-17,no,1
+CLI-0251,Antonia Miranda,+56958514498,WhatsApp,Francke,2026-05-16,no,1
+CLI-0252,Valentina Gallardo,@valentina.gallardo,Instagram,Rahue,2026-05-23,no,1
+CLI-0253,Benjamin Paredes,+56944238423,WhatsApp,Francke,2026-06-15,no,1
+CLI-0254,Camila Mansilla,+56943968589,WhatsApp,Puerto Octay,2026-05-25,no,1
+CLI-0255,Emilia Leiva,+56989230163,WhatsApp,Osorno,2026-06-09,no,1
+CLI-0256,Francisca Vera,+56954257312,WhatsApp,San Pablo,2026-05-18,no,1
+CLI-0257,Isidora Cardenas,@isidora.cardenas,Instagram,Francke,2026-06-04,si,2
+CLI-0258,Sebastian Cortes,@sebastian.cortes,Instagram,Ovejeria,2026-06-19,no,1
+CLI-0259,Renata Reyes,+56929528874,WhatsApp,Ovejeria,2026-06-10,no,1
+CLI-0260,Bastian Leiva,+56929271706,WhatsApp,Osorno,2026-06-02,no,1
+CLI-0261,Renata Alvarez,+56989462618,WhatsApp,Ovejeria,2026-05-26,no,1
+CLI-0262,Fernanda Gallardo,@fernanda.gallardo,Instagram,Purranque,2026-05-13,no,1
+CLI-0263,Josefa Mansilla,@josefa.mansilla,Instagram,Puerto Octay,2026-05-17,no,1
+CLI-0264,Bastian Reyes,+56937963538,WhatsApp,Osorno,2026-05-13,no,1
+CLI-0265,Valentina Castillo,@valentina.castillo,Instagram,Ovejeria,2026-05-16,no,1
+CLI-0266,Nicolas Alvarez,+56936796262,WhatsApp,Rio Negro,2026-06-05,no,1
+CLI-0267,Valentina Espinoza,@valentina.espinoza,Instagram,San Pablo,2026-06-12,si,3
+CLI-0268,Constanza Soto,+56953293846,WhatsApp,San Pablo,2026-06-14,no,1
+CLI-0269,Valentina Alvarez,@valentina.alvarez,Instagram,Ovejeria,2026-06-03,no,1
+CLI-0270,Florencia Saavedra,+56917019127,WhatsApp,Osorno,2026-05-24,no,1
+CLI-0271,Felipe Saavedra,+56961041919,WhatsApp,Ovejeria,2026-06-06,no,1
+CLI-0272,Javiera Mansilla,+56966209753,WhatsApp,Osorno,2026-05-13,no,1
+CLI-0273,Javiera Gallardo,+56969091721,WhatsApp,Rahue,2026-05-21,no,1
+CLI-0274,Cristobal Godoy,@cristobal.godoy,Instagram,Francke,2026-06-04,no,1
+CLI-0275,Constanza Saavedra,+56990143678,WhatsApp,Ovejeria,2026-06-13,si,2
+CLI-0276,Lucas Castillo,+56960763498,WhatsApp,Osorno,2026-06-14,no,1
+CLI-0277,Diego Vera,+56955419958,WhatsApp,Puerto Octay,2026-06-07,no,1
+CLI-0278,Nicolas Carrasco,+56940210404,WhatsApp,Ovejeria,2026-05-24,no,1
+CLI-0279,Antonia Cortes,+56988462838,WhatsApp,Rio Negro,2026-05-20,no,1
+CLI-0280,Diego Cortes,+56934450955,WhatsApp,San Pablo,2026-05-28,si,4
+CLI-0281,Matias Cortes,@matias.cortes,Instagram,Puerto Octay,2026-06-12,si,2
+CLI-0282,Antonia Alvarez,@antonia.alvarez,Instagram,Rahue,2026-06-18,no,1
+CLI-0283,Vicente Carrasco,@vicente.carrasco,Instagram,Osorno,2026-06-15,no,1
+CLI-0284,Isidora Munoz,+56982590304,WhatsApp,Puerto Octay,2026-05-26,no,1
+CLI-0285,Antonia Oyarzo,+56926687690,WhatsApp,Francke,2026-06-06,no,1
+CLI-0286,Cristobal Rojas,@cristobal.rojas,Instagram,Rio Negro,2026-06-15,no,1
+CLI-0287,Constanza Espinoza,+56985540903,WhatsApp,Ovejeria,2026-06-02,no,1
+CLI-0288,Gabriel Navarro,@gabriel.navarro,Instagram,Puerto Octay,2026-05-28,no,1
+CLI-0289,Felipe Vera,@felipe.vera,Instagram,Rio Negro,2026-05-27,no,1
+CLI-0290,Tomas Carrasco,+56957746828,WhatsApp,Purranque,2026-06-19,no,1
+CLI-0291,Javiera Vargas,+56923796326,WhatsApp,Francke,2026-06-01,no,1
+CLI-0292,Nicolas Bravo,+56952396113,WhatsApp,Purranque,2026-05-20,no,1
+CLI-0293,Camila Miranda,+56914863552,WhatsApp,Ovejeria,2026-05-20,no,1
+CLI-0294,Vicente Castillo,+56985592031,WhatsApp,San Pablo,2026-06-15,no,1
+CLI-0295,Felipe Vargas,+56973447779,WhatsApp,Ovejeria,2026-05-23,no,1
+CLI-0296,Valentina Munoz,+56931795535,WhatsApp,Purranque,2026-06-11,no,1
+CLI-0297,Vicente Miranda,@vicente.miranda,Instagram,Rahue,2026-06-18,no,1
+CLI-0298,Lucas Miranda,+56998182153,WhatsApp,Rio Negro,2026-05-31,si,2
+CLI-0299,Matias Reyes,+56962876338,WhatsApp,Francke,2026-05-21,no,1
+CLI-0300,Antonia Cardenas,@antonia.cardenas,Instagram,Puerto Octay,2026-06-03,no,1
+CLI-0301,Benjamin Mansilla,@benjamin.mansilla,Instagram,Osorno,2026-05-25,no,1
+CLI-0302,Joaquin Navarro,+56948579646,WhatsApp,Osorno,2026-06-06,no,1
+CLI-0303,Fernanda Paredes,+56948440979,WhatsApp,Francke,2026-06-11,no,1
+CLI-0304,Francisca Miranda,+56975796546,WhatsApp,Osorno,2026-06-18,no,1
+CLI-0305,Tomas Castillo,@tomas.castillo,Instagram,San Pablo,2026-06-05,no,1
+CLI-0306,Renata Reyes,+56976431131,WhatsApp,Purranque,2026-06-04,no,1
+CLI-0307,Gabriel Paredes,+56997985636,WhatsApp,Rahue,2026-05-21,no,1
+CLI-0308,Diego Navarro,+56913810125,WhatsApp,Francke,2026-05-24,no,1
+CLI-0309,Benjamin Bravo,+56991494004,WhatsApp,Rahue,2026-05-13,no,1
+CLI-0310,Fernanda Morales,+56924592079,WhatsApp,Rio Negro,2026-05-20,si,3
+CLI-0311,Isidora Miranda,+56997308708,WhatsApp,Purranque,2026-06-10,si,4
+CLI-0312,Benjamin Saavedra,+56994781787,WhatsApp,Puerto Octay,2026-05-19,no,1
+CLI-0313,Francisca Alvarez,+56986808725,WhatsApp,Ovejeria,2026-06-04,no,1
+CLI-0314,Ignacio Oyarzo,+56948755811,WhatsApp,Rahue,2026-05-22,no,1
+CLI-0315,Nicolas Araya,+56971741146,WhatsApp,Purranque,2026-06-18,no,1
+CLI-0316,Josefa Bravo,+56947467814,WhatsApp,Osorno,2026-05-24,no,1
+CLI-0317,Renata Vera,+56924814580,WhatsApp,Puerto Octay,2026-06-15,no,1
+CLI-0318,Matias Vargas,+56912732236,WhatsApp,Rahue,2026-05-19,no,1
+CLI-0319,Nicolas Saavedra,@nicolas.saavedra,Instagram,Rahue,2026-05-25,no,1
+CLI-0320,Matias Cortes,+56963678895,WhatsApp,Francke,2026-05-13,si,5
+CLI-0321,Felipe Cardenas,@felipe.cardenas,Instagram,Osorno,2026-05-19,si,4
+CLI-0322,Constanza Munoz,+56928148298,WhatsApp,San Pablo,2026-05-27,no,1
+CLI-0323,Javiera Espinoza,+56948434961,WhatsApp,Rahue,2026-06-09,si,5
+CLI-0324,Nicolas Carrasco,+56997554591,WhatsApp,Osorno,2026-05-21,no,1
+CLI-0325,Diego Vera,+56977470062,WhatsApp,Ovejeria,2026-06-17,no,1
+CLI-0326,Bastian Godoy,+56924706145,WhatsApp,Ovejeria,2026-06-02,no,1
+CLI-0327,Antonia Gallardo,@antonia.gallardo,Instagram,Francke,2026-06-14,no,1
+CLI-0328,Camila Vera,+56918898415,WhatsApp,San Pablo,2026-06-07,no,1
+CLI-0329,Florencia Gallardo,+56994873279,WhatsApp,San Pablo,2026-05-28,no,1
+CLI-0330,Constanza Paredes,+56933161584,WhatsApp,Ovejeria,2026-05-18,no,1
+CLI-0331,Maximiliano Reyes,+56910090758,WhatsApp,Puerto Octay,2026-06-17,no,1
+CLI-0332,Antonia Leiva,+56926448407,WhatsApp,San Pablo,2026-05-20,no,1
+CLI-0333,Benjamin Oyarzo,+56943796545,WhatsApp,San Pablo,2026-06-02,si,2
+CLI-0334,Sofia Munoz,+56951947789,WhatsApp,San Pablo,2026-06-14,si,4
+CLI-0335,Nicolas Rojas,+56989939339,WhatsApp,Rahue,2026-05-19,no,1
+CLI-0336,Diego Godoy,+56947653228,WhatsApp,Rahue,2026-06-03,no,1
+CLI-0337,Sofia Godoy,@sofia.godoy,Instagram,Puerto Octay,2026-05-21,no,1
+CLI-0338,Emilia Cortes,+56928760265,WhatsApp,Rahue,2026-06-18,no,1
+CLI-0339,Valentina Rojas,@valentina.rojas,Instagram,Ovejeria,2026-05-27,no,1
+CLI-0340,Vicente Alvarez,+56982142993,WhatsApp,San Pablo,2026-05-25,si,3
+CLI-0341,Matias Soto,+56994929765,WhatsApp,Rio Negro,2026-06-14,si,5
+CLI-0342,Florencia Munoz,+56920242257,WhatsApp,San Pablo,2026-06-10,no,1
+CLI-0343,Javiera Miranda,+56978264935,WhatsApp,Ovejeria,2026-06-10,no,1
+CLI-0344,Joaquin Leiva,@joaquin.leiva,Instagram,San Pablo,2026-05-26,no,1
+CLI-0345,Antonia Cardenas,+56939818879,WhatsApp,Rahue,2026-05-29,no,1
+CLI-0346,Isidora Vera,+56919157052,WhatsApp,Francke,2026-05-25,si,3
+CLI-0347,Diego Paredes,+56962465386,WhatsApp,San Pablo,2026-06-11,no,1
+CLI-0348,Sebastian Saavedra,@sebastian.saavedra,Instagram,Osorno,2026-05-21,no,1
+CLI-0349,Nicolas Navarro,+56939870381,WhatsApp,Rio Negro,2026-06-09,no,1
+CLI-0350,Sofia Cardenas,+56987633362,WhatsApp,Rio Negro,2026-05-22,no,1
+CLI-0351,Francisca Vargas,+56925055223,WhatsApp,Francke,2026-05-15,si,3
+CLI-0352,Josefa Munoz,+56959699019,WhatsApp,Puerto Octay,2026-05-30,no,1
+CLI-0353,Ignacio Araya,@ignacio.araya,Instagram,Purranque,2026-06-16,no,1
+CLI-0354,Diego Cardenas,+56910680344,WhatsApp,Osorno,2026-06-05,no,1
+CLI-0355,Matias Gallardo,+56988373328,WhatsApp,Rahue,2026-06-11,si,4
+CLI-0356,Agustin Leiva,@agustin.leiva,Instagram,Rio Negro,2026-05-28,no,1
+CLI-0357,Florencia Oyarzo,@florencia.oyarzo,Instagram,San Pablo,2026-05-30,no,1
+CLI-0358,Diego Vera,+56941657080,WhatsApp,Rahue,2026-06-16,no,1
+CLI-0359,Vicente Rojas,+56936760172,WhatsApp,Rahue,2026-06-19,no,1
+CLI-0360,Diego Vargas,+56949463623,WhatsApp,San Pablo,2026-06-02,no,1
+CLI-0361,Ignacio Vargas,+56955070495,WhatsApp,Purranque,2026-06-09,si,4
+CLI-0362,Benjamin Espinoza,+56960847577,WhatsApp,Osorno,2026-06-17,no,1
+CLI-0363,Joaquin Vera,@joaquin.vera,Instagram,Francke,2026-06-12,no,1
+CLI-0364,Javiera Vargas,@javiera.vargas,Instagram,Osorno,2026-06-17,no,1
+CLI-0365,Lucas Espinoza,+56975575720,WhatsApp,San Pablo,2026-06-12,si,3
+CLI-0366,Lucas Cardenas,@lucas.cardenas,Instagram,Francke,2026-05-16,no,1
+CLI-0367,Felipe Castillo,@felipe.castillo,Instagram,Osorno,2026-06-18,no,1
+CLI-0368,Joaquin Alvarez,+56989570993,WhatsApp,Rio Negro,2026-06-07,no,1
+CLI-0369,Javiera Carrasco,@javiera.carrasco,Instagram,Purranque,2026-05-27,no,1
+CLI-0370,Catalina Munoz,+56955565575,WhatsApp,San Pablo,2026-06-08,no,1
+CLI-0371,Josefa Araya,+56933919545,WhatsApp,Purranque,2026-06-04,no,1
+CLI-0372,Isidora Miranda,+56917381695,WhatsApp,Rio Negro,2026-05-14,no,1
+CLI-0373,Javiera Leiva,@javiera.leiva,Instagram,Puerto Octay,2026-05-13,no,1
+CLI-0374,Matias Espinoza,+56990558544,WhatsApp,Rahue,2026-06-05,no,1
+CLI-0375,Tomas Bravo,@tomas.bravo,Instagram,San Pablo,2026-05-17,si,4
+CLI-0376,Florencia Gallardo,+56931956437,WhatsApp,Francke,2026-05-14,no,1
+CLI-0377,Francisca Alvarez,+56943919796,WhatsApp,Francke,2026-06-08,no,1
+CLI-0378,Constanza Oyarzo,+56985329215,WhatsApp,Rahue,2026-06-02,no,1
+CLI-0379,Matias Morales,@matias.morales,Instagram,San Pablo,2026-05-26,no,1
+CLI-0380,Francisca Vargas,+56945864233,WhatsApp,Ovejeria,2026-05-31,no,1
+CLI-0381,Cristobal Espinoza,@cristobal.espinoza,Instagram,Puerto Octay,2026-05-16,no,1
+CLI-0382,Lucas Godoy,@lucas.godoy,Instagram,Osorno,2026-06-16,si,2
+CLI-0383,Ignacio Rojas,+56923484889,WhatsApp,Purranque,2026-06-06,si,3
+CLI-0384,Agustin Gallardo,@agustin.gallardo,Instagram,Osorno,2026-05-28,si,3
+CLI-0385,Matias Navarro,@matias.navarro,Instagram,Rio Negro,2026-06-19,no,1
+CLI-0386,Felipe Paredes,@felipe.paredes,Instagram,Osorno,2026-06-03,no,1
+CLI-0387,Tomas Vera,+56981026394,WhatsApp,Rio Negro,2026-05-13,no,1
+CLI-0388,Lucas Rojas,@lucas.rojas,Instagram,Puerto Octay,2026-05-24,si,2
+CLI-0389,Javiera Castillo,@javiera.castillo,Instagram,Rio Negro,2026-05-21,no,1
+CLI-0390,Emilia Rojas,+56920180001,WhatsApp,Purranque,2026-06-03,no,1
+CLI-0391,Gabriel Soto,@gabriel.soto,Instagram,Puerto Octay,2026-05-30,no,1
+CLI-0392,Vicente Vera,+56979200562,WhatsApp,Francke,2026-05-25,no,1
+CLI-0393,Constanza Oyarzo,@constanza.oyarzo,Instagram,Osorno,2026-06-19,no,1
+CLI-0394,Maximiliano Vargas,+56981782082,WhatsApp,San Pablo,2026-05-31,no,1
+CLI-0395,Lucas Rojas,+56943906592,WhatsApp,Rahue,2026-06-09,si,5
+CLI-0396,Matias Alvarez,+56968125302,WhatsApp,Purranque,2026-06-16,no,1
+CLI-0397,Josefa Vera,+56941083163,WhatsApp,Rio Negro,2026-05-14,no,1
+CLI-0398,Gabriel Oyarzo,+56957863148,WhatsApp,San Pablo,2026-05-20,no,1
+CLI-0399,Florencia Mansilla,@florencia.mansilla,Instagram,Osorno,2026-06-11,no,1
+CLI-0400,Nicolas Saavedra,+56910646804,WhatsApp,Rio Negro,2026-05-19,no,1
+CLI-0401,Diego Munoz,+56933604344,WhatsApp,Osorno,2026-05-22,no,1
+CLI-0402,Tomas Alvarez,+56954927517,WhatsApp,Rahue,2026-06-05,no,1
+CLI-0403,Josefa Araya,+56966398808,WhatsApp,Purranque,2026-05-16,no,1
+CLI-0404,Renata Rojas,+56917207571,WhatsApp,Ovejeria,2026-05-27,si,5
+CLI-0405,Trinidad Leiva,+56940022509,WhatsApp,Rahue,2026-06-05,no,1
+CLI-0406,Trinidad Miranda,@trinidad.miranda,Instagram,Rio Negro,2026-05-19,no,1
+CLI-0407,Joaquin Reyes,+56948336619,WhatsApp,Ovejeria,2026-05-17,no,1
+CLI-0408,Emilia Navarro,+56993119604,WhatsApp,Rahue,2026-06-13,si,4
+CLI-0409,Martina Soto,+56954629555,WhatsApp,Francke,2026-05-16,no,1
+CLI-0410,Martina Araya,+56987975002,WhatsApp,Ovejeria,2026-05-21,no,1
+CLI-0411,Cristobal Gallardo,+56954318403,WhatsApp,Puerto Octay,2026-05-22,no,1
+CLI-0412,Vicente Oyarzo,+56973991183,WhatsApp,Francke,2026-06-17,si,2
+CLI-0413,Cristobal Paredes,+56983497111,WhatsApp,San Pablo,2026-06-07,no,1
+CLI-0414,Francisca Gallardo,+56925423374,WhatsApp,Ovejeria,2026-05-24,no,1
+CLI-0415,Vicente Cortes,@vicente.cortes,Instagram,San Pablo,2026-05-20,no,1
+CLI-0416,Matias Navarro,+56957123420,WhatsApp,Puerto Octay,2026-05-14,no,1
+CLI-0417,Matias Rojas,+56929918603,WhatsApp,Ovejeria,2026-05-15,si,2
+CLI-0418,Joaquin Miranda,+56928316807,WhatsApp,Purranque,2026-05-20,si,2
+CLI-0419,Nicolas Gallardo,+56979561831,WhatsApp,San Pablo,2026-06-12,no,1
+CLI-0420,Martina Miranda,+56963391264,WhatsApp,Puerto Octay,2026-06-04,no,1
+CLI-0421,Lucas Godoy,+56990242515,WhatsApp,Ovejeria,2026-06-17,no,1
+CLI-0422,Vicente Espinoza,@vicente.espinoza,Instagram,San Pablo,2026-05-30,si,5
+CLI-0423,Vicente Reyes,+56962320252,WhatsApp,Puerto Octay,2026-05-17,no,1
+CLI-0424,Josefa Munoz,@josefa.munoz,Instagram,Purranque,2026-05-27,no,1
+CLI-0425,Bastian Espinoza,+56994593202,WhatsApp,Osorno,2026-06-08,si,2
+CLI-0426,Francisca Gallardo,+56993791390,WhatsApp,Rio Negro,2026-05-22,no,1
+CLI-0427,Vicente Castillo,+56994912320,WhatsApp,Osorno,2026-05-27,no,1
+CLI-0428,Matias Espinoza,@matias.espinoza,Instagram,San Pablo,2026-06-13,no,1
+CLI-0429,Benjamin Leiva,+56952490158,WhatsApp,San Pablo,2026-05-14,no,1
+CLI-0430,Constanza Navarro,+56964397457,WhatsApp,Osorno,2026-06-01,si,2
+CLI-0431,Cristobal Vera,+56943253645,WhatsApp,Rahue,2026-05-25,si,4
+CLI-0432,Vicente Munoz,+56990875050,WhatsApp,Puerto Octay,2026-06-05,no,1
+CLI-0433,Renata Oyarzo,@renata.oyarzo,Instagram,San Pablo,2026-06-13,no,1
+CLI-0434,Tomas Leiva,@tomas.leiva,Instagram,Rio Negro,2026-06-07,no,1
+CLI-0435,Florencia Carrasco,+56963987020,WhatsApp,Rahue,2026-06-09,no,1
+CLI-0436,Trinidad Cortes,+56957608031,WhatsApp,Purranque,2026-05-31,no,1
+CLI-0437,Martina Espinoza,+56975232781,WhatsApp,Francke,2026-06-02,no,1
+CLI-0438,Matias Mansilla,+56918516543,WhatsApp,Ovejeria,2026-05-23,no,1
+CLI-0439,Renata Vargas,+56950003938,WhatsApp,San Pablo,2026-06-03,no,1
+CLI-0440,Maximiliano Cardenas,@maximiliano.cardenas,Instagram,Purranque,2026-06-04,si,2
+CLI-0441,Martina Vera,+56949346361,WhatsApp,Ovejeria,2026-05-22,no,1
+CLI-0442,Sofia Paredes,+56998300099,WhatsApp,Osorno,2026-05-31,no,1
+CLI-0443,Renata Castillo,@renata.castillo,Instagram,San Pablo,2026-06-07,no,1
+CLI-0444,Diego Miranda,@diego.miranda,Instagram,Francke,2026-05-16,no,1
+CLI-0445,Cristobal Reyes,+56931734252,WhatsApp,Rahue,2026-06-07,si,3
+CLI-0446,Tomas Vera,+56940656979,WhatsApp,Purranque,2026-05-21,no,1
+CLI-0447,Tomas Mansilla,@tomas.mansilla,Instagram,San Pablo,2026-06-10,si,3
+CLI-0448,Matias Godoy,@matias.godoy,Instagram,Osorno,2026-06-15,no,1
+CLI-0449,Ignacio Carrasco,@ignacio.carrasco,Instagram,Osorno,2026-06-19,no,1
+CLI-0450,Antonia Paredes,+56912697542,WhatsApp,Purranque,2026-06-16,si,4
+CLI-0451,Benjamin Cortes,@benjamin.cortes,Instagram,San Pablo,2026-06-17,si,3
+CLI-0452,Nicolas Rojas,+56919199605,WhatsApp,Francke,2026-05-17,no,1
+CLI-0453,Ignacio Vera,+56945778082,WhatsApp,San Pablo,2026-05-15,no,1
+CLI-0454,Valentina Araya,@valentina.araya,Instagram,Puerto Octay,2026-05-25,si,5
+CLI-0455,Javiera Gallardo,@javiera.gallardo,Instagram,San Pablo,2026-05-22,no,1
+CLI-0456,Agustin Soto,+56966700457,WhatsApp,Francke,2026-05-26,no,1
+CLI-0457,Sebastian Navarro,+56925441301,WhatsApp,Puerto Octay,2026-06-19,no,1
+CLI-0458,Valentina Reyes,+56949075584,WhatsApp,Ovejeria,2026-05-23,si,4
+CLI-0459,Javiera Bravo,+56924022448,WhatsApp,Purranque,2026-06-18,no,1
+CLI-0460,Fernanda Miranda,@fernanda.miranda,Instagram,Osorno,2026-05-18,no,1
+CLI-0461,Nicolas Vargas,+56923438409,WhatsApp,San Pablo,2026-06-07,no,1
+CLI-0462,Sofia Paredes,+56985309804,WhatsApp,Rahue,2026-06-04,si,3
+CLI-0463,Diego Paredes,@diego.paredes,Instagram,Purranque,2026-05-31,no,1
+CLI-0464,Joaquin Bravo,@joaquin.bravo,Instagram,San Pablo,2026-05-26,no,1
+CLI-0465,Javiera Soto,+56963771995,WhatsApp,Ovejeria,2026-06-12,no,1
+CLI-0466,Catalina Munoz,+56948241924,WhatsApp,Osorno,2026-05-19,no,1
+CLI-0467,Tomas Carrasco,+56954418876,WhatsApp,Osorno,2026-05-16,no,1
+CLI-0468,Bastian Miranda,+56935468324,WhatsApp,Puerto Octay,2026-06-11,si,4
+CLI-0469,Bastian Vargas,@bastian.vargas,Instagram,Rio Negro,2026-05-28,no,1
+CLI-0470,Renata Mansilla,@renata.mansilla,Instagram,Puerto Octay,2026-06-11,no,1
+CLI-0471,Camila Vera,+56952487348,WhatsApp,San Pablo,2026-05-18,no,1
+CLI-0472,Martina Bravo,+56956464441,WhatsApp,Rahue,2026-06-13,si,2
+CLI-0473,Valentina Vargas,@valentina.vargas,Instagram,Rio Negro,2026-06-16,no,1
+CLI-0474,Bastian Cardenas,+56957788231,WhatsApp,Ovejeria,2026-06-02,no,1
+CLI-0475,Valentina Munoz,@valentina.munoz,Instagram,Purranque,2026-05-14,no,1
+CLI-0476,Ignacio Rojas,@ignacio.rojas,Instagram,Ovejeria,2026-05-30,no,1
+CLI-0477,Fernanda Morales,+56960512440,WhatsApp,Puerto Octay,2026-06-11,no,1
+CLI-0478,Sebastian Miranda,@sebastian.miranda,Instagram,Osorno,2026-05-16,no,1
+CLI-0479,Antonia Alvarez,+56956162633,WhatsApp,Ovejeria,2026-06-06,no,1
+CLI-0480,Agustin Miranda,+56914283695,WhatsApp,San Pablo,2026-06-12,si,4
+CLI-0481,Cristobal Paredes,@cristobal.paredes,Instagram,Rio Negro,2026-05-27,no,1
+CLI-0482,Benjamin Rojas,+56923874949,WhatsApp,Purranque,2026-06-05,no,1
+CLI-0483,Camila Castillo,+56955300648,WhatsApp,Rahue,2026-06-11,no,1
+CLI-0484,Sebastian Reyes,@sebastian.reyes,Instagram,San Pablo,2026-05-31,no,1
+CLI-0485,Camila Oyarzo,@camila.oyarzo,Instagram,Ovejeria,2026-05-20,si,4
+CLI-0486,Sofia Vera,+56988147657,WhatsApp,Francke,2026-05-23,no,1
+CLI-0487,Cristobal Saavedra,+56969899421,WhatsApp,Francke,2026-06-09,no,1
+CLI-0488,Francisca Morales,@francisca.morales,Instagram,San Pablo,2026-05-29,no,1
+CLI-0489,Catalina Oyarzo,@catalina.oyarzo,Instagram,Osorno,2026-06-08,si,2
+CLI-0490,Antonia Vera,+56984948946,WhatsApp,Rahue,2026-05-21,no,1
+CLI-0491,Valentina Navarro,+56916666768,WhatsApp,Ovejeria,2026-05-26,si,4
+CLI-0492,Joaquin Vargas,+56929229640,WhatsApp,Osorno,2026-05-27,no,1
+CLI-0493,Constanza Miranda,+56948157694,WhatsApp,Rahue,2026-06-16,si,3
+CLI-0494,Agustin Vera,+56954211124,WhatsApp,Rio Negro,2026-05-13,no,1
+CLI-0495,Agustin Miranda,@agustin.miranda,Instagram,Puerto Octay,2026-05-17,no,1
+CLI-0496,Martina Soto,+56992898472,WhatsApp,Francke,2026-06-12,si,5
+CLI-0497,Constanza Leiva,+56938638708,WhatsApp,Rahue,2026-05-21,no,1
+CLI-0498,Tomas Leiva,+56952374580,WhatsApp,Ovejeria,2026-05-15,si,4
+CLI-0499,Francisca Gallardo,+56976961211,WhatsApp,Ovejeria,2026-05-22,no,1
+CLI-0500,Tomas Cortes,+56969244362,WhatsApp,Ovejeria,2026-05-22,no,1
+CLI-0501,Vicente Godoy,+56968772929,WhatsApp,Ovejeria,2026-06-10,si,4
+CLI-0502,Bastian Navarro,@bastian.navarro,Instagram,Francke,2026-06-07,no,1
+CLI-0503,Diego Vera,@diego.vera,Instagram,Rahue,2026-05-15,no,1
+CLI-0504,Vicente Castillo,@vicente.castillo,Instagram,Ovejeria,2026-06-16,si,2
+CLI-0505,Maximiliano Gallardo,@maximiliano.gallardo,Instagram,Purranque,2026-05-17,no,1
+CLI-0506,Lucas Cardenas,+56965908178,WhatsApp,Francke,2026-06-19,no,1
+CLI-0507,Tomas Cortes,@tomas.cortes,Instagram,Puerto Octay,2026-05-21,no,1
+CLI-0508,Camila Mansilla,@camila.mansilla,Instagram,Rio Negro,2026-05-27,no,1
+CLI-0509,Josefa Saavedra,+56955495485,WhatsApp,Purranque,2026-05-19,no,1
+CLI-0510,Josefa Castillo,@josefa.castillo,Instagram,Purranque,2026-05-22,no,1
+CLI-0511,Sebastian Cardenas,+56958387311,WhatsApp,Rahue,2026-05-17,no,1
+CLI-0512,Lucas Bravo,+56977010373,WhatsApp,Francke,2026-06-17,si,3
+CLI-0513,Maximiliano Alvarez,+56932018679,WhatsApp,Purranque,2026-05-20,no,1
+CLI-0514,Cristobal Vera,@cristobal.vera,Instagram,Purranque,2026-05-29,no,1
+CLI-0515,Ignacio Reyes,+56942121746,WhatsApp,Osorno,2026-06-05,no,1
+CLI-0516,Sofia Miranda,@sofia.miranda,Instagram,Rio Negro,2026-06-13,no,1
+CLI-0517,Sofia Paredes,+56927317770,WhatsApp,Purranque,2026-05-17,no,1
+CLI-0518,Emilia Paredes,@emilia.paredes,Instagram,Purranque,2026-06-03,no,1
+CLI-0519,Tomas Vera,@tomas.vera,Instagram,Francke,2026-05-30,no,1
+CLI-0520,Nicolas Gallardo,+56977871663,WhatsApp,Puerto Octay,2026-06-05,no,1
+CLI-0521,Tomas Mansilla,+56950875400,WhatsApp,Francke,2026-06-16,no,1
+CLI-0522,Isidora Morales,+56966443601,WhatsApp,San Pablo,2026-06-06,no,1
+CLI-0523,Bastian Alvarez,+56964225131,WhatsApp,San Pablo,2026-06-08,no,1
+CLI-0524,Cristobal Cardenas,@cristobal.cardenas,Instagram,Ovejeria,2026-06-09,no,1
+CLI-0525,Diego Navarro,@diego.navarro,Instagram,Francke,2026-05-28,no,1
+CLI-0526,Gabriel Rojas,+56911868965,WhatsApp,Rahue,2026-06-17,no,1
+CLI-0527,Isidora Saavedra,@isidora.saavedra,Instagram,Rio Negro,2026-05-14,no,1
+CLI-0528,Nicolas Cortes,@nicolas.cortes,Instagram,Osorno,2026-06-11,no,1
+CLI-0529,Emilia Bravo,+56926641020,WhatsApp,Ovejeria,2026-06-03,no,1
+CLI-0530,Constanza Navarro,@constanza.navarro,Instagram,Francke,2026-06-04,no,1
+CLI-0531,Lucas Carrasco,@lucas.carrasco,Instagram,Puerto Octay,2026-05-22,si,2
+CLI-0532,Emilia Godoy,+56913560660,WhatsApp,Rio Negro,2026-05-18,no,1
+CLI-0533,Constanza Alvarez,+56978456259,WhatsApp,Rio Negro,2026-05-21,no,1
+CLI-0534,Valentina Espinoza,+56956931552,WhatsApp,Ovejeria,2026-06-09,no,1
+CLI-0535,Agustin Munoz,+56976372059,WhatsApp,Osorno,2026-06-02,no,1
+CLI-0536,Lucas Saavedra,+56975261053,WhatsApp,Ovejeria,2026-05-29,no,1
+CLI-0537,Martina Munoz,+56977523833,WhatsApp,Puerto Octay,2026-05-26,no,1
+CLI-0538,Fernanda Vargas,+56975319963,WhatsApp,Puerto Octay,2026-05-16,no,1
+CLI-0539,Vicente Araya,+56958701976,WhatsApp,Puerto Octay,2026-06-18,no,1
+CLI-0540,Josefa Saavedra,@josefa.saavedra,Instagram,Purranque,2026-06-14,no,1
+CLI-0541,Josefa Bravo,@josefa.bravo,Instagram,San Pablo,2026-06-15,no,1
+CLI-0542,Bastian Carrasco,+56934760853,WhatsApp,Ovejeria,2026-06-15,no,1
+CLI-0543,Lucas Miranda,+56939256376,WhatsApp,Puerto Octay,2026-05-16,no,1
+CLI-0544,Florencia Morales,@florencia.morales,Instagram,San Pablo,2026-06-18,no,1
+CLI-0545,Agustin Godoy,+56981817246,WhatsApp,Ovejeria,2026-05-16,no,1
+CLI-0546,Vicente Navarro,@vicente.navarro,Instagram,Rahue,2026-06-18,no,1
+CLI-0547,Camila Alvarez,+56958257813,WhatsApp,Osorno,2026-06-16,no,1
+CLI-0548,Emilia Paredes,+56936944670,WhatsApp,Francke,2026-06-10,no,1
+CLI-0549,Javiera Bravo,+56932473531,WhatsApp,San Pablo,2026-06-10,no,1
+CLI-0550,Francisca Espinoza,@francisca.espinoza,Instagram,Rahue,2026-06-04,si,5
+CLI-0551,Catalina Cardenas,@catalina.cardenas,Instagram,Rahue,2026-06-01,si,2
+CLI-0552,Sebastian Castillo,+56922507157,WhatsApp,Rio Negro,2026-06-16,no,1
+CLI-0553,Bastian Munoz,@bastian.munoz,Instagram,San Pablo,2026-05-17,no,1
+CLI-0554,Francisca Castillo,@francisca.castillo,Instagram,Rahue,2026-05-31,no,1
+CLI-0555,Valentina Alvarez,+56962039315,WhatsApp,San Pablo,2026-05-17,no,1
+CLI-0556,Renata Rojas,+56993534522,WhatsApp,Osorno,2026-05-19,no,1
+CLI-0557,Bastian Araya,+56916018257,WhatsApp,Rahue,2026-06-03,no,1
+CLI-0558,Ignacio Reyes,+56928425625,WhatsApp,Osorno,2026-05-29,no,1
+CLI-0559,Emilia Cardenas,+56927120730,WhatsApp,Francke,2026-05-18,no,1
+CLI-0560,Ignacio Castillo,+56998230736,WhatsApp,Rahue,2026-06-07,no,1
+CLI-0561,Antonia Rojas,+56920804707,WhatsApp,Ovejeria,2026-06-07,no,1
+CLI-0562,Maximiliano Oyarzo,+56956117862,WhatsApp,Ovejeria,2026-05-16,no,1
+CLI-0563,Martina Godoy,@martina.godoy,Instagram,Rio Negro,2026-05-20,si,2
+CLI-0564,Javiera Munoz,+56940546723,WhatsApp,Francke,2026-06-09,no,1
+CLI-0565,Agustin Carrasco,@agustin.carrasco,Instagram,Francke,2026-06-04,no,1
+CLI-0566,Matias Soto,+56990946253,WhatsApp,Rio Negro,2026-05-13,si,5
+CLI-0567,Ignacio Mansilla,@ignacio.mansilla,Instagram,Osorno,2026-05-23,no,1
+CLI-0568,Fernanda Carrasco,+56917405281,WhatsApp,Puerto Octay,2026-05-27,si,4
+CLI-0569,Felipe Alvarez,@felipe.alvarez,Instagram,Puerto Octay,2026-05-13,no,1
+CLI-0570,Matias Godoy,+56915815000,WhatsApp,Osorno,2026-05-21,no,1
+CLI-0571,Emilia Mansilla,+56979528186,WhatsApp,Rio Negro,2026-06-08,si,5
+CLI-0572,Fernanda Reyes,+56982836397,WhatsApp,Rahue,2026-06-06,no,1
+CLI-0573,Martina Munoz,@martina.munoz,Instagram,Rio Negro,2026-06-10,si,2
+CLI-0574,Agustin Mansilla,+56977296844,WhatsApp,Rio Negro,2026-05-15,no,1
+CLI-0575,Antonia Espinoza,@antonia.espinoza,Instagram,Purranque,2026-06-18,no,1
+CLI-0576,Martina Araya,+56931156634,WhatsApp,Ovejeria,2026-06-07,no,1
+CLI-0577,Martina Morales,+56978415723,WhatsApp,Osorno,2026-05-25,no,1
+CLI-0578,Sebastian Castillo,+56996536416,WhatsApp,Rahue,2026-06-11,no,1
+CLI-0579,Nicolas Carrasco,+56953843304,WhatsApp,San Pablo,2026-05-15,no,1
+CLI-0580,Agustin Vargas,+56997056670,WhatsApp,Rahue,2026-06-06,no,1
+CLI-0581,Catalina Saavedra,+56980934805,WhatsApp,Puerto Octay,2026-06-14,no,1
+CLI-0582,Francisca Munoz,+56990127224,WhatsApp,Osorno,2026-06-04,no,1
+CLI-0583,Isidora Castillo,+56980799090,WhatsApp,Puerto Octay,2026-06-06,no,1
+CLI-0584,Diego Mansilla,+56918492754,WhatsApp,Ovejeria,2026-06-13,no,1
+CLI-0585,Camila Leiva,+56983104025,WhatsApp,San Pablo,2026-05-13,si,4
+CLI-0586,Tomas Paredes,+56913191984,WhatsApp,Osorno,2026-05-17,no,1
+CLI-0587,Florencia Saavedra,+56938848867,WhatsApp,Osorno,2026-05-21,no,1
+CLI-0588,Maximiliano Espinoza,@maximiliano.espinoza,Instagram,Puerto Octay,2026-05-27,no,1
+CLI-0589,Antonia Castillo,+56965871855,WhatsApp,Rio Negro,2026-06-13,no,1
+CLI-0590,Maximiliano Reyes,+56939374681,WhatsApp,Puerto Octay,2026-05-23,no,1
+CLI-0591,Fernanda Reyes,+56914934188,WhatsApp,Rio Negro,2026-06-16,no,1
+CLI-0592,Josefa Paredes,@josefa.paredes,Instagram,Ovejeria,2026-05-15,no,1
+CLI-0593,Trinidad Soto,@trinidad.soto,Instagram,Francke,2026-05-22,no,1
+CLI-0594,Valentina Rojas,+56942542122,WhatsApp,Puerto Octay,2026-05-22,no,1
+CLI-0595,Trinidad Reyes,+56913623798,WhatsApp,Francke,2026-06-06,no,1
+CLI-0596,Javiera Castillo,+56972530304,WhatsApp,Puerto Octay,2026-06-19,si,4
+CLI-0597,Francisca Leiva,+56988545018,WhatsApp,Purranque,2026-06-15,no,1
+CLI-0598,Bastian Gallardo,@bastian.gallardo,Instagram,Rahue,2026-06-17,no,1
+CLI-0599,Trinidad Gallardo,@trinidad.gallardo,Instagram,Osorno,2026-06-17,no,1
+CLI-0600,Felipe Munoz,+56999007901,WhatsApp,Rio Negro,2026-06-07,si,2
+CLI-0601,Sofia Alvarez,+56949640884,WhatsApp,Francke,2026-05-16,no,1
+CLI-0602,Vicente Paredes,+56942969815,WhatsApp,Puerto Octay,2026-05-22,no,1
+CLI-0603,Trinidad Munoz,+56945190844,WhatsApp,Rahue,2026-05-20,no,1
+CLI-0604,Camila Morales,@camila.morales,Instagram,Ovejeria,2026-06-11,no,1
+CLI-0605,Francisca Bravo,+56928687308,WhatsApp,Puerto Octay,2026-06-05,no,1
+CLI-0606,Joaquin Paredes,+56999719749,WhatsApp,Osorno,2026-06-10,no,1
+CLI-0607,Camila Alvarez,@camila.alvarez,Instagram,Puerto Octay,2026-05-23,no,1
+CLI-0608,Javiera Cortes,@javiera.cortes,Instagram,San Pablo,2026-06-08,si,3
+CLI-0609,Felipe Araya,+56913033313,WhatsApp,Purranque,2026-05-15,no,1
+CLI-0610,Javiera Carrasco,+56928800934,WhatsApp,Ovejeria,2026-05-13,no,1
+CLI-0611,Renata Miranda,+56958831952,WhatsApp,Rio Negro,2026-06-05,si,5
+CLI-0612,Felipe Vargas,+56943167675,WhatsApp,Rahue,2026-05-28,no,1
+CLI-0613,Matias Bravo,+56927595972,WhatsApp,Puerto Octay,2026-05-28,no,1
+CLI-0614,Sebastian Cortes,+56968392935,WhatsApp,Ovejeria,2026-05-27,no,1
+CLI-0615,Sofia Mansilla,@sofia.mansilla,Instagram,Rahue,2026-06-02,no,1
+CLI-0616,Fernanda Espinoza,+56924993004,WhatsApp,Rio Negro,2026-05-30,no,1
+CLI-0617,Sofia Bravo,+56955692783,WhatsApp,Purranque,2026-05-20,no,1
+CLI-0618,Camila Gallardo,@camila.gallardo,Instagram,Purranque,2026-05-19,no,1
+CLI-0619,Cristobal Godoy,+56940339882,WhatsApp,San Pablo,2026-06-07,no,1
+CLI-0620,Agustin Leiva,+56936258282,WhatsApp,San Pablo,2026-06-02,si,3
+CLI-0621,Benjamin Soto,+56926989113,WhatsApp,Rahue,2026-06-11,no,1
+CLI-0622,Josefa Espinoza,+56930954477,WhatsApp,Francke,2026-06-19,no,1
+CLI-0623,Camila Paredes,+56970934372,WhatsApp,Purranque,2026-06-08,no,1
+CLI-0624,Benjamin Navarro,+56922381766,WhatsApp,Purranque,2026-05-22,no,1
+CLI-0625,Catalina Paredes,@catalina.paredes,Instagram,Ovejeria,2026-05-15,si,3
+CLI-0626,Antonia Castillo,+56913164848,WhatsApp,Rahue,2026-05-28,no,1
+CLI-0627,Fernanda Gallardo,+56917513073,WhatsApp,Francke,2026-05-29,no,1
+CLI-0628,Isidora Espinoza,+56995862934,WhatsApp,Ovejeria,2026-05-25,no,1
+CLI-0629,Trinidad Morales,+56967823167,WhatsApp,Rio Negro,2026-05-25,si,4
+CLI-0630,Valentina Oyarzo,+56990394996,WhatsApp,Francke,2026-06-18,no,1
+CLI-0631,Camila Paredes,@camila.paredes,Instagram,Rio Negro,2026-05-18,no,1
+CLI-0632,Camila Paredes,+56999506591,WhatsApp,Puerto Octay,2026-06-19,si,3
+CLI-0633,Agustin Reyes,@agustin.reyes,Instagram,Purranque,2026-06-16,no,1
+CLI-0634,Valentina Castillo,+56925591698,WhatsApp,Ovejeria,2026-05-22,no,1
+CLI-0635,Emilia Bravo,+56949107703,WhatsApp,Ovejeria,2026-05-28,no,1
+CLI-0636,Renata Vargas,@renata.vargas,Instagram,Rahue,2026-05-28,no,1
+CLI-0637,Catalina Cortes,+56997561194,WhatsApp,Rahue,2026-05-25,no,1
+CLI-0638,Catalina Gallardo,+56942132224,WhatsApp,Puerto Octay,2026-06-09,si,2
+CLI-0639,Martina Leiva,+56984404907,WhatsApp,Ovejeria,2026-06-17,si,5
+CLI-0640,Cristobal Vargas,+56925926309,WhatsApp,San Pablo,2026-05-18,si,2
+CLI-0641,Martina Espinoza,+56960762592,WhatsApp,Ovejeria,2026-05-22,no,1
+CLI-0642,Gabriel Rojas,+56922366504,WhatsApp,Ovejeria,2026-05-17,no,1
+CLI-0643,Agustin Espinoza,@agustin.espinoza,Instagram,Ovejeria,2026-06-11,si,3
+CLI-0644,Matias Munoz,@matias.munoz,Instagram,San Pablo,2026-05-25,no,1
+CLI-0645,Francisca Saavedra,+56924575867,WhatsApp,Puerto Octay,2026-05-24,no,1
+CLI-0646,Benjamin Godoy,@benjamin.godoy,Instagram,Francke,2026-05-17,no,1
+CLI-0647,Sebastian Gallardo,+56922289363,WhatsApp,Purranque,2026-05-21,no,1
+CLI-0648,Nicolas Soto,+56921964165,WhatsApp,Rahue,2026-05-22,no,1
+CLI-0649,Constanza Morales,+56937239896,WhatsApp,Purranque,2026-06-11,si,3
+CLI-0650,Emilia Cortes,+56911430102,WhatsApp,Purranque,2026-05-27,si,4
+CLI-0651,Catalina Espinoza,+56960381582,WhatsApp,Purranque,2026-06-04,no,1
+CLI-0652,Lucas Soto,@lucas.soto,Instagram,Francke,2026-06-13,no,1
+CLI-0653,Fernanda Bravo,+56979277469,WhatsApp,Puerto Octay,2026-05-16,no,1
+CLI-0654,Francisca Munoz,+56966473416,WhatsApp,Francke,2026-05-17,no,1
+CLI-0655,Renata Miranda,@renata.miranda,Instagram,San Pablo,2026-06-18,no,1
+CLI-0656,Florencia Soto,+56990431838,WhatsApp,Puerto Octay,2026-05-21,no,1
+CLI-0657,Benjamin Araya,+56981157361,WhatsApp,San Pablo,2026-05-15,si,3
+CLI-0658,Lucas Espinoza,+56933203063,WhatsApp,Francke,2026-05-15,no,1
+CLI-0659,Cristobal Navarro,+56989281085,WhatsApp,San Pablo,2026-05-31,no,1
+CLI-0660,Javiera Alvarez,+56986792213,WhatsApp,San Pablo,2026-06-02,no,1
+CLI-0661,Javiera Mansilla,+56960047303,WhatsApp,Rahue,2026-06-02,no,1
+CLI-0662,Cristobal Navarro,+56928846065,WhatsApp,San Pablo,2026-05-15,no,1
+CLI-0663,Tomas Vargas,+56926469296,WhatsApp,Ovejeria,2026-05-25,no,1
+CLI-0664,Florencia Cardenas,+56952095415,WhatsApp,Ovejeria,2026-06-12,no,1
+CLI-0665,Camila Espinoza,+56983322202,WhatsApp,Osorno,2026-06-12,si,2
+CLI-0666,Sofia Bravo,+56968222583,WhatsApp,Puerto Octay,2026-05-13,no,1
+CLI-0667,Constanza Munoz,+56970917977,WhatsApp,Ovejeria,2026-06-14,no,1
+CLI-0668,Emilia Carrasco,@emilia.carrasco,Instagram,Ovejeria,2026-06-13,no,1
+CLI-0669,Lucas Araya,+56971787086,WhatsApp,Ovejeria,2026-05-15,si,4
+CLI-0670,Joaquin Gallardo,+56977977890,WhatsApp,Francke,2026-06-10,no,1
+CLI-0671,Sofia Vargas,+56965784269,WhatsApp,Puerto Octay,2026-06-16,no,1
+CLI-0672,Vicente Gallardo,+56925255777,WhatsApp,Purranque,2026-06-05,no,1
+CLI-0673,Emilia Munoz,+56938562644,WhatsApp,Francke,2026-06-10,no,1
+CLI-0674,Constanza Reyes,+56945973299,WhatsApp,Francke,2026-06-01,no,1
+CLI-0675,Isidora Cardenas,+56910281962,WhatsApp,Osorno,2026-05-25,no,1
+CLI-0676,Emilia Espinoza,@emilia.espinoza,Instagram,Purranque,2026-06-10,no,1
+CLI-0677,Cristobal Miranda,@cristobal.miranda,Instagram,Puerto Octay,2026-05-20,no,1
+CLI-0678,Florencia Munoz,+56996066880,WhatsApp,Ovejeria,2026-06-17,si,4
+CLI-0679,Bastian Oyarzo,+56965032431,WhatsApp,Puerto Octay,2026-05-16,no,1
+CLI-0680,Camila Vargas,+56933921579,WhatsApp,Rahue,2026-06-15,no,1
+CLI-0681,Vicente Saavedra,@vicente.saavedra,Instagram,Ovejeria,2026-06-08,no,1
+CLI-0682,Constanza Espinoza,@constanza.espinoza,Instagram,Puerto Octay,2026-05-24,si,2
+CLI-0683,Felipe Cortes,+56982019790,WhatsApp,Ovejeria,2026-06-19,no,1
+CLI-0684,Florencia Gallardo,+56960881008,WhatsApp,Ovejeria,2026-06-07,no,1
+CLI-0685,Diego Morales,@diego.morales,Instagram,Puerto Octay,2026-05-27,no,1
+CLI-0686,Trinidad Leiva,@trinidad.leiva,Instagram,Ovejeria,2026-06-08,si,3
+CLI-0687,Francisca Castillo,+56933239267,WhatsApp,Osorno,2026-05-18,si,4
+CLI-0688,Lucas Espinoza,+56983235880,WhatsApp,Purranque,2026-06-08,no,1
+CLI-0689,Lucas Paredes,+56935455463,WhatsApp,San Pablo,2026-06-11,si,4
+CLI-0690,Trinidad Oyarzo,+56995967610,WhatsApp,Ovejeria,2026-06-05,si,5
+CLI-0691,Sebastian Leiva,+56988629973,WhatsApp,Puerto Octay,2026-06-08,no,1
+CLI-0692,Vicente Morales,+56984624285,WhatsApp,Rio Negro,2026-06-01,no,1
+CLI-0693,Nicolas Espinoza,@nicolas.espinoza,Instagram,Francke,2026-05-29,no,1
+CLI-0694,Sebastian Miranda,+56982955022,WhatsApp,Rahue,2026-05-29,no,1
+CLI-0695,Joaquin Vera,+56986963509,WhatsApp,San Pablo,2026-05-26,no,1
+CLI-0696,Francisca Vargas,+56938247885,WhatsApp,Osorno,2026-06-09,no,1
+CLI-0697,Vicente Mansilla,+56913844858,WhatsApp,Puerto Octay,2026-06-02,no,1
+CLI-0698,Javiera Espinoza,+56995370096,WhatsApp,Francke,2026-05-23,si,2
+CLI-0699,Catalina Rojas,@catalina.rojas,Instagram,Rio Negro,2026-06-10,no,1
+CLI-0700,Diego Cardenas,+56972986372,WhatsApp,Rio Negro,2026-05-24,no,1
+CLI-0701,Martina Castillo,@martina.castillo,Instagram,Purranque,2026-05-25,no,1
+CLI-0702,Francisca Paredes,@francisca.paredes,Instagram,San Pablo,2026-05-13,no,1
+CLI-0703,Isidora Navarro,@isidora.navarro,Instagram,Puerto Octay,2026-05-18,no,1
+CLI-0704,Benjamin Paredes,@benjamin.paredes,Instagram,Rahue,2026-06-04,si,4
+CLI-0705,Gabriel Vargas,+56958305155,WhatsApp,Rio Negro,2026-05-22,no,1
+CLI-0706,Antonia Cardenas,+56976072374,WhatsApp,Francke,2026-06-16,no,1
+CLI-0707,Vicente Castillo,+56953724452,WhatsApp,Puerto Octay,2026-05-27,no,1
+CLI-0708,Nicolas Gallardo,+56955087882,WhatsApp,Osorno,2026-06-08,no,1
+CLI-0709,Antonia Carrasco,@antonia.carrasco,Instagram,Purranque,2026-05-23,no,1
+CLI-0710,Nicolas Miranda,+56987777446,WhatsApp,Purranque,2026-05-13,si,5
+CLI-0711,Diego Cortes,+56932085209,WhatsApp,Osorno,2026-06-14,no,1
+CLI-0712,Sebastian Saavedra,+56959562245,WhatsApp,Rahue,2026-05-26,no,1
+CLI-0713,Martina Leiva,+56927414220,WhatsApp,Francke,2026-05-18,no,1
+CLI-0714,Nicolas Araya,+56980030766,WhatsApp,Puerto Octay,2026-06-01,no,1
+CLI-0715,Joaquin Munoz,@joaquin.munoz,Instagram,Rahue,2026-05-19,si,4
+CLI-0716,Josefa Morales,+56986694274,WhatsApp,Purranque,2026-06-11,no,1
+CLI-0717,Valentina Vargas,+56942111839,WhatsApp,Puerto Octay,2026-06-07,no,1
+CLI-0718,Vicente Oyarzo,+56972100329,WhatsApp,Purranque,2026-06-05,no,1
+CLI-0719,Javiera Espinoza,+56921590419,WhatsApp,Puerto Octay,2026-05-23,no,1
+CLI-0720,Agustin Munoz,+56941406456,WhatsApp,San Pablo,2026-05-27,no,1
+CLI-0721,Nicolas Carrasco,@nicolas.carrasco,Instagram,Rio Negro,2026-05-20,no,1
+CLI-0722,Javiera Munoz,+56922860181,WhatsApp,Rio Negro,2026-05-27,no,1
+CLI-0723,Constanza Oyarzo,+56983324740,WhatsApp,San Pablo,2026-05-21,no,1
+CLI-0724,Joaquin Navarro,+56982848976,WhatsApp,Puerto Octay,2026-05-30,no,1
+CLI-0725,Fernanda Espinoza,+56980380632,WhatsApp,Francke,2026-06-02,si,4
+CLI-0726,Ignacio Munoz,+56948526458,WhatsApp,Francke,2026-06-06,no,1
+CLI-0727,Lucas Alvarez,+56996584140,WhatsApp,Puerto Octay,2026-05-23,no,1
+CLI-0728,Agustin Soto,+56941216955,WhatsApp,Rahue,2026-06-17,no,1
+CLI-0729,Emilia Castillo,+56934630494,WhatsApp,Francke,2026-06-02,no,1
+CLI-0730,Antonia Vera,@antonia.vera,Instagram,Puerto Octay,2026-06-19,no,1
+CLI-0731,Constanza Gallardo,+56916363429,WhatsApp,Osorno,2026-06-07,no,1
+CLI-0732,Catalina Miranda,@catalina.miranda,Instagram,Francke,2026-06-15,no,1
+CLI-0733,Maximiliano Morales,+56952405211,WhatsApp,Puerto Octay,2026-05-18,no,1
+CLI-0734,Diego Soto,@diego.soto,Instagram,Puerto Octay,2026-05-24,no,1
+CLI-0735,Florencia Castillo,@florencia.castillo,Instagram,Purranque,2026-05-26,si,3
+CLI-0736,Fernanda Oyarzo,+56917951067,WhatsApp,Osorno,2026-05-25,no,1
+CLI-0737,Nicolas Reyes,+56976214574,WhatsApp,Francke,2026-06-17,no,1
+CLI-0738,Gabriel Morales,+56964886467,WhatsApp,Rahue,2026-05-20,no,1
+CLI-0739,Tomas Morales,+56996479581,WhatsApp,Osorno,2026-06-04,no,1
+CLI-0740,Catalina Vera,@catalina.vera,Instagram,Francke,2026-05-16,no,1
+CLI-0741,Josefa Rojas,+56928987664,WhatsApp,Puerto Octay,2026-05-26,no,1
+CLI-0742,Francisca Espinoza,+56988741733,WhatsApp,Rio Negro,2026-05-21,no,1
+CLI-0743,Nicolas Godoy,+56959472976,WhatsApp,Rahue,2026-05-18,no,1
+CLI-0744,Catalina Paredes,+56997345576,WhatsApp,Francke,2026-05-28,no,1
+CLI-0745,Constanza Carrasco,+56954443381,WhatsApp,Rahue,2026-05-20,no,1
+CLI-0746,Tomas Reyes,@tomas.reyes,Instagram,Purranque,2026-05-17,no,1
+CLI-0747,Emilia Vera,+56919306056,WhatsApp,Rahue,2026-05-16,no,1
+CLI-0748,Emilia Carrasco,+56952860649,WhatsApp,Osorno,2026-05-26,si,2
+CLI-0749,Constanza Morales,+56950986213,WhatsApp,San Pablo,2026-05-17,no,1
+CLI-0750,Bastian Munoz,+56969682384,WhatsApp,Francke,2026-05-22,si,5
+CLI-0751,Joaquin Vargas,+56988941172,WhatsApp,Ovejeria,2026-05-31,si,2
+CLI-0752,Benjamin Alvarez,@benjamin.alvarez,Instagram,San Pablo,2026-05-22,no,1
+CLI-0753,Joaquin Soto,@joaquin.soto,Instagram,San Pablo,2026-06-06,no,1
+CLI-0754,Emilia Gallardo,+56975155766,WhatsApp,Osorno,2026-06-01,no,1
+CLI-0755,Javiera Cardenas,@javiera.cardenas,Instagram,Osorno,2026-05-24,no,1
+CLI-0756,Constanza Carrasco,+56915053377,WhatsApp,Osorno,2026-05-22,no,1
+CLI-0757,Agustin Mansilla,+56949362112,WhatsApp,Purranque,2026-06-04,no,1
+CLI-0758,Joaquin Morales,+56943158807,WhatsApp,Rahue,2026-06-04,si,5
+CLI-0759,Martina Soto,@martina.soto,Instagram,Rahue,2026-06-06,no,1
+CLI-0760,Francisca Cortes,+56945024563,WhatsApp,Puerto Octay,2026-05-20,no,1
+CLI-0761,Martina Cortes,+56992481438,WhatsApp,Purranque,2026-05-30,no,1
+CLI-0762,Cristobal Carrasco,+56980110117,WhatsApp,Francke,2026-05-31,no,1
+CLI-0763,Josefa Vargas,@josefa.vargas,Instagram,Ovejeria,2026-06-02,no,1
+CLI-0764,Agustin Munoz,@agustin.munoz,Instagram,San Pablo,2026-06-14,si,3
+CLI-0765,Josefa Mansilla,+56953112000,WhatsApp,Rio Negro,2026-05-19,no,1
+CLI-0766,Trinidad Cardenas,+56912544994,WhatsApp,Rahue,2026-06-07,no,1
+CLI-0767,Nicolas Bravo,+56961940594,WhatsApp,Osorno,2026-06-06,no,1
+CLI-0768,Fernanda Carrasco,+56924438674,WhatsApp,Purranque,2026-06-05,no,1
+CLI-0769,Maximiliano Rojas,+56924175981,WhatsApp,Osorno,2026-05-18,no,1
+CLI-0770,Catalina Alvarez,@catalina.alvarez,Instagram,Puerto Octay,2026-05-14,no,1
+CLI-0771,Lucas Reyes,@lucas.reyes,Instagram,Ovejeria,2026-06-07,no,1
+CLI-0772,Joaquin Gallardo,+56981056299,WhatsApp,Puerto Octay,2026-06-09,no,1
+CLI-0773,Bastian Cardenas,@bastian.cardenas,Instagram,San Pablo,2026-05-20,no,1
+CLI-0774,Benjamin Vargas,@benjamin.vargas,Instagram,Puerto Octay,2026-05-23,si,3
+CLI-0775,Martina Carrasco,+56940109360,WhatsApp,Francke,2026-05-31,no,1
+CLI-0776,Diego Vera,+56929881821,WhatsApp,Osorno,2026-05-27,no,1
+CLI-0777,Renata Paredes,+56959171736,WhatsApp,Puerto Octay,2026-06-11,no,1
+CLI-0778,Francisca Araya,+56923363080,WhatsApp,Rio Negro,2026-06-02,no,1
+CLI-0779,Camila Castillo,+56959218952,WhatsApp,Osorno,2026-05-16,no,1
+CLI-0780,Vicente Castillo,+56936971533,WhatsApp,Ovejeria,2026-06-02,no,1
+CLI-0781,Matias Vargas,+56980062452,WhatsApp,Puerto Octay,2026-05-24,no,1
+CLI-0782,Vicente Miranda,+56943747291,WhatsApp,Osorno,2026-05-31,no,1
+CLI-0783,Agustin Paredes,+56915981449,WhatsApp,Francke,2026-06-19,no,1
+CLI-0784,Martina Navarro,@martina.navarro,Instagram,Osorno,2026-06-08,no,1
+CLI-0785,Trinidad Saavedra,+56964935611,WhatsApp,Osorno,2026-05-20,no,1
+CLI-0786,Vicente Soto,+56991481277,WhatsApp,Puerto Octay,2026-05-16,no,1
+CLI-0787,Catalina Bravo,+56954818572,WhatsApp,Ovejeria,2026-06-11,no,1
+CLI-0788,Matias Bravo,+56991446446,WhatsApp,Rio Negro,2026-06-19,no,1
+CLI-0789,Isidora Soto,@isidora.soto,Instagram,Puerto Octay,2026-05-15,no,1
+CLI-0790,Constanza Leiva,+56980502331,WhatsApp,Ovejeria,2026-06-11,no,1
+CLI-0791,Fernanda Cardenas,@fernanda.cardenas,Instagram,Ovejeria,2026-06-02,no,1
+CLI-0792,Martina Cardenas,+56924139904,WhatsApp,Puerto Octay,2026-05-18,no,1
+CLI-0793,Diego Mansilla,+56963354667,WhatsApp,Osorno,2026-05-28,no,1
+CLI-0794,Joaquin Araya,@joaquin.araya,Instagram,Osorno,2026-06-10,no,1
+CLI-0795,Sebastian Godoy,+56946906704,WhatsApp,Francke,2026-05-31,no,1
+CLI-0796,Benjamin Godoy,+56943393226,WhatsApp,Rio Negro,2026-06-15,no,1
+CLI-0797,Isidora Paredes,+56987522652,WhatsApp,Rahue,2026-06-18,no,1
+CLI-0798,Valentina Oyarzo,+56978275988,WhatsApp,Rio Negro,2026-05-23,no,1
+CLI-0799,Sebastian Navarro,+56921887773,WhatsApp,Ovejeria,2026-06-02,no,1
+CLI-0800,Sebastian Oyarzo,@sebastian.oyarzo,Instagram,Rahue,2026-06-08,si,3
+CLI-0801,Valentina Oyarzo,+56935090201,WhatsApp,Purranque,2026-05-13,si,3
+CLI-0802,Renata Vera,+56938547995,WhatsApp,Francke,2026-05-27,no,1
+CLI-0803,Emilia Vargas,+56964552136,WhatsApp,Puerto Octay,2026-06-13,no,1
+CLI-0804,Diego Gallardo,+56932486973,WhatsApp,Purranque,2026-05-19,no,1
+CLI-0805,Cristobal Oyarzo,+56958157972,WhatsApp,Purranque,2026-05-24,no,1
+CLI-0806,Josefa Vera,+56951650644,WhatsApp,Ovejeria,2026-05-16,no,1
+CLI-0807,Fernanda Soto,@fernanda.soto,Instagram,Purranque,2026-05-29,no,1
+CLI-0808,Tomas Morales,+56966013567,WhatsApp,Purranque,2026-06-03,no,1
+CLI-0809,Tomas Godoy,@tomas.godoy,Instagram,Ovejeria,2026-06-02,no,1
+CLI-0810,Cristobal Carrasco,+56948940523,WhatsApp,Francke,2026-05-15,no,1
+CLI-0811,Renata Vera,+56969278505,WhatsApp,Rio Negro,2026-05-21,si,3
+CLI-0812,Javiera Alvarez,+56968058545,WhatsApp,San Pablo,2026-06-04,no,1
+CLI-0813,Agustin Gallardo,+56976428502,WhatsApp,San Pablo,2026-05-23,no,1
+CLI-0814,Emilia Oyarzo,+56970422883,WhatsApp,Rio Negro,2026-06-13,si,3
+CLI-0815,Constanza Carrasco,+56926552953,WhatsApp,Purranque,2026-06-18,no,1
+CLI-0816,Diego Gallardo,@diego.gallardo,Instagram,Francke,2026-05-23,si,3
+CLI-0817,Fernanda Munoz,+56979752251,WhatsApp,Puerto Octay,2026-06-07,no,1
+CLI-0818,Ignacio Alvarez,+56914148198,WhatsApp,Osorno,2026-05-14,no,1
+CLI-0819,Trinidad Bravo,+56927021067,WhatsApp,Rahue,2026-06-04,no,1
+CLI-0820,Maximiliano Miranda,+56978623453,WhatsApp,San Pablo,2026-05-25,si,4
+CLI-0821,Catalina Vargas,+56966534606,WhatsApp,Osorno,2026-05-24,no,1
+CLI-0822,Joaquin Saavedra,+56939203175,WhatsApp,Puerto Octay,2026-05-21,no,1
+CLI-0823,Vicente Alvarez,@vicente.alvarez,Instagram,Ovejeria,2026-06-08,no,1
+CLI-0824,Camila Espinoza,+56983547840,WhatsApp,Rahue,2026-05-17,no,1
+CLI-0825,Ignacio Castillo,+56957490194,WhatsApp,Rahue,2026-06-10,no,1
+CLI-0826,Matias Cardenas,@matias.cardenas,Instagram,Ovejeria,2026-05-30,no,1
+CLI-0827,Sebastian Reyes,+56992595416,WhatsApp,Purranque,2026-06-02,no,1
+CLI-0828,Francisca Reyes,@francisca.reyes,Instagram,Rio Negro,2026-05-14,no,1
+CLI-0829,Benjamin Castillo,@benjamin.castillo,Instagram,Osorno,2026-05-28,no,1
+CLI-0830,Josefa Bravo,+56979513551,WhatsApp,Osorno,2026-05-19,no,1
+CLI-0831,Catalina Paredes,+56977362117,WhatsApp,San Pablo,2026-05-22,no,1
+CLI-0832,Vicente Oyarzo,@vicente.oyarzo,Instagram,Ovejeria,2026-05-24,si,4
+CLI-0833,Florencia Castillo,+56955074706,WhatsApp,Francke,2026-06-07,si,2
+CLI-0834,Agustin Miranda,+56951899295,WhatsApp,Osorno,2026-05-17,no,1
+CLI-0835,Josefa Oyarzo,@josefa.oyarzo,Instagram,Francke,2026-05-25,no,1
+CLI-0836,Martina Paredes,@martina.paredes,Instagram,Purranque,2026-05-29,no,1
+CLI-0837,Joaquin Mansilla,+56925371173,WhatsApp,Puerto Octay,2026-05-13,no,1
+CLI-0838,Camila Navarro,@camila.navarro,Instagram,San Pablo,2026-05-27,no,1
+CLI-0839,Javiera Navarro,+56911681682,WhatsApp,Francke,2026-05-20,no,1
+CLI-0840,Camila Navarro,+56986744179,WhatsApp,Purranque,2026-06-05,no,1
+CLI-0841,Vicente Leiva,+56999533482,WhatsApp,Rahue,2026-06-11,si,2
+CLI-0842,Cristobal Mansilla,@cristobal.mansilla,Instagram,Puerto Octay,2026-05-13,no,1
+CLI-0843,Isidora Alvarez,+56986788105,WhatsApp,San Pablo,2026-05-28,no,1
+CLI-0844,Felipe Gallardo,+56965324126,WhatsApp,Purranque,2026-06-10,no,1
+CLI-0845,Diego Paredes,+56955600537,WhatsApp,Purranque,2026-06-17,si,4
+CLI-0846,Diego Godoy,+56960920528,WhatsApp,Ovejeria,2026-05-20,no,1
+CLI-0847,Ignacio Rojas,+56959169380,WhatsApp,Ovejeria,2026-05-28,no,1
+CLI-0848,Matias Miranda,@matias.miranda,Instagram,Osorno,2026-06-08,no,1
+CLI-0849,Camila Mansilla,+56942528739,WhatsApp,Rahue,2026-05-18,si,4
+CLI-0850,Gabriel Mansilla,@gabriel.mansilla,Instagram,San Pablo,2026-06-15,si,4
+CLI-0851,Ignacio Rojas,+56970947198,WhatsApp,Rio Negro,2026-05-26,no,1
+CLI-0852,Antonia Carrasco,+56911077886,WhatsApp,Francke,2026-05-28,no,1
+CLI-0853,Bastian Reyes,@bastian.reyes,Instagram,Purranque,2026-06-12,no,1
+CLI-0854,Lucas Miranda,@lucas.miranda,Instagram,Purranque,2026-05-16,no,1
+CLI-0855,Bastian Carrasco,@bastian.carrasco,Instagram,Osorno,2026-06-14,no,1
+CLI-0856,Emilia Espinoza,+56971484392,WhatsApp,Osorno,2026-05-21,no,1
+CLI-0857,Camila Saavedra,+56913761840,WhatsApp,Francke,2026-05-20,no,1
+CLI-0858,Matias Araya,+56925925811,WhatsApp,Rio Negro,2026-05-17,no,1
+CLI-0859,Cristobal Castillo,+56962314732,WhatsApp,Rio Negro,2026-05-27,si,4
+CLI-0860,Lucas Castillo,@lucas.castillo,Instagram,Ovejeria,2026-05-28,si,3
+CLI-0861,Fernanda Paredes,@fernanda.paredes,Instagram,Rahue,2026-06-16,no,1
+CLI-0862,Sebastian Oyarzo,+56995745783,WhatsApp,Rio Negro,2026-05-14,no,1
+CLI-0863,Maximiliano Paredes,+56926424536,WhatsApp,Francke,2026-06-11,si,4
+CLI-0864,Florencia Morales,+56976793936,WhatsApp,Purranque,2026-06-13,si,3
+CLI-0865,Camila Oyarzo,+56968584506,WhatsApp,Francke,2026-05-18,no,1
+CLI-0866,Martina Morales,+56992412084,WhatsApp,Puerto Octay,2026-06-05,no,1
+CLI-0867,Felipe Alvarez,+56981157609,WhatsApp,Francke,2026-06-07,no,1
+CLI-0868,Emilia Cardenas,+56930364258,WhatsApp,Purranque,2026-05-22,no,1
+CLI-0869,Maximiliano Morales,+56934981221,WhatsApp,San Pablo,2026-05-31,no,1
+CLI-0870,Cristobal Leiva,+56929026112,WhatsApp,San Pablo,2026-05-20,no,1
+CLI-0871,Catalina Cortes,+56940510923,WhatsApp,Ovejeria,2026-05-18,si,4
+CLI-0872,Lucas Miranda,+56915365298,WhatsApp,San Pablo,2026-05-21,no,1
+CLI-0873,Agustin Miranda,+56910080541,WhatsApp,Puerto Octay,2026-05-30,no,1
+CLI-0874,Felipe Reyes,@felipe.reyes,Instagram,Rio Negro,2026-06-07,no,1
+CLI-0875,Josefa Cardenas,+56966143990,WhatsApp,Puerto Octay,2026-06-10,no,1
+CLI-0876,Joaquin Godoy,+56914028334,WhatsApp,Rahue,2026-05-24,no,1
+CLI-0877,Ignacio Castillo,@ignacio.castillo,Instagram,Osorno,2026-05-21,si,2
+CLI-0878,Francisca Godoy,+56989504790,WhatsApp,Ovejeria,2026-05-15,no,1
+CLI-0879,Benjamin Oyarzo,+56953953871,WhatsApp,San Pablo,2026-06-01,no,1
+CLI-0880,Martina Soto,+56927000824,WhatsApp,Puerto Octay,2026-06-06,no,1
+CLI-0881,Catalina Saavedra,+56958660364,WhatsApp,Rahue,2026-05-24,no,1
+CLI-0882,Camila Godoy,@camila.godoy,Instagram,Ovejeria,2026-06-15,si,4
+CLI-0883,Felipe Navarro,@felipe.navarro,Instagram,Puerto Octay,2026-06-17,no,1
+CLI-0884,Cristobal Alvarez,@cristobal.alvarez,Instagram,San Pablo,2026-05-17,no,1
+CLI-0885,Lucas Rojas,+56926120600,WhatsApp,Ovejeria,2026-05-18,no,1
+CLI-0886,Gabriel Leiva,+56924029041,WhatsApp,Francke,2026-05-31,si,2
+CLI-0887,Camila Morales,+56952119821,WhatsApp,Rio Negro,2026-05-26,no,1
+CLI-0888,Isidora Mansilla,+56997482519,WhatsApp,Rahue,2026-06-06,si,4
+CLI-0889,Agustin Godoy,+56916764636,WhatsApp,Ovejeria,2026-06-08,no,1
+CLI-0890,Diego Saavedra,@diego.saavedra,Instagram,Osorno,2026-05-31,no,1
+CLI-0891,Vicente Oyarzo,+56919247109,WhatsApp,San Pablo,2026-05-19,no,1
+CLI-0892,Josefa Saavedra,+56920450400,WhatsApp,Francke,2026-05-26,no,1
+CLI-0893,Tomas Araya,+56953442157,WhatsApp,San Pablo,2026-05-27,si,4
+CLI-0894,Ignacio Leiva,+56964521832,WhatsApp,Francke,2026-05-31,no,1
+CLI-0895,Catalina Cardenas,+56972484888,WhatsApp,San Pablo,2026-05-17,no,1
+CLI-0896,Ignacio Saavedra,+56955987230,WhatsApp,Ovejeria,2026-05-19,si,3
+CLI-0897,Josefa Cortes,@josefa.cortes,Instagram,Osorno,2026-05-18,no,1
+CLI-0898,Trinidad Saavedra,@trinidad.saavedra,Instagram,Purranque,2026-05-22,si,3
+CLI-0899,Isidora Rojas,@isidora.rojas,Instagram,Purranque,2026-05-18,no,1
+CLI-0900,Bastian Soto,@bastian.soto,Instagram,Ovejeria,2026-06-05,si,3
+CLI-0901,Camila Araya,+56988261380,WhatsApp,Rio Negro,2026-05-15,no,1
+CLI-0902,Nicolas Reyes,+56914629084,WhatsApp,Puerto Octay,2026-06-06,no,1
+CLI-0903,Renata Godoy,@renata.godoy,Instagram,Rahue,2026-05-20,si,3
+CLI-0904,Nicolas Alvarez,+56991142569,WhatsApp,Purranque,2026-06-15,si,5
+CLI-0905,Antonia Soto,@antonia.soto,Instagram,Francke,2026-06-13,no,1
+CLI-0906,Emilia Saavedra,@emilia.saavedra,Instagram,Osorno,2026-05-14,si,5
+CLI-0907,Francisca Munoz,+56957215236,WhatsApp,San Pablo,2026-06-17,no,1
+CLI-0908,Bastian Bravo,@bastian.bravo,Instagram,Rio Negro,2026-05-17,no,1
+CLI-0909,Constanza Paredes,@constanza.paredes,Instagram,Puerto Octay,2026-05-22,no,1
+CLI-0910,Benjamin Soto,+56961887316,WhatsApp,Puerto Octay,2026-05-22,si,3
+CLI-0911,Valentina Morales,+56980710158,WhatsApp,San Pablo,2026-05-24,si,4
+CLI-0912,Gabriel Mansilla,+56986832854,WhatsApp,Purranque,2026-06-19,no,1
+CLI-0913,Nicolas Soto,+56968524331,WhatsApp,Purranque,2026-05-18,no,1
+CLI-0914,Emilia Alvarez,+56950804362,WhatsApp,Purranque,2026-06-11,no,1
+CLI-0915,Cristobal Reyes,+56917259143,WhatsApp,Osorno,2026-06-19,no,1
+CLI-0916,Emilia Bravo,@emilia.bravo,Instagram,Osorno,2026-06-01,no,1
+CLI-0917,Martina Vera,@martina.vera,Instagram,Osorno,2026-06-05,no,1
+CLI-0918,Francisca Soto,+56992145827,WhatsApp,Purranque,2026-05-21,no,1
+CLI-0919,Valentina Araya,+56916540606,WhatsApp,San Pablo,2026-06-11,no,1
+CLI-0920,Javiera Saavedra,+56948695176,WhatsApp,Puerto Octay,2026-05-18,no,1
+CLI-0921,Nicolas Mansilla,@nicolas.mansilla,Instagram,Rio Negro,2026-06-09,no,1
+CLI-0922,Constanza Cardenas,+56956077102,WhatsApp,Francke,2026-06-10,si,4
+CLI-0923,Camila Rojas,+56951678505,WhatsApp,Purranque,2026-06-11,no,1
+CLI-0924,Tomas Morales,@tomas.morales,Instagram,Ovejeria,2026-06-07,si,3
+CLI-0925,Cristobal Gallardo,+56953424145,WhatsApp,Puerto Octay,2026-05-21,no,1
+CLI-0926,Felipe Carrasco,+56932510428,WhatsApp,Ovejeria,2026-06-18,no,1
+CLI-0927,Joaquin Cortes,@joaquin.cortes,Instagram,Francke,2026-06-10,si,4
+CLI-0928,Trinidad Leiva,+56939561915,WhatsApp,Rio Negro,2026-05-17,no,1
+CLI-0929,Sofia Munoz,+56962364776,WhatsApp,Rahue,2026-05-30,no,1
+CLI-0930,Vicente Godoy,+56951073718,WhatsApp,Ovejeria,2026-05-22,si,4
+CLI-0931,Valentina Carrasco,@valentina.carrasco,Instagram,Ovejeria,2026-06-19,no,1
+CLI-0932,Trinidad Espinoza,+56911844424,WhatsApp,Ovejeria,2026-06-11,no,1
+CLI-0933,Sofia Munoz,+56957626216,WhatsApp,San Pablo,2026-05-22,no,1
+CLI-0934,Catalina Saavedra,+56918883829,WhatsApp,Rahue,2026-06-15,si,3
+CLI-0935,Benjamin Gallardo,+56945435421,WhatsApp,Purranque,2026-06-19,no,1
+CLI-0936,Constanza Miranda,+56971425744,WhatsApp,Ovejeria,2026-05-15,no,1
+CLI-0937,Renata Vera,+56946612871,WhatsApp,Rahue,2026-06-02,no,1
+CLI-0938,Isidora Leiva,+56987088410,WhatsApp,San Pablo,2026-06-07,no,1
+CLI-0939,Antonia Oyarzo,@antonia.oyarzo,Instagram,Osorno,2026-05-17,no,1
+CLI-0940,Sebastian Castillo,+56962111178,WhatsApp,Osorno,2026-05-30,no,1
+CLI-0941,Ignacio Cortes,@ignacio.cortes,Instagram,Puerto Octay,2026-06-10,no,1
+CLI-0942,Maximiliano Espinoza,+56931172260,WhatsApp,Ovejeria,2026-06-10,no,1
+CLI-0943,Emilia Castillo,+56953819816,WhatsApp,Purranque,2026-05-20,no,1
+CLI-0944,Lucas Morales,@lucas.morales,Instagram,Purranque,2026-06-01,si,4
+CLI-0945,Constanza Bravo,@constanza.bravo,Instagram,San Pablo,2026-06-07,si,4
+CLI-0946,Camila Morales,+56982014325,WhatsApp,Rahue,2026-06-17,no,1

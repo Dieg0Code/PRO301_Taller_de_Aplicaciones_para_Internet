@@ -1,0 +1,332 @@
+feedback_id,reserva_id,cliente_id,rating,recomendaria,hubo_reclamo,comentario
+FBK-0002,BOOK-0002,CLI-0002,4,no,no,"Buena experiencia, con puntos por mejorar"
+FBK-0003,BOOK-0003,CLI-0003,4.9,si,no,Muy buena experiencia
+FBK-0008,BOOK-0008,CLI-0008,4.4,no,no,"Buena experiencia, con puntos por mejorar"
+FBK-0010,BOOK-0010,CLI-0010,4.2,no,no,"Buena experiencia, con puntos por mejorar"
+FBK-0011,BOOK-0011,CLI-0011,4.1,no,no,"Buena experiencia, con puntos por mejorar"
+FBK-0013,BOOK-0013,CLI-0013,4.2,no,no,"Buena experiencia, con puntos por mejorar"
+FBK-0018,BOOK-0018,CLI-0018,4.8,si,si,Muy buena experiencia
+FBK-0023,BOOK-0023,CLI-0023,3.9,no,no,"Buena experiencia, con puntos por mejorar"
+FBK-0028,BOOK-0028,CLI-0028,4.9,si,si,Muy buena experiencia
+FBK-0029,BOOK-0029,CLI-0029,4.1,no,no,"Buena experiencia, con puntos por mejorar"
+FBK-0031,BOOK-0031,CLI-0031,4.6,si,no,Muy buena experiencia
+FBK-0042,BOOK-0042,CLI-0042,4.2,no,no,"Buena experiencia, con puntos por mejorar"
+FBK-0052,BOOK-0052,CLI-0052,4.1,no,no,"Buena experiencia, con puntos por mejorar"
+FBK-0060,BOOK-0060,CLI-0060,4.6,si,no,Muy buena experiencia
+FBK-0061,BOOK-0061,CLI-0061,3.9,no,no,"Buena experiencia, con puntos por mejorar"
+FBK-0065,BOOK-0065,CLI-0065,4.5,no,no,Muy buena experiencia
+FBK-0067,BOOK-0067,CLI-0067,4.8,si,no,Muy buena experiencia
+FBK-0069,BOOK-0069,CLI-0069,4.7,si,no,Muy buena experiencia
+FBK-0070,BOOK-0070,CLI-0070,4.4,no,no,"Buena experiencia, con puntos por mejorar"
+FBK-0076,BOOK-0076,CLI-0076,4.9,si,no,Muy buena experiencia
+FBK-0081,BOOK-0081,CLI-0081,4.1,no,no,"Buena experiencia, con puntos por mejorar"
+FBK-0085,BOOK-0085,CLI-0085,4.5,no,no,Muy buena experiencia
+FBK-0090,BOOK-0090,CLI-0090,4.5,no,no,Muy buena experiencia
+FBK-0092,BOOK-0092,CLI-0092,5,si,no,Muy buena experiencia
+FBK-0097,BOOK-0097,CLI-0097,4.6,si,no,Muy buena experiencia
+FBK-0104,BOOK-0104,CLI-0104,4.7,si,no,Muy buena experiencia
+FBK-0105,BOOK-0105,CLI-0105,5,si,no,Muy buena experiencia
+FBK-0113,BOOK-0113,CLI-0113,4.6,si,no,Muy buena experiencia
+FBK-0115,BOOK-0115,CLI-0115,5,si,no,Muy buena experiencia
+FBK-0118,BOOK-0118,CLI-0118,4.4,no,si,"Buena experiencia, con puntos por mejorar"
+FBK-0119,BOOK-0119,CLI-0119,4.1,no,no,"Buena experiencia, con puntos por mejorar"
+FBK-0122,BOOK-0122,CLI-0122,4.9,si,no,Muy buena experiencia
+FBK-0123,BOOK-0123,CLI-0123,4.6,si,no,Muy buena experiencia
+FBK-0126,BOOK-0126,CLI-0126,4.7,si,no,Muy buena experiencia
+FBK-0127,BOOK-0127,CLI-0127,4.6,si,no,Muy buena experiencia
+FBK-0128,BOOK-0128,CLI-0128,4.5,no,no,Muy buena experiencia
+FBK-0131,BOOK-0131,CLI-0131,4.1,no,no,"Buena experiencia, con puntos por mejorar"
+FBK-0132,BOOK-0132,CLI-0132,4.5,no,no,Muy buena experiencia
+FBK-0135,BOOK-0135,CLI-0135,4.3,no,no,"Buena experiencia, con puntos por mejorar"
+FBK-0139,BOOK-0139,CLI-0139,4.1,no,no,"Buena experiencia, con puntos por mejorar"
+FBK-0142,BOOK-0142,CLI-0142,5,si,no,Muy buena experiencia
+FBK-0145,BOOK-0145,CLI-0145,4.8,si,no,Muy buena experiencia
+FBK-0146,BOOK-0146,CLI-0146,5,si,si,Muy buena experiencia
+FBK-0147,BOOK-0147,CLI-0147,4.5,no,no,Muy buena experiencia
+FBK-0155,BOOK-0155,CLI-0155,4.1,no,no,"Buena experiencia, con puntos por mejorar"
+FBK-0158,BOOK-0158,CLI-0158,4.6,si,no,Muy buena experiencia
+FBK-0159,BOOK-0159,CLI-0159,4.1,no,no,"Buena experiencia, con puntos por mejorar"
+FBK-0160,BOOK-0160,CLI-0160,4.7,si,no,Muy buena experiencia
+FBK-0162,BOOK-0162,CLI-0162,4.3,no,no,"Buena experiencia, con puntos por mejorar"
+FBK-0164,BOOK-0164,CLI-0164,4.6,si,si,Muy buena experiencia
+FBK-0170,BOOK-0170,CLI-0170,4.2,no,no,"Buena experiencia, con puntos por mejorar"
+FBK-0172,BOOK-0172,CLI-0172,4.7,si,no,Muy buena experiencia
+FBK-0173,BOOK-0173,CLI-0173,4.2,no,si,"Buena experiencia, con puntos por mejorar"
+FBK-0175,BOOK-0175,CLI-0175,4.3,no,no,"Buena experiencia, con puntos por mejorar"
+FBK-0178,BOOK-0178,CLI-0178,3.9,no,no,"Buena experiencia, con puntos por mejorar"
+FBK-0179,BOOK-0179,CLI-0179,3.9,no,no,"Buena experiencia, con puntos por mejorar"
+FBK-0181,BOOK-0181,CLI-0181,4.9,si,no,Muy buena experiencia
+FBK-0187,BOOK-0187,CLI-0078,5,si,no,Muy buena experiencia
+FBK-0190,BOOK-0190,CLI-0189,4.3,no,no,"Buena experiencia, con puntos por mejorar"
+FBK-0196,BOOK-0196,CLI-0195,5,si,no,Muy buena experiencia
+FBK-0199,BOOK-0199,CLI-0198,4.2,no,no,"Buena experiencia, con puntos por mejorar"
+FBK-0200,BOOK-0200,CLI-0199,4,no,no,"Buena experiencia, con puntos por mejorar"
+FBK-0202,BOOK-0202,CLI-0201,4.1,no,no,"Buena experiencia, con puntos por mejorar"
+FBK-0207,BOOK-0207,CLI-0206,4.8,si,no,Muy buena experiencia
+FBK-0215,BOOK-0215,CLI-0214,5,si,si,Muy buena experiencia
+FBK-0218,BOOK-0218,CLI-0217,4.9,si,no,Muy buena experiencia
+FBK-0219,BOOK-0219,CLI-0218,3.9,no,no,"Buena experiencia, con puntos por mejorar"
+FBK-0224,BOOK-0224,CLI-0223,4.3,no,si,"Buena experiencia, con puntos por mejorar"
+FBK-0232,BOOK-0232,CLI-0231,4.5,no,no,Muy buena experiencia
+FBK-0233,BOOK-0233,CLI-0232,4.5,no,no,Muy buena experiencia
+FBK-0237,BOOK-0237,CLI-0236,4.4,no,si,"Buena experiencia, con puntos por mejorar"
+FBK-0239,BOOK-0239,CLI-0238,4.3,no,no,"Buena experiencia, con puntos por mejorar"
+FBK-0240,BOOK-0240,CLI-0239,4.8,si,no,Muy buena experiencia
+FBK-0242,BOOK-0242,CLI-0241,4,no,no,"Buena experiencia, con puntos por mejorar"
+FBK-0249,BOOK-0249,CLI-0248,4.9,si,no,Muy buena experiencia
+FBK-0250,BOOK-0250,CLI-0249,3.9,no,no,"Buena experiencia, con puntos por mejorar"
+FBK-0251,BOOK-0251,CLI-0250,4.7,si,no,Muy buena experiencia
+FBK-0257,BOOK-0257,CLI-0256,4.8,si,no,Muy buena experiencia
+FBK-0259,BOOK-0259,CLI-0258,4.8,si,no,Muy buena experiencia
+FBK-0260,BOOK-0260,CLI-0259,4.1,no,no,"Buena experiencia, con puntos por mejorar"
+FBK-0262,BOOK-0262,CLI-0261,4.8,si,si,Muy buena experiencia
+FBK-0263,BOOK-0263,CLI-0262,4.5,no,no,Muy buena experiencia
+FBK-0266,BOOK-0266,CLI-0264,4.1,no,si,"Buena experiencia, con puntos por mejorar"
+FBK-0268,BOOK-0268,CLI-0266,4.3,no,no,"Buena experiencia, con puntos por mejorar"
+FBK-0269,BOOK-0269,CLI-0267,4.4,no,no,"Buena experiencia, con puntos por mejorar"
+FBK-0270,BOOK-0270,CLI-0268,4,no,no,"Buena experiencia, con puntos por mejorar"
+FBK-0273,BOOK-0273,CLI-0271,4.5,no,no,Muy buena experiencia
+FBK-0275,BOOK-0275,CLI-0273,4.2,no,no,"Buena experiencia, con puntos por mejorar"
+FBK-0276,BOOK-0276,CLI-0274,4.8,si,no,Muy buena experiencia
+FBK-0279,BOOK-0279,CLI-0277,4,no,si,"Buena experiencia, con puntos por mejorar"
+FBK-0281,BOOK-0281,CLI-0279,4.2,no,no,"Buena experiencia, con puntos por mejorar"
+FBK-0282,BOOK-0282,CLI-0280,4.5,no,no,Muy buena experiencia
+FBK-0286,BOOK-0286,CLI-0284,5,si,no,Muy buena experiencia
+FBK-0288,BOOK-0288,CLI-0286,4.4,no,no,"Buena experiencia, con puntos por mejorar"
+FBK-0289,BOOK-0289,CLI-0287,4.7,si,no,Muy buena experiencia
+FBK-0290,BOOK-0290,CLI-0288,4,no,no,"Buena experiencia, con puntos por mejorar"
+FBK-0296,BOOK-0296,CLI-0294,4.5,no,no,Muy buena experiencia
+FBK-0300,BOOK-0300,CLI-0298,4.6,si,no,Muy buena experiencia
+FBK-0301,BOOK-0301,CLI-0299,4.4,no,no,"Buena experiencia, con puntos por mejorar"
+FBK-0316,BOOK-0316,CLI-0314,4,no,no,"Buena experiencia, con puntos por mejorar"
+FBK-0318,BOOK-0318,CLI-0316,4.8,si,no,Muy buena experiencia
+FBK-0319,BOOK-0319,CLI-0317,4.3,no,no,"Buena experiencia, con puntos por mejorar"
+FBK-0327,BOOK-0327,CLI-0325,4.5,no,no,Muy buena experiencia
+FBK-0330,BOOK-0330,CLI-0328,4.1,no,no,"Buena experiencia, con puntos por mejorar"
+FBK-0331,BOOK-0331,CLI-0329,4.4,no,no,"Buena experiencia, con puntos por mejorar"
+FBK-0335,BOOK-0335,CLI-0332,4.7,si,no,Muy buena experiencia
+FBK-0337,BOOK-0337,CLI-0334,4.6,si,no,Muy buena experiencia
+FBK-0339,BOOK-0339,CLI-0336,4.4,no,no,"Buena experiencia, con puntos por mejorar"
+FBK-0340,BOOK-0340,CLI-0337,4.6,si,si,Muy buena experiencia
+FBK-0344,BOOK-0344,CLI-0341,4.2,no,no,"Buena experiencia, con puntos por mejorar"
+FBK-0354,BOOK-0354,CLI-0349,4.9,si,si,Muy buena experiencia
+FBK-0355,BOOK-0355,CLI-0350,4.1,no,no,"Buena experiencia, con puntos por mejorar"
+FBK-0362,BOOK-0362,CLI-0357,3.9,no,no,"Buena experiencia, con puntos por mejorar"
+FBK-0365,BOOK-0365,CLI-0360,4.6,si,no,Muy buena experiencia
+FBK-0369,BOOK-0369,CLI-0364,4,no,no,"Buena experiencia, con puntos por mejorar"
+FBK-0375,BOOK-0375,CLI-0370,4.3,no,no,"Buena experiencia, con puntos por mejorar"
+FBK-0380,BOOK-0380,CLI-0374,4.3,no,no,"Buena experiencia, con puntos por mejorar"
+FBK-0382,BOOK-0382,CLI-0376,4.4,no,no,"Buena experiencia, con puntos por mejorar"
+FBK-0383,BOOK-0383,CLI-0377,4,no,no,"Buena experiencia, con puntos por mejorar"
+FBK-0385,BOOK-0385,CLI-0379,4.9,si,no,Muy buena experiencia
+FBK-0389,BOOK-0389,CLI-0382,4.8,si,no,Muy buena experiencia
+FBK-0390,BOOK-0390,CLI-0383,4.4,no,no,"Buena experiencia, con puntos por mejorar"
+FBK-0402,BOOK-0402,CLI-0394,4.5,no,si,Muy buena experiencia
+FBK-0403,BOOK-0403,CLI-0395,4.6,si,no,Muy buena experiencia
+FBK-0404,BOOK-0404,CLI-0396,4.1,no,no,"Buena experiencia, con puntos por mejorar"
+FBK-0410,BOOK-0410,CLI-0401,5,si,si,Muy buena experiencia
+FBK-0414,BOOK-0414,CLI-0405,4,no,no,"Buena experiencia, con puntos por mejorar"
+FBK-0416,BOOK-0416,CLI-0407,4.8,si,no,Muy buena experiencia
+FBK-0417,BOOK-0417,CLI-0408,5,si,no,Muy buena experiencia
+FBK-0421,BOOK-0421,CLI-0412,5,si,si,Muy buena experiencia
+FBK-0422,BOOK-0422,CLI-0413,3.9,no,no,"Buena experiencia, con puntos por mejorar"
+FBK-0423,BOOK-0423,CLI-0414,4.2,no,si,"Buena experiencia, con puntos por mejorar"
+FBK-0425,BOOK-0425,CLI-0416,4.5,no,no,Muy buena experiencia
+FBK-0427,BOOK-0427,CLI-0418,4.7,si,no,Muy buena experiencia
+FBK-0429,BOOK-0429,CLI-0420,4.4,no,no,"Buena experiencia, con puntos por mejorar"
+FBK-0430,BOOK-0430,CLI-0421,4.4,no,no,"Buena experiencia, con puntos por mejorar"
+FBK-0433,BOOK-0433,CLI-0424,4,no,no,"Buena experiencia, con puntos por mejorar"
+FBK-0436,BOOK-0436,CLI-0427,4.3,no,si,"Buena experiencia, con puntos por mejorar"
+FBK-0439,BOOK-0439,CLI-0430,5,si,no,Muy buena experiencia
+FBK-0441,BOOK-0441,CLI-0432,4.2,no,si,"Buena experiencia, con puntos por mejorar"
+FBK-0443,BOOK-0443,CLI-0434,4.7,si,no,Muy buena experiencia
+FBK-0444,BOOK-0444,CLI-0435,4.4,no,no,"Buena experiencia, con puntos por mejorar"
+FBK-0446,BOOK-0446,CLI-0437,4.8,si,no,Muy buena experiencia
+FBK-0448,BOOK-0448,CLI-0439,4.6,si,si,Muy buena experiencia
+FBK-0450,BOOK-0450,CLI-0441,3.9,no,no,"Buena experiencia, con puntos por mejorar"
+FBK-0457,BOOK-0457,CLI-0448,4.3,no,si,"Buena experiencia, con puntos por mejorar"
+FBK-0458,BOOK-0458,CLI-0449,5,si,no,Muy buena experiencia
+FBK-0460,BOOK-0460,CLI-0451,4.6,si,no,Muy buena experiencia
+FBK-0461,BOOK-0461,CLI-0452,4,no,no,"Buena experiencia, con puntos por mejorar"
+FBK-0462,BOOK-0462,CLI-0453,4.3,no,si,"Buena experiencia, con puntos por mejorar"
+FBK-0463,BOOK-0463,CLI-0454,4.4,no,si,"Buena experiencia, con puntos por mejorar"
+FBK-0464,BOOK-0464,CLI-0455,4.5,no,no,Muy buena experiencia
+FBK-0467,BOOK-0467,CLI-0458,4.7,si,no,Muy buena experiencia
+FBK-0475,BOOK-0475,CLI-0466,4,no,si,"Buena experiencia, con puntos por mejorar"
+FBK-0476,BOOK-0476,CLI-0467,4.7,si,no,Muy buena experiencia
+FBK-0480,BOOK-0480,CLI-0471,4.8,si,si,Muy buena experiencia
+FBK-0481,BOOK-0481,CLI-0472,5,si,no,Muy buena experiencia
+FBK-0482,BOOK-0482,CLI-0473,4.2,no,no,"Buena experiencia, con puntos por mejorar"
+FBK-0483,BOOK-0483,CLI-0474,4.8,si,no,Muy buena experiencia
+FBK-0491,BOOK-0491,CLI-0481,4.2,no,si,"Buena experiencia, con puntos por mejorar"
+FBK-0496,BOOK-0496,CLI-0485,4.8,si,no,Muy buena experiencia
+FBK-0499,BOOK-0499,CLI-0488,4.8,si,no,Muy buena experiencia
+FBK-0500,BOOK-0500,CLI-0489,4.9,si,no,Muy buena experiencia
+FBK-0506,BOOK-0506,CLI-0494,4.8,si,no,Muy buena experiencia
+FBK-0507,BOOK-0507,CLI-0495,4.2,no,no,"Buena experiencia, con puntos por mejorar"
+FBK-0508,BOOK-0508,CLI-0496,4.5,no,no,Muy buena experiencia
+FBK-0509,BOOK-0509,CLI-0497,4,no,no,"Buena experiencia, con puntos por mejorar"
+FBK-0512,BOOK-0512,CLI-0500,4.4,no,no,"Buena experiencia, con puntos por mejorar"
+FBK-0516,BOOK-0516,CLI-0504,4.6,si,no,Muy buena experiencia
+FBK-0519,BOOK-0519,CLI-0506,4.4,no,no,"Buena experiencia, con puntos por mejorar"
+FBK-0522,BOOK-0522,CLI-0509,4.6,si,no,Muy buena experiencia
+FBK-0524,BOOK-0524,CLI-0511,4.4,no,si,"Buena experiencia, con puntos por mejorar"
+FBK-0526,BOOK-0526,CLI-0513,4.2,no,si,"Buena experiencia, con puntos por mejorar"
+FBK-0527,BOOK-0527,CLI-0514,4.7,si,no,Muy buena experiencia
+FBK-0529,BOOK-0529,CLI-0515,4.5,no,no,Muy buena experiencia
+FBK-0530,BOOK-0530,CLI-0516,4.6,si,no,Muy buena experiencia
+FBK-0533,BOOK-0533,CLI-0519,4.7,si,si,Muy buena experiencia
+FBK-0534,BOOK-0534,CLI-0520,4,no,no,"Buena experiencia, con puntos por mejorar"
+FBK-0537,BOOK-0537,CLI-0523,4.4,no,no,"Buena experiencia, con puntos por mejorar"
+FBK-0541,BOOK-0541,CLI-0527,4.6,si,no,Muy buena experiencia
+FBK-0544,BOOK-0544,CLI-0530,4.3,no,si,"Buena experiencia, con puntos por mejorar"
+FBK-0545,BOOK-0545,CLI-0531,4.9,si,no,Muy buena experiencia
+FBK-0547,BOOK-0547,CLI-0533,4,no,si,"Buena experiencia, con puntos por mejorar"
+FBK-0548,BOOK-0548,CLI-0534,4.4,no,no,"Buena experiencia, con puntos por mejorar"
+FBK-0551,BOOK-0551,CLI-0536,4.6,si,no,Muy buena experiencia
+FBK-0552,BOOK-0552,CLI-0537,4.6,si,no,Muy buena experiencia
+FBK-0560,BOOK-0560,CLI-0544,4.1,no,no,"Buena experiencia, con puntos por mejorar"
+FBK-0564,BOOK-0564,CLI-0548,3.9,no,no,"Buena experiencia, con puntos por mejorar"
+FBK-0571,BOOK-0571,CLI-0555,4.1,no,no,"Buena experiencia, con puntos por mejorar"
+FBK-0572,BOOK-0572,CLI-0475,4.3,no,no,"Buena experiencia, con puntos por mejorar"
+FBK-0573,BOOK-0573,CLI-0556,4,no,no,"Buena experiencia, con puntos por mejorar"
+FBK-0574,BOOK-0574,CLI-0557,4.9,si,no,Muy buena experiencia
+FBK-0578,BOOK-0578,CLI-0561,4.3,no,no,"Buena experiencia, con puntos por mejorar"
+FBK-0581,BOOK-0581,CLI-0564,4.4,no,no,"Buena experiencia, con puntos por mejorar"
+FBK-0585,BOOK-0585,CLI-0568,4.4,no,no,"Buena experiencia, con puntos por mejorar"
+FBK-0587,BOOK-0587,CLI-0570,4.5,no,si,Muy buena experiencia
+FBK-0588,BOOK-0588,CLI-0571,5,si,no,Muy buena experiencia
+FBK-0592,BOOK-0592,CLI-0575,4.6,si,no,Muy buena experiencia
+FBK-0602,BOOK-0602,CLI-0584,4.7,si,si,Muy buena experiencia
+FBK-0603,BOOK-0603,CLI-0585,4.5,no,no,Muy buena experiencia
+FBK-0608,BOOK-0608,CLI-0590,4.2,no,no,"Buena experiencia, con puntos por mejorar"
+FBK-0609,BOOK-0609,CLI-0591,4.4,no,no,"Buena experiencia, con puntos por mejorar"
+FBK-0613,BOOK-0613,CLI-0595,4.5,no,no,Muy buena experiencia
+FBK-0615,BOOK-0615,CLI-0597,4.1,no,si,"Buena experiencia, con puntos por mejorar"
+FBK-0616,BOOK-0616,CLI-0598,4.9,si,no,Muy buena experiencia
+FBK-0618,BOOK-0618,CLI-0010,4.6,si,no,Muy buena experiencia
+FBK-0622,BOOK-0622,CLI-0603,4.3,no,no,"Buena experiencia, con puntos por mejorar"
+FBK-0623,BOOK-0623,CLI-0604,4.4,no,no,"Buena experiencia, con puntos por mejorar"
+FBK-0624,BOOK-0624,CLI-0605,4.1,no,no,"Buena experiencia, con puntos por mejorar"
+FBK-0627,BOOK-0627,CLI-0608,4.7,si,no,Muy buena experiencia
+FBK-0631,BOOK-0631,CLI-0612,4.6,si,no,Muy buena experiencia
+FBK-0639,BOOK-0639,CLI-0619,3.9,no,no,"Buena experiencia, con puntos por mejorar"
+FBK-0640,BOOK-0640,CLI-0620,5,si,no,Muy buena experiencia
+FBK-0641,BOOK-0641,CLI-0621,4.2,no,no,"Buena experiencia, con puntos por mejorar"
+FBK-0644,BOOK-0644,CLI-0624,4.7,si,no,Muy buena experiencia
+FBK-0651,BOOK-0651,CLI-0036,4.8,si,no,Muy buena experiencia
+FBK-0652,BOOK-0652,CLI-0631,4.3,no,no,"Buena experiencia, con puntos por mejorar"
+FBK-0658,BOOK-0658,CLI-0636,3.9,no,no,"Buena experiencia, con puntos por mejorar"
+FBK-0660,BOOK-0660,CLI-0638,4.7,si,no,Muy buena experiencia
+FBK-0661,BOOK-0661,CLI-0639,4.6,si,si,Muy buena experiencia
+FBK-0663,BOOK-0663,CLI-0641,4,no,no,"Buena experiencia, con puntos por mejorar"
+FBK-0677,BOOK-0677,CLI-0655,4.1,no,no,"Buena experiencia, con puntos por mejorar"
+FBK-0683,BOOK-0683,CLI-0661,4.5,no,no,Muy buena experiencia
+FBK-0691,BOOK-0691,CLI-0669,4.9,si,no,Muy buena experiencia
+FBK-0695,BOOK-0695,CLI-0673,4.2,no,no,"Buena experiencia, con puntos por mejorar"
+FBK-0697,BOOK-0697,CLI-0675,4.2,no,no,"Buena experiencia, con puntos por mejorar"
+FBK-0698,BOOK-0698,CLI-0676,4.4,no,no,"Buena experiencia, con puntos por mejorar"
+FBK-0699,BOOK-0699,CLI-0677,4.4,no,no,"Buena experiencia, con puntos por mejorar"
+FBK-0700,BOOK-0700,CLI-0678,5,si,no,Muy buena experiencia
+FBK-0704,BOOK-0704,CLI-0682,4.1,no,no,"Buena experiencia, con puntos por mejorar"
+FBK-0708,BOOK-0708,CLI-0356,4.6,si,no,Muy buena experiencia
+FBK-0712,BOOK-0712,CLI-0688,4,no,no,"Buena experiencia, con puntos por mejorar"
+FBK-0713,BOOK-0713,CLI-0689,5,si,no,Muy buena experiencia
+FBK-0715,BOOK-0715,CLI-0690,4.5,no,no,Muy buena experiencia
+FBK-0716,BOOK-0716,CLI-0691,4.2,no,no,"Buena experiencia, con puntos por mejorar"
+FBK-0717,BOOK-0717,CLI-0692,4.1,no,no,"Buena experiencia, con puntos por mejorar"
+FBK-0724,BOOK-0724,CLI-0599,4.8,si,no,Muy buena experiencia
+FBK-0728,BOOK-0728,CLI-0699,4.8,si,no,Muy buena experiencia
+FBK-0732,BOOK-0732,CLI-0703,4.3,no,no,"Buena experiencia, con puntos por mejorar"
+FBK-0735,BOOK-0735,CLI-0706,4.6,si,no,Muy buena experiencia
+FBK-0737,BOOK-0737,CLI-0708,4.8,si,no,Muy buena experiencia
+FBK-0739,BOOK-0739,CLI-0710,4.1,no,no,"Buena experiencia, con puntos por mejorar"
+FBK-0740,BOOK-0740,CLI-0711,4.7,si,no,Muy buena experiencia
+FBK-0746,BOOK-0746,CLI-0717,4.2,no,no,"Buena experiencia, con puntos por mejorar"
+FBK-0749,BOOK-0749,CLI-0720,4.2,no,no,"Buena experiencia, con puntos por mejorar"
+FBK-0751,BOOK-0751,CLI-0722,4.6,si,no,Muy buena experiencia
+FBK-0752,BOOK-0752,CLI-0723,4.4,no,no,"Buena experiencia, con puntos por mejorar"
+FBK-0758,BOOK-0758,CLI-0729,4.9,si,no,Muy buena experiencia
+FBK-0760,BOOK-0760,CLI-0731,4.8,si,no,Muy buena experiencia
+FBK-0764,BOOK-0764,CLI-0733,4,no,no,"Buena experiencia, con puntos por mejorar"
+FBK-0765,BOOK-0765,CLI-0734,4.8,si,no,Muy buena experiencia
+FBK-0767,BOOK-0767,CLI-0736,4.3,no,no,"Buena experiencia, con puntos por mejorar"
+FBK-0768,BOOK-0768,CLI-0737,4,no,no,"Buena experiencia, con puntos por mejorar"
+FBK-0777,BOOK-0777,CLI-0745,4.3,no,si,"Buena experiencia, con puntos por mejorar"
+FBK-0780,BOOK-0780,CLI-0748,5,si,si,Muy buena experiencia
+FBK-0782,BOOK-0782,CLI-0750,4.6,si,no,Muy buena experiencia
+FBK-0783,BOOK-0783,CLI-0751,4.5,no,no,Muy buena experiencia
+FBK-0785,BOOK-0785,CLI-0753,4.3,no,no,"Buena experiencia, con puntos por mejorar"
+FBK-0786,BOOK-0786,CLI-0754,4,no,no,"Buena experiencia, con puntos por mejorar"
+FBK-0789,BOOK-0789,CLI-0757,4.6,si,no,Muy buena experiencia
+FBK-0795,BOOK-0795,CLI-0762,4,no,si,"Buena experiencia, con puntos por mejorar"
+FBK-0803,BOOK-0803,CLI-0769,4.8,si,no,Muy buena experiencia
+FBK-0807,BOOK-0807,CLI-0773,4.3,no,no,"Buena experiencia, con puntos por mejorar"
+FBK-0808,BOOK-0808,CLI-0575,4.6,si,no,Muy buena experiencia
+FBK-0811,BOOK-0811,CLI-0776,4.6,si,no,Muy buena experiencia
+FBK-0816,BOOK-0816,CLI-0780,4.9,si,no,Muy buena experiencia
+FBK-0817,BOOK-0817,CLI-0781,4.6,si,no,Muy buena experiencia
+FBK-0820,BOOK-0820,CLI-0784,4.1,no,no,"Buena experiencia, con puntos por mejorar"
+FBK-0824,BOOK-0824,CLI-0788,4.6,si,no,Muy buena experiencia
+FBK-0826,BOOK-0826,CLI-0790,3.9,no,no,"Buena experiencia, con puntos por mejorar"
+FBK-0827,BOOK-0827,CLI-0791,4.7,si,no,Muy buena experiencia
+FBK-0836,BOOK-0836,CLI-0800,4.8,si,no,Muy buena experiencia
+FBK-0837,BOOK-0837,CLI-0801,5,si,si,Muy buena experiencia
+FBK-0846,BOOK-0846,CLI-0807,5,si,no,Muy buena experiencia
+FBK-0847,BOOK-0847,CLI-0563,4.9,si,no,Muy buena experiencia
+FBK-0851,BOOK-0851,CLI-0811,4.5,no,no,Muy buena experiencia
+FBK-0853,BOOK-0853,CLI-0813,3.9,no,si,"Buena experiencia, con puntos por mejorar"
+FBK-0854,BOOK-0854,CLI-0814,4.9,si,si,Muy buena experiencia
+FBK-0856,BOOK-0856,CLI-0816,4.6,si,no,Muy buena experiencia
+FBK-0858,BOOK-0858,CLI-0818,5,si,no,Muy buena experiencia
+FBK-0860,BOOK-0860,CLI-0820,4.9,si,no,Muy buena experiencia
+FBK-0869,BOOK-0869,CLI-0829,4.8,si,no,Muy buena experiencia
+FBK-0870,BOOK-0870,CLI-0830,4.2,no,no,"Buena experiencia, con puntos por mejorar"
+FBK-0872,BOOK-0872,CLI-0832,4.4,no,no,"Buena experiencia, con puntos por mejorar"
+FBK-0873,BOOK-0873,CLI-0764,4,no,no,"Buena experiencia, con puntos por mejorar"
+FBK-0875,BOOK-0875,CLI-0113,4.7,si,no,Muy buena experiencia
+FBK-0881,BOOK-0881,CLI-0839,4.6,si,no,Muy buena experiencia
+FBK-0882,BOOK-0882,CLI-0840,4.7,si,no,Muy buena experiencia
+FBK-0886,BOOK-0886,CLI-0843,4.6,si,no,Muy buena experiencia
+FBK-0889,BOOK-0889,CLI-0565,4.9,si,no,Muy buena experiencia
+FBK-0891,BOOK-0891,CLI-0847,4.3,no,no,"Buena experiencia, con puntos por mejorar"
+FBK-0892,BOOK-0892,CLI-0848,4.3,no,no,"Buena experiencia, con puntos por mejorar"
+FBK-0895,BOOK-0895,CLI-0851,4.8,si,no,Muy buena experiencia
+FBK-0897,BOOK-0897,CLI-0853,3.9,no,no,"Buena experiencia, con puntos por mejorar"
+FBK-0901,BOOK-0901,CLI-0857,4.6,si,no,Muy buena experiencia
+FBK-0904,BOOK-0904,CLI-0643,4.8,si,no,Muy buena experiencia
+FBK-0906,BOOK-0906,CLI-0861,4.6,si,no,Muy buena experiencia
+FBK-0908,BOOK-0908,CLI-0863,4.9,si,no,Muy buena experiencia
+FBK-0910,BOOK-0910,CLI-0865,4.7,si,no,Muy buena experiencia
+FBK-0911,BOOK-0911,CLI-0866,4.8,si,no,Muy buena experiencia
+FBK-0912,BOOK-0912,CLI-0867,4.9,si,no,Muy buena experiencia
+FBK-0913,BOOK-0913,CLI-0868,4.8,si,no,Muy buena experiencia
+FBK-0914,BOOK-0914,CLI-0869,5,si,no,Muy buena experiencia
+FBK-0916,BOOK-0916,CLI-0871,4.4,no,si,"Buena experiencia, con puntos por mejorar"
+FBK-0918,BOOK-0918,CLI-0873,4.8,si,si,Muy buena experiencia
+FBK-0924,BOOK-0924,CLI-0878,4.6,si,no,Muy buena experiencia
+FBK-0926,BOOK-0926,CLI-0880,4.2,no,no,"Buena experiencia, con puntos por mejorar"
+FBK-0928,BOOK-0928,CLI-0881,4.4,no,no,"Buena experiencia, con puntos por mejorar"
+FBK-0938,BOOK-0938,CLI-0891,4.8,si,no,Muy buena experiencia
+FBK-0941,BOOK-0941,CLI-0893,5,si,no,Muy buena experiencia
+FBK-0942,BOOK-0942,CLI-0894,4.6,si,no,Muy buena experiencia
+FBK-0944,BOOK-0944,CLI-0896,5,si,no,Muy buena experiencia
+FBK-0947,BOOK-0947,CLI-0258,4.8,si,no,Muy buena experiencia
+FBK-0948,BOOK-0948,CLI-0899,4.8,si,no,Muy buena experiencia
+FBK-0949,BOOK-0949,CLI-0900,4.8,si,no,Muy buena experiencia
+FBK-0950,BOOK-0950,CLI-0901,4.3,no,no,"Buena experiencia, con puntos por mejorar"
+FBK-0955,BOOK-0955,CLI-0906,5,si,no,Muy buena experiencia
+FBK-0957,BOOK-0957,CLI-0908,4.7,si,no,Muy buena experiencia
+FBK-0963,BOOK-0963,CLI-0914,3.9,no,no,"Buena experiencia, con puntos por mejorar"
+FBK-0968,BOOK-0968,CLI-0919,4.5,no,no,Muy buena experiencia
+FBK-0969,BOOK-0969,CLI-0920,4.3,no,no,"Buena experiencia, con puntos por mejorar"
+FBK-0970,BOOK-0970,CLI-0921,4.6,si,no,Muy buena experiencia
+FBK-0975,BOOK-0975,CLI-0924,4.8,si,no,Muy buena experiencia
+FBK-0976,BOOK-0976,CLI-0925,4,no,no,"Buena experiencia, con puntos por mejorar"
+FBK-0977,BOOK-0977,CLI-0926,4,no,no,"Buena experiencia, con puntos por mejorar"
+FBK-0978,BOOK-0978,CLI-0927,5,si,no,Muy buena experiencia
+FBK-0982,BOOK-0982,CLI-0930,4.1,no,no,"Buena experiencia, con puntos por mejorar"
+FBK-0987,BOOK-0987,CLI-0297,4.7,si,no,Muy buena experiencia
+FBK-0992,BOOK-0992,CLI-0938,4.2,no,no,"Buena experiencia, con puntos por mejorar"
+FBK-0993,BOOK-0993,CLI-0939,4.4,no,no,"Buena experiencia, con puntos por mejorar"
+FBK-0996,BOOK-0996,CLI-0942,4.8,si,no,Muy buena experiencia

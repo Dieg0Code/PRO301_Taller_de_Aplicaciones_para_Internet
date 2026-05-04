@@ -18,7 +18,13 @@ Thumbs.db
 ~$*
 
 # Local work outside the course repo
-clases-particulares/
+clases-particulares/00_paty/
+
+# Next.js build artifacts
+**/.next/
+**/.turbo/
+**/out/
+**/dist/
 
 # Local browser automation artifacts
 .playwright-cli/

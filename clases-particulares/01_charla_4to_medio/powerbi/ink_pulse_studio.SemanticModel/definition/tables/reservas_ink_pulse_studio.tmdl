@@ -1,0 +1,309 @@
+table reservas_ink_pulse_studio
+	lineageTag: 2afd5892-1a14-419c-b515-f402b74827a3
+
+	measure 'Reservas totales' = COUNTROWS('reservas_ink_pulse_studio')
+		formatString: #,##0
+		displayFolder: KPIs
+		lineageTag: 73f2cb81-f156-4e62-9ffc-bf9122f10001
+
+	measure 'Reservas confirmadas' = CALCULATE([Reservas totales], 'reservas_ink_pulse_studio'[estado_solicitud] = "confirmada")
+		formatString: #,##0
+		displayFolder: KPIs
+		lineageTag: 73f2cb81-f156-4e62-9ffc-bf9122f10002
+
+	measure 'Tasa conversion' = DIVIDE([Reservas confirmadas], [Reservas totales])
+		formatString: 0.0%
+		displayFolder: KPIs
+		lineageTag: 73f2cb81-f156-4e62-9ffc-bf9122f10003
+
+	measure 'Presupuesto potencial' = SUM('reservas_ink_pulse_studio'[presupuesto_estimado_clp])
+		formatString: "$"#,##0
+		displayFolder: Finanzas
+		lineageTag: 73f2cb81-f156-4e62-9ffc-bf9122f10004
+
+	measure 'Ticket promedio' = AVERAGE('reservas_ink_pulse_studio'[presupuesto_estimado_clp])
+		formatString: "$"#,##0
+		displayFolder: Finanzas
+		lineageTag: 73f2cb81-f156-4e62-9ffc-bf9122f10005
+
+	measure 'Senas pagadas' = SUM('reservas_ink_pulse_studio'[senal_pagada_clp])
+		formatString: "$"#,##0
+		displayFolder: Finanzas
+		lineageTag: 73f2cb81-f156-4e62-9ffc-bf9122f10006
+
+	measure 'Presupuesto confirmado' = CALCULATE([Presupuesto potencial], 'reservas_ink_pulse_studio'[estado_solicitud] = "confirmada")
+		formatString: "$"#,##0
+		displayFolder: Finanzas
+		lineageTag: 73f2cb81-f156-4e62-9ffc-bf9122f10007
+
+	measure 'Presupuesto pendiente' = CALCULATE([Presupuesto potencial], 'reservas_ink_pulse_studio'[estado_solicitud] = "pendiente")
+		formatString: "$"#,##0
+		displayFolder: Finanzas
+		lineageTag: 73f2cb81-f156-4e62-9ffc-bf9122f10008
+
+	measure 'Por cobrar confirmado' = [Presupuesto confirmado] - [Senas pagadas]
+		formatString: "$"#,##0
+		displayFolder: Finanzas
+		lineageTag: 73f2cb81-f156-4e62-9ffc-bf9122f10009
+
+	measure 'Cobertura senas' = DIVIDE([Senas pagadas], [Presupuesto confirmado])
+		formatString: 0.0%
+		displayFolder: Finanzas
+		lineageTag: 73f2cb81-f156-4e62-9ffc-bf9122f10010
+
+	measure 'Margen operativo estimado %' = 0.4
+		formatString: 0%
+		displayFolder: Gerencia
+		lineageTag: 73f2cb81-f156-4e62-9ffc-bf9122f10011
+
+	measure 'Ganancia estimada' = [Presupuesto confirmado] * [Margen operativo estimado %]
+		formatString: "$"#,##0
+		displayFolder: Gerencia
+		lineageTag: 73f2cb81-f156-4e62-9ffc-bf9122f10012
+
+	measure 'Ingresos mes actual' = CALCULATE([Presupuesto confirmado], 'reservas_ink_pulse_studio'[fecha_solicitud] >= DATE(2026, 6, 1), 'reservas_ink_pulse_studio'[fecha_solicitud] <= DATE(2026, 6, 30))
+		formatString: "$"#,##0
+		displayFolder: Gerencia
+		lineageTag: 73f2cb81-f156-4e62-9ffc-bf9122f10013
+
+	measure 'Ganancia mes actual' = [Ingresos mes actual] * [Margen operativo estimado %]
+		formatString: "$"#,##0
+		displayFolder: Gerencia
+		lineageTag: 73f2cb81-f156-4e62-9ffc-bf9122f10014
+
+	measure 'Estimacion anual ingresos' = [Ingresos mes actual] * 12
+		formatString: "$"#,##0
+		displayFolder: Gerencia
+		lineageTag: 73f2cb81-f156-4e62-9ffc-bf9122f10015
+
+	measure 'Estimacion anual ganancia' = [Ganancia mes actual] * 12
+		formatString: "$"#,##0
+		displayFolder: Gerencia
+		lineageTag: 73f2cb81-f156-4e62-9ffc-bf9122f10016
+
+	measure 'Ranking artista mensual' = RANKX(ALL('reservas_ink_pulse_studio'[artista_preferido]), [Ingresos mes actual], 0, DESC, Dense)
+		formatString: #,##0
+		displayFolder: Gerencia
+		lineageTag: 73f2cb81-f156-4e62-9ffc-bf9122f10017
+
+	column reserva_id
+		dataType: string
+		lineageTag: bc1e8e28-3985-460d-99f4-16641d7f8030
+		summarizeBy: none
+		sourceColumn: reserva_id
+
+		annotation SummarizationSetBy = Automatic
+
+	column fecha_solicitud
+		dataType: dateTime
+		formatString: Long Date
+		lineageTag: 556e65d4-8ca6-45c9-a7d9-cd8f48de14d4
+		summarizeBy: none
+		sourceColumn: fecha_solicitud
+
+		variation Variación
+			isDefault
+			relationship: c59d1bcb-aaf3-4301-a6ec-6f94fd55ec1a
+			defaultHierarchy: LocalDateTable_afc98f6a-93ac-4686-a22e-226b3275522b.'Jerarquía de fechas'
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column hora_solicitud
+		dataType: dateTime
+		formatString: Long Time
+		lineageTag: b282bd21-7c71-474a-8408-1870b1ecc49a
+		summarizeBy: none
+		sourceColumn: hora_solicitud
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Time
+
+	column nombre_cliente
+		dataType: string
+		lineageTag: a8ef84ae-feeb-4aa6-9c83-1e6241e5f4c4
+		summarizeBy: none
+		sourceColumn: nombre_cliente
+
+		annotation SummarizationSetBy = Automatic
+
+	column contacto
+		dataType: string
+		lineageTag: dc48a273-bccd-41a0-b9aa-4246c74605fb
+		summarizeBy: none
+		sourceColumn: contacto
+
+		annotation SummarizationSetBy = Automatic
+
+	column canal_contacto
+		dataType: string
+		lineageTag: d0284c57-eb1e-4cf8-bd83-1bc1b8b4b5a8
+		summarizeBy: none
+		sourceColumn: canal_contacto
+
+		annotation SummarizationSetBy = Automatic
+
+	column fuente_llegada
+		dataType: string
+		lineageTag: e40eecb1-35e5-43ca-b606-c75c261f6a82
+		summarizeBy: none
+		sourceColumn: fuente_llegada
+
+		annotation SummarizationSetBy = Automatic
+
+	column comuna
+		dataType: string
+		lineageTag: d16929af-8d55-4ca0-8bbb-c95cc526787d
+		summarizeBy: none
+		sourceColumn: comuna
+
+		annotation SummarizationSetBy = Automatic
+
+	column artista_preferido
+		dataType: string
+		lineageTag: e3a5390d-8246-4d1f-a28b-0c8b1e26d740
+		summarizeBy: none
+		sourceColumn: artista_preferido
+
+		annotation SummarizationSetBy = Automatic
+
+	column especialidad_artista
+		dataType: string
+		lineageTag: cc15cdd0-e13b-4aca-bad1-c641fb0c168d
+		summarizeBy: none
+		sourceColumn: especialidad_artista
+
+		annotation SummarizationSetBy = Automatic
+
+	column estilo_tatuaje
+		dataType: string
+		lineageTag: 0358d878-ed1d-411e-b3ce-5e078f675ebd
+		summarizeBy: none
+		sourceColumn: estilo_tatuaje
+
+		annotation SummarizationSetBy = Automatic
+
+	column zona_cuerpo
+		dataType: string
+		lineageTag: 98cf2e2a-65d7-4a96-b77d-6fcde584ba46
+		summarizeBy: none
+		sourceColumn: zona_cuerpo
+
+		annotation SummarizationSetBy = Automatic
+
+	column tamano
+		dataType: string
+		lineageTag: 048e4ac5-4a32-433b-8bea-570a27712c35
+		summarizeBy: none
+		sourceColumn: tamano
+
+		annotation SummarizationSetBy = Automatic
+
+	column presupuesto_estimado_clp
+		dataType: int64
+		formatString: 0
+		lineageTag: 21928061-9cbf-485d-8172-8505800c5bb2
+		summarizeBy: sum
+		sourceColumn: presupuesto_estimado_clp
+
+		annotation SummarizationSetBy = Automatic
+
+	column fecha_tentativa
+		dataType: dateTime
+		formatString: Long Date
+		lineageTag: 7459b8ae-72d7-4749-850f-8b4a4cee51d2
+		summarizeBy: none
+		sourceColumn: fecha_tentativa
+
+		variation Variación
+			isDefault
+			relationship: 9a48d3b9-eba4-4726-b53a-9162a70e7a58
+			defaultHierarchy: LocalDateTable_e952be0f-cd46-4354-9082-e52eb3b46231.'Jerarquía de fechas'
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column horario_preferido
+		dataType: string
+		lineageTag: bac463a3-5d15-4e3e-b1d5-0413f049dc71
+		summarizeBy: none
+		sourceColumn: horario_preferido
+
+		annotation SummarizationSetBy = Automatic
+
+	column estado_solicitud
+		dataType: string
+		lineageTag: 8ecab961-7d45-4ce6-bfbc-4296103f8a63
+		summarizeBy: none
+		sourceColumn: estado_solicitud
+
+		annotation SummarizationSetBy = Automatic
+
+	column senal_pagada_clp
+		dataType: int64
+		formatString: 0
+		lineageTag: 515e38a4-7f24-42e1-aba0-69728ba2b480
+		summarizeBy: sum
+		sourceColumn: senal_pagada_clp
+
+		annotation SummarizationSetBy = Automatic
+
+	column duracion_estimada_horas
+		dataType: int64
+		formatString: 0
+		lineageTag: 4c1d9bf1-0cd8-4937-8079-694153254742
+		summarizeBy: sum
+		sourceColumn: duracion_estimada_horas
+
+		annotation SummarizationSetBy = Automatic
+
+	column requiere_diseno_personalizado
+		dataType: string
+		lineageTag: 86800583-13a9-4624-8853-6b17bddd4abb
+		summarizeBy: none
+		sourceColumn: requiere_diseno_personalizado
+
+		annotation SummarizationSetBy = Automatic
+
+	column nivel_urgencia
+		dataType: string
+		lineageTag: a25d989d-b11a-4fa2-9d92-f69d222ce9b7
+		summarizeBy: none
+		sourceColumn: nivel_urgencia
+
+		annotation SummarizationSetBy = Automatic
+
+	column score_oportunidad
+		dataType: int64
+		formatString: 0
+		lineageTag: 2cc719bc-e065-4cea-a531-040b5000bbcd
+		summarizeBy: sum
+		sourceColumn: score_oportunidad
+
+		annotation SummarizationSetBy = Automatic
+
+	column mensaje_resumen
+		dataType: string
+		lineageTag: 35dae145-afdd-48aa-acea-1fc5a7ee0061
+		summarizeBy: none
+		sourceColumn: mensaje_resumen
+
+		annotation SummarizationSetBy = Automatic
+
+	partition reservas_ink_pulse_studio = m
+		mode: import
+		source =
+				let
+				    Origen = Csv.Document(File.Contents("C:\Users\Diego Obando\dev\pro301-taller-de-aplicaciones-para-internet\clases-particulares\01_charla_4to_medio\datos\reservas_ink_pulse_studio.csv"),[Delimiter=",", Columns=23, Encoding=65001, QuoteStyle=QuoteStyle.None]),
+				    #"Encabezados promovidos" = Table.PromoteHeaders(Origen, [PromoteAllScalars=true]),
+				    #"Tipo cambiado" = Table.TransformColumnTypes(#"Encabezados promovidos",{{"reserva_id", type text}, {"fecha_solicitud", type date}, {"hora_solicitud", type time}, {"nombre_cliente", type text}, {"contacto", type text}, {"canal_contacto", type text}, {"fuente_llegada", type text}, {"comuna", type text}, {"artista_preferido", type text}, {"especialidad_artista", type text}, {"estilo_tatuaje", type text}, {"zona_cuerpo", type text}, {"tamano", type text}, {"presupuesto_estimado_clp", Int64.Type}, {"fecha_tentativa", type date}, {"horario_preferido", type text}, {"estado_solicitud", type text}, {"senal_pagada_clp", Int64.Type}, {"duracion_estimada_horas", Int64.Type}, {"requiere_diseno_personalizado", type text}, {"nivel_urgencia", type text}, {"score_oportunidad", Int64.Type}, {"mensaje_resumen", type text}})
+				in
+				    #"Tipo cambiado"
+
+	annotation PBI_NavigationStepName = Navegación
+
+	annotation PBI_ResultType = Table
+
