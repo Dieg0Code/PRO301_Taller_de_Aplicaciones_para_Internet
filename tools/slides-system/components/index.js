@@ -13,4 +13,5 @@ module.exports = {
   ...require("./async-panels"),
   ...require("./backend-panels"),
   ...require("./ai-panels"),
+  ...require("./product-ai-panels"),
 };

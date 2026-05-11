@@ -11,6 +11,7 @@ const securityPanels = require("./components/security-panels");
 const appPanels = require("./components/app-panels");
 const agenticPanels = require("./components/agentic-panels");
 const aiPanels = require("./components/ai-panels");
+const productAiPanels = require("./components/product-ai-panels");
 const utils = require("./utils");
 const components = {
   ...primitives,
@@ -25,6 +26,7 @@ const components = {
   ...appPanels,
   ...agenticPanels,
   ...aiPanels,
+  ...productAiPanels,
 };
 
 module.exports = {
@@ -42,5 +44,6 @@ module.exports = {
   appPanels,
   agenticPanels,
   aiPanels,
+  productAiPanels,
   utils,
 };
