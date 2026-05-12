@@ -1,4 +1,4 @@
-// cspell:ignore Supabase
+// cspell:ignore Supabase Ataxx Mcts
 ﻿import type { Bounds } from "./slide-like";
 
 export interface PositionedBox extends Bounds {
@@ -1188,6 +1188,20 @@ export interface ValidationLayerRadarOptions extends PositionedBox {
 export interface AgentReasoningLoopOptions extends PositionedBox {
   title?: string;
 }
+
+export interface GameAiPanelOptions extends PositionedBox {
+  title?: string;
+  subtitle?: string;
+  [key: string]: unknown;
+}
+
+export type AtaxxBoardStateOptions = GameAiPanelOptions;
+export type MoveAnatomyPanelOptions = GameAiPanelOptions;
+export type MctsSearchPanelOptions = GameAiPanelOptions;
+export type PolicyValueArchitectureOptions = GameAiPanelOptions;
+export type SelfPlayLoopPanelOptions = GameAiPanelOptions;
+export type ModelGenerationTableOptions = GameAiPanelOptions;
+export type TournamentRulesPanelOptions = GameAiPanelOptions;
 
 
 

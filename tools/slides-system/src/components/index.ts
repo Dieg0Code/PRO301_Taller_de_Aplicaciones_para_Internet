@@ -1,4 +1,4 @@
-// cspell:ignore Supabase
+// cspell:ignore Supabase Ataxx Mcts
 ﻿import * as primitivesJs from "../../components/primitives";
 import * as codePanelJs from "../../components/code-panel";
 import * as terminalPanelJs from "../../components/terminal-panel";
@@ -12,6 +12,7 @@ import * as appPanelsJs from "../../components/app-panels";
 import * as agenticPanelsJs from "../../components/agentic-panels";
 import * as asyncPanelsJs from "../../components/async-panels";
 import * as backendPanelsJs from "../../components/backend-panels";
+import * as gameAiPanelsJs from "../../components/game-ai-panels";
 import type {
   EventLoopDiagramOptions,
   SyntaxCompareOptions,
@@ -93,6 +94,13 @@ import type {
   ToolExecutionConsoleOptions,
   ValidationLayerRadarOptions,
   AgentReasoningLoopOptions,
+  AtaxxBoardStateOptions,
+  MoveAnatomyPanelOptions,
+  MctsSearchPanelOptions,
+  PolicyValueArchitectureOptions,
+  SelfPlayLoopPanelOptions,
+  ModelGenerationTableOptions,
+  TournamentRulesPanelOptions,
   IntelTimelinePanelOptions,
   DecisionPipelinePanelOptions,
   PowerNetworkMapOptions,
@@ -440,6 +448,44 @@ type BackendPanelExports = {
   ) => void;
 };
 
+type GameAiPanelExports = {
+  addAtaxxBoardState: (
+    slide: SlideLike,
+    SH: ShapeCatalog,
+    opts: AtaxxBoardStateOptions
+  ) => void;
+  addMoveAnatomyPanel: (
+    slide: SlideLike,
+    SH: ShapeCatalog,
+    opts: MoveAnatomyPanelOptions
+  ) => void;
+  addMctsSearchPanel: (
+    slide: SlideLike,
+    SH: ShapeCatalog,
+    opts: MctsSearchPanelOptions
+  ) => void;
+  addPolicyValueArchitecture: (
+    slide: SlideLike,
+    SH: ShapeCatalog,
+    opts: PolicyValueArchitectureOptions
+  ) => void;
+  addSelfPlayLoopPanel: (
+    slide: SlideLike,
+    SH: ShapeCatalog,
+    opts: SelfPlayLoopPanelOptions
+  ) => void;
+  addModelGenerationTable: (
+    slide: SlideLike,
+    SH: ShapeCatalog,
+    opts: ModelGenerationTableOptions
+  ) => void;
+  addTournamentRulesPanel: (
+    slide: SlideLike,
+    SH: ShapeCatalog,
+    opts: TournamentRulesPanelOptions
+  ) => void;
+};
+
 const primitives = primitivesJs as unknown as PrimitiveExports;
 const codePanel = codePanelJs as unknown as CodePanelExports;
 const terminalPanel = terminalPanelJs as unknown as TerminalExports;
@@ -453,6 +499,7 @@ const appPanels = appPanelsJs as unknown as AppPanelExports;
 const agenticPanels = agenticPanelsJs as unknown as AgenticPanelExports;
 const asyncPanels = asyncPanelsJs as unknown as AsyncPanelExports;
 const backendPanels = backendPanelsJs as unknown as BackendPanelExports;
+const gameAiPanels = gameAiPanelsJs as unknown as GameAiPanelExports;
 
 export const setBackground = primitives.setBackground;
 export const addTopRule = primitives.addTopRule;
@@ -539,5 +586,11 @@ export const addJoinSetDiagram = backendPanels.addJoinSetDiagram;
 export const addErRelationship = backendPanels.addErRelationship;
 export const addSupabaseProjectSetupPanel = backendPanels.addSupabaseProjectSetupPanel;
 export const addSupabaseTableEditorPanel = backendPanels.addSupabaseTableEditorPanel;
-
+export const addAtaxxBoardState = gameAiPanels.addAtaxxBoardState;
+export const addMoveAnatomyPanel = gameAiPanels.addMoveAnatomyPanel;
+export const addMctsSearchPanel = gameAiPanels.addMctsSearchPanel;
+export const addPolicyValueArchitecture = gameAiPanels.addPolicyValueArchitecture;
+export const addSelfPlayLoopPanel = gameAiPanels.addSelfPlayLoopPanel;
+export const addModelGenerationTable = gameAiPanels.addModelGenerationTable;
+export const addTournamentRulesPanel = gameAiPanels.addTournamentRulesPanel;
 

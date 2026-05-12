@@ -14,4 +14,5 @@ module.exports = {
   ...require("./backend-panels"),
   ...require("./ai-panels"),
   ...require("./product-ai-panels"),
+  ...require("./game-ai-panels"),
 };
